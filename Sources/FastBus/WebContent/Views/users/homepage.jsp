@@ -52,51 +52,51 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
                                 <div class="booking_form">
-                                    <form action="SearchTripServlet" method="get">
+                                    <form action="SearchTripServlet" method="post">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select">
+                                                <select class="nc_select" name="startPlace">
                                                     <option selected>Nơi đi </option>
                                                     <%
                                                     	for(DiaDiem d :(List<DiaDiem>)request.getAttribute("listDiaDiem")) 
                                                     	{	
                                                    	%>
-                                                    <option value="<%d.getIdPlace(); %>"><%=d.getNamePlace() %></option>
+                                                    <option value="<%=d.getIdPlace() %>"><%=d.getNamePlace() %></option>
                                                     <% } %>
                                                 </select>
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select">
-                                                    <option selected>Nơi đến </option>
+                                                <select class="nc_select" name="endPlace">
+                                                    <option selected value="">Nơi đến </option>
                                                     <%
                                                     	for(DiaDiem d :(List<DiaDiem>)request.getAttribute("listDiaDiem")) 
                                                     	{	
                                                    	%>
-                                                    <option value="<%d.getIdPlace(); %>"><%=d.getNamePlace() %></option>
+                                                    <option value="<%=d.getIdPlace() %>"><%=d.getNamePlace() %></option>
                                                     <% } %>
                                                 </select>
                                             </div>
                                             <div class="form_colum">
-                                                <input id="datepicker_1" placeholder="Ngày đi">
+                                                <input id="datepicker_1" name="startDate" placeholder="Ngày đi">
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select">
-                                                    <option selected>Giờ Xuất Phát </option>
-                                                    <option value="">07:00 </option>
-                                                    <option value="">09:00 </option>
-                                                    <option value="">11:00 </option>
-                                                    <option value="">13:00 </option>
-                                                    <option value="">15:00 </option>
-                                                    <option value="">17:00 </option>
-                                                    <option value="">18:00 </option>
-                                                    <option value="">18:30 </option>
-                                                    <option value="">19:00 </option>
-                                                    <option value="">20:00 </option>
+                                                <select class="nc_select" name="startTime">
+                                                    <option selected value="">Giờ Xuất Phát </option>
+                                                    <option value="7:00">07:00 </option>
+                                                    <option value="9:00">09:00 </option>
+                                                    <option value="11:00">11:00 </option>
+                                                    <option value="13:00">13:00 </option>
+                                                    <option value="15:00">15:00 </option>
+                                                    <option value="17:00">17:00 </option>
+                                                    <option value="18:00">18:00 </option>
+                                                    <option value="18:30">18:30 </option>
+                                                    <option value="19:00">19:00 </option>
+                                                    <option value="20:00">20:00 </option>
                                                 </select>
                                             </div>
                                             <div class="form_btn">
-                                                <input name="search" value="Search" type="submit" class="btn_1" />
-                                                
+                                                <input name="search" value="Search" type="submit" class="submit_btn"/>  
+                                            
                                             </div>
                                         </div>
                                     </form>
@@ -324,5 +324,4 @@
 	<!-- jquery plugins here-->
     <%@ include file="common/botbootstrap.jsp" %>
 </body>
-
 </html>

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.bean.ChuyenXe;
 import model.bean.DiaDiem;
 import model.bo.ChuyenXeBO;
 
@@ -41,7 +40,6 @@ public class LoadHomePageServlet extends HttpServlet {
 		List<DiaDiem> listChuyen=chuyen.getListPlaceBO();
 		
 		request.setAttribute("listDiaDiem", listChuyen);
-		
 		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/homepage.jsp");
 		rd.forward(request, response);
 	}
