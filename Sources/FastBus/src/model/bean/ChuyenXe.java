@@ -54,6 +54,4 @@ public class ChuyenXe {
 	public ChuyenXe() {
 		super();
 	}
-	
-	
 }
