@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<!-- jquery plugins here-->
     <script src="<%=request.getContextPath() %>/Views/users/assets/js/jquery-1.12.1.min.js"></script>
     <!-- popper js -->
     <script src="<%=request.getContextPath() %>/Views/users/assets/js/popper.min.js"></script>

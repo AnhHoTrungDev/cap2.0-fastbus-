@@ -22,6 +22,6 @@ import model.dao.ChuyenXeDAO;
 
 public class ChuyenXeBO {
 	public List<DiaDiem> getListPlaceBO(){
-		return new ChuyenXeDAO().getListPlace();
+		return new ChuyenXeDAO().getListPlaceDAO();
 	}
 }

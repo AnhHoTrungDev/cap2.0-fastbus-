@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class connect {
-	private String url = "jdbc:sqlserver://;" + "databaseName=QuanLyDatVeXe_New;user=sa;password=Sa123456";
+	private String url = "jdbc:sqlserver://;" + "databaseName=fastbus;user=sa;password=Sa123456";
 	private static Connection sqlCon = null;
 
 	public Connection getConnect() {

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.bean.DiaDiem;
-import model.bo.ChuyenXeBO;
+import model.bo.DiaDiemBO;
 
 /**
  * Servlet implementation class LoadHomePageServlet
@@ -36,11 +36,11 @@ public class LoadHomePageServlet extends HttpServlet {
 		request.getCharacterEncoding();
 		response.getCharacterEncoding();
 		
-		ChuyenXeBO chuyen=new ChuyenXeBO();
-		List<DiaDiem> listChuyen=chuyen.getListPlaceBO();
+		DiaDiemBO dd=new DiaDiemBO();
+		List<DiaDiem> listPlace=dd.getListPlaceBO();
 		
-		request.setAttribute("listDiaDiem", listChuyen);
-		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/homepage.jsp");
+		request.setAttribute("listPlace", listPlace);
+		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/homePage.jsp");
 		rd.forward(request, response);
 	}
 

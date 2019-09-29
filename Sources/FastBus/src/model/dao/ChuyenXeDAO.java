@@ -32,45 +32,24 @@ public class ChuyenXeDAO {
 	PreparedStatement ps = null;
 	ResultSet rs = null;
 	
-	List<ChuyenXe> listChuyen=null;
 	List<DiaDiem> listPlace=null;
 	
-	public List<ChuyenXe> getListChuyenXe() {
-		connection = con.getConnect();
-		listChuyen = new ArrayList<ChuyenXe>();
-		
-		String selectQuery = "select MaNguoiDung,password,idQuyen,TenNguoiDung,SoDienThoai,DiaChi,Email,TrangThai,"
-				+"choPheDuyet,NoiDungPheDuyet from NguoiDung";
-		
-		try {
-			ps = connection.prepareStatement(selectQuery);
-			rs = ps.executeQuery();
-			
-			while (rs.next()) {
-				ChuyenXe chuyen=new ChuyenXe();
-				
-				listChuyen.add(chuyen);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return listChuyen;
-	}
-	
-	public List<DiaDiem> getListPlace() {
+	/**
+	 * get all place in database
+	 * @return List<DiaDiem>
+	 */
+	public List<DiaDiem> getListPlaceDAO() {
 		connection = con.getConnect();
 		listPlace = new ArrayList<DiaDiem>();
 		
-		String selectQuery = "select MaDiaDiem,TenDiaDiem from DiaDiem";
+		String selectPlace = "select p.place_id,d.district_id, d.district_name from place p inner join district d on d.district_id=p.place_dt_id";
 		
 		try {
-			ps = connection.prepareStatement(selectQuery);
+			ps = connection.prepareStatement(selectPlace);
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				DiaDiem place=new DiaDiem(rs.getInt("MaDiaDiem"),rs.getString("TenDiaDiem"));
-				
+				DiaDiem place=new DiaDiem(rs.getInt("place_id"),rs.getString("district_id"),rs.getString("district_name"));
 				listPlace.add(place);
 			}
 		} catch (SQLException e) {

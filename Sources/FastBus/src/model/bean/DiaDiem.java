@@ -17,12 +17,21 @@ package model.bean;
 
 public class DiaDiem {
 	private int idPlace;
+	private String idDistrict;
 	private String namePlace;
+	
 	public int getIdPlace() {
 		return idPlace;
 	}
 	public void setIdPlace(int idPlace) {
 		this.idPlace = idPlace;
+	}
+	public String getIdDistrict() {
+		return idDistrict;
+	}
+
+	public void setIdDistrict(String idDistrict) {
+		this.idDistrict = idDistrict;
 	}
 	public String getNamePlace() {
 		return namePlace;
@@ -30,9 +39,11 @@ public class DiaDiem {
 	public void setNamePlace(String namePlace) {
 		this.namePlace = namePlace;
 	}
-	public DiaDiem(int idPlace, String namePlace) {
+	
+	public DiaDiem(int idPlace, String idDistrict, String namePlace) {
 		super();
 		this.idPlace = idPlace;
+		this.idDistrict = idDistrict;
 		this.namePlace = namePlace;
 	}
 	public DiaDiem() {
