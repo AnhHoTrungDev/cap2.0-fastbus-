@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,11 +29,13 @@ public class SearchTripServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String startPlace=request.getParameter("startPlace");
-		String endPlace=request.getParameter("endPlace");
+		String startPlace=request.getParameter("startPlate");
+		String endPlace=request.getParameter("endPlate");
 		String startDate=request.getParameter("startDate");
 		String startTime=request.getParameter("startTime");
 		
+		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/listTripSearch.jsp");
+		rd.forward(request, response);
 		
 	}
 

@@ -36,7 +36,7 @@ public class LoadHomePageServlet extends HttpServlet {
 		request.getCharacterEncoding();
 		response.getCharacterEncoding();
 		
-		DiaDiemBO dd=new DiaDiemBO();
+		DiaDiemBO dd=new DiaDiemBO();	
 		List<DiaDiem> listPlace=dd.getListPlaceBO();
 		
 		request.setAttribute("listPlace", listPlace);
