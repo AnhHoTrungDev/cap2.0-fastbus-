@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="model.bean.ChuyenXe"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
@@ -47,16 +49,20 @@
                 <h4>Tìm thấy ... kết quả</h4>
             </div>
             <div class="row">
+            	<%
+            	for(ChuyenXe trip : (List<ChuyenXe>)request.getAttribute("listTrip"))
+            	{
+            	%>
                 <div class="col-lg-3 col-md-3">
                     <div class="single_place">
                         <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_1.png" alt="">
                         <div class="hover_Text d-flex align-items-end justify-content-between">
                             <div class="hover_text_iner">
+                                <h4><%=trip.getNameBusiness() %></h4>
+                                <p>Tuyến: <%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></p>
+                                <p>Ngày: <%=trip.getStartDate() %></p>
+                                
                                 <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
                             </div>
                             <!-- <div class="details_icon text-right">
                                 <i class="ti-share"></i>
@@ -64,131 +70,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_2.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Sơn Tùng</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_3.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Mai Linh</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_4.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
+                <%} %>
                 <!-- <a href="#" class="btn_1 text-cnter">Discover more</a> -->
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_1.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_2.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_3.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_4.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- <a href="#" class="btn_1 text-cnter">Discover more</a> -->
-            </div>
-        </div>
+          </div>
     </section>
 
     <section class="top_place section_padding">

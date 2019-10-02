@@ -17,7 +17,7 @@
                                 id="navbarSupportedContent">
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="hompage.jsp">Trang chủ</a>
+                                        <a class="nav-link" href="<%=request.getContextPath() %>/LoadHomePageServlet">Trang chủ</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="">Vé xe</a>
@@ -29,7 +29,7 @@
                                         <a class="nav-link" href="">Đặt xe</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="">Về Fastbus</a>
+                                        <a class="nav-link" href="">Giới Thiệu</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="">Liên lạc</a>

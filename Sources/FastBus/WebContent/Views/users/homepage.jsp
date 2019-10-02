@@ -58,24 +58,24 @@
                                     <form action="SearchTripServlet">
                                         <div class="form-row">
                                             <div class="form_colum">
-                                                <select class="nc_select" name="startPlate">
+                                                <select class="nc_select" name="startPlace">
                                                     <option selected>Nơi đi </option> 
                                                     <% 
                                                     for(DiaDiem lPlace : (List<DiaDiem>)request.getAttribute("listPlace") )
                                                     {
                                                     %>
-                                                    <option value="<%=lPlace.getIdDistrict()%>"><%=lPlace.getNamePlace() %></option>
+                                                    <option value="<%=lPlace.getNamePlace() %>"><%=lPlace.getNamePlace() %></option>
                                                    <%} %>
                                                 </select>
                                             </div>
                                             <div class="form_colum">
-                                                <select class="nc_select" name="endPlate">
+                                                <select class="nc_select" name="endPlace">
                                                     <option selected>Nơi đến </option>
                                                     <% 
                                                     for(DiaDiem lPlace : (List<DiaDiem>)request.getAttribute("listPlace") )
                                                     {
                                                     %>
-                                                    <option value="<%=lPlace.getIdDistrict()%>"><%=lPlace.getNamePlace() %></option>
+                                                    <option value="<%=lPlace.getNamePlace() %>"><%=lPlace.getNamePlace() %></option>
                                                    <%} %>
                                                 </select>
                                             </div>
