@@ -59,7 +59,7 @@
                                         <div class="form-row">
                                             <div class="form_colum">
                                                 <select class="nc_select" name="startPlace">
-                                                    <option selected>Nơi đi </option> 
+                                                    <option selected value="">Nơi đi </option> 
                                                     <% 
                                                     for(DiaDiem lPlace : (List<DiaDiem>)request.getAttribute("listPlace") )
                                                     {
@@ -70,7 +70,7 @@
                                             </div>
                                             <div class="form_colum">
                                                 <select class="nc_select" name="endPlace">
-                                                    <option selected>Nơi đến </option>
+                                                    <option selected value="">Nơi đến </option>
                                                     <% 
                                                     for(DiaDiem lPlace : (List<DiaDiem>)request.getAttribute("listPlace") )
                                                     {
