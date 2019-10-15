@@ -62,7 +62,7 @@
                                 <p>Tuyến: <%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></p>
                                 <p>Ngày: <%=trip.getStartDate() %></p>
                                 
-                                <a href="#" class="place_btn">Mua vé</a>
+                                <a href="SeatBookingServlet" class="place_btn">Mua vé</a>
                             </div>
                             <!-- <div class="details_icon text-right">
                                 <i class="ti-share"></i>

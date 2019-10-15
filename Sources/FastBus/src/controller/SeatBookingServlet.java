@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.bean.DiaDiem;
-import model.bo.DiaDiemBO;
-
 /**
- * Servlet implementation class LoadHomePageServlet
+ * Servlet implementation class SeatBookingServlet
  */
-@WebServlet("/LoadHomePageServlet")
-public class LoadHomePageServlet extends HttpServlet {
+@WebServlet("/SeatBookingServlet")
+public class SeatBookingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoadHomePageServlet() {
+    public SeatBookingServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,14 +29,7 @@ public class LoadHomePageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getCharacterEncoding();
-		response.getCharacterEncoding();
-		
-		DiaDiemBO dd=new DiaDiemBO();	
-		List<DiaDiem> listPlace=dd.getListPlaceBO();
-		
-		request.setAttribute("listPlace", listPlace);
-		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/homePage.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("Views/users/seatBooking.jsp");
 		rd.forward(request, response);
 	}
 
