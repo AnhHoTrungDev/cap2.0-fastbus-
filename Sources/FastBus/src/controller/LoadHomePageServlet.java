@@ -40,7 +40,7 @@ public class LoadHomePageServlet extends HttpServlet {
 		List<DiaDiem> listPlace=dd.getListPlaceBO();
 		
 		request.setAttribute("listPlace", listPlace);
-		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/homePage.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/homepage.jsp");
 		rd.forward(request, response);
 	}
 
