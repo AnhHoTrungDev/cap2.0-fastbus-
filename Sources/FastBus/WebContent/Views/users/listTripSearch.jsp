@@ -93,7 +93,7 @@
                     <div class="single_place">
                         <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_1.png" alt="">
                         <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
+                            <div class="">
                                 <a href="#" class="place_btn">Mua vé</a>
                                 <h4>Hoàng Long</h4>
                                 <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>

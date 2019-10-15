@@ -2805,8 +2805,8 @@ ul {
   position: absolute;
   bottom: -20px;
   z-index: 5;
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   width: 100%;
   -webkit-transition: 1s;
   transition: 1s;
