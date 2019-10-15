@@ -24,3 +24,4 @@
     <script src="<%=request.getContextPath() %>/Views/users/assets/js/contact.js"></script>
     <!-- custom js -->
     <script src="<%=request.getContextPath() %>/Views/users/assets/js/custom.js"></script>
+    <script src="<%=request.getContextPath() %>/Views/js/validate_trunganh.js"></script>
