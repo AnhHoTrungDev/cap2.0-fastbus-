@@ -1,0 +1,7 @@
+.my-notificationError{
+	font-size: small !important;
+    color: red;
+}
+.my-inputError{
+	border: 3px solid #e03333;
+}

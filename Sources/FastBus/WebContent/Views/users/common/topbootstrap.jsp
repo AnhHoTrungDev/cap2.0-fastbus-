@@ -24,3 +24,4 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="<%=request.getContextPath() %>/Views/users/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/Views/users/assets/css/webstyle.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/Views/users/assets/css/customTrungAnh.css">
