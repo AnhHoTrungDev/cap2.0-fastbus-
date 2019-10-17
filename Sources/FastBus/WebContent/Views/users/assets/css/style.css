@@ -2891,7 +2891,7 @@ ul {
 }
 
 /* line 82, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_top_place.scss */
-.top_place .single_place:hover:after {
+.top_place .single_place:after {
   opacity: .75;
 }
 
@@ -3137,12 +3137,12 @@ ul {
 
 /* line 80, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
 .hotel_list .single_ihotel_list .hover_text:hover .hotel_social_icon {
-  transform: scaleY(1);
+  
 }
 
 /* line 83, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
 .hotel_list .single_ihotel_list .hover_text:hover .share_icon {
-  transform: scaleX(0);
+
 }
 
 /* line 90, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_hotel&rasturant.scss */
@@ -5580,3 +5580,8 @@ h6 {
 }
 
 /*# sourceMappingURL=../css/style.map */
+
+/* Trung anh custom*/
+.top_place .single_place:hover .hover_Text .place_btn:hover {
+	background-color: #007bff;
+}
