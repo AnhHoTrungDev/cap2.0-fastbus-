@@ -1,0 +1,334 @@
+.logo{
+	height: 60px;
+	width: 100px;
+}
+
+.fixPosition{
+	padding-left: 300px;
+}
+
+.fixPosition .btn-lg{
+	margin-left: 12px;
+	height: 40px;
+	height: 40px;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.single_place img{
+	height: 250px;
+}
+
+.section_padding{
+	padding: 50px 0;
+}
+
+.sub_menu .sub_menu_social_icon{
+	float: left;
+	text-align: left;
+}
+
+/* css datxe */
+.hover_text_iner h4{
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+/* end css datxe */
+
+/* css dangnhap */
+.modal-body .login-form{
+	width: 100%;
+    height: 300px;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+.login-form .btn-default{
+	float: right;
+}
+
+/* end css dangnhap */
+/* css nhaxe */
+/* .content{
+	border: 1px solid;
+} */
+
+.content img{
+	width: 100%;
+}
+/* end css nhaxe */
+/* css chonghe */
+.box{
+	background: #f4f4f4;
+	margin: 20px 0;
+	margin-left: 15px;
+}
+
+.box textarea{
+	width: 100%;
+	border: 1px solid black;
+}
+
+.box a{
+	height: 25px;
+    width: 90px;
+    font-size: 14px;
+    padding: initial;
+    margin-left: 95px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.box1{
+	background: #f4f4f4;
+	margin-top: 20px;
+	margin-left: -15px;
+	height: 478px;
+}
+
+.box1 h4{
+	padding-top: 10px;
+}
+
+#steps ul .active{
+	color: #fff;
+    background: #2e9e6c;
+}
+
+#steps ul li{
+	width: 33%;
+    float: left;
+    text-align: center;
+    display: block;
+    padding: 0;
+    text-transform: uppercase;
+    height: 45px;
+    line-height: 44px;
+    position: relative;
+    background: #f4f4f4;
+}
+
+#steps ul .active::before{
+	background: #2e9e6c;
+    border-left: 25px solid #fff;
+}
+
+#steps ul li::before{
+	background: #f4f4f4;
+}
+
+#steps ul li::before{
+	left: 0;
+}
+
+#steps ul li::before, #steps ul li::after{
+	content: '';
+	width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-left: 25px solid #fff;
+    border-bottom: 22px solid transparent;
+    background: #fff;
+    position: absolute;
+    top: 0;
+}
+
+#steps ul .active::after{
+	background: #fff;
+    border-left: 25px solid #2e9e6c;
+}
+
+#steps ul li::after{
+	border-left-color: #f4f4f4;
+}
+
+#steps ul li::after {
+    right: 0;
+}
+
+#steps ul li::before{
+	content: '';
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-left: 25px solid white;
+    border-bottom: 22px solid transparent;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    background: #f4f4f4;
+}
+
+#steps ul li::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-left: 25px solid #f4f4f4;
+    border-bottom: 22px solid transparent;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    background: white;
+}
+
+.upfloor{
+	background-color: silver;
+	width: 100%;
+}
+
+.upfloor .row{
+	justify-content: space-evenly;
+}
+
+.upfloor .btn-primary{
+	font-size: 14px;
+}
+
+.downfloor .btn-primary{
+	font-size: 14px;
+}
+
+.upfloor .btn-primary{
+	margin: 10px 0;
+    height: 25px;
+    width: 30px;
+    padding: initial;
+}
+
+.downfloor{
+	background-color: silver;
+	width: 100%;
+}
+
+.downfloor .row{
+	justify-content: space-evenly;
+}
+
+.downfloor .btn-primary{
+	margin: 10px 0;
+    height: 25px;
+    width: 30px;
+    padding: initial;
+}
+
+.downfloor .btn-primary:active{
+	background-color: red;
+}
+
+.controng{
+	height: 30px;
+	width: 40px;
+	background-color: #007BFF;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.note p{
+	margin-top: 22px;
+	margin-left: 5px;
+}
+
+.dadat{
+	height: 30px;
+	width: 40px;
+	background-color: red;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.dangchon{
+	height: 30px;
+	width: 40px;
+	background-color: orange;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+/* end css chonghe*/
+
+/* css dangnhap */
+.login-form{
+	width: 50%;
+	height: 300px;
+	margin-left: 355px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.login-form label{
+	font-size: 20px;
+}
+
+.login-form .btn{
+	border: 1px solid black;
+}
+/* end css dangnhap */
+
+/* css thongtinkhachhang */
+.content{
+	margin: 40px 0;
+}
+
+.thongtin label{
+	font-weight: bold;
+}
+
+.thongtin h4, .dieukhoan h4{
+	color: red;
+}
+
+.fix label, .fix p{
+	margin-left: 15px;
+}
+
+.ttkh a{
+	height: 25px;
+    width: 90px;
+    font-size: 14px;
+    padding: initial;
+    margin-left: 95px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+/* end thongtinkhachhang */
+
+/* css dangky */
+.fix1{
+	margin-left: 15px;
+}
+
+.fix1 input{
+	width: 212%;
+}
+
+.fix2{
+	margin-left: 0;
+}
+
+.fix2 label{
+	font-weight: bold;
+}
+
+.fix label{
+	font-weight: bold;
+}
+
+.register-form .btn-lg{
+	float: right;
+	margin-bottom: 20px;
+}
+
+.register-form h3{
+	color: red;
+}
+
+.form{
+	background: #f4f4f4;
+}
+
+.xacnhan{
+	margin-top: 50px;
+}
+/* end css dangky */
