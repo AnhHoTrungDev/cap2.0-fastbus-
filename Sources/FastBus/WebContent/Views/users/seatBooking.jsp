@@ -244,8 +244,6 @@
 	
 	<!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
-<!-- custom js -->
-<script src="js/custom.js"></script>
 </body>
 
 </html>
