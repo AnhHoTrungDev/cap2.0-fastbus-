@@ -73,26 +73,29 @@ function checkEmtyLogin() {
 
 
 // validate  phonefunction  check_phone_h()
-let inputPhone = document.getElementById("inputPhone");
+// let inputPhone = document.getElementById("inputPhone");
 
-let error_phone_h =false;
+// let error_phone_h =false;
 
-inputPhone.addEventListener("focusout", function(){
-    check_phone_h();
-})
+// inputPhone.addEventListener("focusout", function(){
+//     check_phone_h();
+// })
 
-function  check_phone_h()
-{
-    var pattern = new RegExp( /^(09|03|04|07|08|05)+([0-9]{8})$/);
-    if(pattern.test($("#phone-h").val()))
-    {
-     $("#phone-h-error-message").hide();
-     error_phone_h = false;  
-     }
-     else 
-     {
-       $("#phone-h-error-message").html("Vui lòng nhập đúng số điện thoại!!!");
-       $("#phone-h-error-message").show();
-      error_phone_h = true;     
-    }
-  }
+// function  check_phone_h()
+// {
+//     var pattern = new RegExp( /^(09|03|04|07|08|05)+([0-9]{8})$/);
+//     if(pattern.test($("#phone-h").val()))
+//     {
+//      $("#phone-h-error-message").hide();
+//      error_phone_h = false;  
+//      }
+//      else 
+//      {
+//        $("#phone-h-error-message").html("Vui lòng nhập đúng số điện thoại!!!");
+//        $("#phone-h-error-message").show();
+//       error_phone_h = true;     
+//     }
+//   }
+  // Seat booking
+
+  //end Sea booking

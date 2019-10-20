@@ -81,8 +81,8 @@
     margin-top: 5px;
 }
 
-.box1{
-	background: #f4f4f4;
+.box1{	
+	background: #e9ecef;
 	margin-top: 20px;
 	margin-left: -15px;
 	height: 478px;
@@ -175,7 +175,7 @@
 }
 
 .upfloor{
-	background-color: silver;
+	background-color: #e9ecef;
 	width: 100%;
 }
 
@@ -191,7 +191,9 @@
 	font-size: 14px;
 }
 
-.upfloor .btn-primary{
+.upfloor .btn-primary,
+.upfloor .btn-danger,
+.upfloor .btn-warning{
 	margin: 10px 0;
     height: 25px;
     width: 30px;
@@ -199,7 +201,7 @@
 }
 
 .downfloor{
-	background-color: silver;
+	background-color: #e9ecef;
 	width: 100%;
 }
 
@@ -207,7 +209,9 @@
 	justify-content: space-evenly;
 }
 
-.downfloor .btn-primary{
+.downfloor .btn-primary,
+.downfloor .btn-danger,
+.downfloor .btn-warning{
 	margin: 10px 0;
     height: 25px;
     width: 30px;
@@ -219,6 +223,7 @@
 }
 
 .controng{
+	border-radius: 7px;
 	height: 30px;
 	width: 40px;
 	background-color: #007BFF;
@@ -232,6 +237,7 @@
 }
 
 .dadat{
+	border-radius: 7px;
 	height: 30px;
 	width: 40px;
 	background-color: red;
@@ -240,6 +246,7 @@
 }
 
 .dangchon{
+	border-radius: 7px;
 	height: 30px;
 	width: 40px;
 	background-color: orange;
