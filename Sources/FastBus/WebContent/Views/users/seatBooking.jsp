@@ -152,7 +152,7 @@ pageEncoding="UTF-8"%>
             </form>
             <!-- bên phải dưới -->
             <div class="border div-background-shadow my-3 px-2">
-              <h3 class="text-center mb-3 my-3">Thông tin chi tiết vé xe</h3>
+              <h3 class="text-center mb-3 my-5">Thông tin chi tiết vé xe</h3>
               <!-- 1 dòng -->
               <div class="form-group row">
                 <label for="departureDay" class="col-sm-5 col-form-label"
