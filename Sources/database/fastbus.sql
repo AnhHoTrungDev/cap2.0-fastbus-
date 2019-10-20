@@ -62,7 +62,8 @@ create table business
 
 	constraint fk_bs_ward foreign key (bs_ward_id) references ward(ward_id),
 	constraint fk_bs_pv foreign key (bs_pv_id) references province(province_id),
-	constraint fk_bs_dt foreign key (bs_dt_id) references district(district_id)
+	constraint fk_bs_dt foreign key (bs_dt_id) references district(district_id),
+	constraint fk_bs_user foreign key (bs_acc_mail) references account (acc_mail)
 )
 go
 
@@ -93,57 +94,51 @@ create table place
 (
 	place_id int identity,
 	place_name nvarchar(50),
-	place_pv_id varchar(5),
-	place_dt_id varchar(5)
+	place_pv_id varchar(5)
 
 	constraint pk_place_pv_dt primary key(place_id),
-	constraint fk_place_pv foreign key (place_pv_id) references province(province_id),
-	constraint fk_place_dt foreign key (place_dt_id) references district(district_id)
-
+	constraint fk_place_pv foreign key (place_pv_id) references province(province_id)
 )
 go
 
-create table route
-(
-	route_id int primary key identity,
-	route_start_palce int,
-	route_end_pace int
-
-	constraint fk_route_sp foreign key (route_start_palce) references place(place_id),
-	constraint fk_place_ep foreign key (route_end_pace) references place(place_id)
-
-)
-go
 
 create table trip
 (
-	trip_id int identity,
-	trip_route_id int,
+	trip_id int identity primary key,
+	trip_start_place int,
+	trip_end_place int,
 	trip_date date,
 	trip_start_time time(7),
-	trip_end_time time(7)
+	trip_price float
 
-	constraint pk_id_route_date_st primary key(trip_id,trip_route_id,trip_date,trip_start_time),
-	constraint fk_trip_route foreign key (trip_route_id) references route(route_id)
+	constraint fk_trip_start_place foreign key (trip_start_place) references place(place_id),
+	constraint fk_trip_end_place foreign key (trip_end_place) references place(place_id)
 )
 go
 create table seat
 (
 	seat_id int primary key identity,
 	seat_name nvarchar(50),
-	seat_floor int
+	seat_floor int,
+	seat_bus_id int,
+	seat_status int -- 0: empty, 1:da dat  
+
+	constraint fk_seat_bus foreign key (seat_bus_id) references bus(bus_id)
 )
 go
 
-create table bus_seat
-(
-	bst_bus_id int,
-	bts_seat_id int,
-	bts_status int
 
-	constraint pk_bus_seat primary key(bst_bus_id,bts_seat_id),
-	constraint fk_bst_bus foreign key (bst_bus_id) references bus(bus_id),
-	constraint fk_bst_seat foreign key (bts_seat_id) references seat(seat_id)
+create table ticket
+(
+	ticket_id int identity,
+	ticket_trip_id int,
+	ticket_seat_id int,
+	ticket_user_email varchar(50)
+
+	constraint pk_id_trip_seat_user primary key(ticket_id,ticket_trip_id,ticket_seat_id,ticket_user_email),
+	constraint fk_tk_trip foreign key (ticket_trip_id) references trip(trip_id),
+	constraint fk_tk_seat foreign key (ticket_seat_id) references seat(seat_id),
+	constraint fk_tk_user foreign key (ticket_user_email) references account(acc_mail)
 )
 go
 
