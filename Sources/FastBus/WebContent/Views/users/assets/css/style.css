@@ -5588,3 +5588,39 @@ h6 {
 .col-md-8 #codeChairOder{
 	padding-top: 0;
 }
+textarea {
+transition: height .35s ease-in-out;
+}
+textarea:focus {
+  height: 150px;
+}
+span#currency:after {
+  content: "(₫)";
+  color: red;
+  opacity: 0.7;
+}
+.col-sm-4 button.btn.btn-warning,
+.col-sm button.btn.btn-warning{
+-webkit-box-shadow: -3px 3px 9px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -3px 3px 9px 0px rgba(0,0,0,0.75);
+box-shadow: -3px 3px 9px 0px rgba(0,0,0,0.75);
+}
+.col-sm-4 button.btn.btn-primary .btn-icon,
+.col-sm-4 button.btn.btn-warning .btn-icon,
+.col-sm button.btn.btn-primary .btn-icon,
+.col-sm button.btn.btn-warning .btn-icon,
+.col-sm-4 button.btn.btn-default .btn-icon,
+.col-sm button.btn.btn-default .btn-icon{
+    width: 34px;
+    height: 34px;
+    background-image: url("../images/chair.png");
+    /* z-index: 2; */
+}
+.col-sm-4 button.btn.btn-danger .btn-icon,
+.col-sm button.btn.btn-danger .btn-icon{
+    width: 34px;
+    height: 34px;
+    background-image: url("../images/chairtest.png");
+    /* z-index: 2; */
+}
+	

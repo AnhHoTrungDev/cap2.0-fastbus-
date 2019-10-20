@@ -2,11 +2,11 @@ $(document).ready(function() {
   $(".btn-chair").each(function() {
     this.addEventListener("click", function() {
       console.log(this.value);
-      if (this.classList.contains("btn-primary")) {
-        this.classList.replace("btn-primary", "btn-warning");
+      if (this.classList.contains("btn-default")) {
+        this.classList.replace("btn-default", "btn-warning");
         getInforOrder(this.value);
       } else {
-        this.classList.replace("btn-warning", "btn-primary");
+        this.classList.replace("btn-warning", "btn-default");
         deleteOder(this.value);
       }
     });
