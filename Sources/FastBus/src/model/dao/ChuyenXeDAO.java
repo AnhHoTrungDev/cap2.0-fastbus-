@@ -42,27 +42,22 @@ public class ChuyenXeDAO {
 		listTrip = new ArrayList<ChuyenXe>();
 		String selectPlace=null;
 		if (startDate == "" && startPlace == "" && endPlace == "" && startTime == "") {
-			selectPlace = "select a.acc_name,d.district_name,d1.district_name,t.trip_start_time,t.trip_date from trip t "
-					+ "inner join route r on t.trip_route_id=r.route_id "
-					+ "inner join place p on p.place_id=r.route_start_palce "
-					+ "inner join place p1 on p1.place_id=r.route_end_pace "
-					+ "inner join district d on p.place_dt_id=d.district_id "
-					+ "inner join district d1 on p1.place_dt_id=d1.district_id "
-					+ "inner join bus b on b.bus_id=t.trip_bus_id  "
-					+ "inner join business bs on bs.bs_id=b.bus_bs_id "
-					+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
+			selectPlace = "select a.acc_name,d.district_name,d1.district_name,t.trip_start_time,t.trip_date from trip t\r\n" + 
+					"inner join place p on p.place_id=t.trip_start_place\r\n" + 
+					"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
+					"inner join district d on p.place_dt_id=d.district_id\r\n" + 
+					"inner join district d1 on p1.place_dt_id=d1.district_id\r\n" + 
+					"inner join business bs on bs.bs_id=t.trip_bs_id \r\n" + 
+					"inner join account a on bs.bs_acc_mail=a.acc_mail";
 
 		} else {
-			selectPlace = "select a.acc_name,d.district_name,d1.district_name,t.trip_start_time,t.trip_date from trip t "
-					+ "inner join route r on t.trip_route_id=r.route_id and t.trip_date='" + startDate
-					+ "' and t.trip_start_time='" + startTime + "' "
-					+ "inner join place p on p.place_id=r.route_start_palce "
-					+ "inner join place p1 on p1.place_id=r.route_end_pace "
-					+ "inner join district d on p.place_dt_id=d.district_id and d.district_name like N'%" + startPlace
-					+ "%'\r\n" + "inner join district d1 on p1.place_dt_id=d1.district_id and d1.district_name like N'%"
-					+ endPlace + "%'\r\n" + "inner join bus b on b.bus_id=t.trip_bus_id  "
-					+ "inner join business bs on bs.bs_id=b.bus_bs_id "
-					+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
+			selectPlace = "select a.acc_name,d.district_name,d1.district_name,t.trip_start_time,t.trip_date from trip t\r\n" + 
+					"inner join place p on p.place_id=t.trip_start_place and t.trip_date='"+startDate+"' and t.trip_start_time='"+startTime+"'\r\n" + 
+					"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
+					"inner join district d on p.place_dt_id=d.district_id and d.district_name like N'%"+startPlace+"%'\r\n" + 
+					"inner join district d1 on p1.place_dt_id=d1.district_id and d1.district_name like N'%"+endPlace+"%'\r\n" + 
+					"inner join business bs on bs.bs_id=t.trip_bs_id \r\n" + 
+					"inner join account a on bs.bs_acc_mail=a.acc_mail";
 		}
 		try {
 			ps = connection.prepareStatement(selectPlace);
