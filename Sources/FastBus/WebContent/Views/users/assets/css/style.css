@@ -5600,7 +5600,9 @@ span#currency:after {
   opacity: 0.7;
 }
 .col-sm-4 button.btn.btn-warning,
-.col-sm button.btn.btn-warning{
+.col-sm button.btn.btn-warning,
+.col-sm-4 button.btn.btn-default:hover ,
+.col-sm button.btn.btn-default:hover {
 -webkit-box-shadow: -3px 3px 9px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: -3px 3px 9px 0px rgba(0,0,0,0.75);
 box-shadow: -3px 3px 9px 0px rgba(0,0,0,0.75);
@@ -5623,4 +5625,21 @@ box-shadow: -3px 3px 9px 0px rgba(0,0,0,0.75);
     background-image: url("../images/chairtest.png");
     /* z-index: 2; */
 }
-	
+.nav-link#pills-1stfloor-tab,
+.nav-link#pills-2ndfloor-tab{
+	color: #0c3e72 !important;
+    border-color: transparent !important;
+    border-bottom: 3px solid transparent !important;
+    text-transform: capitalize !important;
+    background-color: #e9ecef !important;
+    border-radius:0 !important;
+}
+
+.nav-link.active#pills-1stfloor-tab,
+.nav-link.active#pills-2ndfloor-tab{
+	border-bottom: 3px solid #2493e0 !important;
+}
+.div-background-shadow{
+	background-color: #e9ecef;
+    box-shadow: -1px 3px 9px 0px rgba(0,0,0,0.75);
+}

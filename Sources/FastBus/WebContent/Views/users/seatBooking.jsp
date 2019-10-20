@@ -33,127 +33,184 @@ pageEncoding="UTF-8"%>
         <div class="row mb-3">
           <!--Bên  phải Thông tin  -->
           <div class="col-md-4 mt-3 ">
-            <div class="border border-dark">
-              <div class=" pt-3 px-2">
-                <h3 class="text-center mb-3">Thông tin vé xe</h3>
-                <!-- 1 dòng -->
-                <div class="form-group row">
-                  <label for="Tuyen" class="col-sm-5 col-form-label"
-                    >Tuyến&nbsp;:</label
-                  >
-                  <div class="col-sm-7">
-                    <input
-                      type="text"
-                      readonly
-                      class="form-control-plaintext border-bottom"
-                      id="Tuyen"
-                      value="Đà Nẵng vũng Tàu"
-                    />
-                  </div>
-                </div>
-                <!-- end -->
-                <!-- 1 dòng -->
-                <div class="form-group row">
-                  <label for="departureDay" class="col-sm-5 col-form-label"
-                    >Ngày khởi hành&nbsp;:</label
-                  >
-                  <div class="col-sm-7 ">
-                    <input
-                      type="date"
-                      readonly
-                      class="form-control-plaintext  border-bottom"
-                      id="departureDay"
-                      value="2019-02-04"
-                    />
-                  </div>
-                </div>
-                <!-- end -->
-                <!-- 1 dòng -->
-                <div class="form-group row">
-                  <label for="departureTime" class="col-sm-5 col-form-label"
-                    >Giờ khởi hành &nbsp;:</label
-                  >
-                  <div class="col-sm-7 ">
-                    <input
-                      type="time"
-                      readonly
-                      class="form-control-plaintext border-bottom"
-                      id="departureTime"
-                      value="22:53:05"
-                    />
-                  </div>
-                </div>
-                <!-- end -->
-                <!-- 1 dòng -->
-                <div class="form-group row">
-                  <label for="codeChairOder" class="col-sm-5 col-form-label"
-                    >Ghế đã chọn &nbsp;:</label
-                  >
-                  <div class="col-sm-7  ">
-                    <input
-                      type="text"
-                      readonly
-                      class="form-control-plaintext border-bottom"
-                      id="codeChairOder"
-                      value=""
-                      placeholder="Bạn chưa chọn ghế nào"
-                    />
-                  </div>
-                </div>
-                <!-- end -->
-                <!-- 1 dòng -->
-                <div class="form-group row">
-                  <label for="fare" class="col-sm-5 col-form-label "
-                    >Giá Vé &nbsp;:</label
-                  >
-                  <div class="col-7">
-                    <div class="input-group border-bottom">
+            <form>
+              <div class="border div-background-shadow">
+                <div class=" pt-3 px-2">
+                  <h3 class="text-center mb-3">Thông tin vé xe</h3>
+                  <!-- 1 dòng -->
+                  <div class="form-group row">
+                    <label for="Tuyen" class="col-sm-5 col-form-label"
+                      >Tuyến&nbsp;:</label
+                    >
+                    <div class="col-sm-7">
                       <input
                         type="text"
                         readonly
-                        class="form-control-plaintext text-right pr-1"
-                        id="fare"
-                        value="10000000"
+                        class="form-control-plaintext border-bottom"
+                        id="Tuyen"
+                        value="Đà Nẵng  Đà Lạt"
                       />
-                      <div class="input-group-prepend">
-                        <span
-                          class="form-control-plaintext"
-                          id="currency"
-                        ></span>
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 1 dòng -->
+                  <div class="form-group row">
+                    <label for="departureDay" class="col-sm-5 col-form-label"
+                      >Ngày khởi hành&nbsp;:</label
+                    >
+                    <div class="col-sm-7 ">
+                      <input
+                        type="date"
+                        readonly
+                        class="form-control-plaintext  border-bottom"
+                        id="departureDay"
+                        value="2019-02-04"
+                      />
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 1 dòng -->
+                  <div class="form-group row">
+                    <label for="departureTime" class="col-sm-5 col-form-label"
+                      >Giờ khởi hành &nbsp;:</label
+                    >
+                    <div class="col-sm-7 ">
+                      <input
+                        type="time"
+                        readonly
+                        class="form-control-plaintext border-bottom"
+                        id="departureTime"
+                        value="16:20"
+                      />
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 1 dòng -->
+                  <div class="form-group row">
+                    <label for="codeChairOder" class="col-sm-5 col-form-label"
+                      >Ghế đã chọn &nbsp;:</label
+                    >
+                    <div class="col-sm-7  ">
+                      <input
+                        type="text"
+                        readonly
+                        class="form-control-plaintext border-bottom"
+                        id="codeChairOder"
+                        value=""
+                        placeholder="Bạn chưa chọn ghế nào"
+                      />
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 1 dòng -->
+                  <div class="form-group row">
+                    <label for="fare" class="col-sm-5 col-form-label "
+                      >Giá Vé &nbsp;:</label
+                    >
+                    <div class="col-7">
+                      <div class="input-group border-bottom">
+                        <input
+                          type="text"
+                          readonly
+                          class="form-control-plaintext text-right pr-1"
+                          id="fare"
+                          value="10000000"
+                        />
+                        <div class="input-group-prepend">
+                          <span
+                            class="form-control-plaintext"
+                            id="currency"
+                          ></span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- end -->
-                <!-- 1 dòng -->
-                <div class="form-group row">
-                  <label for="pickUpLocation:" class="col-sm-5 col-form-label"
-                    >Địa điểm đón: &nbsp;:</label
-                  >
-                  <div class="col-sm-7 ">
-                    <textarea
-                      type="text"
-                      style="resize: none;"
-                      placeholder="Nhập địa điểm đón"
-                      rows="1"
-                      class="form-control-plaintext border-bottom"
-                      id="pickUpLocation"
-                    ></textarea>
+                  <!-- end -->
+                  <!-- 1 dòng -->
+                  <div class="form-group row">
+                    <label for="pickUpLocation:" class="col-sm-5 col-form-label"
+                      >Địa điểm đón: &nbsp;:</label
+                    >
+                    <div class="col-sm-7 ">
+                      <textarea
+                        type="text"
+                        style="resize: none;"
+                        placeholder="Nhập địa điểm đón"
+                        rows="1"
+                        class="form-control-plaintext border-bottom"
+                        id="pickUpLocation"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <div class="col-sm-12 text-center mb-3 ">
+                    <a class="mr-2" href="#">Quay Lại</a>
+                    <button class="btn btn-primary ml-2">Tiếp Tục</button>
                   </div>
                 </div>
-                <!-- end -->
-                <div class="col-sm-12 text-center mb-3 ">
-                  <a class="mr-2" href="#">Quay Lại</a>
-                  <button class="btn btn-primary ml-2">Tiếp Tục</button>
+              </div>
+            </form>
+            <!-- bên phải dưới -->
+            <div class="border div-background-shadow my-3 px-2">
+              <h3 class="text-center mb-3 my-3">Thông tin chi tiết vé xe</h3>
+              <!-- 1 dòng -->
+              <div class="form-group row">
+                <label for="departureDay" class="col-sm-5 col-form-label"
+                  >Giờ khởi hành&nbsp;:</label
+                >
+                <div class="col-sm-7">
+                  <input
+                    type="time"
+                    readonly
+                    class="form-control-plaintext border-bottom"
+                    id="departureDay"
+                    value="16:20"
+                  />
                 </div>
               </div>
+              <!-- end -->
+              <!-- 1 dòng -->
+              <div class="form-group row">
+                <label for="timeFinishExpected" class="col-sm-5 col-form-label"
+                  >Giờ đến dự kiến &nbsp;:</label
+                >
+                <div class="col-sm-7">
+                  <input
+                    type="time"
+                    readonly
+                    class="form-control-plaintext border-bottom"
+                    id="timeFinishExpected"
+                    value="06:00"
+                  />
+                </div>
+              </div>
+              <!-- end -->
+              <!-- 1 dòng -->
+              <div class="form-group row">
+                <label for="locationEnd" class="col-sm-5 col-form-label"
+                  >Giờ đến dự kiến &nbsp;:</label
+                >
+                <div class="col-sm-7">
+                  <input
+                    type="text"
+                    readonly
+                    class="form-control-plaintext border-bottom"
+                    id="locationEnd"
+                    value="Bến xe Đà Lạt"
+                  />
+                </div>
+              </div>
+              <!-- end -->
             </div>
+            <!-- end bên phải dưới -->
           </div>
           <!-- end  Bên  phải Thông tin-->
           <div class="col-md-1"></div>
           <!-- CHỌN GHẾ  BÊNH TRÁI -->
           <div class="col-md-6 mt-3">
-            <div class="col-md-12 border border-dark pt-3 px-2 text-center">
+            <div
+              class="col-md-12 border div-background-shadow pt-3 px-2 text-center"
+            >
               <!-- chọn tầng -->
               <ul
                 class="nav nav-pills mb-3 border-bottom"
@@ -202,7 +259,11 @@ pageEncoding="UTF-8"%>
                       <p><small>A1</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-danger btn-chair" value="B1">
+                      <button
+                        class="btn btn-danger btn-chair"
+                        value="B1"
+                        disabled
+                      >
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>B1</small></p>
@@ -364,7 +425,11 @@ pageEncoding="UTF-8"%>
                     </div>
 
                     <div class="col-sm-4">
-                      <button class="btn btn-danger btn-chair" value="E1">
+                      <button
+                        class="btn btn-danger btn-chair"
+                        value="E1"
+                        disabled
+                      >
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>E1</small></p>
@@ -390,10 +455,7 @@ pageEncoding="UTF-8"%>
                       <p><small>E2</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button
-                        class="btn btn-default btn-chair"
-                        value="F2"
-                      >
+                      <button class="btn btn-default btn-chair" value="F2">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>F2</small></p>
@@ -545,443 +607,6 @@ pageEncoding="UTF-8"%>
           <!-- end CHỌN GHẾ  BÊNH TRÁI  -->
         </div>
       </div>
-      <!-- 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-12 box">
-                <h3>Thông tin chi tiết chuyến xe</h3>
-                <div class="row">
-                  <div class="col-md-4">
-                    <label>Giờ khởi hành: </label>
-                  </div>
-                  <div class="col-md-8">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <label>Giờ đến: </label>
-                  </div>
-                  <div class="col-md-8">
-                    <p></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-5">
-                    <label>Địa điểm trả khách: </label>
-                  </div>
-                  <div class="col-md-7">
-                    <p></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-1"></div>
-          <div class="col-md-7 box1">
-            <div class="row">
-              <div class="col-md-1"></div>
-              <div class="col-md-4">
-                <div class="row">
-                  <h4>Ghế đã chọn: &nbsp;</h4>
-                  <h4>31</h4>
-                </div>
-                <div class="row">
-                  <h4>Tầng trên</h4>
-
-                  <div class="upfloor">
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn  btn-chair btn-primary"
-                        value="D1"
-                      >
-                        D1
-                      </button>
-                      <button
-                        type="button"
-                        class="btn  btn-chair btn-primary"
-                        value="E1"
-                      >
-                        E1
-                      </button>
-                      <button
-                        type="button"
-                        class="btn  btn-chair btn-primary"
-                        value="F1"
-                      >
-                        F1
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-chair btn-primary"
-                        value="D2"
-                      >
-                        D2
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="E2"
-                      >
-                        E2
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="F2"
-                      >
-                        F2
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D3"
-                      >
-                        D3
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="E3"
-                      >
-                        E3
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="F3"
-                      >
-                        F3
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D4"
-                      >
-                        D4
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="E4"
-                      >
-                        E4
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="F4"
-                      >
-                        F4
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D5"
-                      >
-                        D5
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="E5"
-                      >
-                        E5
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="F5"
-                      >
-                        F5
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D6"
-                      >
-                        D6
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="E6"
-                      >
-                        E6
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="F6"
-                      >
-                        F6
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D7"
-                      >
-                        D7
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D8"
-                      >
-                        D8
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D9"
-                      >
-                        D9
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D10"
-                      >
-                        D10
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="D11"
-                      >
-                        D11
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-2"></div>
-              <div class="col-md-4">
-                <div class="row">
-                  <h4>Tổng tiền: &nbsp;</h4>
-                  <h4></h4>
-                </div>
-                <div class="row">
-                  <h4>Tầng dưới</h4>
-                  <div class="downfloor">
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A1"
-                      >
-                        A1
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="B1"
-                      >
-                        B1
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="C1"
-                      >
-                        C1
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A2"
-                      >
-                        A2
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="B2"
-                      >
-                        B2
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="C2"
-                      >
-                        C2
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A3"
-                      >
-                        A3
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="B3"
-                      >
-                        B3
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="C3"
-                      >
-                        C3
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A4"
-                      >
-                        A4
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="B4"
-                      >
-                        B4
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="C4"
-                      >
-                        C4
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A5"
-                      >
-                        A5
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="B5"
-                      >
-                        B5
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="C5"
-                      >
-                        C5
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A6"
-                      >
-                        A6
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="B6"
-                      >
-                        B6
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="C6"
-                      >
-                        C6
-                      </button>
-                    </div>
-                    <div class="row">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A7"
-                      >
-                        A7
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A8"
-                      >
-                        A8
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A9"
-                      >
-                        A9
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A10"
-                      >
-                        A10
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary btn-chair"
-                        value="A11"
-                      >
-                        A11
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-1"></div>
-            </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="row note">
-                  <div class="controng"></div>
-                  <p>Còn trống</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row note">
-                  <div class="dadat"></div>
-                  <p>Đã đặt</p>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row note">
-                  <div class="dangchon"></div>
-                  <p>Đang chọn</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </section>
 
     <%@ include file="common/footer.jsp" %>

@@ -3,11 +3,11 @@ $(document).ready(function() {
     this.addEventListener("click", function() {
       console.log(this.value);
       if (this.classList.contains("btn-default")) {
-        this.classList.replace("btn-default", "btn-warning");
-        getInforOrder(this.value);
+        if (getInforOrder(this.value))
+          this.classList.replace("btn-default", "btn-warning");
       } else {
         this.classList.replace("btn-warning", "btn-default");
-        deleteOder(this.value);
+        deleteOder(this.value, this);
       }
     });
   });
@@ -22,8 +22,14 @@ let arrcodeChairOder = []; //mảng chứa mã ghế
 
 // add mã ghế
 function getInforOrder(object) {
-  arrcodeChairOder.push(object);
-  codeChairOder.value = arrcodeChairOder;
+  if (arrcodeChairOder.length < 8) {
+    arrcodeChairOder.push(object);
+    codeChairOder.value = arrcodeChairOder;
+    return true;
+  } else {
+    alert("Bạn không thể đặt quá 8 chổ");
+    return false;
+  }
 }
 //xóa mã ghế
 function deleteOder(object) {
