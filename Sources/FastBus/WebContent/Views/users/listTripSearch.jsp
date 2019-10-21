@@ -62,7 +62,7 @@
                                 <p>Tuyến: <%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></p>
                                 <p>Ngày: <%=trip.getStartDate() %></p>
                                 
-                                <a href="" class="place_btn" id="<%= trip.getIdTrip() %>" onclick="checkLogin();" >Mua vé</a>
+                                <a href="SeatBookingServlet" class="place_btn check-login" id="<%= trip.getIdTrip() %>"  >Mua vé</a>
                             </div>
                             <!-- <div class="details_icon text-right">
                                 <i class="ti-share"></i>
@@ -301,22 +301,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear())</script> 2019 F
         </div>
     </footer>
     <!-- footer part end-->
-	<%@	 include file="common/modalCommon.jsp" %>
-	
-	<script language="JavaScript" type="text/javascript">
-    		
-		    var modal = document.getElementById("myModal");
-		    function checkLogin() {
-		    	var email= <%=session.getAttribute("email")%>;
-		    	var password= <%=session.getAttribute("password")%>;
-		    	if(email == null && password == null){
-		    		modal.style.display = "block";
-		    	} 
-		    	/* window.location.assign("LoadHomePageServlet"); */
-    		}
-    </script>
+	<%@	 include file="common/modalCommon.jsp" %>	
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
+    
+    <script language="JavaScript" type="text/javascript">
+	$(document).ready(function() {
+		  $(".check-login").each(function() {
+		    this.addEventListener("click",function(e){
+		        var sseEmail = <%=session.getAttribute("email")%>;
+		    	console.log("sseEmail");
+		        var modal = document.getElementById("myModal");
+		        if (sseEmail == null) {
+		        	$(modal).modal("show");
+		            e.preventDefault();	            
+		          }
+		    },false);
+		  });
+		});
+    </script>
 </body>
 
 </html>
