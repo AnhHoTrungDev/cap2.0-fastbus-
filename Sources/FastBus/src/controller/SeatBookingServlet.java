@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class SeatBookingServlet
@@ -29,6 +30,11 @@ public class SeatBookingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session=request.getSession();
+		String url="";
+		String mail=(String) session.getAttribute("email");
+		String password=(String) session.getAttribute("password");
+
 		RequestDispatcher rd=request.getRequestDispatcher("Views/users/seatBooking.jsp");
 		rd.forward(request, response);
 	}

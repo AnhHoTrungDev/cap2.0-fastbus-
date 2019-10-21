@@ -17,7 +17,7 @@ package model.bean;
 
 public class ChuyenXe {
 	
-	private String idTrip;
+	private int idTrip;
 	private String nameBusiness;
 	private String startPlace;
 	private String endPlace;
@@ -25,12 +25,12 @@ public class ChuyenXe {
 	private String startTime;
 	
 	
-	public String getIdTrip() {
+	public int getIdTrip() {
 		return idTrip;
 	}
 
 
-	public void setIdTrip(String idTrip) {
+	public void setIdTrip(int idTrip) {
 		this.idTrip = idTrip;
 	}
 
@@ -85,9 +85,10 @@ public class ChuyenXe {
 	}
 
 
-	public ChuyenXe(String nameBusiness, String startPlace, String endPlace, String startDate,
+	public ChuyenXe(int idTrip,String nameBusiness, String startPlace, String endPlace, String startDate,
 			String startTime) {
 		super();
+		this.idTrip=idTrip;
 		this.nameBusiness = nameBusiness;
 		this.startPlace = startPlace;
 		this.endPlace = endPlace;
