@@ -42,7 +42,7 @@ public class ChuyenXeDAO {
 		listTrip = new ArrayList<ChuyenXe>();
 		String selectPlace=null;
 		if (startDate == "" && startPlace == "" && endPlace == "" && startTime == "") {
-			selectPlace = "select a.acc_name,d.district_name,d1.district_name,t.trip_start_time,t.trip_date from trip t\r\n" + 
+			selectPlace = "select t.trip_id,a.acc_name,d.district_name,d1.district_name,t.trip_start_time,t.trip_date from trip t\r\n" + 
 					"inner join place p on p.place_id=t.trip_start_place\r\n" + 
 					"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
 					"inner join district d on p.place_dt_id=d.district_id\r\n" + 
@@ -51,7 +51,7 @@ public class ChuyenXeDAO {
 					"inner join account a on bs.bs_acc_mail=a.acc_mail";
 
 		} else {
-			selectPlace = "select a.acc_name,d.district_name,d1.district_name,t.trip_start_time,t.trip_date from trip t\r\n" + 
+			selectPlace = "select t.trip_id,a.acc_name,d.district_name,d1.district_name,t.trip_start_time,t.trip_date from trip t\r\n" + 
 					"inner join place p on p.place_id=t.trip_start_place and t.trip_date='"+startDate+"' and t.trip_start_time='"+startTime+"'\r\n" + 
 					"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
 					"inner join district d on p.place_dt_id=d.district_id and d.district_name like N'%"+startPlace+"%'\r\n" + 
@@ -64,7 +64,7 @@ public class ChuyenXeDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ChuyenXe trip = new ChuyenXe(rs.getString("acc_name"), rs.getString(2), rs.getString(3),
+				ChuyenXe trip = new ChuyenXe(rs.getInt("trip_id"),rs.getString("acc_name"), rs.getString(2), rs.getString(3),
 						rs.getString(5), rs.getString(4));
 				listTrip.add(trip);
 			}

@@ -62,7 +62,7 @@
                                 <p>Tuyến: <%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></p>
                                 <p>Ngày: <%=trip.getStartDate() %></p>
                                 
-                                <a href="SeatBookingServlet" class="place_btn">Mua vé</a>
+                                <a href="" class="place_btn" id="<%= trip.getIdTrip() %>" onclick="checkLogin();" >Mua vé</a>
                             </div>
                             <!-- <div class="details_icon text-right">
                                 <i class="ti-share"></i>
@@ -110,7 +110,7 @@
                     <div class="single_place">
                         <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_2.png" alt="">
                         <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
+                        	<div class="hover_text_iner">
                                 <a href="#" class="place_btn">Mua vé</a>
                                 <h4>Hoàng Long</h4>
                                 <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
@@ -165,7 +165,7 @@
                         <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_1.png" alt="">
                         <div class="hover_Text d-flex align-items-end justify-content-between">
                             <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
+                                <a href="#" class="place_btn" >Mua vé</a>
                                 <h4>Hoàng Long</h4>
                                 <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
                                 <p>Ngày: 22-10-2019</p>
@@ -293,7 +293,7 @@
                 <div class="col-lg-12">
                     <div class="copyright_part_text text-center">
                         <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> 2019 Fastbus <i class="ti-heart" aria-hidden="true"></i>
+Copyright &copy;<script>document.write(new Date().getFullYear())</script> 2019 Fastbus <i class="ti-heart" aria-hidden="true"></i>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
@@ -302,6 +302,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> 2019 
     </footer>
     <!-- footer part end-->
 	<%@	 include file="common/modalCommon.jsp" %>
+	
+	<script language="JavaScript" type="text/javascript">
+    		
+		    var modal = document.getElementById("myModal");
+		    function checkLogin() {
+		    	var email= <%=session.getAttribute("email")%>;
+		    	var password= <%=session.getAttribute("password")%>;
+		    	if(email == null && password == null){
+		    		modal.style.display = "block";
+		    	} 
+		    	/* window.location.assign("LoadHomePageServlet"); */
+    		}
+    </script>
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
 </body>
