@@ -301,7 +301,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear())</script> 2019 F
         </div>
     </footer>
     <!-- footer part end-->
-	<%@	 include file="common/modalCommon.jsp" %>	
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
     

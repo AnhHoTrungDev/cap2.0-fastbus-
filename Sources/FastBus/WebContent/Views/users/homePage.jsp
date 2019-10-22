@@ -270,11 +270,7 @@
 
     <!-- footer part start-->
     <%@ include file="common/footer.jsp" %>
-    <!-- footer part end-->
-    
-    <!-- Model Login -->
-    	<%@ include file="common/modalCommon.jsp" %>
-    <!-- End Model Login -->                            
+    <!-- footer part end-->                           
     
 	
 	<!-- Link jquery -->

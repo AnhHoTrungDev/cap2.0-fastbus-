@@ -35,10 +35,10 @@
                                         <a class="nav-link" href="">Liên lạc</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="">Đăng ký</a>
+                                        <a class="nav-link" href="<%=request.getContextPath() %>/RegisterServlet">Đăng ký</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="" data-toggle="modal" data-target="#myModal">Đăng Nhập</a>
+                                    <li class="nav-item" id="accountNav">
+                                        <a class="nav-link" href="" data-toggle="modal" data-target="#myModal" id="accountNavChild">Đăng Nhập</a>
                                     </li>
                                 </ul>
                             </div>
