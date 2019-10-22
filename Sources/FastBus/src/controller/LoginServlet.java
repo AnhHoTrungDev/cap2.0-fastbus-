@@ -54,4 +54,8 @@ public class LoginServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
+	/*
+	 * public static void main(String[] args) { LoginServlet }
+	 */
+
 }
