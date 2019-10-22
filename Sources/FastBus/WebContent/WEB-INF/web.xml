@@ -4,4 +4,9 @@
   <welcome-file-list>
     <welcome-file>LoadHomePageServlet</welcome-file>
   </welcome-file-list>
+
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>loginRequest</url-pattern>
+  </servlet-mapping>
 </web-app>

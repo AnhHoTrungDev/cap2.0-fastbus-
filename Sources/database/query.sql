@@ -14,3 +14,6 @@ inner join place p on p.place_id=t.trip_start_place
 inner join place p1 on p1.place_id=t.trip_end_place
 inner join district d on p.place_dt_id=d.district_id 
 inner join district d1 on p1.place_dt_id=d1.district_id
+
+--------------- check login------------------
+select acc_mail,acc_password from account where acc_mail like 'admin@gmail.com.vn' and acc_password like '123456';

@@ -98,4 +98,10 @@ public class User {
 		this.approvalStatus = approvalStatus;
 		this.approvalInfo = approvalInfo;
 	}
+	public User(String passWord, String email) {
+		super();
+		this.passWord = passWord;
+		this.email = email;
+	}
+	
 }

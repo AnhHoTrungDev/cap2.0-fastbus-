@@ -59,4 +59,25 @@ public class UserDAO {
 
 		return listUser;
 	}
+	public String CheckLoginDAO(String email,String password) {
+		listUser =new ArrayList<User>();
+		String check="fail";
+		connection = con.getConnect();
+		String selectCheck = "select acc_mail,acc_password from account where acc_mail like '?' and acc_password like '?'";
+		try {
+			ps= connection.prepareStatement(selectCheck);
+			ps.setString(1, email);
+			ps.setString(2, password);
+			
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				check="true";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return check;
+		
+	}
 }
