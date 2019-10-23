@@ -270,16 +270,8 @@
 
     <!-- footer part start-->
     <%@ include file="common/footer.jsp" %>
-    <!-- footer part end-->
-    
-                              
-    
 	
 	<!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
-    <!-- Model Login -->
-    	<%@ include file="common/modalCommon.jsp" %>
-    <!-- End Model Login -->  
-</body>
 
 </html>

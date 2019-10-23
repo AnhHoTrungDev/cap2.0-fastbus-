@@ -63,7 +63,7 @@ public class UserDAO {
 		listUser =new ArrayList<User>();
 		String check="fail";
 		connection = con.getConnect();
-		String selectCheck = "select acc_mail,acc_password from account where acc_mail like '?' and acc_password like '?'";
+		String selectCheck = "select acc_mail,acc_password from account where acc_mail like ? and acc_password like ?";
 		try {
 			ps= connection.prepareStatement(selectCheck);
 			ps.setString(1, email);
@@ -71,12 +71,13 @@ public class UserDAO {
 			
 			
 			rs=ps.executeQuery();
-		
-			if(rs.next()){
-				check = "true";
-            }else{
-            	check = "fail";
-            }
+
+			if(rs.next()) {
+				check="true";
+	
+			}else {
+				check="fail";
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			check = "fail";

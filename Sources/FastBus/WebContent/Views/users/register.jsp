@@ -15,10 +15,10 @@
    <!-- Header part end-->
 	<section>
 		<div class="container">
-			<div class="row register-form">
-				<div class="col-md-6 form">
+			<div class="row register-form my-5 ">
+				<div class="col-md-6 form shadow-lg p-3 mb-5 bg-white rounded " >
 					<form role="form">
-						<h3>Đăng ký</h3>
+						<h3 class="my-3 text-center">Đăng ký</h3>
 						<div class="row">
 							<div class="form-group fix1">
 								<div class="row fix2">
@@ -135,10 +135,6 @@
 	<!-- footer part start-->
     <%@ include file="common/footer.jsp" %>
     <!-- footer part end-->
-    
-    <!-- Model Login -->
-    	<%@ include file="common/modalCommon.jsp" %>
-    <!-- End Model Login --> 
 	
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
