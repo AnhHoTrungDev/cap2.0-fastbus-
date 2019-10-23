@@ -1,4 +1,4 @@
-// login
+/*// login
 let inputEmail3 = document.getElementById("inputEmail3");
 let btnLogin = document.getElementById("btnLogin");
 let isValidateLoginOk = false;
@@ -100,4 +100,4 @@ function checkEmtyLogin() {
 
   //end Sea booking
 
-  
+  */

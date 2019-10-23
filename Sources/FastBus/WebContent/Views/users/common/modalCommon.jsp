@@ -16,7 +16,7 @@ pageEncoding="UTF-8"%>
       </div>
       <div class="modal-body">
         <div class="login-form">
-          <form class="form-horizontal" role="form">
+          
             <div class="form-group">
               <label for="inputEmail3" class="col-sm-2 control-label" >Email</label>
               <label class="col-sm-12  control-label my-notificationError" id="notificationEmail"></label>
@@ -40,13 +40,13 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default" id="btnLogin">
+                <button class="btn btn-default" id="btnLogin">
                   Đăng nhập
                 </button>
                  <div id="messageDiv" style="display:none;"></div>
               </div>
             </div>
-          </form>
+        
         </div>
       </div>
     </div>
@@ -55,17 +55,18 @@ pageEncoding="UTF-8"%>
 
 <script>
             $("#btnLogin").on('click', function(){
-                var username = $("#inputEmail3").val();
+                var email = $("#inputEmail3").val();
                 var password = $("#inputPassword3").val();
                 
                 $.ajax({
                     url : "loginRequest",
-                    method : get,
+                    type  : "get",
                     data : {
-                        username : username,
+                        email : email,
                         password : password
                     },
                     success : function(results){
+                    	console.log(results);
                         if(results != null && results != ""){
                             showMessage(results);
                             $('#messageDiv').css("display","block");
@@ -80,9 +81,9 @@ pageEncoding="UTF-8"%>
              
             //function to display message to the user
             function showMessage(results){
-                if(results == 'SUCCESS'){
+                if(results == 'true'){
                     $('#messageDiv').html("<font color='green'>You are successfully logged in. </font>")
-                }else if(results == 'FAILURE'){
+                }else if(results == 'fail'){
                     $('#messageDiv').html("<font color='red'>Username or password incorrect </font>")
                 }
             }

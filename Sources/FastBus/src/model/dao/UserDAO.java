@@ -69,12 +69,17 @@ public class UserDAO {
 			ps.setString(1, email);
 			ps.setString(2, password);
 			
+			
 			rs=ps.executeQuery();
-			if(rs.next()) {
-				check="true";
-			}
+		
+			if(rs.next()){
+				check = "true";
+            }else{
+            	check = "fail";
+            }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			check = "fail";
 			e.printStackTrace();
 		}
 		return check;

@@ -60,6 +60,8 @@
                             <div class="hover_text_iner">
                                 <h4><%=trip.getNameBusiness() %></h4>
                                 <p>Tuyến: <%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></p>
+                                <p>Giờ: <%=trip.getStartTime() %></p>
+                                
                                 <p>Ngày: <%=trip.getStartDate() %></p>
                                 
                                 <a href="SeatBookingServlet" class="place_btn check-login" id="<%= trip.getIdTrip() %>"  >Mua vé</a>

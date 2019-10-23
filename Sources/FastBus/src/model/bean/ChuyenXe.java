@@ -94,6 +94,7 @@ public class ChuyenXe {
 		this.endPlace = endPlace;
 		this.startDate = startDate;
 		this.startTime = startTime;
+		
 	}
 
 
