@@ -1,142 +1,160 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Fastbus</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Fastbus</title>
     <!-- link css -->
     <%@ include file="common/topbootstrap.jsp" %>
-</head>
-<body>
-	<!--::header part start::-->
-   <%@ include file="common/menu.jsp" %>
-   <!-- Header part end-->
-	<section>
-		<div class="container">
-			<div class="row register-form my-5 ">
-				<div class="col-md-6 form shadow-lg p-3 mb-5 bg-white rounded " >
-					<form role="form">
-						<h3 class="my-3 text-center">Đăng ký</h3>
-						<div class="row">
-							<div class="form-group fix1">
-								<div class="row fix2">
-									<label for="exampleInputName1">Họ tên hành khách</label>
-									<span class="text-danger">*</span>
-								</div>
-								<input type="text" class="form-control" id="exampleInputName1" placeholder="Nhập họ tên khách hàng">
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group fix1">
-								<div class="row fix2">
-									<label for="exampleInputEmail1">Email</label>
-									<span class="text-danger">*</span>
-								</div>
-								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email">
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="row fix">
-										<label for="exampleInputPass1">Mật khẩu</label>
-										<span class="text-danger">*</span>
-									</div>
-									<input type="password" class="form-control" id="exampleInputPass1" placeholder="Nhập mật khẩu">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="row fix">
-										<label for="exampleInputRePass1">Nhắc lại mật khẩu</label>
-										<span class="text-danger">*</span>
-									</div>
-									<input type="text" class="form-control" id="exampleInputRePass1" placeholder="Nhập lại mật khẩu">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="row fix">
-										<label for="exampleInputPhone1">Di động</label>
-										<span class="text-danger">*</span>
-									</div>
-									<input type="text" class="form-control" id="exampleInputPhone1" placeholder="Số di động">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="row fix">
-										<label for="exampleInputId1">Số CMND</label>
-										<span class="text-danger">*</span>
-									</div>
-									<input type="text" class="form-control" id="exampleInputId1" placeholder="Số CMND">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="row fix">
-										<label for="exampleInputCity1">Tỉnh/TP</label>
-										<span class="text-danger">*</span>
-									</div>
-									<select class="form-control" id="exampleInputCity1">
-										<option value="">Chọn Tỉnh/TP</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="row fix">
-										<label for="exampleInputDictrict1">Quận/huyện</label>
-										<span class="text-danger">*</span>
-									</div>
-									<select class="form-control" id="exampleInputDictrict1">
-										<option value="">Chọn Quận/huyện</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="row fix">
-										<label for="exampleInputBirth1">Ngày sinh</label>
-									</div>
-									<input type="date" class="form-control" id="exampleInputBirth1" placeholder="dd/mm/yyyy">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<div class="row fix">
-										<label for="exampleInputAddress1">Địa chỉ</label>
-									</div>
-									<input type="text" class="form-control" id="exampleInputAddress1" placeholder="Nhập địa chỉ liên hệ">
-								</div>
-							</div>
-						</div>
-						<div class="row fix">
-							<p>(<span class="text-danger">*</span>) là những thông tin bắt buộc phải nhập</p>
-						</div>
-						<a href="#" class="btn btn-primary btn-lg active" role="button">Đăng ký</a>
-					</form>
-				</div>
-				<div class="col-md-6">
-					<img src="img/buslogo.png" alt="" height="60%" width="100%">
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<!-- footer part start-->
+  </head>
+  <body>
+    <!--::header part start::-->
+    <%@ include file="common/menu.jsp" %>
+    <!-- Header part end-->
+    <section>
+      <div class="container">
+        <div class="row my-4">
+          <div class="col-12 shadow bg-light rounded">
+          <h3 class="text-center text-danger my-3">Đăng Ký</h3>
+            <form id="register">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputFullName"> Họ và Tên :</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      name="fullName"
+                      type="text"
+                      class="form-control"
+                      id="inputFullName"
+                      placeholder="Họ và Tên"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputGmail">Gmail :</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      name="gmail"
+                      type="text"
+                      class="form-control "
+                      id="inputGmail"
+                      placeholder="Gmail"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <!--1 dong  -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputPassword">Mật Khẩu :</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="inputPassword"
+                      placeholder="Password"
+                      name="password"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputConfirmpassword">
+                      Xác nhận Mật khẩu :</label
+                    >
+                    <span class="text-danger">*</span>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="inputConfirmpassword"
+                      placeholder="Confirm password"
+                      name="confirmPassword"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <!--1 dong  -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputPhone">Số điện thoại</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputPhone"
+                      placeholder="Your phone"
+                      name="phone"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputConfirmpassword"> Chứng Minh Thư :</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="inputCmt"
+                      placeholder="Nhập Chứng Minh Thư"
+                      name="Cmt"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <!--1 dong  -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="inputBirth">Ngày Sinh</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="inputBirth"
+                      placeholder="Birth date"
+                      name="Birth"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-6"></div>
+              </div>
+              <!-- end dong -->
+              <div class="row text-center ml-1 ">
+                <p>
+                  (<span class="text-danger">*</span>) là những thông tin bắt
+                  buộc phải nhập
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-12 text-center mt-3 mb-2">
+                  <button type="submit" class="btn btn-primary mb-3 shadow">
+                    Đăng ký
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer part start-->
     <%@ include file="common/footer.jsp" %>
     <!-- footer part end-->
-	
+
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
-</body>
+  </body>
 </html>

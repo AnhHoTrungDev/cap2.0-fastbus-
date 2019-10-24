@@ -3,7 +3,7 @@
 	
     <link rel="icon" href="https://img.icons8.com/clouds/100/000000/bus.png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/Views/users/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- animate CSS -->
     <link rel="stylesheet" href="<%=request.getContextPath() %>/Views/users/assets/css/animate.css">
     <!-- owl carousel CSS -->
