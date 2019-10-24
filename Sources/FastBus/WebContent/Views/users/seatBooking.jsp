@@ -611,10 +611,6 @@ pageEncoding="UTF-8"%>
 
     <%@ include file="common/footer.jsp" %>
 
-    <!-- Model Login -->
-    <%@ include file="common/modalCommon.jsp" %>
-    <!-- End Model Login -->
-
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
   </body>

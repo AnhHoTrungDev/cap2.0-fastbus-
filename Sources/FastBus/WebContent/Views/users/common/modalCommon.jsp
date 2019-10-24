@@ -69,9 +69,11 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
+               <div id="waiteDiv" class="text-center my-3" style="display:none;"></div>
                 <button type="button" class="btn btn-default" id="btnLogin">
                   Đăng nhập
                 </button>
+         
                 <div id="messageDiv" style="display:none;"></div>
               </div>
             </div>
@@ -99,11 +101,13 @@ pageEncoding="UTF-8"%>
              success : function(results){
                  if(results != null && results != ""){
                      showMessage(results);
-                     $('#messageDiv').css("display","block");
+               
+                     $('#waiteDiv').css("display","block");
                  }else{
                      $('#messageDiv').css("display","none");
                      $('#messageDiv').html("");
-                     alert("Some exception occurred! Please try again.");
+                     alert("Some exception occurred! Please try again.");  
+                     
                  }
              }
          });
@@ -113,11 +117,16 @@ pageEncoding="UTF-8"%>
      function showMessage(results){
          if(results == 'true'){
              $('#messageDiv').html("<font color='green'>You are successfully logged in. </font>")
-
+             $('#waiteDiv').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Loading...")
+             $("#messageDiv").fadeIn(); 
              setTimeout(function(){  location.reload(); }, 2000);
 
          }else if(results == 'fail'){
              $('#messageDiv').html("<font color='red'>Username or password incorrect </font>")
+             document.getElementById("inputEmail3").classList.remove("is-valid");
+             document.getElementById("inputPassword3").classList.remove("is-valid");
+             $("#messageDiv").fadeIn(); 
+             $("#messageDiv").fadeOut(3000); 
          }
      }
 
