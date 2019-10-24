@@ -1,3 +1,4 @@
+<%@page import="model.bean.ChuyenXe"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -33,55 +34,39 @@ pageEncoding="UTF-8"%>
         <div class="row mb-3">
           <!--Bên  phải Thông tin  -->
           <div class="col-md-4 mt-3 ">
-            <form>
+            <form action="">
+            <% 
+            ChuyenXe trip = (ChuyenXe)request.getAttribute("trip");
+            %>
               <div class="border div-background-shadow">
                 <div class=" pt-3 px-2">
                   <h3 class="text-center mb-3">Thông tin vé xe</h3>
                   <!-- 1 dòng -->
                   <div class="form-group row">
-                    <label for="Tuyen" class="col-sm-5 col-form-label"
+                    <label for="Tuyen" class="col-sm-12 col-form-label"
                       >Tuyến&nbsp;:</label
                     >
-                    <div class="col-sm-7">
-                      <input
-                        type="text"
-                        readonly
-                        class="form-control-plaintext border-bottom"
-                        id="Tuyen"
-                        value="Đà Nẵng  Đà Lạt"
-                      />
+                    <div class="col-sm-12">
+                      <input type="text" readonly class="form-control-plaintext border-bottom text-center"
+                        id="Tuyen" value="<%=trip.getStartPlace() %> -  <%=trip.getEndPlace() %>" />
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <!-- 1 dòng -->
+                  <div class="form-group row"> 
+                  	<label for="departureDay" class="col-sm-5 col-form-label">Ngày khởi hành&nbsp;:</label>
+                    <div class="col-sm-7 ">
+                      <input type="text" readonly class="form-control-plaintext  border-bottom"
+                      	id="departureDay" value="<%=trip.getStartTime() %>" />
                     </div>
                   </div>
                   <!-- end -->
                   <!-- 1 dòng -->
                   <div class="form-group row">
-                    <label for="departureDay" class="col-sm-5 col-form-label"
-                      >Ngày khởi hành&nbsp;:</label
-                    >
+                    <label for="departureTime" class="col-sm-5 col-form-label">Giờ khởi hành &nbsp;:</label>
                     <div class="col-sm-7 ">
-                      <input
-                        type="date"
-                        readonly
-                        class="form-control-plaintext  border-bottom"
-                        id="departureDay"
-                        value="2019-02-04"
-                      />
-                    </div>
-                  </div>
-                  <!-- end -->
-                  <!-- 1 dòng -->
-                  <div class="form-group row">
-                    <label for="departureTime" class="col-sm-5 col-form-label"
-                      >Giờ khởi hành &nbsp;:</label
-                    >
-                    <div class="col-sm-7 ">
-                      <input
-                        type="time"
-                        readonly
-                        class="form-control-plaintext border-bottom"
-                        id="departureTime"
-                        value="16:20"
-                      />
+                      <input type="text" readonly class="form-control-plaintext border-bottom"
+                        id="departureTime" value="<%=trip.getStartTime() %>" />
                     </div>
                   </div>
                   <!-- end -->
@@ -187,8 +172,7 @@ pageEncoding="UTF-8"%>
               <!-- end -->
               <!-- 1 dòng -->
               <div class="form-group row">
-                <label for="locationEnd" class="col-sm-5 col-form-label"
-                  >Giờ đến dự kiến &nbsp;:</label
+                <label for="locationEnd" class="col-sm-5 col-form-label" >Giờ đến dự kiến &nbsp;:</label
                 >
                 <div class="col-sm-7">
                   <input

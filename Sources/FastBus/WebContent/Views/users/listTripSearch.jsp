@@ -64,7 +64,7 @@
                                 
                                 <p>Ngày: <%=trip.getStartDate() %></p>
                                 
-                                <a href="SeatBookingServlet" class="place_btn check-login" id="<%= trip.getIdTrip() %>"  >Mua vé</a>
+                                <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="place_btn check-login" id=""  >Mua vé</a>
                             </div>
                             <!-- <div class="details_icon text-right">
                                 <i class="ti-share"></i>
