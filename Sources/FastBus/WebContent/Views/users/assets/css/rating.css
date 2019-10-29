@@ -1,0 +1,200 @@
+@media screen and (max-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 767px) {
+}
+body {
+  background: url(debut_light.png);
+}
+div.sidebar {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  overflow: auto;
+  z-index: 100;
+  padding: 10px 5px;
+}
+div.sidebar > a {
+  display: block;
+  position: relative;
+  padding: 10px 5px;
+}
+div.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#demo1 {
+  margin-bottom: 10px;
+}
+div.main-content {
+  padding-left: 200px;
+  position: relative;
+}
+div.main-content h1.page-title a.menu {
+  width: 45px;
+  height: 45px;
+}
+div.main-content h1.page-title img.page-logo {
+  width: 90px;
+  height: 90px;
+  display: inline-block;
+}
+div.main-content h1.page-title > span {
+  vertical-align: bottom;
+  font-size: 1.6em;
+}
+div.main-content div.counter {
+  float: left;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 7px;
+}
+div.main-content pre {
+  border: 0;
+  border-radius: 0px;
+}
+div.rating-container {
+  position: relative;
+}
+div.rating-container div.counter {
+  display: none;
+  position: absolute;
+  min-width: 20px;
+  padding: 5px;
+  font-size: 15px;
+  line-height: 0px;
+  height: 20px;
+  background-color: #252424;
+  top: 50%;
+  right: px;
+  margin-top: -10px;
+  color: white;
+  left: 190px;
+}
+div.rating-container div.counter:before,
+div.rating-container div.counter ::before {
+  content: "";
+  width: 0;
+  height: 0;
+  top: 50%;
+  margin-top: -5px;
+  display: block;
+  border-color: transparent rgba(0, 0, 0, 0.8) transparent transparent;
+  border-width: 5px 5px 5px 0px;
+  left: -10px;
+  border-style: solid;
+  position: relative;
+}
+div.rating-container:hover div.counter {
+  display: block;
+}
+div.method-rating div.rating-actions,
+div.method-destroy div.rating-actions {
+  margin-top: 10px;
+}
+div.option,
+div.method,
+div.event {
+  margin-bottom: 20px;
+}
+div.sidebar > a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+div.sidebar > a:hover {
+  background-color: #eee;
+  color: #428bca;
+}
+div.sidebar ul.nav > li > a {
+  color: #555;
+}
+div.sidebar ul.nav > li > a:hover {
+  color: #428bca;
+}
+@media (max-width: 991px) {
+  body.show-sidebar div.sidebar {
+    display: block !important;
+  }
+  body.show-sidebar div.sidebar-overlay {
+    display: block;
+  }
+  div.main-content {
+    padding-left: 0;
+    padding-top: 75px;
+  }
+  div.main-content h1.page-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 5px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 12;
+    font-size: 1em;
+  }
+  div.main-content h1.page-title a.menu {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+  div.main-content h1.page-title a.menu > svg {
+    fill: #555555;
+  }
+  div.main-content h1.page-title img.page-logo {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+  }
+}
+/* Github ribbon */
+a.github-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 13;
+}
+/* DISCUS COMMENTS */
+#disqus_thread {
+  padding: 20px;
+}
+
+input.poin {
+  max-width: 15px;
+  border: none;
+}
+input.poin:focus {
+  outline: none;
+}
+.car-container {
+  justify-content: space-between;
+}
+.poinRead {
+  background-color: #376a97;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}

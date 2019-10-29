@@ -26,6 +26,8 @@
     <script src="<%=request.getContextPath() %>/Views/users/assets/js/custom.js"></script>
     <script src="<%=request.getContextPath() %>/Views/js/validate_trunganh.js"></script>
     <script src="<%=request.getContextPath() %>/Views/js/ServletBookingServlet.js"></script>
+    <script src="<%=request.getContextPath() %>/Views/js/rating.js"></script>
+    <script src="<%=request.getContextPath() %>/Views/users/assets/js/jquery.rateyo.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"
