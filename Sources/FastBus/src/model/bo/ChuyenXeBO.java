@@ -24,5 +24,8 @@ public class ChuyenXeBO {
 	public List<ChuyenXe> getListPlaceBO(String startPlace, String endPlace, String startDate, String startTime) {
 		return new ChuyenXeDAO().getListTripDAO(startPlace, endPlace, startDate, startTime);
 	}
+	public ChuyenXe getListTripByIdBO(int idTrip) {
+		return new ChuyenXeDAO().getListTripByIdDAO(idTrip);
+	}
 
 }
