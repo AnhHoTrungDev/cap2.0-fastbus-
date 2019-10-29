@@ -119,7 +119,7 @@ pageEncoding="UTF-8"%>
              $('#messageDiv').html("<font color='green'>You are successfully logged in. </font>")
              $('#waiteDiv').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Loading...")
              $("#messageDiv").fadeIn(); 
-             setTimeout(function(){  location.reload(); }, 2000);
+             setTimeout(function(){  location.reload(); }, 500);
 
          }else if(results == 'fail'){
              $('#messageDiv').html("<font color='red'>Username or password incorrect </font>")
