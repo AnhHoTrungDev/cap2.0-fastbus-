@@ -46,9 +46,9 @@
 											  >
     											<%=session.getAttribute("email")%>
   											  </a>
-	  										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-											    <a class="dropdown-item" href="#">Thông Tin Cá Nhân</a
-											    ><a class="dropdown-item" href="#">abc</a
+	  										<div class="dropdown-menu p-3 mx-auto" aria-labelledby="dropdownMenuButton">
+											    <a class="dropdown-item border-bottom" href="#">Thông Tin Cá Nhân</a
+											    ><a class="dropdown-item border-bottom" href="#">abc</a
 											    ><a id="logout" class="dropdown-item" href="#">Thoát</a>
 											  </div>
 										 </div>
