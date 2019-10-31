@@ -129,11 +129,13 @@ pageEncoding="UTF-8"%>
          });
      });
      
-     $("#btnLogout").on('click', function(){
+     $("#btnLogout").on('click', function(e){
        if(confirm("Bạn Muốn Đăng Xuất ?")){
     	   $.ajax({
                url : "LogoutRequest"
            });
+       }else{
+    	   e.preventDefault();
        }
      });
 
