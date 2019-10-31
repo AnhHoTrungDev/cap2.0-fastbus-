@@ -10,7 +10,7 @@ pageEncoding="UTF-8"%>
   aria-labelledby="myModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel">Đăng nhập</h4>
@@ -20,65 +20,77 @@ pageEncoding="UTF-8"%>
         </button>
       </div>
       <div class="modal-body">
-        <div class="login-form">
-          <form id="login">
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label"
-                >Email</label
-              >
-              <label
-                class="col-sm-12  control-label my-notificationError"
-                id="notificationEmail"
-              ></label>
-              <div class="col-sm-10">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="inputEmail3"
-                  name="mail"
-                  placeholder="Email"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword3" class="col-sm-4 control-label"
-                >Mật khẩu</label
-              >
-              <label
-                class="col-sm-12  control-label my-notificationError"
-                id="notificationPassWord"
-              ></label>
-              <div class="col-sm-10">
-                <input
-                  type="password"
-                  class="form-control"
-                  name="password"
-                  id="inputPassword3"
-                  placeholder="Mật khẩu"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                  <label> <input type="checkbox" /> Remember me </label>
+          <div class="card">
+            <article class="card-body">
+              <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
+              <hr />
+             
+              <div id="messageDiv" style="display:none;" class="text-center"></div>
+              <div
+                id="waiteDiv"
+                class="text-center my-3"
+                style="display:none;"
+                class="text-center"
+              ></div>
+              <form id="login">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-user"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="inputEmail3"
+                      name="mail"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+                  <!-- input-group.// -->
                 </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-               <div id="waiteDiv" class="text-center my-3" style="display:none;"></div>
-                <button type="button" class="btn btn-default" id="btnLogin">
-                  Đăng nhập
-                </button>
-         
-                <div id="messageDiv" style="display:none;"></div>
-              </div>
-            </div>
-        
-        </div>
+                <!-- form-group// -->
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-lock"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      id="inputPassword3"
+                      placeholder="Mật khẩu"
+                      required
+                    />
+                  </div>
+                  <!-- input-group.// -->
+                </div>
+                <!-- form-group// -->
+                <div class="form-group">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-block"
+                    id="btnLogin"
+                  >
+                    Đăng nhập
+                  </button>
+                </div>
+                <!-- form-group// -->
+                <p class="text-center">
+                  <a href="#" class="">Quên mật khẩu</a>
+                </p>
+                 <p class="text-center">
+                  <a class="" href="<%=request.getContextPath() %>/RegisterServlet">Đăng ký</a>
+                </p>
+              </form>
+            </article>
+          </div>
+        <!-- card.// -->
       </div>
     </div>
   </div>
@@ -91,6 +103,10 @@ pageEncoding="UTF-8"%>
        alert("Vui lòng nhập đúng định dạng");
         return;
           }
+      if(email=="" || email==""){
+    	  alert("Vui lòng nhập các trường bị bỏ trống");
+          return;
+      }
          $.ajax({
              url : "loginRequest",
              type  : "get",
@@ -115,37 +131,32 @@ pageEncoding="UTF-8"%>
 
      //function to display message to the user
      function showMessage(results){
+    	 $('#messageDiv').stop();
+    	 $("#messageDiv").hide();
          if(results == 'true'){
-             $('#messageDiv').html("<font color='green'>You are successfully logged in. </font>")
+             $('#messageDiv').html("<font color='green'>Đăng nhập thành công vui lòng chờ </font>")
              $('#waiteDiv').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Loading...")
              $("#messageDiv").fadeIn(); 
              setTimeout(function(){  location.reload(); }, 500);
 
          }else if(results == 'fail'){
-             $('#messageDiv').html("<font color='red'>Username or password incorrect </font>")
+             $('#messageDiv').html("<font color='red'>Gmail hoặc Mật Khẩu bị sai !!</font>")
              document.getElementById("inputEmail3").classList.remove("is-valid");
              document.getElementById("inputPassword3").classList.remove("is-valid");
              $("#messageDiv").fadeIn(); 
-             $("#messageDiv").fadeOut(3000); 
+             $("#messageDiv").fadeOut(5000); 
          }
      }
 
   $(document).ready(function() {
-  	var sseEmail = "<%=session.getAttribute("email")%>";
-  if(sseEmail != "null"){
-  	var accountNav = document.getElementById("accountNav");
-  	var item = document.getElementById("accountNavChild");
-  	item.parentNode.removeChild(item);
-  	var aTag = document.createElement("a");
-  	aTag.setAttribute("class", "accountNavChild");
-  	aTag.setAttribute("class", "nav-link");
-  	aTag.setAttribute("href", "#");
-  	var textATag = document.createTextNode(  "Xin chào "+"<%=session.getAttribute("email")%>");
-
-  	aTag.appendChild(textATag);
-  	accountNav.appendChild(aTag);
-      }
-
-  	});
+	let menuIsLogin = document.getElementById("menuIsLogin");
+	let menuNotLogin = document.getElementById("menuNotLogin");
+    var sseEmail = "<%=session.getAttribute("email")%>";
+    if(sseEmail != "null"){  
+    	$(menuNotLogin).remove();    	
+    }else{   	
+    	$(menuIsLogin).remove();
+    }
+  });
 </script>
 <!-- End Model Login -->

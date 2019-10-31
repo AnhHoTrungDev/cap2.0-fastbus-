@@ -16,7 +16,6 @@ $("#login").validate({
             email: "Kiểm  tra xem có theo vd EX@gmail.com"
           },
           password: {
-          
             minlength: "password có ít nhất 6 ký tự"
           },
         

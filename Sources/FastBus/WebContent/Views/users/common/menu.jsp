@@ -34,11 +34,24 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="">Liên lạc</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="<%=request.getContextPath() %>/RegisterServlet">Đăng ký</a>
-                                    </li>
                                     <li class="nav-item" id="accountNav">
-                                        <a class="nav-link" href="" data-toggle="modal" data-target="#myModal" id="accountNavChild">Đăng Nhập</a>
+                                        <a class="nav-link" href="" data-toggle="modal" data-target="#myModal" id="menuNotLogin">Đăng Nhập</a>
+                                         <div class="dropdown nav-link" id="menuIsLogin">
+											  <a
+											    class="dropdown-toggle"
+											    id="dropdownMenuButton"
+											    data-toggle="dropdown"
+											    aria-haspopup="true"
+											    aria-expanded="false"
+											  >
+    											<%=session.getAttribute("email")%>
+  											  </a>
+	  										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+											    <a class="dropdown-item" href="#">Thông Tin Cá Nhân</a
+											    ><a class="dropdown-item" href="#">abc</a
+											    ><a id="logout" class="dropdown-item" href="#">Thoát</a>
+											  </div>
+										 </div>
                                     </li>
                                 </ul>
                             </div>
