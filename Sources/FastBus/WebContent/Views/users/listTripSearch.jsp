@@ -102,8 +102,8 @@
               </li>
             </ul>
             <div class="card-body text-center">
-              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link"> Đặt vé</a>
-              <a  href="#" class="card-link" class="card-link">Thông tin nhà xe</a>
+              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
+              <a  href="#" class="card-link">Thông tin nhà xe</a>
             </div>
           </div>
             <%} %>
@@ -349,6 +349,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear())</script> 2019 F
 		        var modal = document.getElementById("myModal");
 		        if (sseEmail == null) {
 		        	$(modal).modal("show");
+		        	$('#messageDiv').html("<font color='blue'>Vui lòng Đăng Nhập Để Tiếp Tục </font>");
+		        	$('#messageDiv').show();
 		            e.preventDefault();	            
 		          }
 		    },false);

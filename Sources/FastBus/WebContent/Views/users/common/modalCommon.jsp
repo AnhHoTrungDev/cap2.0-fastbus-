@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%>
               <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
               <hr />
              
-              <div id="messageDiv" style="display:none;" class="text-center"></div>
+              <div id="messageDiv" style="display:none;" class="text-center my-2"></div>
               <div
                 id="waiteDiv"
                 class="text-center my-3"
@@ -127,6 +127,14 @@ pageEncoding="UTF-8"%>
                  }
              }
          });
+     });
+     
+     $("#btnLogout").on('click', function(){
+       if(confirm("Bạn Muốn Đăng Xuất ?")){
+    	   $.ajax({
+               url : "LogoutRequest"
+           });
+       }
      });
 
      //function to display message to the user

@@ -49,7 +49,7 @@
 	  										<div class="dropdown-menu p-3 mx-auto" aria-labelledby="dropdownMenuButton">
 											    <a class="dropdown-item border-bottom" href="#">Thông Tin Cá Nhân</a
 											    ><a class="dropdown-item border-bottom" href="#">abc</a
-											    ><a id="logout" class="dropdown-item" href="#">Thoát</a>
+											    ><a id="btnLogout" class="dropdown-item" href="LogoutServlet">Thoát</a>
 											  </div>
 										 </div>
                                     </li>
