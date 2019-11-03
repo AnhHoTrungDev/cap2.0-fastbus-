@@ -58,11 +58,11 @@ pageEncoding="UTF-8"%>
                   <h3 class="text-center mb-3">Thông tin vé xe</h3>
                   <!-- 1 dòng -->
                   <div class="form-group row">
-                    <label for="Tuyen" class="col-sm-12 col-form-label"
+                    <label for="Tuyen" class="col-sm-5 col-form-label"
                       >Tuyến&nbsp;:</label
                     >
-                    <div class="col-sm-12">
-                      <input type="text" readonly class="form-control-plaintext border-bottom text-center"
+                    <div class="col-sm-7">
+                      <input type="text" readonly class="form-control-plaintext border-bottom"
                         id="Tuyen" value="<%=trip.getStartPlace() %> -  <%=trip.getEndPlace() %>" />
                     </div>
                   </div>
@@ -112,18 +112,13 @@ pageEncoding="UTF-8"%>
                         <input
                           type="text"
                           readonly
-                          class="form-control-plaintext text-right pr-1"
+                          class="form-control-plaintext"
                           id="fare"
                           value="10000000"
                         />
-                        <div class="input-group-prepend">
-                          <span
-                            class="form-control-plaintext"
-                            id="currency"
-                          ></span>
-                        </div>
                       </div>
                     </div>
+                    
                   </div>
                   <!-- end -->
                   <!-- 1 dòng -->
@@ -145,7 +140,8 @@ pageEncoding="UTF-8"%>
                   <!-- end -->
                   <div class="col-sm-12 text-center mb-3 ">
                     <a class="mr-2" href="#">Quay Lại</a>
-                    <button class="btn btn-primary ml-2">Tiếp Tục</button>
+                     <a class="btn btn-primary ml-2" href="#" id="checkBeforeConfirm">Tiếp Tục</a>
+                 
                   </div>
                 </div>
               </div>
@@ -573,7 +569,7 @@ pageEncoding="UTF-8"%>
                 <div class="text-center mb-3 col-4">
                   <button class="btn btn-danger" disabled>
                     <img
-                      src="./Views/users/assets/images/chairtest.png"
+                      src="./Views/users/assets/images/chair.png"
                       alt=""
                     />
                   </button>
@@ -604,5 +600,24 @@ pageEncoding="UTF-8"%>
 
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
+        <script language="JavaScript" type="text/javascript">
+    $("#fare").val(new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format($("#fare").val()));
+	$(document).ready(function() {
+		  $("#checkBeforeConfirm").each(function() {
+		    this.addEventListener("click",function(e){
+		        var sseEmail = <%=session.getAttribute("email")%>;
+		    	console.log("sseEmail");
+		        var modal = document.getElementById("myModal");
+		        if (sseEmail == null) {
+		        	$(modal).modal("show");
+		        	$('#messageDiv').html("<font color='blue'>Vui lòng Đăng Nhập Để Tiếp Tục </font>");
+		        	$('#messageDiv').show();
+		            e.preventDefault();	            
+		          }
+		    },false);
+		  });
+		  
+		});
+    </script>
   </body>
 </html>

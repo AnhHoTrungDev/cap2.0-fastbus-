@@ -38,7 +38,7 @@
     
     <section class="top_place section_padding">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 <div class="col-xl-6">
                     <div class="section_tittle text-center">
                         <h3>Danh sách chuyến xe bạn tìm</h3>
@@ -57,7 +57,7 @@
             	for(ChuyenXe trip : listTrip)
             	{
             %>
-            <div class="card m-4 mx-auto" style="width: 18rem;">
+            <div class="card m-4" style="width: 18rem;">
             <img src="https://www.baolau.com/blog/wp-content/uploads/2017/02/futabus-1.jpg" class="card-img-top" alt="bus" />
             <div class="card-body">
               <h5 class="card-title"><%=trip.getNameBusiness() %></h5>
@@ -340,23 +340,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear())</script> 2019 F
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
     
-    <script language="JavaScript" type="text/javascript">
-	$(document).ready(function() {
-		  $(".check-login").each(function() {
-		    this.addEventListener("click",function(e){
-		        var sseEmail = <%=session.getAttribute("email")%>;
-		    	console.log("sseEmail");
-		        var modal = document.getElementById("myModal");
-		        if (sseEmail == null) {
-		        	$(modal).modal("show");
-		        	$('#messageDiv').html("<font color='blue'>Vui lòng Đăng Nhập Để Tiếp Tục </font>");
-		        	$('#messageDiv').show();
-		            e.preventDefault();	            
-		          }
-		    },false);
-		  });
-		});
-    </script>
+
 </body>
 
 </html>
