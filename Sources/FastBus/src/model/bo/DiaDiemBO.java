@@ -21,7 +21,9 @@ import model.bean.DiaDiem;
 import model.dao.DiaDiemDAO;
 
 public class DiaDiemBO {
-	public List<DiaDiem> getListPlaceBO(){
-		return new DiaDiemDAO().getListPlaceDAO();
-	}
+	
+	  public List<DiaDiem> getListPlaceBO(){ 
+		  return new DiaDiemDAO().getListPlaceDAO();
+	  }
+	 
 }

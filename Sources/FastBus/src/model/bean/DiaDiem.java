@@ -17,8 +17,8 @@ package model.bean;
 
 public class DiaDiem {
 	private int idPlace;
-	private String idDistrict;
 	private String namePlace;
+	private String idProvince;
 	
 	public int getIdPlace() {
 		return idPlace;
@@ -26,12 +26,12 @@ public class DiaDiem {
 	public void setIdPlace(int idPlace) {
 		this.idPlace = idPlace;
 	}
-	public String getIdDistrict() {
-		return idDistrict;
+	
+	public String getIdProvince() {
+		return idProvince;
 	}
-
-	public void setIdDistrict(String idDistrict) {
-		this.idDistrict = idDistrict;
+	public void setIdProvince(String idProvince) {
+		this.idProvince = idProvince;
 	}
 	public String getNamePlace() {
 		return namePlace;
@@ -40,11 +40,11 @@ public class DiaDiem {
 		this.namePlace = namePlace;
 	}
 	
-	public DiaDiem(int idPlace, String idDistrict, String namePlace) {
+	public DiaDiem(int idPlace, String namePlace, String idProvince) {
 		super();
 		this.idPlace = idPlace;
-		this.idDistrict = idDistrict;
 		this.namePlace = namePlace;
+		this.idProvince = idProvince;
 	}
 	public DiaDiem() {
 		super();

@@ -237,7 +237,10 @@ pageEncoding="UTF-8"%>
                 >
                   <div class="row">
                     <div class="col-sm-4">
+                    //load list
+                    //if(neu A1 ==list) 
                       <button class="btn btn-default btn-chair" value="A1">
+                      
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>A1</small></p>

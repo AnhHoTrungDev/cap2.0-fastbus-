@@ -45,12 +45,16 @@
                     </div>
                 </div>
             </div>
+            <%
+            	List<ChuyenXe> listTrip=(List<ChuyenXe>)request.getAttribute("listTrip");
+            %>
             <div class="row">
-                <h4>Tìm thấy ... kết quả</h4>
+            
+                <h4>Tìm thấy <%=listTrip.size() %> kết quả</h4>
             </div>
             <div class="row car-container mx-auto">
             <%
-            	for(ChuyenXe trip : (List<ChuyenXe>)request.getAttribute("listTrip"))
+            	for(ChuyenXe trip : listTrip)
             	{
             %>
             <div class="card m-4 mx-auto" style="width: 18rem;">
@@ -63,11 +67,7 @@
              <div class="clearfix align-items-center my-2">
                 <div class="pull-left rating-container mx-auto">
                   <!-- id cua chuyen xe vo day  value-star = so diem trung binh-->
-                  <div
-                    id="1234"
-                    class="show-poin-start-read"
-                    value-star="3.7"
-                  ></div>
+                  <div id="<%=trip.getIdTrip() %>" class="show-poin-start-read" value-star="3.7" ></div>
                   <div class="counter"></div>
                 </div>
                 <div>
@@ -85,12 +85,12 @@
                 ><span>10 chổ</span>
               </li>
               <li class="list-group-item">
-                <span class="font-weight-bold">Thời Gian Dự kiến: </span
-                ><span><%=trip.getStartTime()%> Tiếng</span>
+                <span class="font-weight-bold">Thời Gian Dự Kiến: </span
+                ><span>10 Tiếng</span>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Thời Gian Khởi Hành: </span
-                ><span>15h30</span>
+                ><span><%=trip.getStartTime()%></span>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Ngày Khởi Hành: </span
