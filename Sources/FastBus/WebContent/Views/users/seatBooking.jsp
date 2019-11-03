@@ -16,21 +16,17 @@ pageEncoding="UTF-8"%>
     <title>Fastbus</title>
     <!-- link css -->
     <%@ include file="common/topbootstrap.jsp" %>
-    
-    <!-- function Kiem tra get da duoc dat hay chua -->
-    <% List<SeatBooking> listSeat=(List<SeatBooking>)request.getAttribute("listSeat"); %>
     <%!
-    	List<SeatBooking> list=request.getAttribute("listSeat");
-    	public String checkSeat(String seatName){
-    		String check="btn btn-default btn-chair";	
-    		for(SeatBooking seat : listSeat){
-    			if(seatName == seat.getSeatName()){
-    				check="btn btn-warning btn-chair";
-    				break;
-    			}
-    		}
-    		return check;
-    	}	
+    	public String checkSeat(String seatName,List<SeatBooking> list){
+	    	String check="btn btn-default btn-chair";
+	    	for(SeatBooking seat : list){
+				if(seatName.contains(seat.getSeatName())){
+					check="btn btn-danger btn-chair disabled";
+					break;
+				}
+			}
+	    	return check;
+    	}
     %>
   </head>
 
@@ -252,27 +248,23 @@ pageEncoding="UTF-8"%>
                   role="tabpanel" aria-labelledby="pills-1stfloor-tab">
                   <div class="row">
                     <div class="col-sm-4">
-                    <!-- //load list
-                    //if(neu A1 ==list) -->
-                    <% String className= checkSeat("A1"); %> 
-                      <button class="<%=className %>" value="A1">
+                    <%
+                   	 	List<SeatBooking> list= (List<SeatBooking>)request.getAttribute("listSeat");
+                    %> 
+                      <button class="<%= checkSeat("A1", list) %>" value="A1">
                       
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>A1</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button
-                        class="btn btn-danger btn-chair"
-                        value="B1"
-                        disabled
-                      >
+                      <button class="<%= checkSeat("B1", list) %>" value="B1" >
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>B1</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-warning btn-chair" value="C1">
+                      <button class="<%= checkSeat("C1", list) %>" value="C1">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>C1</small></p>
@@ -280,19 +272,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="A2">
+                      <button class="<%= checkSeat("A2", list) %>" value="A2">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>A2</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="B2">
+                      <button class="<%= checkSeat("B2", list) %>" value="B2">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>B2</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="C2">
+                      <button class="<%= checkSeat("C2", list) %>" value="C2">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>C2</small></p>
@@ -300,19 +292,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="A3">
+                      <button class="<%= checkSeat("A3", list) %>" value="A3">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>A3</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="B3">
+                      <button class="<%= checkSeat("B3", list) %>" value="B3">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>B3</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="C3">
+                      <button class="<%= checkSeat("C3", list) %>" value="C3">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>C3</small></p>
@@ -320,19 +312,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="A4">
+                      <button class="<%= checkSeat("A4", list) %>" value="A4">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>A4</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="B4">
+                      <button class="<%= checkSeat("B4", list) %>" value="B4">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>B4</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="C4">
+                      <button class="<%= checkSeat("C4", list) %>" value="C4">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>C4</small></p>
@@ -340,19 +332,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="A5">
+                      <button class="<%= checkSeat("A5", list) %>" value="A5">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>A5</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="B5">
+                      <button class="<%= checkSeat("B5", list) %>" value="B5">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>B5</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="C5">
+                      <button class="<%= checkSeat("C5", list) %>" value="C5">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>C5</small></p>
@@ -360,19 +352,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="A6">
+                      <button class="<%= checkSeat("A6", list) %>" value="A6">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>A6</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="B6">
+                      <button class="<%= checkSeat("B6", list) %>" value="B6">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>B6</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="C6">
+                      <button class="<%= checkSeat("C6", list) %>" value="C6">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>C6</small></p>
@@ -380,34 +372,34 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row mb-3">
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="A7">
+                      <button class="<%= checkSeat("G1", list) %>" value="G1">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>A7</small></p>
+                      <p><small>G1</small></p>
                     </div>
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="A8">
+                      <button class="<%= checkSeat("G2", list) %>" value="G2">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>A8</small></p>
+                      <p><small>G2</small></p>
                     </div>
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="A9">
+                      <button class="<%= checkSeat("G3", list) %>" value="G3">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>A9</small></p>
+                      <p><small>G3</small></p>
                     </div>
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="A10">
+                      <button class="<%= checkSeat("G4", list) %>" value="G4">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>A10</small></p>
+                      <p><small>G4</small></p>
                     </div>
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="A11">
+                      <button class="<%= checkSeat("G5", list) %>" value="G5">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>A11</small></p>
+                      <p><small>G5</small></p>
                     </div>
                   </div>
                 </div>
@@ -421,24 +413,20 @@ pageEncoding="UTF-8"%>
                 >
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="D1">
+                      <button class="<%= checkSeat("D1", list) %>" value="D1">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>D1</small></p>
                     </div>
 
                     <div class="col-sm-4">
-                      <button
-                        class="btn btn-danger btn-chair"
-                        value="E1"
-                        disabled
-                      >
+                      <button class="<%= checkSeat("E1", list) %>" value="E1">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>E1</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-warning btn-chair" value="F1">
+                      <button class="<%= checkSeat("F1", list) %>" value="F1">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>F1</small></p>
@@ -446,19 +434,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="D2">
+                      <button class="<%= checkSeat("D2", list) %>" value="D2">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>D2</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="E2">
+                      <button class="<%= checkSeat("E2", list) %>" value="E2">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>E2</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="F2">
+                      <button class="<%= checkSeat("F2", list) %>" value="F2">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>F2</small></p>
@@ -466,19 +454,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="D3">
+                      <button class="<%= checkSeat("D3", list) %>" value="D3">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>D3</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="E3">
+                      <button class="<%= checkSeat("E3", list) %>" value="E3">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>E3</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="F3">
+                      <button class="<%= checkSeat("F3", list) %>" value="F3">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>F3</small></p>
@@ -486,19 +474,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="D4">
+                      <button class="<%= checkSeat("D4", list) %>" value="D4">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>D4</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="E4">
+                      <button class="<%= checkSeat("E4", list) %>" value="E4">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>E4</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="F4">
+                      <button class="<%= checkSeat("F4", list) %>" value="F4">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>F4</small></p>
@@ -506,19 +494,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="D5">
+                      <button class="<%= checkSeat("D5", list) %>" value="D5">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>D5</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="E5">
+                      <button class="<%= checkSeat("E5", list) %>" value="E5">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>E5</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="F5">
+                      <button class="<%= checkSeat("F5", list) %>" value="F5">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>F5</small></p>
@@ -526,19 +514,19 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="D6">
+                      <button class="<%= checkSeat("D6", list) %>" value="D6">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>D6</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="E6">
+                      <button class="<%= checkSeat("E6", list) %>" value="E6">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>E6</small></p>
                     </div>
                     <div class="col-sm-4">
-                      <button class="btn btn-default btn-chair" value="F6">
+                      <button class="<%= checkSeat("F6", list) %>" value="F6">
                         <div class="btn-icon"></div>
                       </button>
                       <p><small>F6</small></p>
@@ -546,34 +534,34 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="row mb-3">
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="D7">
+                      <button class="<%= checkSeat("H1", list) %>" value="H1">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>D7</small></p>
+                      <p><small>H1</small></p>
                     </div>
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="D8">
+                      <button class="<%= checkSeat("H2", list) %>" value="H2">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>D8</small></p>
+                      <p><small>H2</small></p>
                     </div>
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="D9">
+                      <button class="<%= checkSeat("H3", list) %>" value="H3">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>D9</small></p>
+                      <p><small>H3</small></p>
                     </div>
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="D10">
+                      <button class="<%= checkSeat("H4", list) %>" value="H4">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>D10</small></p>
+                      <p><small>H4</small></p>
                     </div>
                     <div class="col-sm">
-                      <button class="btn btn-default btn-chair" value="D11">
+                      <button class="<%= checkSeat("H5", list) %>" value="H5">
                         <div class="btn-icon"></div>
                       </button>
-                      <p><small>D11</small></p>
+                      <p><small>H5</small></p>
                     </div>
                   </div>
                 </div>

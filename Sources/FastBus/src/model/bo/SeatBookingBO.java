@@ -18,6 +18,7 @@ package model.bo;
 import java.util.List;
 
 import model.bean.SeatBooking;
+import model.dao.SeatBookingDAO;
 
 public class SeatBookingBO {
 	public List<SeatBooking> getListSeatBookingByIdBO(int idTrip){

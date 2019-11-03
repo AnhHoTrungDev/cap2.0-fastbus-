@@ -21,6 +21,7 @@ public class SeatBooking {
 	private String seatMail;
 	private String seatName;
 	private String seatDate;
+	
 	public int getSeatBooking() {
 		return seatBooking;
 	}

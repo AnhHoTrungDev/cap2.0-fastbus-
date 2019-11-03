@@ -13,7 +13,7 @@
  */
 
 
-package model.bo;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +24,6 @@ import java.util.List;
 
 import model.bean.ChuyenXe;
 import model.bean.SeatBooking;
-import model.dao.connect;
 
 public class SeatBookingDAO {
 	
@@ -39,11 +38,10 @@ public class SeatBookingDAO {
 		connection=con.getConnect();
 		listSeat=new ArrayList<SeatBooking>();
 		
-		String selectSeat="select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date from seatbooking where seatb_trip_id= ?";
+		String selectSeat="select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date from seatbooking where seatb_trip_id= "+idTrip;
 		
 		try {
 			ps = connection.prepareStatement(selectSeat);
-			ps.setInt(1, idTrip);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -58,8 +56,15 @@ public class SeatBookingDAO {
 		return listSeat;
 	}
 	
-	/*
-	 * public static void main(String[] args) { System.out.println(new
-	 * SeatBookingDAO().getListSeatBookingByIdDAO(1).size()); }
-	 */
+	
+//	  public static void main(String[] args) {
+//		  List<SeatBooking> list=new SeatBookingDAO().getListSeatBookingByIdDAO(1);
+//		  for(SeatBooking seat : list ) {
+//			  if("A1".contains(seat.getSeatName())) {
+//				  System.out.println(seat.getSeatName());
+//			  }
+//			  
+//		  }
+//	  }
+	 
 }
