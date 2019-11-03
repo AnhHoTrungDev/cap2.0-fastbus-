@@ -1,8 +1,11 @@
+<%@page import="model.bean.SeatBooking"%>
+<%@page import="java.util.List"%>
 <%@page import="model.bean.ChuyenXe"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -13,6 +16,22 @@ pageEncoding="UTF-8"%>
     <title>Fastbus</title>
     <!-- link css -->
     <%@ include file="common/topbootstrap.jsp" %>
+    
+    <!-- function Kiem tra get da duoc dat hay chua -->
+    <% List<SeatBooking> listSeat=(List<SeatBooking>)request.getAttribute("listSeat"); %>
+    <%!
+    	List<SeatBooking> list=request.getAttribute("listSeat");
+    	public String checkSeat(String seatName){
+    		String check="btn btn-default btn-chair";	
+    		for(SeatBooking seat : listSeat){
+    			if(seatName == seat.getSeatName()){
+    				check="btn btn-warning btn-chair";
+    				break;
+    			}
+    		}
+    		return check;
+    	}	
+    %>
   </head>
 
   <body>
@@ -57,7 +76,7 @@ pageEncoding="UTF-8"%>
                   	<label for="departureDay" class="col-sm-5 col-form-label">Ngày khởi hành&nbsp;:</label>
                     <div class="col-sm-7 ">
                       <input type="text" readonly class="form-control-plaintext  border-bottom"
-                      	id="departureDay" value="<%=trip.getStartTime() %>" />
+                      	id="departureDay" value="<%=trip.getStartDate() %>" />
                     </div>
                   </div>
                   <!-- end -->
@@ -229,17 +248,14 @@ pageEncoding="UTF-8"%>
               <!-- end chọn tầng -->
               <div class="tab-content" id="pills-tabContent">
                 <!-- tầng 1 -->
-                <div
-                  class="tab-pane fade show active"
-                  id="pills-1stfloor"
-                  role="tabpanel"
-                  aria-labelledby="pills-1stfloor-tab"
-                >
+                <div class="tab-pane fade show active" id="pills-1stfloor"
+                  role="tabpanel" aria-labelledby="pills-1stfloor-tab">
                   <div class="row">
                     <div class="col-sm-4">
-                    //load list
-                    //if(neu A1 ==list) 
-                      <button class="btn btn-default btn-chair" value="A1">
+                    <!-- //load list
+                    //if(neu A1 ==list) -->
+                    <% String className= checkSeat("A1"); %> 
+                      <button class="<%=className %>" value="A1">
                       
                         <div class="btn-icon"></div>
                       </button>

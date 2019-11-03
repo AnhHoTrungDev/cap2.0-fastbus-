@@ -84,7 +84,7 @@ public class ChuyenXeDAO {
 		connection = con.getConnect();
 		ChuyenXe trip = null;
 
-		String selectInfor = "select t.trip_id,a.acc_name, t.trip_id ,p.place_name,p1.place_name,t.trip_start_time, t.trip_start_date from trip t\r\n"+
+		String selectInfor = "select t.trip_id,a.acc_name,p.place_name,p1.place_name,t.trip_start_time, t.trip_start_date from trip t\r\n"+
 				"inner join place p on p.place_id=t.trip_start_place and trip_id="+idTrip+"\r\n"+
 				"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
 				"inner join province d on p.place_pv_id= d.province_id\r\n" + 

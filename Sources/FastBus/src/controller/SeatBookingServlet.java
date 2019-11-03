@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.bean.ChuyenXe;
+import model.bean.SeatBooking;
 import model.bo.ChuyenXeBO;
+import model.bo.SeatBookingBO;
 
 /**
  * Servlet implementation class SeatBookingServlet
@@ -38,7 +41,10 @@ public class SeatBookingServlet extends HttpServlet {
 		int idTrip=  Integer.parseInt(request.getParameter("idTrip"));
 		ChuyenXe Trip=new ChuyenXeBO().getListTripByIdBO(idTrip);
 		
+		List<SeatBooking> listSeat= new SeatBookingBO().getListSeatBookingByIdBO(idTrip);
+
 		request.setAttribute("trip", Trip);
+		request.setAttribute("listSeat", listSeat);
 		
 		RequestDispatcher rd=request.getRequestDispatcher("Views/users/seatBooking.jsp");
 		rd.forward(request, response);
