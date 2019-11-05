@@ -21,7 +21,7 @@ pageEncoding="UTF-8"%>
         <div class="row my-4">
           <div class="col-12 shadow bg-light rounded">
           <h3 class="text-center text-danger my-3">Đăng Ký</h3>
-            <form id="register">
+            <form id="register" action="RegisterServlet">
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -41,7 +41,7 @@ pageEncoding="UTF-8"%>
                     <label for="inputGmail">Gmail :</label>
                     <span class="text-danger">*</span>
                     <input
-                      name="gmail"
+                      name="mail"
                       type="text"
                       class="form-control "
                       id="inputGmail"
@@ -139,9 +139,7 @@ pageEncoding="UTF-8"%>
               </div>
               <div class="row">
                 <div class="col-12 text-center mt-3 mb-2">
-                  <button type="submit" class="btn btn-primary mb-3 shadow">
-                    Đăng ký
-                  </button>
+                  <input type="submit" class="btn btn-primary mb-3 shadow" name="register" value="Đăng Ký" />
                 </div>
               </div>
             </form>

@@ -24,7 +24,12 @@ public class UserBO {
 	public List<User> getListUsersBO() {
 		return new UserDAO().getListUsersDAO();
 	}
+	
 	public String CheckLoginBO(String email,String password) {
 		return new UserDAO().CheckLoginDAO(email, password);
+	}
+	
+	public int insertUserBO(User user) {
+		return new UserDAO().insertUserDAO(user);
 	}
 }

@@ -114,7 +114,7 @@ pageEncoding="UTF-8"%>
                           readonly
                           class="form-control-plaintext"
                           id="fare"
-                          value="10000000"
+                          value="<%=trip.getPrice() %>"
                         />
                       </div>
                     </div>

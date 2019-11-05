@@ -34,6 +34,9 @@ public class SearchTripServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.getCharacterEncoding();
+		response.getCharacterEncoding();
+		
 		String startPlace=request.getParameter("startPlace");
 		String endPlace=request.getParameter("endPlace");
 		String startDate=request.getParameter("startDate");
