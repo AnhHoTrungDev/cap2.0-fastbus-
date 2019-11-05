@@ -38,7 +38,7 @@ public class UserDAO {
 	public List<User> getListUsersDAO() {
 		connection = con.getConnect();
 		listUser = new ArrayList<User>();
-		String selectQuery = "select MaNguoiDung,password,idQuyen,TenNguoiDung,SoDienThoai,DiaChi,Email,TrangThai,"
+		String selectQuery = "select password,idQuyen,TenNguoiDung,SoDienThoai,DiaChi,Email,TrangThai,"
 							+"choPheDuyet,NoiDungPheDuyet from NguoiDung";
 		
 		try {
@@ -46,7 +46,7 @@ public class UserDAO {
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				userInfo=new User(rs.getInt("MaNguoiDung"), rs.getString("password"),rs.getInt("idQuyen"),
+				userInfo=new User(rs.getString("password"),rs.getInt("idQuyen"),
 						rs.getString("TenNguoiDung"), rs.getString("SoDienThoai"),rs.getString("Email"),
 						rs.getInt("TrangThai"), rs.getInt("choPheDuyet"), rs.getString("NoiDungPheDuyet"));
 				
@@ -86,4 +86,33 @@ public class UserDAO {
 		return check;
 		
 	}
+	
+	public int insertUserDAO(User user) {
+		connection = con.getConnect();
+		int check=0;
+		
+		String insertUser="insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) "
+				+ " values(?,?,?,?,3)";
+		
+		try {
+			ps=connection.prepareStatement(insertUser);
+			ps.setString(1, user.getEmail());
+			ps.setString(2, user.getPassWord());
+			ps.setString(3, user.getPhone());
+			ps.setString(4, user.getName());
+			
+			check = ps.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			check=0;
+			e.printStackTrace();
+		}
+		return check;
+	}
+	
+//	public static void main(String[] args) {
+//		User u=new User("nhoxpro@gmail.com", "123456", "0357708105", "Lê Hoàng Quốc");
+//		System.out.println(new UserDAO().insertUser(u));
+//	}
 }

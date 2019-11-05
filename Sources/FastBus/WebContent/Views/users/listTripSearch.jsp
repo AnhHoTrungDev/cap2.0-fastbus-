@@ -38,7 +38,7 @@
     
     <section class="top_place section_padding">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section_tittle text-center">
                         <h3>Danh sách chuyến xe bạn tìm</h3>
@@ -98,7 +98,7 @@
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Giá vé: </span
-                ><span>250.000 ₫</span>
+                ><span><%=trip.getPrice()%> ₫</span>
               </li>
             </ul>
             <div class="card-body text-center">
@@ -108,8 +108,7 @@
           </div>
             <%} %>
             </div>
-            
-          </div>
+        </div>
     </section>
 
     <section class="top_place section_padding">
@@ -121,150 +120,66 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <h4>Tìm thấy ... kết quả</h4>
+            
+                <h4>Tìm thấy <%=listTrip.size() %> kết quả</h4>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_1.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
+            <div class="row car-container mx-auto">
+            <%
+            	for(ChuyenXe trip : listTrip)
+            	{
+            %>
+            <div class="card m-4" style="width: 18rem;">
+            <img src="https://www.baolau.com/blog/wp-content/uploads/2017/02/futabus-1.jpg" class="card-img-top" alt="bus" />
+            <div class="card-body">
+              <h5 class="card-title"><%=trip.getNameBusiness() %></h5>
+              <span class="card-text">
+                Chuyến xe: từ <%=trip.getStartPlace() %> Đến <%=trip.getEndPlace() %>
+              </span>
+             <div class="clearfix align-items-center my-2">
+                <div class="pull-left rating-container mx-auto">
+                  <!-- id cua chuyen xe vo day  value-star = so diem trung binh-->
+                  <div id="<%=trip.getIdTrip() %>" class="show-poin-start-read" value-star="3.7" ></div>
+                  <div class="counter"></div>
                 </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_2.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                        	<div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
+                <div>
+                  <span id="<%=trip.getIdTrip() %>" class="poinRead"></span><span> Điểm </span>
                 </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_3.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_4.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- <a href="#" class="btn_1 text-cnter">Discover more</a> -->
+              </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_1.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn" >Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_2.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_3.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_4.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Hoàng Long</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- <a href="#" class="btn_1 text-cnter">Discover more</a> -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="font-weight-bold">Loại xe: </span
+                ><span>Giường nằm 44 chổ</span>
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold">Số Ghế Trống: </span
+                ><span>10 chổ</span>
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold">Thời Gian Dự Kiến: </span
+                ><span>10 Tiếng</span>
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold">Thời Gian Khởi Hành: </span
+                ><span><%=trip.getStartTime()%></span>
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold">Ngày Khởi Hành: </span
+                ><span><%=trip.getStartDate()%></span>
+              </li>
+              <li class="list-group-item">
+                <span class="font-weight-bold">Giá vé: </span
+                ><span><%=trip.getPrice()%> ₫</span>
+              </li>
+            </ul>
+            <div class="card-body text-center">
+              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
+              <a  href="#" class="card-link">Thông tin nhà xe</a>
+            </div>
+          </div>
+            <%} %>
             </div>
         </div>
     </section>

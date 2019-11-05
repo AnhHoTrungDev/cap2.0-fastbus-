@@ -9,34 +9,71 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.bean.User;
+import model.bo.UserBO;
+
 /**
  * Servlet implementation class RegisterServlet
  */
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		RequestDispatcher rp= request.getRequestDispatcher("/Views/users/register.jsp");
-		rp.forward(request, response);
+	public RegisterServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+		request.getCharacterEncoding();
+		response.getCharacterEncoding();
+
+		
+		String url = "";
+		String message = "";
+		
+
+		if (!"Đăng Ký".contains(request.getParameter("register"))) {
+			url= "/Views/users/register.jsp";
+
+		}else {
+			String mail = request.getParameter("mail");
+			String name = request.getParameter("fullName");
+			String passWord = request.getParameter("password");
+			String phone = request.getParameter("phone");
+			
+			
+			User user = new User(mail, passWord, phone, name);
+			if (new UserBO().insertUserBO(user) == 1) {
+				message = "";
+				url = "/Views/users/homePage.jsp";
+			} else {
+				message = "Đăng ký Thất Bại";
+				url = "register.jsp";
+			}
+		}
+		
+		request.setAttribute("message", message);
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

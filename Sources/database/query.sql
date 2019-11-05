@@ -37,10 +37,15 @@ select * from trip
 select * from business
 
 -------------load seat -------------------------
-select s.seat_id,s.seat_name,s.seat_bus_id,s.seat_status from seat s 
-inner join bus b on s.seat_bus_id=b.bus_id
-inner join business bs on bs.bs_id=b.bus_bs_id
-inner join trip t on bs.bs_id=t.trip_bs_id and t.trip_id=1
+select * from trip
+select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date from seatbooking where seatb_trip_id=1
+
+--------------------- insert account ----------------------
+
+insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) values('','','',N'',3)
+
+
+
 
 
 

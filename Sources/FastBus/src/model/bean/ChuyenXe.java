@@ -23,6 +23,7 @@ public class ChuyenXe {
 	private String endPlace;
 	private String startDate;
 	private String startTime;
+	private float price;
 	
 	
 	public int getIdTrip() {
@@ -84,9 +85,19 @@ public class ChuyenXe {
 		this.startTime = startTime;
 	}
 
+	
+	public float getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
 
 	public ChuyenXe(int idTrip,String nameBusiness, String startPlace, String endPlace, String startDate,
-			String startTime) {
+			String startTime,float price) {
 		super();
 		this.idTrip=idTrip;
 		this.nameBusiness = nameBusiness;
@@ -94,6 +105,7 @@ public class ChuyenXe {
 		this.endPlace = endPlace;
 		this.startDate = startDate;
 		this.startTime = startTime;
+		this.price= price;
 		
 	}
 

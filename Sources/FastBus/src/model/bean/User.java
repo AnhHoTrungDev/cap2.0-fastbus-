@@ -16,7 +16,6 @@
 package model.bean;
 
 public class User {
-	private int idUser;
 	private String passWord;
 	private int idPosition;
 	private String name;
@@ -25,12 +24,7 @@ public class User {
 	private int status;
 	private int approvalStatus;
 	private String approvalInfo;
-	public int getIdUser() {
-		return idUser;
-	}
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
+
 	public String getPassWord() {
 		return passWord;
 	}
@@ -85,10 +79,9 @@ public class User {
 		super();
 	}
 	
-	public User(int idUser, String passWord, int idPosition, String name, String phone, String email, int status,
+	public User(String passWord, int idPosition, String name, String phone, String email, int status,
 			int approvalStatus, String approvalInfo) {
 		super();
-		this.idUser = idUser;
 		this.passWord = passWord;
 		this.idPosition = idPosition;
 		this.name = name;
@@ -103,5 +96,14 @@ public class User {
 		this.passWord = passWord;
 		this.email = email;
 	}
+	public User(String email, String passWord, String phone, String name) {
+		super();
+		this.passWord = passWord;
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+	}
+	
+	
 	
 }
