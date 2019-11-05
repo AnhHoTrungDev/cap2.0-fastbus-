@@ -43,10 +43,7 @@ public class RegisterServlet extends HttpServlet {
 		String message = "";
 		
 
-		if (!"Đăng Ký".contains(request.getParameter("register"))) {
-			url= "/Views/users/register.jsp";
-
-		}else {
+		if ("register".equals(request.getParameter("register"))) {
 			String mail = request.getParameter("mail");
 			String name = request.getParameter("fullName");
 			String passWord = request.getParameter("password");
@@ -61,6 +58,9 @@ public class RegisterServlet extends HttpServlet {
 				message = "Đăng ký Thất Bại";
 				url = "register.jsp";
 			}
+
+		}else {
+			url= "/Views/users/register.jsp";
 		}
 		
 		request.setAttribute("message", message);
