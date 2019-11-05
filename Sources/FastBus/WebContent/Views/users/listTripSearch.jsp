@@ -71,7 +71,7 @@
                   <div class="counter"></div>
                 </div>
                 <div>
-                  <span id="1234" class="poinRead"></span><span> Điểm </span>
+                  <span id="<%=trip.getIdTrip() %>" class="poinRead"></span><span> Điểm </span>
                 </div>
               </div>
             </div>
