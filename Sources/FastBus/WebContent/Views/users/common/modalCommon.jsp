@@ -85,7 +85,7 @@ pageEncoding="UTF-8"%>
                   <a href="#" class="">Quên mật khẩu</a>
                 </p>
                  <p class="text-center">
-                  <a class="" href="<%=request.getContextPath() %>/RegisterServlet">Đăng ký</a>
+                  <a class="" target="_blank" href="<%=request.getContextPath() %>/RegisterServlet">Đăng ký</a>
                 </p>
               </form>
             </article>

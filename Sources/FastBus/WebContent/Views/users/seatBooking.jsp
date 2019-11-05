@@ -600,12 +600,12 @@ pageEncoding="UTF-8"%>
 
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
-        <script language="JavaScript" type="text/javascript">
-    $("#fare").val(new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format($("#fare").val()));
+        <script language="JavaScript" type="text/javascript">   
 	$(document).ready(function() {
+		let format = $("#fare").val(new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format($("#fare").val()));
 		  $("#checkBeforeConfirm").each(function() {
 		    this.addEventListener("click",function(e){
-		        var sseEmail = <%=session.getAttribute("email")%>;
+		        var sseEmail = "<%=session.getAttribute("email")%>";
 		    	console.log("sseEmail");
 		        var modal = document.getElementById("myModal");
 		        if (sseEmail == null) {
