@@ -23,9 +23,6 @@
                                         <a class="nav-link" href="">Vé xe</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="">Nhà xe</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link" href="">Đặt xe</a>
                                     </li>
                                     <li class="nav-item">

@@ -100,37 +100,19 @@ pageEncoding="UTF-8"%>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="inputConfirmpassword"> Chứng Minh Thư :</label>
+                    <label for="inputAddress"> Địa chỉ :</label>
                     <span class="text-danger">*</span>
                     <input
-                      type="number"
+                      type="text"
                       class="form-control"
-                      id="inputCmt"
-                      placeholder="Nhập Chứng Minh Thư"
-                      name="Cmt"
+                      id="inputAddress"
+                      placeholder="Địa chỉ"
+                      name="Address"
                     />
                   </div>
                 </div>
               </div>
               <!--  -->
-              <!--1 dong  -->
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="inputBirth">Ngày Sinh</label>
-                    <span class="text-danger">*</span>
-                    <input
-                      type="date"
-                      class="form-control"
-                      id="inputBirth"
-                      placeholder="Birth date"
-                      name="Birth"
-                    />
-                  </div>
-                </div>
-                <div class="col-sm-6"></div>
-              </div>
-              <!-- end dong -->
               <div class="row text-center ml-1 ">
                 <p>
                   (<span class="text-danger">*</span>) là những thông tin bắt

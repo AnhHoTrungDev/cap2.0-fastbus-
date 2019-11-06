@@ -377,7 +377,7 @@
                   	
                   %>
                     <tr>
-                      <td><%=u.getIdUser() %></td>
+                      
                       <td><%=u.getPassWord() %></td>
                       <td><%=u.getIdPosition() %></td>
                       <td><%=u.getName() %></td>
