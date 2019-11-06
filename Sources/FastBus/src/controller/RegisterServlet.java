@@ -49,11 +49,10 @@ public class RegisterServlet extends HttpServlet {
 			String passWord = request.getParameter("password");
 			String phone = request.getParameter("phone");
 			
+			user =new User(mail, passWord, phone, name);
 			
-			user = new User(mail, passWord, phone, name);
 			if (new UserBO().insertUserBO(user) == 1) {
-				message = "";
-				url = "/Views/users/homePage.jsp";
+				url = "LoadHomePageServlet";
 			} else {
 				message = "Đăng ký Thất Bại";
 				url = "/Views/users/register.jsp";
