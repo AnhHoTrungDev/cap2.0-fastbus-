@@ -35,28 +35,28 @@ public class RegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		request.setCharacterEncoding("UTF-8");
 		request.getCharacterEncoding();
-		response.getCharacterEncoding();
 
 		
 		String url = "";
 		String message = "";
-		
+		User user=null;
 
-		if ("register".equals(request.getParameter("register"))) {
+		if ("Đăng Ký".equals(request.getParameter("register"))) {
 			String mail = request.getParameter("mail");
 			String name = request.getParameter("fullName");
 			String passWord = request.getParameter("password");
 			String phone = request.getParameter("phone");
 			
 			
-			User user = new User(mail, passWord, phone, name);
+			user = new User(mail, passWord, phone, name);
 			if (new UserBO().insertUserBO(user) == 1) {
 				message = "";
 				url = "/Views/users/homePage.jsp";
 			} else {
 				message = "Đăng ký Thất Bại";
-				url = "register.jsp";
+				url = "/Views/users/register.jsp";
 			}
 
 		}else {

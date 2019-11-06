@@ -35,30 +35,7 @@ public class UserDAO {
 	 * Get List User From the Database
 	 * @return List<User>
 	 */
-	public List<User> getListUsersDAO() {
-		connection = con.getConnect();
-		listUser = new ArrayList<User>();
-		String selectQuery = "select password,idQuyen,TenNguoiDung,SoDienThoai,DiaChi,Email,TrangThai,"
-							+"choPheDuyet,NoiDungPheDuyet from NguoiDung";
-		
-		try {
-			ps = connection.prepareStatement(selectQuery);
-			rs = ps.executeQuery();
-			
-			while (rs.next()) {
-				userInfo=new User(rs.getString("password"),rs.getInt("idQuyen"),
-						rs.getString("TenNguoiDung"), rs.getString("SoDienThoai"),rs.getString("Email"),
-						rs.getInt("TrangThai"), rs.getInt("choPheDuyet"), rs.getString("NoiDungPheDuyet"));
-				
-				listUser.add(userInfo);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return listUser;
-	}
+	
 	public String CheckLoginDAO(String email,String password) {
 		listUser =new ArrayList<User>();
 		String check="fail";

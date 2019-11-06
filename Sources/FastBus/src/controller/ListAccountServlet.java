@@ -32,10 +32,8 @@ public class ListAccountServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserBO user=new UserBO();
 		
-		List<User> listUser=user.getListUsersBO();
-		request.setAttribute("listUser", listUser);
+		
 		
 		RequestDispatcher rd=request.getRequestDispatcher("Views/admin/listAccount.jsp");
 		rd.forward(request, response);
