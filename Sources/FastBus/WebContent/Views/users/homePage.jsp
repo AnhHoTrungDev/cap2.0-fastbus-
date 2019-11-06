@@ -115,7 +115,7 @@
         >
           <div class="carousel-inner row w-100 mx-auto" role="listbox">
             <!-- card 1 cho 1 cái cố đinh có active moi chay dc -->
-            <div class="carousel-item col-md-3  active">
+            <div class="carousel-item col-md-4  active">
               <div class="card">
                 <img
                   src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
@@ -139,7 +139,7 @@
             </div>
             <!-- end card 1 -->
             <!-- car element  từ  cái thứ 2 trở đi như nhau-->
-            <div class="carousel-item col-md-3  ">
+            <div class="carousel-item col-md-4  ">
               <div class="card">
                 <img
                   src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
@@ -163,7 +163,7 @@
             </div>
             <!-- end  element-->
             <!-- car element  từ  cái thứ 2 trở đi như nhau-->
-            <div class="carousel-item col-md-3  ">
+            <div class="carousel-item col-md-4  ">
               <div class="card">
                 <img
                   src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
@@ -187,7 +187,7 @@
             </div>
             <!-- end  element-->
             <!-- car element  từ  cái thứ 2 trở đi như nhau-->
-            <div class="carousel-item col-md-3  ">
+            <div class="carousel-item col-md-4  ">
               <div class="card">
                 <img
                   src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
@@ -211,7 +211,7 @@
             </div>
             <!-- end  element-->
             <!-- car element  từ  cái thứ 2 trở đi như nhau-->
-            <div class="carousel-item col-md-3  ">
+            <div class="carousel-item col-md-4  ">
               <div class="card">
                 <img
                   src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
@@ -235,7 +235,7 @@
             </div>
             <!-- end  element-->
             <!-- car element  từ  cái thứ 2 trở đi như nhau-->
-            <div class="carousel-item col-md-3  ">
+            <div class="carousel-item col-md-4  ">
               <div class="card">
                 <img
                   src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
@@ -259,7 +259,7 @@
             </div>
             <!-- end  element-->
             <!-- car element  từ  cái thứ 2 trở đi như nhau-->
-            <div class="carousel-item col-md-3  ">
+            <div class="carousel-item col-md-4  ">
               <div class="card">
                 <img
                   src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
