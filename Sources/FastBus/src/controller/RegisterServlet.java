@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.SendResult;
+
+import org.apache.catalina.ha.backend.Sender;
 
 import model.bean.User;
 import model.bo.UserBO;
@@ -52,19 +55,21 @@ public class RegisterServlet extends HttpServlet {
 			user =new User(mail, passWord, phone, name);
 			
 			if (new UserBO().insertUserBO(user) == 1) {
-				url = "LoadHomePageServlet";
+			response.sendRedirect("LoadHomePageServlet");
 			} else {
 				message = "Đăng ký Thất Bại";
-				url = "/Views/users/register.jsp";
+				request.setAttribute("message", message);
+				RequestDispatcher rd = request.getRequestDispatcher("/Views/users/register.jsp");
+				rd.forward(request, response);
 			}
 
 		}else {
-			url= "/Views/users/register.jsp";
+			request.setAttribute("message", message);
+			RequestDispatcher rd = request.getRequestDispatcher("/Views/users/register.jsp");
+			rd.forward(request, response);
 		}
 		
-		request.setAttribute("message", message);
-		RequestDispatcher rd = request.getRequestDispatcher(url);
-		rd.forward(request, response);
+		
 	}
 
 	/**
