@@ -1,7 +1,7 @@
 $(document).ready(function() {
+	
   $(".btn-chair").each(function() {
     this.addEventListener("click", function() {
-      console.log(this.value);
       if (this.classList.contains("btn-default")) {
         if (getInforOrder(this.value))
           this.classList.replace("btn-default", "btn-warning");
@@ -9,16 +9,55 @@ $(document).ready(function() {
         this.classList.replace("btn-warning", "btn-default");
         deleteOder(this.value, this);
       }
+      numberFormatCurencyWhenValChange();
+      changeLocalSessionStorage();
     });
   });
 });
 
 let codeChairOder = document.getElementById("codeChairOder");
-if (codeChairOder != null) {
-  codeChairOder.value = ""; //set lại khi load lại
+let arrcodeChairOder = []; //mảng chứa mã ghế
+
+innitSetatBooking();
+
+// khởi tạo
+function innitSetatBooking(){
+	if (codeChairOder != null) {
+		  codeChairOder.value = ""; //set lại khi load lại
+		}
+	
+	readLocalSessionStorage();
+	statusChairWhenloadIntoSesstion();
+	codeChairOder.value = arrcodeChairOder;
+	numberFormatCurencyWhenValChange();
 }
 
-let arrcodeChairOder = []; //mảng chứa mã ghế
+//add status when init
+function statusChairWhenloadIntoSesstion(){
+	 $(".btn-chair").each(function(){
+		if(this.classList.contains("btn-default") && arrcodeChairOder.includes(this.value)){
+			 this.classList.replace("btn-default", "btn-warning");
+		} else if(!this.classList.contains("btn-default") && arrcodeChairOder.includes(this.value)){
+			sessionStorage.clear();
+			alert("Ghế Của bạn đã có người đặt vui lòng chọn lại");
+			arrcodeChairOder=[];
+		}
+	 });
+}
+
+//read local storage 
+function readLocalSessionStorage(){
+    let dataString = sessionStorage.getItem(urlParam("idTrip"));
+    if(dataString){
+    	arrcodeChairOder=dataString.split(",");
+    }else arrcodeChairOder =[];
+}
+
+//add local storage
+function changeLocalSessionStorage(){
+	let converDataString = arrcodeChairOder.join(",")
+	sessionStorage.setItem(urlParam("idTrip"), converDataString);
+}
 
 // add mã ghế
 function getInforOrder(object) {
@@ -46,4 +85,17 @@ function deleteOder(object) {
 //kiểm tra có mã  ghế trong mảng
 function checkElementOderExist(object) {
   return arrcodeChairOder.includes(object);
+}
+//nhảy khi chọn ghế
+function numberFormatCurencyWhenValChange(){
+	 let totalPrice = Number(parseInt($("#fare")[0].dataset.price) * arrcodeChairOder.length);
+	$("#fare").val(new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(totalPrice));
+}
+// get parameter
+function urlParam(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null) {
+       return null;
+    }
+    return decodeURI(results[1]) || 0;
 }

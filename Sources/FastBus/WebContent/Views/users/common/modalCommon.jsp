@@ -103,7 +103,7 @@ pageEncoding="UTF-8"%>
        alert("Vui lòng nhập đúng định dạng");
         return;
           }
-      if(email=="" || email==""){
+      if(email=="" || password==""){
     	  alert("Vui lòng nhập các trường bị bỏ trống");
           return;
       }

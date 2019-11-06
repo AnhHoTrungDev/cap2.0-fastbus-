@@ -40,7 +40,7 @@ $(document).ready(function() {
       },
       password: {
         required: true,
-        min: 6
+        minlength:6
       },
       confirmPassword: {
         required: true,

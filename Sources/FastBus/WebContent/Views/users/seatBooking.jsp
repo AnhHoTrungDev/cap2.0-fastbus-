@@ -46,10 +46,10 @@ pageEncoding="UTF-8"%>
 
     <section>
       <div class="container">
-        <div class="row mb-3">
+        <div class="row mb-5 mt-3">
           <!--Bên  phải Thông tin  -->
           <div class="col-md-4 mt-3 ">
-            <form action="">
+            <form>
             <% 
             ChuyenXe trip = (ChuyenXe)request.getAttribute("trip");
             %>
@@ -98,6 +98,7 @@ pageEncoding="UTF-8"%>
                         id="codeChairOder"
                         value=""
                         placeholder="Bạn chưa chọn ghế nào"
+                        name="codeChairOder"
                       />
                     </div>
                   </div>
@@ -114,7 +115,8 @@ pageEncoding="UTF-8"%>
                           readonly
                           class="form-control-plaintext"
                           id="fare"
-                          value="<%=trip.getPrice() %>"
+                          value="0"
+                          data-price="<%=trip.getPrice() %>"
                         />
                       </div>
                     </div>
@@ -130,74 +132,68 @@ pageEncoding="UTF-8"%>
                       <textarea
                         type="text"
                         style="resize: none;"
-                        placeholder="Nhập địa điểm đón"
+                        placeholder="   Nhập địa điểm đón"
                         rows="1"
-                        class="form-control-plaintext border-bottom"
+                        class="form-control-plaintext border border-dark bg-light rounded-lg"
                         id="pickUpLocation"
                       ></textarea>
                     </div>
                   </div>
                   <!-- end -->
+                  <!-- 1 dòng -->
+	              <div class="form-group row">
+	                <label for="departureDay" class="col-sm-5 col-form-label"
+	                  >Giờ khởi hành&nbsp;:</label
+	                >
+	                <div class="col-sm-7">
+	                  <input
+	                    type="time"
+	                    readonly
+	                    class="form-control-plaintext border-bottom"
+	                    id="departureDay"
+	                    value="16:20"
+	                  />
+	                </div>
+	              </div>
+              	  <!-- end -->
+              	  <!-- 1 dòng -->
+	              <div class="form-group row">
+	                <label for="timeFinishExpected" class="col-sm-5 col-form-label"
+	                  >Giờ đến dự kiến &nbsp;:</label
+	                >
+	                <div class="col-sm-7">
+	                  <input
+	                    type="time"
+	                    readonly
+	                    class="form-control-plaintext border-bottom"
+	                    id="timeFinishExpected"
+	                    value="06:00"
+	                  />
+	                </div>
+	               </div>
+              	  <!-- end -->
+              	  <!-- 1 dòng -->
+	              <div class="form-group row">
+	                <label for="locationEnd" class="col-sm-5 col-form-label" >Điếm Đến Cuối &nbsp;:</label
+	                >
+	                <div class="col-sm-7">
+	                  <input
+	                    type="text"
+	                    readonly
+	                    class="form-control-plaintext border-bottom"
+	                    id="locationEnd"
+	                    value="Bến xe  <%=trip.getEndPlace() %>"
+	                  />
+	                </div>
+	              </div>
+              		<!-- end -->
                   <div class="col-sm-12 text-center mb-3 ">
                     <a class="mr-2" href="#">Quay Lại</a>
-                     <a class="btn btn-primary ml-2" href="#" id="checkBeforeConfirm">Tiếp Tục</a>
-                 
+                     <input type="submit" name="submit" class="btn btn-primary ml-2" value="Tiếp Tục" id="checkBeforeConfirm" />
                   </div>
                 </div>
               </div>
             </form>
-            <!-- bên phải dưới -->
-            <div class="border div-background-shadow my-5 px-2">
-              <h3 class="text-center mb-3 my-3">Thông tin chi tiết vé xe</h3>
-              <!-- 1 dòng -->
-              <div class="form-group row">
-                <label for="departureDay" class="col-sm-5 col-form-label"
-                  >Giờ khởi hành&nbsp;:</label
-                >
-                <div class="col-sm-7">
-                  <input
-                    type="time"
-                    readonly
-                    class="form-control-plaintext border-bottom"
-                    id="departureDay"
-                    value="16:20"
-                  />
-                </div>
-              </div>
-              <!-- end -->
-              <!-- 1 dòng -->
-              <div class="form-group row">
-                <label for="timeFinishExpected" class="col-sm-5 col-form-label"
-                  >Giờ đến dự kiến &nbsp;:</label
-                >
-                <div class="col-sm-7">
-                  <input
-                    type="time"
-                    readonly
-                    class="form-control-plaintext border-bottom"
-                    id="timeFinishExpected"
-                    value="06:00"
-                  />
-                </div>
-              </div>
-              <!-- end -->
-              <!-- 1 dòng -->
-              <div class="form-group row">
-                <label for="locationEnd" class="col-sm-5 col-form-label" >Giờ đến dự kiến &nbsp;:</label
-                >
-                <div class="col-sm-7">
-                  <input
-                    type="text"
-                    readonly
-                    class="form-control-plaintext border-bottom"
-                    id="locationEnd"
-                    value="Bến xe Đà Lạt"
-                  />
-                </div>
-              </div>
-              <!-- end -->
-            </div>
-            <!-- end bên phải dưới -->
           </div>
           <!-- end  Bên  phải Thông tin-->
           <div class="col-md-1"></div>
@@ -600,15 +596,15 @@ pageEncoding="UTF-8"%>
 
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
-        <script language="JavaScript" type="text/javascript">   
+     <script src="<%=request.getContextPath() %>/Views/js/ServletBookingServlet.js"></script>
+     <script language="JavaScript" type="text/javascript">   
 	$(document).ready(function() {
-		let format = $("#fare").val(new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format($("#fare").val()));
 		  $("#checkBeforeConfirm").each(function() {
 		    this.addEventListener("click",function(e){
-		        var sseEmail = "<%=session.getAttribute("email")%>";
-		    	console.log("sseEmail");
+		        var sseEmail = "<%=session.getAttribute("email")%>";		    			  
+		    	console.log(sseEmail);
 		        var modal = document.getElementById("myModal");
-		        if (sseEmail == null) {
+		        if (sseEmail == "null") {
 		        	$(modal).modal("show");
 		        	$('#messageDiv').html("<font color='blue'>Vui lòng Đăng Nhập Để Tiếp Tục </font>");
 		        	$('#messageDiv').show();

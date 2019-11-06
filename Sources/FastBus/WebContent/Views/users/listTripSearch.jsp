@@ -98,7 +98,7 @@
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Giá vé: </span
-                ><span><%=trip.getPrice()%> ₫</span>
+                ><span class="fare" value="<%=trip.getPrice()%>"><%=trip.getPrice()%></span>
               </li>
             </ul>
             <div class="card-body text-center">
@@ -254,6 +254,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear())</script> 2019 F
     <!-- footer part end-->
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
+    <script>
+    $(".fare").each(function(){
+    	$(this).html(new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(Number(parseInt(this.textContent))));
+    });
+    </script>
     
 
 </body>

@@ -13,6 +13,7 @@
     <title>Fastbus</title>
     <!-- link css -->
     <%@ include file="common/topbootstrap.jsp" %>
+     <link rel="stylesheet" href="<%=request.getContextPath() %>/Views/users/assets/css/multiplecarousel.css">
 </head>
 
 <body>
@@ -101,177 +102,217 @@
     <!-- Header part end-->
 
     <!--top place start-->
-    <section class="top_place section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6">
-                    <div class="section_tittle text-center">
-                        <h2>Danh sách nhà xe</h2>
-                    </div>
+    <section class="my-5">
+      <div>
+     	<h1 class="text-center my-5">Danh Sách Nhà Xe</h1>
+      </div>
+      <div class="container my-4">
+        <div
+          id="carouselExample"
+          class="carousel slide"
+          data-ride="carousel"
+          data-interval="9000"
+        >
+          <div class="carousel-inner row w-100 mx-auto" role="listbox">
+            <!-- card 1 cho 1 cái cố đinh có active moi chay dc -->
+            <div class="carousel-item col-md-3  active">
+              <div class="card">
+                <img
+                  src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Nhà xe Phương Trang</h5>
+                  <p class="card-text">
+                    Với đội ngũ hướng dẫn viên nhiệt tình, chu đáo, đội ngũ lái
+                    xe an toàn, kinh nghiệm lâu năm, nhà xe Phương Trang mong
+                    muốn đem đến cho khách hàng một trải nghiệm dịch vụ tốt
+                    nhất. Đặc biệt “nói không với tệ nạn móc túi” – một trường
+                    hợp không hiếm gặp khi đi xe khách..
+                  </p>
                 </div>
+                <div class="card-footer">
+                  <a href="#">xem thêm</a>
+                </div>
+              </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_1.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
+            <!-- end card 1 -->
+            <!-- car element  từ  cái thứ 2 trở đi như nhau-->
+            <div class="carousel-item col-md-3  ">
+              <div class="card">
+                <img
+                  src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Nhà xe Phương Trang</h5>
+                  <p class="card-text">
+                    Với đội ngũ hướng dẫn viên nhiệt tình, chu đáo, đội ngũ lái
+                    xe an toàn, kinh nghiệm lâu năm, nhà xe Phương Trang mong
+                    muốn đem đến cho khách hàng một trải nghiệm dịch vụ tốt
+                    nhất. Đặc biệt “nói không với tệ nạn móc túi” – một trường
+                    hợp không hiếm gặp khi đi xe khách..
+                  </p>
                 </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_2.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
+                <div class="card-footer">
+                  <a href="#">xem thêm</a>
                 </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_3.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_4.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- <a href="#" class="btn_1 text-cnter">Discover more</a> -->
+              </div>
             </div>
+            <!-- end  element-->
+            <!-- car element  từ  cái thứ 2 trở đi như nhau-->
+            <div class="carousel-item col-md-3  ">
+              <div class="card">
+                <img
+                  src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Nhà xe Phương Trang</h5>
+                  <p class="card-text">
+                    Với đội ngũ hướng dẫn viên nhiệt tình, chu đáo, đội ngũ lái
+                    xe an toàn, kinh nghiệm lâu năm, nhà xe Phương Trang mong
+                    muốn đem đến cho khách hàng một trải nghiệm dịch vụ tốt
+                    nhất. Đặc biệt “nói không với tệ nạn móc túi” – một trường
+                    hợp không hiếm gặp khi đi xe khách..
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="#">xem thêm</a>
+                </div>
+              </div>
+            </div>
+            <!-- end  element-->
+            <!-- car element  từ  cái thứ 2 trở đi như nhau-->
+            <div class="carousel-item col-md-3  ">
+              <div class="card">
+                <img
+                  src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Nhà xe Phương Trang</h5>
+                  <p class="card-text">
+                    Với đội ngũ hướng dẫn viên nhiệt tình, chu đáo, đội ngũ lái
+                    xe an toàn, kinh nghiệm lâu năm, nhà xe Phương Trang mong
+                    muốn đem đến cho khách hàng một trải nghiệm dịch vụ tốt
+                    nhất. Đặc biệt “nói không với tệ nạn móc túi” – một trường
+                    hợp không hiếm gặp khi đi xe khách..
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="#">xem thêm</a>
+                </div>
+              </div>
+            </div>
+            <!-- end  element-->
+            <!-- car element  từ  cái thứ 2 trở đi như nhau-->
+            <div class="carousel-item col-md-3  ">
+              <div class="card">
+                <img
+                  src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Nhà xe Phương Trang</h5>
+                  <p class="card-text">
+                    Với đội ngũ hướng dẫn viên nhiệt tình, chu đáo, đội ngũ lái
+                    xe an toàn, kinh nghiệm lâu năm, nhà xe Phương Trang mong
+                    muốn đem đến cho khách hàng một trải nghiệm dịch vụ tốt
+                    nhất. Đặc biệt “nói không với tệ nạn móc túi” – một trường
+                    hợp không hiếm gặp khi đi xe khách..
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="#">xem thêm</a>
+                </div>
+              </div>
+            </div>
+            <!-- end  element-->
+            <!-- car element  từ  cái thứ 2 trở đi như nhau-->
+            <div class="carousel-item col-md-3  ">
+              <div class="card">
+                <img
+                  src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Nhà xe Phương Trang</h5>
+                  <p class="card-text">
+                    Với đội ngũ hướng dẫn viên nhiệt tình, chu đáo, đội ngũ lái
+                    xe an toàn, kinh nghiệm lâu năm, nhà xe Phương Trang mong
+                    muốn đem đến cho khách hàng một trải nghiệm dịch vụ tốt
+                    nhất. Đặc biệt “nói không với tệ nạn móc túi” – một trường
+                    hợp không hiếm gặp khi đi xe khách..
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="#">xem thêm</a>
+                </div>
+              </div>
+            </div>
+            <!-- end  element-->
+            <!-- car element  từ  cái thứ 2 trở đi như nhau-->
+            <div class="carousel-item col-md-3  ">
+              <div class="card">
+                <img
+                  src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Nhà xe Phương Trang</h5>
+                  <p class="card-text">
+                    Với đội ngũ hướng dẫn viên nhiệt tình, chu đáo, đội ngũ lái
+                    xe an toàn, kinh nghiệm lâu năm, nhà xe Phương Trang mong
+                    muốn đem đến cho khách hàng một trải nghiệm dịch vụ tốt
+                    nhất. Đặc biệt “nói không với tệ nạn móc túi” – một trường
+                    hợp không hiếm gặp khi đi xe khách..
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <a href="#">xem thêm</a>
+                </div>
+              </div>
+            </div>
+            <!-- end  element-->
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExample"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next text-faded"
+            href="#carouselExample"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+      </div>
     </section>
+
     <!--top place end-->
     
-    <section class="top_place section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6">
-                    <div class="section_tittle text-center">
-                        <h2>Danh sách chuyến xe trong ngày</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_1.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_2.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_3.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="single_place">
-                        <img src="<%=request.getContextPath() %>/Views/users/assets/img/single_place_4.png" alt="">
-                        <div class="hover_Text d-flex align-items-end justify-content-between">
-                            <div class="hover_text_iner">
-                                <a href="#" class="place_btn">Mua vé</a>
-                                <h4>Phương Trang</h4>
-                                <p>Tuyến: Hà Nội - TP.Hồ Chí Minh</p>
-                                <p>Ngày: 22-10-2019</p>
-                                <p>Giờ: 3:00</p>
-                            </div>
-                            <!-- <div class="details_icon text-right">
-                                <i class="ti-share"></i>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- <a href="#" class="btn_1 text-cnter">Discover more</a> -->
-            </div>
-        </div>
-    </section>
 
     <!-- footer part start-->
     <%@ include file="common/footer.jsp" %>
 	
 	<!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
+    <script src="<%=request.getContextPath() %>/Views/js/multiplecarousel.js"></script>
 
 </html>
