@@ -50,7 +50,7 @@ $(document).ready(function() {
         required: true,
         validateVietNamPhone: true
       },
-      gmail: {
+      mail: {
         required: true,
         email: true
       },
@@ -73,7 +73,7 @@ $(document).ready(function() {
       phone: {
         required: "Vui lòng nhập trường này"
       },
-      gmail: {
+      mail: {
         required: "Vui lòng nhập Email",
         email: "Kiểm  tra xem có theo vd EX@gmail.com"
       },
