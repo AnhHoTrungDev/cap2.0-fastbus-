@@ -110,7 +110,7 @@
 	<!-- Header part end-->
 
 	<!--top place start-->
-	<section class="my-5">
+	<section class="" style="margin-top: 400px;">
 		<div>
 			<h1 class="text-center my-5">Danh Sách Nhà Xe</h1>
 		</div>

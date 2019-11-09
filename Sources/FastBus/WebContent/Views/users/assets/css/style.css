@@ -2447,7 +2447,7 @@ ul {
   .banner_part .banner_text {
     text-align: center;
     padding-top: 0px;
-    height: 650px;
+    height: 600px;
   }
 }
 
@@ -2462,7 +2462,7 @@ ul {
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 28, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_banner.scss */
-  .banner_part .banner_text {
+   .banner_text {
     height: 650px;
   }
 }
@@ -2562,7 +2562,7 @@ ul {
 /*********** booking css start *************/
 /* line 2, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_booking.scss */
 .booking_part {
-  margin-top: -80px;
+  margin-top: -400px;
   z-index: 9;
   position: relative;
 }
