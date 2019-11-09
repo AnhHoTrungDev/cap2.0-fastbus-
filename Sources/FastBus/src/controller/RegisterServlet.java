@@ -12,6 +12,7 @@ import javax.websocket.SendResult;
 
 import org.apache.catalina.ha.backend.Sender;
 
+import common.Encode;
 import model.bean.User;
 import model.bo.UserBO;
 
@@ -44,11 +45,12 @@ public class RegisterServlet extends HttpServlet {
 		String url = "";
 		String message = "";
 		User user = null;
+		Encode enCode=new Encode();
 
 		if ("Đăng Ký".equals(request.getParameter("register"))) {
 			String mail = request.getParameter("mail");
 			String name = request.getParameter("fullName");
-			String passWord = request.getParameter("password");
+			String passWord = enCode.md5(request.getParameter("password"));
 			String phone = request.getParameter("phone");
 
 			user = new User(mail, passWord, phone, name);
@@ -61,7 +63,6 @@ public class RegisterServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/Views/users/register.jsp");
 				rd.forward(request, response);
 			}
-
 		} else {
 			request.setAttribute("message", message);
 			RequestDispatcher rd = request.getRequestDispatcher("/Views/users/register.jsp");
