@@ -41,21 +41,20 @@ public class RegisterServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		request.getCharacterEncoding();
 
-		
 		String url = "";
 		String message = "";
-		User user=null;
+		User user = null;
 
 		if ("Đăng Ký".equals(request.getParameter("register"))) {
 			String mail = request.getParameter("mail");
 			String name = request.getParameter("fullName");
 			String passWord = request.getParameter("password");
 			String phone = request.getParameter("phone");
-			
-			user =new User(mail, passWord, phone, name);
-			
-			if (new UserBO().insertUserBO(user) == 1) {
-			response.sendRedirect("LoadHomePageServlet");
+
+			user = new User(mail, passWord, phone, name);
+
+			if (new UserBO().insertUserBO(user) != 0) {
+				response.sendRedirect(request.getContextPath() + "/LoadHomePageServlet");
 			} else {
 				message = "Đăng ký Thất Bại";
 				request.setAttribute("message", message);
@@ -63,13 +62,12 @@ public class RegisterServlet extends HttpServlet {
 				rd.forward(request, response);
 			}
 
-		}else {
+		} else {
 			request.setAttribute("message", message);
 			RequestDispatcher rd = request.getRequestDispatcher("/Views/users/register.jsp");
 			rd.forward(request, response);
 		}
-		
-		
+
 	}
 
 	/**

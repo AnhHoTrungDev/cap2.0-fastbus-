@@ -59,7 +59,7 @@
 							<div class="tab-pane fade show active" id="hotel" role="tabpanel"
 								aria-labelledby="hotel-tab">
 								<div class="booking_form">
-									<form action="SearchTripServlet">
+									<form action="<%=request.getContextPath() %>/SearchTripServlet">
 										<div class="form-row">
 											<div class="form_colum">
 												<select class="nc_select" name="startPlace">

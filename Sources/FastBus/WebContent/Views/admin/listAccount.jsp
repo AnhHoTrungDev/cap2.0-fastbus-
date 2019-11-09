@@ -379,7 +379,6 @@
                     <tr>
                       
                       <td><%=u.getPassWord() %></td>
-                      <td><%=u.getIdPosition() %></td>
                       <td><%=u.getName() %></td>
                       <td><%=u.getPhone() %></td>
                       <td><%=u.getEmail() %></td>
