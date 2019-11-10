@@ -22,6 +22,9 @@ public class SeatBookingInformationServlet extends HttpServlet {
     public SeatBookingInformationServlet() {
         super();
         // TODO Auto-generated constructor stub
+        
+        
+        
     }
 
 	/**
