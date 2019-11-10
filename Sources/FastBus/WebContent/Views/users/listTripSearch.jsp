@@ -38,7 +38,7 @@
     
     <section class="top_place section_padding">
         <div class="container">
-            <div class="row justify-content-start">
+            <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section_tittle text-center">
                         <h3>Danh sách chuyến xe bạn tìm</h3>
@@ -57,7 +57,7 @@
             	for(ChuyenXe trip : listTrip)
             	{
             %>
-            <div class="card m-4" style="width: 18rem;">
+            <div class="card m-4 " style="width: 330px;">
             <img src="https://www.baolau.com/blog/wp-content/uploads/2017/02/futabus-1.jpg" class="card-img-top" alt="bus" />
             <div class="card-body">
               <h5 class="card-title"><%=trip.getNameBusiness() %></h5>

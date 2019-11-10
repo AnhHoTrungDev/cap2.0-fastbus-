@@ -190,7 +190,7 @@ input.poin:focus {
   outline: none;
 }
 .car-container {
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .poinRead {
   background-color: #376a97;
