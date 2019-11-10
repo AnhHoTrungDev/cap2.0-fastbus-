@@ -37,33 +37,42 @@ public class UserDAO {
 	 * @return List<User>
 	 */
 
-	public String CheckLoginDAO(String email, String password) {
+	public User CheckLoginDAO(String email, String password) {
 		listUser = new ArrayList<User>();
-		String check = "fail";
+
 		connection = con.getConnect();
-		String selectCheck = "select acc_mail,acc_password from account where acc_mail like ? and acc_password like ?";
+		String selectCheck = "select acc_mail,acc_password,acc_name from account where acc_mail like ? and acc_password like ?";
+		User user = null;
+
+		String mail = "";
+		String name = "";
+		String pass = "";
+		String message = "";
+
 		try {
 			ps = connection.prepareStatement(selectCheck);
 			ps.setString(1, email);
 			ps.setString(2, password);
-
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-				check = "true";
+				mail = rs.getString("acc_mail");
+				pass = rs.getString("acc_password");
+				name = rs.getString("acc_name");
+				message = "true";
 
 			} else {
-				check = "fail";
+				message = "fail";
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			check = "fail";
 			e.printStackTrace();
 		}
-		return check;
+
+		user = new User(pass, mail, name, message);
+		return user;
 
 	}
-
 	public int insertUserDAO(User user) {
 		connection = con.getConnect();
 		int check = 0;

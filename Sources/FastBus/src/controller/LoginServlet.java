@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import common.Encode;
+import model.bean.User;
 import model.bo.UserBO;
 
 /**
@@ -44,11 +45,12 @@ public class LoginServlet extends HttpServlet {
 		String mail = request.getParameter("email");
 		String password = enCode.md5(request.getParameter("password"));
 		// message: true - false
-		String message = new UserBO().CheckLoginBO(mail, password);
-		if (new UserBO().CheckLoginBO(mail, password) == "true") {
-			session.setAttribute("email", mail);
+		User user = new UserBO().CheckLoginBO(mail, password);
+		if (user.getMessage() == "true") {
+			session.setAttribute("email", user.getEmail());
+			session.setAttribute("acc_name", user.getName());
 		}
-		response.getWriter().write(message);
+		response.getWriter().write(user.getMessage());
 
 	}
 

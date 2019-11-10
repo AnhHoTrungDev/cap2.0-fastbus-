@@ -22,7 +22,7 @@ import model.dao.UserDAO;
 
 public class UserBO {
 	
-	public String CheckLoginBO(String email,String password) {
+	public User CheckLoginBO(String email,String password) {
 		return new UserDAO().CheckLoginDAO(email, password);
 	}
 	

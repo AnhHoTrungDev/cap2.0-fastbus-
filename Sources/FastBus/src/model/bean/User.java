@@ -21,10 +21,26 @@ public class User {
 	private String name;
 	private String phone;
 	private String email;
+	private String message;
+	private String addess;
+	
 //	private int status;
 //	private int approvalStatus;
 //	private String approvalInfo;
-
+	
+	
+	public String getMessage() {
+		return message;
+	}
+	public String getAddess() {
+		return addess;
+	}
+	public void setAddess(String addess) {
+		this.addess = addess;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	public String getPassWord() {
 		return passWord;
 	}
@@ -55,6 +71,8 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
 //	public int getStatus() {
 //		return status;
 //	}
@@ -79,22 +97,21 @@ public class User {
 		super();
 	}
 	
-	public User(String email, String passWord, String phone, String name) {
+	public User(String email, String passWord, String phone, String name,String address) {
 		super();
 		this.email = email;
 		this.passWord = passWord;
 		this.phone = phone;
 		this.name = name;
+		this.addess=address;
 		
 	}
 
-	public User(String passWord, String email) {
+	public User(String passWord, String email,String name,String message) {
 		super();
 		this.passWord = passWord;
-		this.email = email;
+		this.email=email;
+		this.name=name;
+		this.message=message;
 	}
-	
-	
-	
-	
 }

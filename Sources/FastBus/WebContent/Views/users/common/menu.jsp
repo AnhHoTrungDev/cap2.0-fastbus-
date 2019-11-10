@@ -41,7 +41,7 @@
 											    aria-haspopup="true"
 											    aria-expanded="false"
 											  >
-    											<%=session.getAttribute("email")%>
+    											<%=session.getAttribute("acc_name")%>
   											  </a>
 	  										<div class="dropdown-menu p-3 mx-auto" aria-labelledby="dropdownMenuButton">
 											    <a class="dropdown-item border-bottom" href="#">Thông Tin Cá Nhân</a
