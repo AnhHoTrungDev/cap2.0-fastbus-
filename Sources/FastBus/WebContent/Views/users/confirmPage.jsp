@@ -13,6 +13,9 @@
 </head>
 
 <body>
+	<!--::header part start::-->
+	<%@ include file="common/menu.jsp"%>
+	<!-- Header part end-->
  <section>
       <div class="container my-5">
         <div class="row">
@@ -130,6 +133,12 @@
         </div>
       </div>
     </section>
+    <!-- footer part start-->
+	<%@ include file="common/footer.jsp"%>
+
+	<!-- Link jquery -->
+	<%@ include file="common/botbootstrap.jsp"%>
+	<script
 </body>
 
 </html>
