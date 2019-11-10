@@ -3,6 +3,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.bean.DiaDiem"%>
 <%@page import="java.util.List"%>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/Views/users/assets/css/homepage.css">
 <!doctype html>
 <html lang="en">
 
@@ -24,7 +25,7 @@
 	<!-- Header part end-->
 
 	<!-- banner part start-->
-	<section class="banner_part">
+	<section class="banner_part full-image">
 		<div class="container">
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-10">
