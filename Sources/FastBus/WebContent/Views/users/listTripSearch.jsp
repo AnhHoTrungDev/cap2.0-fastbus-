@@ -38,7 +38,7 @@
     
     <section class="top_place section_padding">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-start">
                 <div class="col-xl-6">
                     <div class="section_tittle text-center">
                         <h3>Danh sách chuyến xe bạn tìm</h3>
@@ -135,7 +135,7 @@
             <div class="card-body">
               <h5 class="card-title"><%=trip.getNameBusiness() %></h5>
               <span class="card-text">
-                Chuyến xe: từ <%=trip.getStartPlace() %> Đến <%=trip.getEndPlace() %>
+                Chuyến xe: từ <%=trip.getStartPlace() %> - <%=trip.getEndPlace() %>
               </span>
              <div class="clearfix align-items-center my-2">
                 <div class="pull-left rating-container mx-auto">
