@@ -133,7 +133,6 @@
         </div>
       </div>
     </section>
-    
      <%@ include file="common/footer.jsp" %>
      <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
