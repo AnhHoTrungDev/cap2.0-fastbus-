@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import common.Encode;
 import model.bo.UserBO;
 
 /**
@@ -18,45 +19,47 @@ import model.bo.UserBO;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public LoginServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.getCharacterEncoding();
 		response.getCharacterEncoding();
+
+		Encode enCode = new Encode();
 		
-		HttpSession session =request.getSession();
-		String mail= request.getParameter("email");
-		String password= request.getParameter("password");
-		//message: true - false
+		HttpSession session = request.getSession();	
+		String mail = request.getParameter("email");
+		String password = enCode.md5(request.getParameter("password"));
+		// message: true - false
 		String message = new UserBO().CheckLoginBO(mail, password);
-		if(new UserBO().CheckLoginBO(mail, password) =="true") {
+		if (new UserBO().CheckLoginBO(mail, password) == "true") {
 			session.setAttribute("email", mail);
 		}
-        response.getWriter().write(message);
-       
+		response.getWriter().write(message);
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
-	/*
-	 * public static void main(String[] args) { LoginServlet }
-	 */
 
 }

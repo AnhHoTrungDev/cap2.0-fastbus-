@@ -44,6 +44,10 @@ select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date from seatboo
 
 insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) values('','','',N'',3)
 
+---------------------- check duplicate -----------------
+
+select * from account where acc_mail like N'admin@gmail.com.vn'
+
 
 
 

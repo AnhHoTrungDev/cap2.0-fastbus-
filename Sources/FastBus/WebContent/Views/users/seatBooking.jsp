@@ -49,7 +49,7 @@ pageEncoding="UTF-8"%>
         <div class="row mb-5 mt-3">
           <!--Bên  phải Thông tin  -->
           <div class="col-md-4 mt-3 ">
-            <form>
+            <form action="SeatBookingInformationServlet" >
             <% 
             ChuyenXe trip = (ChuyenXe)request.getAttribute("trip");
             %>
