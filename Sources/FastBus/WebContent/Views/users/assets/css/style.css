@@ -2429,7 +2429,7 @@ ul {
 .banner_part .banner_text .banner_text_iner {
   display: table-cell;
   vertical-align: middle;
-  height: 400px;
+  height: 400px; 
 }
 
 @media (max-width: 575px) {
