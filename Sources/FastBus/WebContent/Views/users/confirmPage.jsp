@@ -16,6 +16,15 @@
 	<!--::header part start::-->
     <%@ include file="common/menu.jsp" %>
     <!-- Header part end-->
+<section>
+      <div id="steps" class="container tientrinh">
+        <ul class="list-steps clearfix">
+          <li >Chọn ghế</li>
+          <li class="active first">Thông tin khách hàng</li>
+          <li>Xác nhận</li>
+        </ul>
+      </div>
+    </section>    
  <section>
       <div class="container my-5">
         <div class="row">
