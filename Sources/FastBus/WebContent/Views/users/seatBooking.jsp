@@ -58,9 +58,7 @@ pageEncoding="UTF-8"%>
                   <h3 class="text-center mb-3">Thông tin vé xe</h3>
                   <!-- 1 dòng -->
                   <div class="form-group row">
-                    <label for="Tuyen" class="col-sm-5 col-form-label"
-                      >Tuyến&nbsp;:</label
-                    >
+                    <label for="Tuyen" class="col-sm-5 col-form-label" >Tuyến&nbsp;</label >
                     <div class="col-sm-7">
                       <input type="text" readonly class="form-control-plaintext border-bottom"
                         id="Tuyen" name="trip" value="<%=trip.getStartPlace() %> - <%=trip.getEndPlace() %>" />
@@ -68,8 +66,17 @@ pageEncoding="UTF-8"%>
                   </div>
                   <!-- end -->
                   <!-- 1 dòng -->
+	              <div class="form-group row">
+	                <label for="locationEnd" class="col-sm-5 col-form-label" >Nhà Xe &nbsp;</label>
+	                <div class="col-sm-7">
+	                  <input type="text" readonly class="form-control-plaintext border-bottom" name="business" id="locationEnd" value="<%=trip.getNameBusiness() %>"
+	                  />
+	                </div>
+	              </div>
+              		<!-- end -->
+                  <!-- 1 dòng -->
                   <div class="form-group row"> 
-                  	<label for="departureDay" class="col-sm-5 col-form-label">Ngày khởi hành&nbsp;:</label>
+                  	<label for="departureDay" class="col-sm-5 col-form-label">Ngày khởi hành&nbsp;</label>
                     <div class="col-sm-7 ">
                       <input type="text" readonly class="form-control-plaintext  border-bottom"
                       	id="departureDay" name="startDate" value="<%=trip.getStartDate() %>" />
@@ -78,16 +85,33 @@ pageEncoding="UTF-8"%>
                   <!-- end -->
                   <!-- 1 dòng -->
                   <div class="form-group row">
-                    <label for="departureTime" class="col-sm-5 col-form-label">Giờ khởi hành &nbsp;:</label>
+                    <label for="departureTime" class="col-sm-5 col-form-label">Giờ khởi hành &nbsp;</label>
                     <div class="col-sm-7 ">
-                      <input type="text" readonly class="form-control-plaintext border-bottom"
+                      <input type="time" readonly class="form-control-plaintext border-bottom"
                         id="departureTime" name="startTime" value="<%=trip.getStartTime() %>" />
                     </div>
                   </div>
                   <!-- end -->
                   <!-- 1 dòng -->
-                  <div class="form-group row">
-                    <label for="codeChairOder" class="col-sm-5 col-form-label">Ghế đã chọn &nbsp;:</label>
+                  
+                  <!-- 1 dòng -->
+	              <div class="form-group row">
+	                <label for="departureDay" class="col-sm-5 col-form-label">Thời gian đi &nbsp;</label>
+	                <div class="col-sm-7">
+	                  <input type="time" readonly class="form-control-plaintext border-bottom" id="departureDay" name="totalTime" value="16:20" />
+	                </div>
+	              </div>
+              	  <!-- end -->
+              	  <!-- 1 dòng -->
+	              <div class="form-group row">
+	                <label for="timeFinishExpected" class="col-sm-5 col-form-label">Giờ đến dự kiến &nbsp;</label>
+	                <div class="col-sm-7">
+	                  <input type="time" readonly class="form-control-plaintext border-bottom" id="timeFinishExpected" name="endTime" value="06:00" />
+	                </div>
+	               </div>
+              	  <!-- end -->
+              	  <div class="form-group row">
+                    <label for="codeChairOder" class="col-sm-5 col-form-label">Ghế đã chọn &nbsp;</label>
                     <div class="col-sm-7  ">
                       <input type="text" readonly class="form-control-plaintext border-bottom" id="codeChairOder"
                         value="" placeholder="Bạn chưa chọn ghế nào" name="codeChairOder" />
@@ -96,57 +120,26 @@ pageEncoding="UTF-8"%>
                   <!-- end -->
                   <!-- 1 dòng -->
                   <div class="form-group row">
-                    <label for="fare" class="col-sm-5 col-form-label " >Giá Vé &nbsp;:</label>
+                    <label for="fare" class="col-sm-5 col-form-label " >Giá Vé &nbsp;</label>
                     <div class="col-7">
                       <div class="input-group border-bottom">
-                        <input type="text" readonly class="form-control-plaintext" id="fare" value="0" data-price="<%=trip.getPrice() %>" />
+                        <input type="text" readonly class="form-control-plaintext" id="fare" name="price" value="0" data-price="<%=trip.getPrice() %>" />
                       </div>
                     </div>
                   </div>
                   <!-- end -->
                   <!-- 1 dòng -->
                   <div class="form-group row">
-                    <label for="pickUpLocation:" class="col-sm-5 col-form-label" >Địa điểm đón: &nbsp; </label>
+                    <label for="pickUpLocation:" class="col-sm-5 col-form-label" >Địa điểm đón &nbsp; </label>
                     <div class="col-sm-7 ">
                       <textarea type="text" style="resize: none;" placeholder="   Nhập địa điểm đón" rows="1" name="place"
                         class="form-control-plaintext border border-dark bg-light rounded-lg" id="pickUpLocation" ></textarea>
                     </div>
                   </div>
                   <!-- end -->
-                  <!-- 1 dòng -->
-	              <div class="form-group row">
-	                <label for="departureDay" class="col-sm-5 col-form-label">Giờ khởi hành&nbsp;:</label>
-	                <div class="col-sm-7">
-	                  <input type="time" readonly class="form-control-plaintext border-bottom" id="departureDay" value="16:20" />
-	                </div>
-	              </div>
-              	  <!-- end -->
-              	  <!-- 1 dòng -->
-	              <div class="form-group row">
-	                <label for="timeFinishExpected" class="col-sm-5 col-form-label">Giờ đến dự kiến &nbsp;:</label>
-	                <div class="col-sm-7">
-	                  <input type="time" readonly class="form-control-plaintext border-bottom" id="timeFinishExpected" value="06:00" />
-	                </div>
-	               </div>
-              	  <!-- end -->
-              	  <!-- 1 dòng -->
-	              <div class="form-group row">
-	                <label for="locationEnd" class="col-sm-5 col-form-label" >Điếm Đến Cuối &nbsp;:</label
-	                >
-	                <div class="col-sm-7">
-	                  <input
-	                    type="text"
-	                    readonly
-	                    class="form-control-plaintext border-bottom"
-	                    id="locationEnd"
-	                    value="Bến xe  <%=trip.getEndPlace() %>"
-	                  />
-	                </div>
-	              </div>
-              		<!-- end -->
                   <div class="col-sm-12 text-center mb-3 ">
                     <a class="mr-2" href="#">Quay Lại</a>
-                     <input type="submit" name="submit" class="btn btn-primary ml-2" value="Tiếp Tục" id="checkBeforeConfirm" />
+                    <input type="submit" name="confirmSeatBooking" class="btn btn-primary ml-2" value="Tiếp Tục" id="checkBeforeConfirm" />
                   </div>
                 </div>
               </div>

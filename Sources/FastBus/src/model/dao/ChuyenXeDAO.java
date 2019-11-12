@@ -58,7 +58,7 @@ public class ChuyenXeDAO {
 			innerStartPlace="inner join place p on p.place_id=t.trip_start_place and t.trip_start_date='"+startDate+"' \r\n";
 		}
 		
-		selectPlace = "select t.trip_id,a.acc_name,p.place_name,p1.place_name,t.trip_start_time, t.trip_start_date, t.trip_price from trip t\r\n" + 
+		selectPlace = "select t.trip_id, t.trip_bus_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t\r\n" + 
 				innerStartPlace + innerEndPlace + innerStartProvince + innerEndProvince + 
 				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
 				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
@@ -69,8 +69,8 @@ public class ChuyenXeDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getString(2), rs.getString(3),
-						rs.getString(4), rs.getString(6), rs.getString(5),rs.getFloat(7));
+				ChuyenXe trip= new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getFloat(9));
 				listTrip.add(trip);
 			}
 		} catch (SQLException e) {
@@ -84,7 +84,7 @@ public class ChuyenXeDAO {
 		connection = con.getConnect();
 		ChuyenXe trip = null;
 
-		String selectInfor = "select t.trip_id,a.acc_name,p.place_name,p1.place_name,t.trip_start_time, t.trip_start_date, t.trip_price from trip t\r\n"+
+		String selectInfor = "select t.trip_id, t.trip_bus_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t\r\n"+
 				"inner join place p on p.place_id=t.trip_start_place and trip_id="+idTrip+"\r\n"+
 				"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
 				"inner join province d on p.place_pv_id= d.province_id\r\n" + 
@@ -97,8 +97,8 @@ public class ChuyenXeDAO {
 			ps = connection.prepareStatement(selectInfor);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				trip = new ChuyenXe(rs.getInt("trip_id"), rs.getString("acc_name"), rs.getString(3), rs.getString(4),
-						rs.getString(6), rs.getString(5), rs.getFloat(7));
+				trip= new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getFloat(9));
 
 			}
 		} catch (SQLException e) {
@@ -108,9 +108,5 @@ public class ChuyenXeDAO {
 
 		return trip;
 
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(new ChuyenXeDAO().getListTripByIdDAO(1));
 	}
 }
