@@ -25,5 +25,6 @@ public class splitString {
 		String[] listSeat;
 		
 		listSeat=seat.split(",");
+		return listSeat;
 	}
 }

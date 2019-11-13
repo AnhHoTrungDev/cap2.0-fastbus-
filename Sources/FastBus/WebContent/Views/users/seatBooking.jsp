@@ -53,8 +53,8 @@ pageEncoding="UTF-8"%>
             <% 
             ChuyenXe trip = (ChuyenXe)request.getAttribute("trip");
             %>
-              <div class="border div-background-shadow">
-                <div class=" pt-3 px-2">
+              <div class="border div-background-shadow rounded">
+                <div class=" pt-3 pl-3 px-2">
                   <h3 class="text-center mb-3">Thông tin vé xe</h3>
                   <!-- 1 dòng -->
                   <div class="form-group row">
@@ -133,7 +133,7 @@ pageEncoding="UTF-8"%>
                     <label for="pickUpLocation:" class="col-sm-5 col-form-label" >Địa điểm đón &nbsp; </label>
                     <div class="col-sm-7 ">
                       <textarea type="text" style="resize: none;" placeholder="   Nhập địa điểm đón" rows="1" name="place"
-                        class="form-control-plaintext border border-dark bg-light rounded-lg" id="pickUpLocation" ></textarea>
+                        class="form-control-plaintext border border-dark bg-light rounded" id="pickUpLocation" ></textarea>
                     </div>
                   </div>
                   <!-- end -->
@@ -150,7 +150,7 @@ pageEncoding="UTF-8"%>
           <!-- CHỌN GHẾ  BÊNH TRÁI -->
           <div class="col-md-6 mt-3">
             <div
-              class="col-md-12 border div-background-shadow pt-3 px-2 text-center"
+              class="col-md-12 border div-background-shadow pt-3 px-2 text-center rounded"
             >
               <!-- chọn tầng -->
               <ul
