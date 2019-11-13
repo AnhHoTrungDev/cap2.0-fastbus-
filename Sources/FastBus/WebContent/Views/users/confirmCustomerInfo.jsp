@@ -37,11 +37,12 @@
 							<legend>
 								<h3 class="text-danger">Thông Tin Khách Hàng</h3>
 							</legend>
-							<form action="SeatBookingInformationServlet">
-								
+
+							<form id="comfirmCustomerInfor" action="SeatBookingInformationServlet">
+
 								<!--  -->
 								<div class="form-group">
-									<label for="fullName">Họ & Tên</label> <input type="email"
+									<label for="fullName">Họ & Tên</label> <input type="text"
 										class="form-control" id="fullName" name="name"
 										placeholder="Nhập họ và tên" />
 								</div>
@@ -56,13 +57,13 @@
 								<!--  -->
 								<div class="form-group">
 									<label for="phone">Phone</label> <input type="number"
-										class="form-control" id="phone" placeholder="Số Điện thoại" />
+										class="form-control" id="phone" name="phone" placeholder="Số Điện thoại" />
 								</div>
 								<!--  -->
 								<!--  -->
 								<div class="form-group">
 									<label for="phone">Địa chỉ</label>
-									<textarea class="form-control" id="phone" rows="3"
+									<textarea class="form-control" id="address" rows="3"
 										name="address"></textarea>
 								</div>
 								<!--  -->
