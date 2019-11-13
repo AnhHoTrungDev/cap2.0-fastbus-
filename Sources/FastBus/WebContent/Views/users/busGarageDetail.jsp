@@ -115,7 +115,8 @@
 						<label for="rangtingBus" class="col-sm-5 col-form-label">Đánh
 							gía &nbsp; </label>
 						<div class="col-sm-7 ">
-							<div id="rangtingBus" class="show-poin-start-read d-inline-block" value-star="2.8"></div>
+							<div id="rangtingBus" class="show-poin-start-read d-inline-block"
+								value-star="2.8"></div>
 							<div class="d-inline-block">
 								<span id="rangtingBus" class="poinRead"></span>
 							</div>
@@ -207,3 +208,11 @@ Mang một phong cách nổi bật và hiện đại, màu cam của xe Phương
 </body>
 
 </html>
+<script>
+	$(".curency-table").each(function() {
+		$(this).html(new Intl.NumberFormat('it-IT', {
+			style : 'currency',
+			currency : 'VND'
+		}).format(Number(parseInt(this.textContent))));
+	});
+</script>
