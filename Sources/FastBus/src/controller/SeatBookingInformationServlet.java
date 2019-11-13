@@ -8,6 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.sun.org.apache.bcel.internal.generic.FLOAD;
+
+import model.bean.ChuyenXe;
+import model.bean.User;
 
 /**
  * Servlet implementation class SeatBookingInformationServlet
@@ -29,7 +35,11 @@ public class SeatBookingInformationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session =request.getSession();
 		
+		ChuyenXe tripInfor=null;
+		
+		String url="";
 		String trip ="";
 		String businessName="";
 		String startPlace="";
@@ -50,8 +60,10 @@ public class SeatBookingInformationServlet extends HttpServlet {
         	startTime=request.getParameter("startTime");
         	totalTime=request.getParameter("totalTime");
         	endTime=request.getParameter("endTime");
-        	seat=request.getParameter("codeChairOder");
-        	price=request.getParameter("price");
+        	seat=request.getParameter("codeChairOder");      	
+        	price= (request.getParameter("price").split("₫")[0]).toString();
+        	
+        	System.out.println();
         	place=request.getParameter("place");
         	
         	String str[];
@@ -59,11 +71,26 @@ public class SeatBookingInformationServlet extends HttpServlet {
         	startPlace=str[0];
         	endPlace=str[1];
         	
+        	tripInfor= new ChuyenXe(businessName, startPlace, endPlace, startDate, startTime, endTime, 100000);
         	
+        	session.setAttribute("tripInfo", tripInfor );
+        	session.setAttribute("seat", seat);
+        	
+        	url="Views/users/confirmCustomerInfo.jsp";
         	
         }
-		
-		RequestDispatcher rd= request.getRequestDispatcher("LoadHomePageServlet");
+        
+        if("Tiếp Tục".equalsIgnoreCase(request.getParameter("confirmInfo"))) {
+        	tripInfor=(ChuyenXe)session.getAttribute("tripInfo");
+        	seat=(String)session.getAttribute("seat");
+        	url="";
+        	
+        }
+        
+        
+        
+        
+		RequestDispatcher rd= request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 

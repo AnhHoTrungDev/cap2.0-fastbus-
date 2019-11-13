@@ -15,15 +15,19 @@
 
 package common;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class splitString {
 	
-	public String[] splitSeat(String seat) {
+	public String splitSeat(String seat) {
 		
-		String[] listSeat;
+		String listSeat;
 		
-		listSeat=seat.split(",");
+		listSeat=seat.split("₫")[0].trim();
+		
+		return listSeat;
 	}
+	
+//	public static void main(String[] args) {
+//		System.out.println(new splitString().splitSeat("500 ₫"));
+//	}
 }

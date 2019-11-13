@@ -1,3 +1,5 @@
+<%@page import="model.bean.ChuyenXe"%>
+<%@page import="model.bean.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
@@ -35,7 +37,8 @@
 							<legend>
 								<h3 class="text-danger">Thông Tin Khách Hàng</h3>
 							</legend>
-							<form>
+							<form action="SeatBookingInformationServlet">
+								
 								<!--  -->
 								<div class="form-group">
 									<label for="fullName">Họ & Tên</label> <input type="email"
@@ -72,8 +75,7 @@
 								</div>
 								<!--  -->
 								<a href="" class="mr-2">Quay Lại</a>
-								<button type="submit" class="btn btn-primary my-3">
-									Submit</button>
+								<button type="submit" name="confirmInfo" class="btn btn-primary my-3">Tiếp Tục</button>
 							</form>
 						</div>
 					</div>

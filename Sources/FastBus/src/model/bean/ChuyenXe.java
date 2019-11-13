@@ -117,6 +117,19 @@ public class ChuyenXe {
 		this.price = price;
 	}
 
+	
+	public ChuyenXe(String nameBusiness, String startPlace, String endPlace, String startDate,
+			String startTime, String endTime, float price) {
+		super();
+		this.nameBusiness = nameBusiness;
+		this.startPlace = startPlace;
+		this.endPlace = endPlace;
+		this.startDate = startDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.price = price;
+	}
+
 	public ChuyenXe() {
 		super();
 	}
