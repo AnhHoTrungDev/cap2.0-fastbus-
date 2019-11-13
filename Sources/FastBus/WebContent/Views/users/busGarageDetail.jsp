@@ -18,7 +18,7 @@
 	<%@ include file="common/menu.jsp"%>
 	<!-- Header part end-->
 	<section>
-		<div class="container my-5">
+		<div class="container my-5 bg-light p-3 rounded">
 			<div class="col-sm-12 text-center mb-5 text-danger">
 				<h1>Thông tin nhà xe</h1>
 			</div>
@@ -26,8 +26,7 @@
 				<!-- ảnh chay -->
 				<div class="col-sm-6 ">
 					<div id="carouselExampleControls"
-						class="carousel slide shadow p-3 mb-5 bg-white rounded"
-						data-ride="carousel">
+						class="carousel slide shadow m-3 rounded" data-ride="carousel">
 						<!-- chứa ảnh -->
 						<div class="carousel-inner">
 							<!-- cái đầu tiên có active mấy cái sau không cần, nhưng cái đầu   phải có -->
@@ -113,7 +112,7 @@
 					<!-- 1 dòng -->
 					<div class="form-group row">
 						<label for="rangtingBus" class="col-sm-5 col-form-label">Đánh
-							gía &nbsp; </label>
+							giá &nbsp; </label>
 						<div class="col-sm-7 ">
 							<div id="rangtingBus" class="show-poin-start-read d-inline-block"
 								value-star="2.8"></div>
@@ -139,8 +138,8 @@ Mang một phong cách nổi bật và hiện đại, màu cam của xe Phương
 		</div>
 	</section>
 	<!-- table booking bus -->
-	<section class="bg-light p-3">
-		<div class="container">
+	<section class="mb-5">
+		<div class="container bg-light p-3 rounded">
 			<div class="row">
 				<div class="col-sm-12 pt-4">
 					<h1 class="text-center">Các Chuyến Xe Nhà Xe Khai Thác</h1>
