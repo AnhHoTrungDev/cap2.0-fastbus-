@@ -59,12 +59,12 @@
 						<!-- end chứa ảnh -->
 						<a class="carousel-control-prev" href="#carouselExampleControls"
 							role="button" data-slide="prev"> <span
-							class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="sr-only">Previous</span>
+							class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+							class="sr-only">Previous</span>
 						</a> <a class="carousel-control-next" href="#carouselExampleControls"
 							role="button" data-slide="next"> <span
-							class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="sr-only">Next</span>
+							class="carousel-control-next-icon" aria-hidden="true"></span> <span
+							class="sr-only">Next</span>
 						</a>
 					</div>
 					<div class="col-sm-12">
@@ -110,10 +110,22 @@
 						</div>
 					</div>
 					<!-- end -->
+					<!-- 1 dòng -->
+					<div class="form-group row">
+						<label for="rangtingBus" class="col-sm-5 col-form-label">Đánh
+							gía &nbsp; </label>
+						<div class="col-sm-7 ">
+							<div id="rangtingBus" class="show-poin-start-read d-inline-block" value-star="2.8"></div>
+							<div class="d-inline-block">
+								<span id="rangtingBus" class="poinRead"></span>
+							</div>
+						</div>
+					</div>
+					<!-- end -->
 					<!--  -->
 					<div class="form-group">
-						<label for="contentGarage" class="col-form-label">Xe
-							khách Phương Trang : </label>
+						<label for="contentGarage" class="col-form-label">Xe khách
+							Phương Trang : </label>
 						<textarea class="form-control-plaintext border-bottom"
 							id="contentGarage" rows="10" name="contentGarage"
 							placeholder="contentGarage" readonly>

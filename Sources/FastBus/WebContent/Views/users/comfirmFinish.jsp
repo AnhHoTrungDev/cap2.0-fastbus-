@@ -77,7 +77,7 @@
 								<div class="form-group">
 									<label for="phone" class="col-form-label">địa chỉ</label>
 									<textarea class="form-control-plaintext border-bottom"
-										id="phone" rows="1" name="address" placeholder="Địa chỉ"
+										id="address" rows="1" name="address" placeholder="Địa chỉ"
 										readonly>54 mai hắc đế quận sơn trà Đà Nẵng</textarea>
 								</div>
 								<!--  -->
