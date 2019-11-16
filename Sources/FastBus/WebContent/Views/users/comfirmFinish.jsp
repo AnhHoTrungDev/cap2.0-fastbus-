@@ -1,3 +1,5 @@
+<%@page import="model.bean.ChuyenXe"%>
+<%@page import="model.bean.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
@@ -36,40 +38,38 @@
 								<legend>
 									<h3 class="text-danger">Thông Tin Khách Hàng</h3>
 								</legend>
-
+								<%
+									User user= (User)session.getAttribute("user");
+									String seat =(String)session.getAttribute("seat");
+									ChuyenXe trip =(ChuyenXe)session.getAttribute("tripInfo");
+									
+								%>
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="fullName:" class="col-sm-5 col-form-label">Họ
-										& Tên &nbsp; </label>
+									<label for="fullName:" class="col-sm-5 col-form-label">Họ & Tên &nbsp; </label>
 									<div class="col-sm-7 ">
 										<input type="text"
 											class="form-control-plaintext  border-bottom" id="fullName"
-											name="name" placeholder="Nhập họ và tên" value="Quốc ml :V"
-											readonly />
+											name="name" placeholder="Nhập họ và tên" value="<%=user.getName() %>" readonly />
 									</div>
 								</div>
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="email:" class="col-sm-5 col-form-label">Email
-										&nbsp; </label>
+									<label for="email:" class="col-sm-5 col-form-label">Email&nbsp; </label>
 									<div class="col-sm-7 ">
-										<input type="text"
-											class="form-control-plaintext  border-bottom" id="email"
-											name="email" placeholder="Enter email"
-											value="admin@gmail.com.vn" readonly />
+										<input type="text" class="form-control-plaintext  border-bottom" id="email" name="email" placeholder="Enter email"
+											value="<%=user.getEmail() %>" readonly />
 									</div>
 								</div>
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="email:" class="col-sm-5 col-form-label">Phone
-										&nbsp; </label>
+									<label for="email:" class="col-sm-5 col-form-label">Phone &nbsp; </label>
 									<div class="col-sm-7 ">
 										<input type="number"
 											class="form-control-plaintext  border-bottom" id="phone"
-											name="phone" placeholder="Số Điện thoại" value="0905258533"
-											readonly />
+											name="phone" placeholder="Số Điện thoại" value="<%=user.getPhone() %>" readonly />
 									</div>
 								</div>
 								<!-- end -->
@@ -78,7 +78,7 @@
 									<label for="phone" class="col-form-label">địa chỉ</label>
 									<textarea class="form-control-plaintext border-bottom"
 										id="address" rows="1" name="address" placeholder="Địa chỉ"
-										readonly>54 mai hắc đế quận sơn trà Đà Nẵng</textarea>
+										readonly><%=user.getAddess() %></textarea>
 								</div>
 								<!--  -->
 								<!--  -->
@@ -97,40 +97,36 @@
 									<div class="col-sm-7">
 										<input type="text" readonly
 											class="form-control-plaintext border-bottom" id="Tuyen"
-											name="trip" value="Đà Nẵng - Đà Lat" />
+											name="trip" value="<%=trip.getStartPlace()%> - <%=trip.getEndPlace() %>" />
 									</div>
 								</div>
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="locationEnd" class="col-sm-5 col-form-label">Nhà
-										Xe &nbsp;</label>
+									<label for="locationEnd" class="col-sm-5 col-form-label">Nhà Xe &nbsp;</label>
 									<div class="col-sm-7">
 										<input type="text" readonly
 											class="form-control-plaintext border-bottom" name="business"
-											id="locationEnd" value="Qốc ML" />
+											id="locationEnd" value="<%=trip.getNameBusiness() %>" />
 									</div>
 								</div>
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="departureDay" class="col-sm-5 col-form-label">Ngày
-										khởi hành&nbsp;</label>
+									<label for="departureDay" class="col-sm-5 col-form-label">Ngày khởi hành&nbsp;</label>
 									<div class="col-sm-7 ">
 										<input type="text" readonly
 											class="form-control-plaintext  border-bottom"
-											id="departureDay" name="startDate" value="11/11/2019" />
+											id="departureDay" name="startDate" value="<%=trip.getStartDate() %>" />
 									</div>
 								</div>
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="departureTime" class="col-sm-5 col-form-label">Giờ
-										khởi hành &nbsp;</label>
+									<label for="departureTime" class="col-sm-5 col-form-label">Giờ khởi hành &nbsp;</label>
 									<div class="col-sm-7 ">
-										<input type="time" readonly
-											class="form-control-plaintext border-bottom"
-											id="departureTime" name="startTime" value="05:20" />
+										<input type="time" readonly class="form-control-plaintext border-bottom"
+										 id="departureTime" name="startTime" value="<%=trip.getStartTime() %>" />
 									</div>
 								</div>
 								<!-- end -->
@@ -159,25 +155,19 @@
 								</div>
 								<!-- end -->
 								<div class="form-group row">
-									<label for="codeChairOder" class="col-sm-5 col-form-label">Ghế
-										đã chọn &nbsp;</label>
+									<label for="codeChairOder" class="col-sm-5 col-form-label">Ghế đã chọn &nbsp;</label>
 									<div class="col-sm-7  ">
-										<input type="text" readonly
-											class="form-control-plaintext border-bottom"
-											id="codeChairOder" value=""
+										<input type="text" readonly class="form-control-plaintext border-bottom" id="codeChairOder" value="<%=seat %>"
 											placeholder="Bạn chưa chọn ghế nào" name="codeChairOder" />
 									</div>
 								</div>
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="fare" class="col-sm-5 col-form-label ">Giá
-										Vé &nbsp;</label>
+									<label for="fare" class="col-sm-5 col-form-label ">Giá Vé &nbsp;</label>
 									<div class="col-7">
 										<div class="input-group border-bottom">
-											<input type="text" readonly class="form-control-plaintext"
-												id="fare" name="price" value="0"
-												data-price="25000" />
+											<input type="text" readonly class="form-control-plaintext" id="fare" name="price" value="<%=trip.getPrice() %>" />
 										</div>
 									</div>
 								</div>

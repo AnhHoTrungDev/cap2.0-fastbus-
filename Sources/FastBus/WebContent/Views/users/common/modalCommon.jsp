@@ -45,7 +45,7 @@ pageEncoding="UTF-8"%>
                       class="form-control"
                       id="inputEmail3"
                       name="mail"
-                      placeholder="Email"
+                      placeholder="Email" value="admin@gmail.com.vn"
                       required
                     />
                   </div>
@@ -64,7 +64,7 @@ pageEncoding="UTF-8"%>
                       class="form-control"
                       name="password"
                       id="inputPassword3"
-                      placeholder="Mật khẩu"
+                      placeholder="Mật khẩu" value="123456"
                       required
                     />
                   </div>

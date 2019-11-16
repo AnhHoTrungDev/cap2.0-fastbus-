@@ -18,16 +18,22 @@ package common;
 
 public class splitString {
 	
-	public String splitSeat(String seat) {
+	public float splitSeat(String seat) {
 		
-		String listSeat;
+		float listSeat;
 		
-		listSeat=seat.split("₫")[0].trim();
-		
+		listSeat=Float.parseFloat(seat.split(" ")[0]);
+			
+		String name ="ghbjnkml,kjhghb";
 		return listSeat;
 	}
 	
-//	public static void main(String[] args) {
-//		System.out.println(new splitString().splitSeat("500 ₫"));
-//	}
+	public static void main(String[] args) {
+		String s1 = "welcome to split world";
+		  System.out.println("returning words:");
+		  
+		   System.out.println(s1.split("\\s", 0).toString());
+		  
+		 
+	}
 }

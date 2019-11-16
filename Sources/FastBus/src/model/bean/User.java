@@ -114,4 +114,19 @@ public class User {
 		this.name=name;
 		this.message=message;
 	}
+	
+	public User(String email,String name,String address) {
+		super();
+		this.email=email;
+		this.name=name;
+		this.addess=address;
+	}
+	
+	public User(String email,String name,String phone, String address,String a,String b ) {
+		super();
+		this.email=email;
+		this.phone = phone;
+		this.name=name;
+		this.addess=address;
+	}
 }

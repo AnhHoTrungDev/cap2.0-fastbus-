@@ -48,6 +48,12 @@ insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) v
 
 select * from account where acc_mail like N'admin@gmail.com.vn'
 
+------------------------- inssert thong tin khach hang.--------------------
+
+select acc_name, acc_mail, acc_phone, acc_password from account where acc_name=N'Administrator'
+
+
+
 
 
 

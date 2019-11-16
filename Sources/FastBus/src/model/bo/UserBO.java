@@ -29,4 +29,7 @@ public class UserBO {
 	public int insertUserBO(User user) {
 		return new UserDAO().insertUserDAO(user);
 	}
+	public User getAccountByNameBO(String name) {
+		return new UserDAO().getAccountByNameDAO(name);
+	}
 }

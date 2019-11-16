@@ -121,6 +121,28 @@ public class UserDAO {
 		return check;
 	}
 
+	public User getAccountByNameDAO(String name) {
+		connection = con.getConnect();
+		userInfo=null;
+		String gettUser = "select acc_name, acc_mail, acc_phone, acc_password from account where acc_name=?";
+		
+		try {
+			ps = connection.prepareStatement(gettUser);
+			ps.setString(1, name);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				userInfo=new User(rs.getString("acc_mail"), rs.getString("acc_password"), rs.getString("acc_phone"), rs.getString("acc_name"), "Đây là địa chỉ");
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return userInfo;
+	}
 //	public static void main(String[] args) {
 //		connection = con.getConnect();
 //		System.out.println(new UserDAO().checkDuplicateAccount(connection, "admin@gmail.com.vn"));

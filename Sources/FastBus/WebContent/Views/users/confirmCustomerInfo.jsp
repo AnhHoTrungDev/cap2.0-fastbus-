@@ -39,32 +39,34 @@
 							</legend>
 
 							<form id="comfirmCustomerInfor" action="SeatBookingInformationServlet">
-
+								<% 
+									User user= (User)request.getAttribute("getUser");
+								%>
 								<!--  -->
 								<div class="form-group">
-									<label for="fullName">Họ & Tên</label> <input type="text"
-										class="form-control" id="fullName" name="name"
-										placeholder="Nhập họ và tên" />
+									<label for="fullName">Họ & Tên</label> 
+									<input type="text" class="form-control" id="fullName" name="name"
+										placeholder="Nhập họ và tên" value="<%=user.getName() %>" />
 								</div>
 								<!--  -->
 								<!--  -->
 								<div class="form-group">
-									<label for="email">Email</label> <input type="email"
-										class="form-control" id="email" aria-describedby="emailHelp"
-										placeholder="Enter email" name="email" />
+									<label for="email">Email</label> 
+									<input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+										placeholder="Enter email" name="mail" value="<%=user.getEmail() %>" />
 								</div>
 								<!--  -->
 								<!--  -->
 								<div class="form-group">
-									<label for="phone">Phone</label> <input type="number"
-										class="form-control" id="phone" name="phone" placeholder="Số Điện thoại" />
+									<label for="phone">Phone</label> 
+									<input type="number" class="form-control" id="phone" name="phone" placeholder="Số Điện thoại" value="<%=user.getPhone() %>" />
 								</div>
 								<!--  -->
 								<!--  -->
 								<div class="form-group">
 									<label for="phone">Địa chỉ</label>
 									<textarea class="form-control" id="address" rows="3"
-										name="address"></textarea>
+										name="address" ><%=user.getAddess() %></textarea>
 								</div>
 								<!--  -->
 								<!--  -->
@@ -76,7 +78,7 @@
 								</div>
 								<!--  -->
 								<a href="" class="mr-2">Quay Lại</a>
-								<button type="submit" name="confirmInfo" class="btn btn-primary my-3">Tiếp Tục</button>
+								<button type="submit" name="confirmInfo" class="btn btn-primary my-3" value="Tiếp Tục">Tiếp Tục</button>
 							</form>
 						</div>
 					</div>
@@ -85,7 +87,7 @@
 					<div class="card">
 						<div class="card-body">
 							<legend>
-								<h3 class="text-danger">Điều Khoản & Lưu Ý</h3>
+								<h3 class="text-danger"> Điều Khoản & Lưu Ý</h3>
 							</legend>
 							<p>
 								<strong class="text-danger">(*)</strong> Quý khách vui lòng mang
