@@ -75,10 +75,8 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			price = Float.parseFloat(ab);
 			place = request.getParameter("place");
 
-			String str[];
-			str = trip.split("-");
-			startPlace = str[0];
-			endPlace = str[1];
+			startPlace = trip.split("-")[0];
+			endPlace = trip.split("-")[1];
 
 			tripInfor = new ChuyenXe(businessName, startPlace, endPlace, startDate, startTime, endTime, price);
 
