@@ -3,7 +3,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.bean.DiaDiem"%>
 <%@page import="java.util.List"%>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/Views/users/assets/css/homepage.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/Views/users/assets/css/homepage.css">
 <!doctype html>
 <html lang="en">
 
@@ -60,10 +61,11 @@
 							<div class="tab-pane fade show active" id="hotel" role="tabpanel"
 								aria-labelledby="hotel-tab">
 								<div class="booking_form">
-									<form action="<%=request.getContextPath() %>/SearchTripServlet">
+									<form action="<%=request.getContextPath()%>/SearchTripServlet">
 										<div class="form-row">
 											<div class="form_colum">
-												<select class="nc_select" name="startPlace">
+												<select class="w-100 js-example-basic-single"
+													name="startPlace">
 													<option selected value="">Nơi đi</option>
 													<%
 														for (DiaDiem lPlace : (List<DiaDiem>) request.getAttribute("listPlace")) {
@@ -154,7 +156,7 @@
 									trường hợp không hiếm gặp khi đi xe khách..</p>
 							</div>
 							<div class="card-footer text-right">
-								 <a href="#" class="">xem thêm</a>
+								<a href="#" class="">xem thêm</a>
 							</div>
 						</div>
 					</div>
@@ -283,4 +285,9 @@
 	<%@ include file="common/botbootstrap.jsp"%>
 	<script
 		src="<%=request.getContextPath()%>/Views/js/multiplecarousel.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.js-example-basic-single').select2();
+		});
+	</script>
 </html>

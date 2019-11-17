@@ -3,6 +3,7 @@
 	
     <link rel="icon" href="https://img.icons8.com/clouds/100/000000/bus.png">
     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"

@@ -31,6 +31,7 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 <!-- Model Login -->
     	<%@ include file="modalCommon.jsp" %>
 <!-- End Model Login -->
