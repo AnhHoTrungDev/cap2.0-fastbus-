@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.sun.org.apache.bcel.internal.generic.FLOAD;
-
 import model.bean.ChuyenXe;
+import model.bean.SeatBooking;
 import model.bean.User;
+import model.bo.SeatBookingBO;
 import model.bo.UserBO;
 
 /**
@@ -44,6 +46,7 @@ public class SeatBookingInformationServlet extends HttpServlet {
 
 		String url = "";
 		String trip = "";
+		int idTrip = 0;
 		String businessName = "";
 		String startPlace = "";
 		String endPlace = "";
@@ -55,30 +58,31 @@ public class SeatBookingInformationServlet extends HttpServlet {
 		String seat = "";
 		String place = "";
 		float price = 0;
-		String userName="";
-		String mail="";
-		String phone="";
-		String address="";
+		String userName = "";
+		String mail = "";
+		String phone = "";
+		String address = "";
 
 		if ("Tiếp Tục".equalsIgnoreCase(request.getParameter("confirmSeatBooking"))) {
 			trip = request.getParameter("trip");
+			idTrip = Integer.parseInt(request.getParameter("idTrip"));
 			businessName = request.getParameter("business");
 			startDate = request.getParameter("startDate");
 			startTime = request.getParameter("startTime");
 			totalTime = request.getParameter("totalTime");
 			endTime = request.getParameter("endTime");
 			seat = request.getParameter("codeChairOder");
-			
-			String pr= request.getParameter("price");
-			String ab = pr.substring(0, pr.length()-2);
-			
+
+			String pr = request.getParameter("price");
+			String ab = pr.substring(0, pr.length() - 2);
+
 			price = Float.parseFloat(ab);
 			place = request.getParameter("place");
 
 			startPlace = trip.split("-")[0];
 			endPlace = trip.split("-")[1];
 
-			tripInfor = new ChuyenXe(businessName, startPlace, endPlace, startDate, startTime, endTime, price);
+			tripInfor = new ChuyenXe(idTrip, businessName, startPlace, endPlace, startDate, startTime, endTime, price);
 
 			session.setAttribute("tripInfo", tripInfor);
 			session.setAttribute("seat", seat);
@@ -86,21 +90,39 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			if (session.getAttribute("acc_name") != null) {
 				User getUser = new UserBO().getAccountByNameBO((String) session.getAttribute("acc_name"));
 
-				request.setAttribute("getUser", getUser);
+				session.setAttribute("getUser", getUser);
 			}
 			url = "Views/users/confirmCustomerInfo.jsp";
 		}
 
 		if ("Tiếp Tục".equalsIgnoreCase(request.getParameter("confirmInfo"))) {
-			userName= request.getParameter("name");
-			mail=request.getParameter("mail");
-			phone=request.getParameter("phone");
-			address= request.getParameter("address");
-			User user=new User(mail, userName, phone, address, null, null);
+			userName = request.getParameter("name");
+			mail = request.getParameter("mail");
+			phone = request.getParameter("phone");
+			address = request.getParameter("address");
+			User user = new User(mail, userName, phone, address, null, null);
 			session.setAttribute("user", user);
-			
-			url="Views/users/comfirmFinish.jsp";
 
+			url = "Views/users/comfirmFinish.jsp";
+
+		}
+		if ("Xác nhận".equalsIgnoreCase(request.getParameter("confirmFinish"))) {
+
+			tripInfor = (ChuyenXe) session.getAttribute("tripInfo");
+			User user = (User) session.getAttribute("getUser");
+			
+			List<SeatBooking> listSeat= new ArrayList<SeatBooking>();
+			for (String aSeat : ((String) session.getAttribute("seat")).split(",") ) {
+				SeatBooking sb= new SeatBooking(tripInfor.getIdTrip(), user.getEmail(), aSeat);
+				listSeat.add(sb);
+			}
+			
+			if(new SeatBookingBO().insertSeatBO(listSeat)==1) {
+				url="LoadHomePageServlet";
+			}else {
+				url="Views/users/busGarageDetail.jsp";
+			}
+		
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);

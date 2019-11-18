@@ -40,7 +40,7 @@
 
 							<form id="comfirmCustomerInfor" action="SeatBookingInformationServlet">
 								<% 
-									User user= (User)request.getAttribute("getUser");
+									User user= (User)session.getAttribute("getUser");
 								%>
 								<!--  -->
 								<div class="form-group">

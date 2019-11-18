@@ -60,6 +60,7 @@ pageEncoding="UTF-8"%>
                   <div class="form-group row">
                     <label for="Tuyen" class="col-sm-5 col-form-label" >Tuyến&nbsp;</label >
                     <div class="col-sm-7">
+                      <input type="hidden" value="<%=trip.getIdTrip()%>" name="idTrip"/>
                       <input type="text" readonly class="form-control-plaintext border-bottom"
                         id="Tuyen" name="trip" value="<%=trip.getStartPlace() %> - <%=trip.getEndPlace() %>" />
                     </div>

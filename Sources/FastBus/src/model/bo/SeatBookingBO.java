@@ -24,4 +24,8 @@ public class SeatBookingBO {
 	public List<SeatBooking> getListSeatBookingByIdBO(int idTrip){
 		return new SeatBookingDAO().getListSeatBookingByIdDAO(idTrip);
 	}
+	
+	public int insertSeatBO(List<SeatBooking> seat) {
+		return new SeatBookingDAO().insertSeatDAO(seat);
+	}
 }

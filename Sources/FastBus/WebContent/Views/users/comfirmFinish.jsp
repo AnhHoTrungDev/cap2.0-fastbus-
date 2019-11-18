@@ -30,7 +30,7 @@
 	</section>
 	<section>
 		<div class="container my-5">
-			<form id="">
+			<form action="SeatBookingInformationServlet">
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="card">
@@ -39,7 +39,7 @@
 									<h3 class="text-danger">Thông Tin Khách Hàng</h3>
 								</legend>
 								<%
-									User user= (User)session.getAttribute("user");
+									User user= (User)session.getAttribute("getUser");
 									String seat =(String)session.getAttribute("seat");
 									ChuyenXe trip =(ChuyenXe)session.getAttribute("tripInfo");
 									
@@ -188,8 +188,7 @@
 					</div>
 					<div class="col-sm-5 m-auto">
 						<a href="" class="mr-2">Quay Lại</a>
-						<button type="submit" class="btn btn-primary my-3">xác
-							nhận</button>
+						<button type="submit" class="btn btn-primary my-3" name="confirmFinish" value="Xác nhận">Xác nhận</button>
 					</div>
 				</div>
 			</form>

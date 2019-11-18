@@ -118,9 +118,10 @@ public class ChuyenXe {
 	}
 
 	
-	public ChuyenXe(String nameBusiness, String startPlace, String endPlace, String startDate,
+	public ChuyenXe(int idTrip, String nameBusiness, String startPlace, String endPlace, String startDate,
 			String startTime, String endTime, float price) {
 		super();
+		this.idTrip = idTrip;
 		this.nameBusiness = nameBusiness;
 		this.startPlace = startPlace;
 		this.endPlace = endPlace;

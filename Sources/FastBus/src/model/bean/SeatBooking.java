@@ -60,6 +60,14 @@ public class SeatBooking {
 		this.seatName = seatName;
 		this.seatDate = seatDate;
 	}
+	
+	public SeatBooking(int tripId, String seatMail, String seatName) {
+		super();
+		this.tripId = tripId;
+		this.seatMail = seatMail;
+		this.seatName = seatName;
+	}
+	
 	public SeatBooking() {
 		super();
 	}

@@ -15,25 +15,22 @@
 
 package common;
 
+import java.time.LocalDate;
 
 public class splitString {
 	
-	public float splitSeat(String seat) {
+	public String[] splitSeat(String seat) {
 		
-		float listSeat;
+		String[] listSeat=null;
 		
-		listSeat=Float.parseFloat(seat.split(" ")[0]);
-			
-		String name ="ghbjnkml,kjhghb";
+			listSeat=seat.split("\\s");
 		return listSeat;
 	}
 	
 	public static void main(String[] args) {
 		String s1 = "welcome to split world";
-		  System.out.println("returning words:");
-		  
-		   System.out.println(s1.split("\\s", 0).toString());
-		  
+		  System.out.println(LocalDate.now().toString());
+	
 		 
 	}
 }
