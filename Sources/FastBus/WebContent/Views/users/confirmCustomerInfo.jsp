@@ -38,47 +38,51 @@
 								<h3 class="text-danger">Thông Tin Khách Hàng</h3>
 							</legend>
 
-							<form id="comfirmCustomerInfor" action="SeatBookingInformationServlet">
-								<% 
-									User user= (User)session.getAttribute("getUser");
+							<form id="comfirmCustomerInfor"
+								action="SeatBookingInformationServlet">
+								<%
+									User user = (User) session.getAttribute("getUser");
 								%>
 								<!--  -->
 								<div class="form-group">
-									<label for="fullName">Họ & Tên</label> 
-									<input type="text" class="form-control" id="fullName" name="name"
-										placeholder="Nhập họ và tên" value="<%=user.getName() %>" />
+									<label for="fullName">Họ & Tên</label> <input type="text"
+										class="form-control" id="fullName" name="name"
+										placeholder="Nhập họ và tên" value="<%=user.getName()%>" />
 								</div>
 								<!--  -->
 								<!--  -->
 								<div class="form-group">
-									<label for="email">Email</label> 
-									<input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-										placeholder="Enter email" name="mail" value="<%=user.getEmail() %>" />
+									<label for="email">Email</label> <input type="email"
+										class="form-control" id="email" aria-describedby="emailHelp"
+										placeholder="Enter email" name="mail"
+										value="<%=user.getEmail()%>" />
 								</div>
 								<!--  -->
 								<!--  -->
 								<div class="form-group">
-									<label for="phone">Phone</label> 
-									<input type="number" class="form-control" id="phone" name="phone" placeholder="Số Điện thoại" value="<%=user.getPhone() %>" />
+									<label for="phone">Phone</label> <input type="number"
+										class="form-control" id="phone" name="phone"
+										placeholder="Số Điện thoại" value="<%=user.getPhone()%>" />
 								</div>
 								<!--  -->
 								<!--  -->
 								<div class="form-group">
 									<label for="phone">Địa chỉ</label>
 									<textarea class="form-control" id="address" rows="3"
-										name="address" ><%=user.getAddess() %></textarea>
+										name="address"><%=user.getAddess()%></textarea>
 								</div>
 								<!--  -->
 								<!--  -->
 								<div class="form-check">
 									<input type="checkbox" class="form-check-input" id="checkRules"
-										name="checkRules" /> <label
-										class="form-check-label" for="exampleCheck1">Chấp
-										Nhận điều khoản Đặt vé Của Fasbus</label>
+										name="checkRules[]" /> <label class="form-check-label"
+										for="exampleCheck1">Chấp Nhận điều khoản Đặt vé Của
+										Fasbus</label>
 								</div>
 								<!--  -->
 								<a href="" class="mr-2">Quay Lại</a>
-								<button type="submit" name="confirmInfo" class="btn btn-primary my-3" value="Tiếp Tục">Tiếp Tục</button>
+								<button type="submit" name="confirmInfo"
+									class="btn btn-primary my-3" value="Tiếp Tục">Tiếp Tục</button>
 							</form>
 						</div>
 					</div>
@@ -87,7 +91,7 @@
 					<div class="card">
 						<div class="card-body">
 							<legend>
-								<h3 class="text-danger"> Điều Khoản & Lưu Ý</h3>
+								<h3 class="text-danger">Điều Khoản & Lưu Ý</h3>
 							</legend>
 							<p>
 								<strong class="text-danger">(*)</strong> Quý khách vui lòng mang

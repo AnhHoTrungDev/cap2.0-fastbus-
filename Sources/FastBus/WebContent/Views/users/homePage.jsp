@@ -292,3 +292,6 @@
 		});
 	</script>
 </html>
+<!-- fix interface combobox -->
+<script
+	src="<%=request.getContextPath()%>/Views/users/assets/js/fixComboxJqery.js"></script>

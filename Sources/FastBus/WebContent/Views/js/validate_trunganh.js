@@ -20,6 +20,9 @@ $(document)
 											},
 											address : {
 												required : true
+											},
+											"checkRules[]" : {
+												required: true
 											}
 										},
 										messages : {
@@ -35,6 +38,9 @@ $(document)
 											},
 											address : {
 												required : "Vui lòng nhập trường này"
+											},
+											"checkRules[]" : {
+												required: ""
 											}
 										},
 										errorElement : "em",
