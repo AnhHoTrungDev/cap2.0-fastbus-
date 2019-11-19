@@ -16,12 +16,12 @@ package model.bean;
 
 public class Business {
 	private int idBusiness;
-	private String address;
 	private String name;
 	private String mail;
-	private String idProvince;
-	private String idDistrict;
-	private String idWard;
+	private String address;
+	private String nameProvince;
+	private String nameDistrict;
+	private String nameWard;
 	private String description;
 
 	public int getIdBusiness() {
@@ -56,28 +56,30 @@ public class Business {
 		this.mail = mail;
 	}
 
-	public String getIdProvince() {
-		return idProvince;
+	
+
+	public String getNameProvince() {
+		return nameProvince;
 	}
 
-	public void setIdProvince(String idProvince) {
-		this.idProvince = idProvince;
+	public void setNameProvince(String nameProvince) {
+		this.nameProvince = nameProvince;
 	}
 
-	public String getIdDistrict() {
-		return idDistrict;
+	public String getNameDistrict() {
+		return nameDistrict;
 	}
 
-	public void setIdDistrict(String idDistrict) {
-		this.idDistrict = idDistrict;
+	public void setNameDistrict(String nameDistrict) {
+		this.nameDistrict = nameDistrict;
 	}
 
-	public String getIdWard() {
-		return idWard;
+	public String getNameWard() {
+		return nameWard;
 	}
 
-	public void setIdWard(String idWard) {
-		this.idWard = idWard;
+	public void setNameWard(String nameWard) {
+		this.nameWard = nameWard;
 	}
 
 	public String getDescription() {
@@ -88,16 +90,16 @@ public class Business {
 		this.description = description;
 	}
 
-	public Business(int idBusiness, String mail, String name, String address, String idWard, String idDistrict,
-			String idProvince, String description) {
+	public Business(int idBusiness, String mail, String name, String address, String nameWard, String nameDistrict,
+			String nameProvince, String description) {
 		super();
 		this.idBusiness = idBusiness;
 		this.address = address;
 		this.name = name;
 		this.mail = mail;
-		this.idProvince = idProvince;
-		this.idDistrict = idDistrict;
-		this.idWard = idWard;
+		this.nameProvince = nameProvince;
+		this.nameDistrict = nameDistrict;
+		this.nameWard = nameWard;
 		this.description = description;
 	}
 

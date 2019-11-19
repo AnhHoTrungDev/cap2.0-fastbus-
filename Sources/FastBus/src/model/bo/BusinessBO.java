@@ -15,6 +15,14 @@
 
 package model.bo;
 
-public class BusinessBO {
+import java.util.List;
 
+import model.bean.Business;
+import model.dao.BusinessDAO;
+
+public class BusinessBO {
+	
+	public List<Business> getListBusinessBO() {
+		return new BusinessDAO().getListBusinessDAO();
+	}
 }

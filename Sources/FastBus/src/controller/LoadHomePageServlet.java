@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.bean.Business;
 import model.bean.DiaDiem;
+import model.bo.BusinessBO;
 import model.bo.DiaDiemBO;
 
 /**
@@ -19,7 +21,7 @@ import model.bo.DiaDiemBO;
 @WebServlet("/LoadHomePageServlet")
 public class LoadHomePageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+      
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -39,6 +41,9 @@ public class LoadHomePageServlet extends HttpServlet {
 		DiaDiemBO dd=new DiaDiemBO();	
 		List<DiaDiem> listPlace=dd.getListPlaceBO();
 		
+		List<Business> listBusiness= new BusinessBO().getListBusinessBO();
+		
+		request.setAttribute("listBusiness", listBusiness);
 		request.setAttribute("listPlace", listPlace);
 		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/homePage.jsp");
 		rd.forward(request, response);

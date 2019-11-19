@@ -1,3 +1,4 @@
+<%@page import="model.bean.Business"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
@@ -122,19 +123,18 @@
 			<div id="carouselExample" class="carousel slide" data-ride="carousel"
 				data-interval="9000">
 				<div class="carousel-inner row w-100 mx-auto" role="listbox">
+				<% 
+					List<Business> listBusiness =(List<Business>)request.getAttribute("listBusiness");
+				%>
 					<!-- card 1 cho 1 cái cố đinh có active moi chay dc -->
 					<div class="carousel-item col-md-4  active">
 						<div class="card">
-							<img
-								src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
-								class="card-img-top" alt="..." />
+							<img src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg" class="card-img-top" alt="..." />
 							<div class="card-body">
-								<h5 class="card-title">Nhà xe Phương Trang</h5>
-								<p class="card-text">Với đội ngũ hướng dẫn viên nhiệt tình,
-									chu đáo, đội ngũ lái xe an toàn, kinh nghiệm lâu năm, nhà xe
-									Phương Trang mong muốn đem đến cho khách hàng một trải nghiệm
-									dịch vụ tốt nhất. Đặc biệt “nói không với tệ nạn móc túi” – một
-									trường hợp không hiếm gặp khi đi xe khách..</p>
+								<h5 class="card-title"><%=listBusiness.get(1).getName() %></h5>
+								<p class="card-text">
+									<%=listBusiness.get(1).getDescription() %>
+								</p>
 							</div>
 							<div class="card-footer text-right">
 								<a href="#" class="w-100 textcenter">xem thêm</a>

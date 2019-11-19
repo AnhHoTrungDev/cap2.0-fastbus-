@@ -67,8 +67,7 @@
 						</a>
 					</div>
 					<div class="col-sm-12">
-						<h5 class="text-center border-bottom w-50 m-auto pb-3">Hình
-							Ảnh Nhà Xe</h5>
+						<h5 class="text-center border-bottom w-50 m-auto pb-3">Hình Ảnh Nhà Xe</h5>
 					</div>
 				</div>
 				<!-- end anh chay -->
@@ -76,12 +75,10 @@
 				<div class="col-sm-6 border-left">
 					<!-- 1 dòng -->
 					<div class="form-group row">
-						<label for="nameGarage:" class="col-sm-5 col-form-label">Tên
-							nhà xe &nbsp; </label>
+						<label for="nameGarage:" class="col-sm-5 col-form-label">Tên nhà xe &nbsp; </label>
 						<div class="col-sm-7 ">
-							<input type="text" class="form-control-plaintext  border-bottom"
-								id="nameGarage" name="nameGarage" placeholder="nameGarage"
-								value="Phương Trang (Futa)" readonly />
+							<input type="text" class="form-control-plaintext  border-bottom" id="nameGarage" 
+								name="nameGarage" placeholder="nameGarage" value="Phương Trang (Futa)" readonly />
 						</div>
 					</div>
 					<!-- end -->
@@ -99,20 +96,16 @@
 					<!-- end -->
 					<!-- 1 dòng -->
 					<div class="form-group row">
-						<label for="nameGarageGmail:" class="col-sm-5 col-form-label">Gmail
-							nhà xe &nbsp; </label>
+						<label for="nameGarageGmail:" class="col-sm-5 col-form-label">Gmail nhà xe &nbsp; </label>
 						<div class="col-sm-7 ">
 							<input type="text" class="form-control-plaintext  border-bottom"
-								id="nameGarageGmail" name="nameGarageGmail"
-								placeholder="nameGarageGmail" value="phuowngtrang@gmail.com"
-								readonly />
+								id="nameGarageGmail" name="nameGarageGmail" placeholder="nameGarageGmail" value="phuowngtrang@gmail.com" readonly />
 						</div>
 					</div>
 					<!-- end -->
 					<!-- 1 dòng -->
 					<div class="form-group row">
-						<label for="rangtingBus" class="col-sm-5 col-form-label">Đánh
-							giá &nbsp; </label>
+						<label for="rangtingBus" class="col-sm-5 col-form-label">Đánh giá &nbsp; </label>
 						<div class="col-sm-7 ">
 							<div id="rangtingBus" class="show-poin-start-read d-inline-block"
 								value-star="2.8"></div>
@@ -124,12 +117,11 @@
 					<!-- end -->
 					<!--  -->
 					<div class="form-group">
-						<label for="contentGarage" class="col-form-label">Xe khách
-							Phương Trang : </label>
-						<textarea class="form-control-plaintext border-bottom"
-							id="contentGarage" rows="10" name="contentGarage"
+						<label for="contentGarage" class="col-form-label">Xe khách Phương Trang : </label>
+						<textarea class="form-control-plaintext border-bottom" id="contentGarage" rows="10" name="contentGarage"
 							placeholder="contentGarage" readonly>
-Mang một phong cách nổi bật và hiện đại, màu cam của xe Phương Trang (còn gọi là Futa Phương Trang) đã ghi lại dấu ấn tốt đẹp trong lòng hành khách trong suốt 11 năm hình thành và phát triển. Xe giường nằm cao cấp Phương Trang hoạt động từ Huế và Đà Nẵng đổ vào đến hầu hết các tỉnh miền Tây nhằm phục vụ tối đa nhu cầu đi lại của hành khách. Sự phục vụ lịch thiệp và chu đáo của đội ngũ nhân viên đã giúp xe khách Phương Trang trở thành một địa chỉ tin cậy nhất của đông đảo khách hàng trong và ngoài nước. Phương Trang – Chất lượng là danh dự.</textarea>
+							
+						</textarea>
 					</div>
 					<!--  -->
 				</div>
