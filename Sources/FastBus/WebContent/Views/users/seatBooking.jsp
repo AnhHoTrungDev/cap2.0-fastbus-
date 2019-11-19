@@ -644,20 +644,43 @@
 	<%@ include file="common/botbootstrap.jsp"%>
 	<script
 		src="<%=request.getContextPath()%>/Views/js/ServletBookingServlet.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('.conbobox-pickUpLocation').select2();
-		});
-		</script>
-	<script language="JavaScript" type="text/javascript"> 
-	$(document).ready(function() {
-	$("#checkBeforeConfirm").each(function() {
-	this.addEventListener("click",function(e){ var sseEmail = "<%=session.getAttribute("email")%>
-	"; console .log(sseEmail); var modal = document
-	.getElementById("myModal"); if (sseEmail == "null") { $(modal) .modal(
-	"show"); $( '#messageDiv') .html( "
-	<font color='blue'>Vui lòng Đăng Nhập Để Tiếp Tục </font>"); $(
-	'#messageDiv') .show(); e .preventDefault(); } }, false); }); });
-	</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.conbobox-pickUpLocation').select2();
+  });
+</script>
+<script language="JavaScript" type="text/javascript"> 
+$(document).ready(function() {
+$("#checkBeforeConfirm").each(function() {
+});
+
+$("#checkBeforeConfirm").each(function() {
+  this.addEventListener(
+    "click",
+    function(e) {
+      if(codeChairOder.value == ""){
+    	  alert("Bạn chưa chọn ghế nào");
+    	  e.preventDefault();
+    	  return false;
+      }
+      var sseEmail = "<%=session.getAttribute("email")%>";
+      console.log(sseEmail);
+      var modal = document.getElementById("myModal");
+      if (sseEmail == "null") {
+        $(modal).modal("show");
+        $("#messageDiv").html(
+          "<font color='blue'>Vui lòng Đăng Nhập Để Tiếp Tục </font>"
+        );
+        $("#messageDiv").show();
+        e.preventDefault();
+        return false;
+      }
+    },
+    false
+  );
+});
+});
+</script>
 </body>
 </html>

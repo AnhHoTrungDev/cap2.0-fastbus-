@@ -122,9 +122,9 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			}else {
 				url="Views/users/busGarageDetail.jsp";
 			}
-			session.removeAttribute("tripInfo");
-			session.removeAttribute("seat");
-			session.removeAttribute("user");
+//			session.removeAttribute("tripInfo");
+//			session.removeAttribute("seat");
+//			session.removeAttribute("user");
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
