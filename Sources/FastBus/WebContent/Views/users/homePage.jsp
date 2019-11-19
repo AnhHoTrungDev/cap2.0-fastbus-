@@ -64,7 +64,7 @@
 									<form action="<%=request.getContextPath()%>/SearchTripServlet">
 										<div class="form-row">
 											<div class="form_colum">
-												<select class="w-100 js-example-basic-single"
+												<select class="w-100 js-example-basic-single "
 													name="startPlace">
 													<option selected value="">Nơi đi</option>
 													<%
@@ -77,7 +77,8 @@
 												</select>
 											</div>
 											<div class="form_colum">
-												<select class="nc_select" name="endPlace">
+												<select class="w-100 js-example-basic-single "
+													name="endPlace">
 													<option selected value="">Nơi đến</option>
 													<%
 														for (DiaDiem lPlace : (List<DiaDiem>) request.getAttribute("listPlace")) {
