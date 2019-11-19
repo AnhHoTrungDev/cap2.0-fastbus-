@@ -143,124 +143,30 @@
 					</div>
 					<!-- end card 1 -->
 					<!-- car element  từ  cái thứ 2 trở đi như nhau-->
+					<%
+						for(Business bs : listBusiness){
+							if(bs.getIdBusiness()==listBusiness.get(1).getIdBusiness()){
+								continue;
+							}else{
+					%>
 					<div class="carousel-item col-md-4  ">
 						<div class="card">
 							<img
 								src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
 								class="card-img-top" alt="..." />
 							<div class="card-body">
-								<h5 class="card-title">Nhà xe Phương Trang</h5>
-								<p class="card-text">Với đội ngũ hướng dẫn viên nhiệt tình,
-									chu đáo, đội ngũ lái xe an toàn, kinh nghiệm lâu năm, nhà xe
-									Phương Trang mong muốn đem đến cho khách hàng một trải nghiệm
-									dịch vụ tốt nhất. Đặc biệt “nói không với tệ nạn móc túi” – một
-									trường hợp không hiếm gặp khi đi xe khách..</p>
+								<h5 class="card-title"><%=bs.getName() %></h5>
+								<p class="card-text"><%=bs.getDescription() %></p>
 							</div>
 							<div class="card-footer text-right">
 								<a href="#" class="">xem thêm</a>
 							</div>
 						</div>
 					</div>
-					<!-- end  element-->
-					<!-- car element  từ  cái thứ 2 trở đi như nhau-->
-					<div class="carousel-item col-md-4  ">
-						<div class="card">
-							<img
-								src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
-								class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Nhà xe Phương Trang</h5>
-								<p class="card-text">Với đội ngũ hướng dẫn viên nhiệt tình,
-									chu đáo, đội ngũ lái xe an toàn, kinh nghiệm lâu năm, nhà xe
-									Phương Trang mong muốn đem đến cho khách hàng một trải nghiệm
-									dịch vụ tốt nhất. Đặc biệt “nói không với tệ nạn móc túi” – một
-									trường hợp không hiếm gặp khi đi xe khách..</p>
-							</div>
-							<div class="card-footer text-right">
-								<a href="#" class="w-100 textcenter">xem thêm</a>
-							</div>
-						</div>
-					</div>
-					<!-- end  element-->
-					<!-- car element  từ  cái thứ 2 trở đi như nhau-->
-					<div class="carousel-item col-md-4  ">
-						<div class="card">
-							<img
-								src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
-								class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Nhà xe Phương Trang</h5>
-								<p class="card-text">Với đội ngũ hướng dẫn viên nhiệt tình,
-									chu đáo, đội ngũ lái xe an toàn, kinh nghiệm lâu năm, nhà xe
-									Phương Trang mong muốn đem đến cho khách hàng một trải nghiệm
-									dịch vụ tốt nhất. Đặc biệt “nói không với tệ nạn móc túi” – một
-									trường hợp không hiếm gặp khi đi xe khách..</p>
-							</div>
-							<div class="card-footer text-right">
-								<a href="#" class="w-100 textcenter">xem thêm</a>
-							</div>
-						</div>
-					</div>
-					<!-- end  element-->
-					<!-- car element  từ  cái thứ 2 trở đi như nhau-->
-					<div class="carousel-item col-md-4  ">
-						<div class="card">
-							<img
-								src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
-								class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Nhà xe Phương Trang</h5>
-								<p class="card-text">Với đội ngũ hướng dẫn viên nhiệt tình,
-									chu đáo, đội ngũ lái xe an toàn, kinh nghiệm lâu năm, nhà xe
-									Phương Trang mong muốn đem đến cho khách hàng một trải nghiệm
-									dịch vụ tốt nhất. Đặc biệt “nói không với tệ nạn móc túi” – một
-									trường hợp không hiếm gặp khi đi xe khách..</p>
-							</div>
-							<div class="card-footer text-right">
-								<a href="#" class="w-100 textcenter">xem thêm</a>
-							</div>
-						</div>
-					</div>
-					<!-- end  element-->
-					<!-- car element  từ  cái thứ 2 trở đi như nhau-->
-					<div class="carousel-item col-md-4  ">
-						<div class="card">
-							<img
-								src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
-								class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Nhà xe Phương Trang</h5>
-								<p class="card-text">Với đội ngũ hướng dẫn viên nhiệt tình,
-									chu đáo, đội ngũ lái xe an toàn, kinh nghiệm lâu năm, nhà xe
-									Phương Trang mong muốn đem đến cho khách hàng một trải nghiệm
-									dịch vụ tốt nhất. Đặc biệt “nói không với tệ nạn móc túi” – một
-									trường hợp không hiếm gặp khi đi xe khách..</p>
-							</div>
-							<div class="card-footer text-right">
-								<a href="#" class="w-100 textcenter">xem thêm</a>
-							</div>
-						</div>
-					</div>
-					<!-- end  element-->
-					<!-- car element  từ  cái thứ 2 trở đi như nhau-->
-					<div class="carousel-item col-md-4  ">
-						<div class="card">
-							<img
-								src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
-								class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title">Nhà xe Phương Trang</h5>
-								<p class="card-text">Với đội ngũ hướng dẫn viên nhiệt tình,
-									chu đáo, đội ngũ lái xe an toàn, kinh nghiệm lâu năm, nhà xe
-									Phương Trang mong muốn đem đến cho khách hàng một trải nghiệm
-									dịch vụ tốt nhất. Đặc biệt “nói không với tệ nạn móc túi” – một
-									trường hợp không hiếm gặp khi đi xe khách..</p>
-							</div>
-							<div class="card-footer text-right">
-								<a href="#" class="w-100 textcenter">xem thêm</a>
-							</div>
-						</div>
-					</div>
+					<%
+							}
+						}
+					%>
 					<!-- end  element-->
 				</div>
 				<a class="carousel-control-prev" href="#carouselExample"
