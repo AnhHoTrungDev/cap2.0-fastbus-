@@ -83,11 +83,11 @@
 								<!--  -->		
 								<div id="accpPayOption">
 									<div class="form-check form-check-inline">
-									  <input type="radio" id="payOffline" name="payOption" class="form-check-input" checked>
+									  <input type="radio" id="payOffline" name="payOption" class="form-check-input" value="payOffline" checked>
 									  <label class="form-check-label" for="payOption">Thanh toán tại chổ</label>
 									</div>
 									<div class="custom-control custom-radio custom-control-inline">
-									  <input type="radio" id="payOnline"  name="payOption" class="form-check-input">
+									  <input type="radio" id="payOnline" name="payOption" class="form-check-input" value="payOnline">
 									  <label class="form-check-label" for="payOption">Thanh toán qua momo </label>
 									</div>
 								</div>				
