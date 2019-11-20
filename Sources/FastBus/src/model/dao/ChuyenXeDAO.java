@@ -41,36 +41,40 @@ public class ChuyenXeDAO {
 		connection = con.getConnect();
 		listTrip = new ArrayList<ChuyenXe>();
 		String selectPlace = null;
-		String innerStartPlace="inner join place p on p.place_id=t.trip_start_place and t.trip_start_date='"+startDate+"' and t.trip_start_time='"+startTime+"'\r\n";
-		String innerEndPlace="inner join place p1 on p1.place_id=t.trip_end_place\r\n" ;
-		String innerStartProvince="inner join province d on p.place_pv_id= d.province_id and p.place_name like N'%"+startPlace+"%'\r\n";
-		String innerEndProvince= "inner join province d1 on p1.place_pv_id=d1.province_id and p1.place_name like N'%"+endPlace+"%'\r\n";
+		String innerStartPlace = "inner join place p on p.place_id=t.trip_start_place and t.trip_start_date='"
+				+ startDate + "' and t.trip_start_time='" + startTime + "'\r\n";
+		String innerEndPlace = "inner join place p1 on p1.place_id=t.trip_end_place\r\n";
+		String innerStartProvince = "inner join province d on p.place_pv_id= d.province_id and p.place_name like N'%"
+				+ startPlace + "%'\r\n";
+		String innerEndProvince = "inner join province d1 on p1.place_pv_id=d1.province_id and p1.place_name like N'%"
+				+ endPlace + "%'\r\n";
 		if (startPlace == "" && endPlace == "" && startDate == "" && startTime == "") {
-			innerStartPlace="inner join place p on p.place_id=t.trip_start_place\r\n";
-			innerStartProvince="inner join province d on p.place_pv_id= d.province_id\r\n";
-			innerEndProvince="inner join province d1 on p1.place_pv_id=d1.province_id\r\n";
-		} else if(endPlace == "" && startTime == "" && startDate == ""){ 
-			innerStartPlace="inner join place p on p.place_id=t.trip_start_place\r\n";
-			innerEndProvince= "inner join province d1 on p1.place_pv_id=d1.province_id\r\n";
-		} else if(startDate == "" && startTime == "") {
-			innerStartPlace="inner join place p on p.place_id=t.trip_start_place \r\n";
-		} else if(startTime == "") {
-			innerStartPlace="inner join place p on p.place_id=t.trip_start_place and t.trip_start_date='"+startDate+"' \r\n";
+			innerStartPlace = "inner join place p on p.place_id=t.trip_start_place\r\n";
+			innerStartProvince = "inner join province d on p.place_pv_id= d.province_id\r\n";
+			innerEndProvince = "inner join province d1 on p1.place_pv_id=d1.province_id\r\n";
+		} else if (endPlace == "" && startTime == "" && startDate == "") {
+			innerStartPlace = "inner join place p on p.place_id=t.trip_start_place\r\n";
+			innerEndProvince = "inner join province d1 on p1.place_pv_id=d1.province_id\r\n";
+		} else if (startDate == "" && startTime == "") {
+			innerStartPlace = "inner join place p on p.place_id=t.trip_start_place \r\n";
+		} else if (startTime == "") {
+			innerStartPlace = "inner join place p on p.place_id=t.trip_start_place and t.trip_start_date='" + startDate
+					+ "' \r\n";
 		}
-		
-		selectPlace = "select t.trip_id, t.trip_bus_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t\r\n" + 
-				innerStartPlace + innerEndPlace + innerStartProvince + innerEndProvince + 
-				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
-				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
-				"inner join account a on bs.bs_acc_mail=a.acc_mail";
-		
+
+		selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t\r\n"
+				+ innerStartPlace + innerEndPlace + innerStartProvince + innerEndProvince
+				+ "inner join bus b on b.bus_id=t.trip_bus_id\r\n"
+				+ "inner join business bs on b.bus_bs_id=bs.bs_id \r\n"
+				+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
+
 		try {
 			ps = connection.prepareStatement(selectPlace);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ChuyenXe trip= new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getString(8), rs.getFloat(9));
+				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getString(5), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				listTrip.add(trip);
 			}
 		} catch (SQLException e) {
@@ -84,21 +88,21 @@ public class ChuyenXeDAO {
 		connection = con.getConnect();
 		ChuyenXe trip = null;
 
-		String selectInfor = "select t.trip_id, t.trip_bus_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t\r\n"+
-				"inner join place p on p.place_id=t.trip_start_place and trip_id="+idTrip+"\r\n"+
-				"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
-				"inner join province d on p.place_pv_id= d.province_id\r\n" + 
-				"inner join province d1 on p1.place_pv_id=d1.province_id\r\n" + 
-				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
-				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
-				"inner join account a on bs.bs_acc_mail=a.acc_mail";
+		String selectInfor = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t\r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place and trip_id=" + idTrip + "\r\n"
+				+ "inner join place p1 on p1.place_id=t.trip_end_place\r\n"
+				+ "inner join province d on p.place_pv_id= d.province_id\r\n"
+				+ "inner join province d1 on p1.place_pv_id=d1.province_id\r\n"
+				+ "inner join bus b on b.bus_id=t.trip_bus_id\r\n"
+				+ "inner join business bs on b.bus_bs_id=bs.bs_id \r\n"
+				+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
 
 		try {
 			ps = connection.prepareStatement(selectInfor);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				trip= new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getString(8), rs.getFloat(9));
+				trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getString(5), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 
 			}
 		} catch (SQLException e) {
@@ -108,5 +112,34 @@ public class ChuyenXeDAO {
 
 		return trip;
 
+	}
+
+	public List<ChuyenXe> getListTripByIdBusinessDAO(String idBusiness) {
+		connection = con.getConnect();
+		listTrip = new ArrayList<ChuyenXe>();
+
+		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t \r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place  \r\n"
+				+ "inner join place p1 on p1.place_id=t.trip_end_place \r\n"
+				+ "inner join province d on p.place_pv_id= d.province_id \r\n"
+				+ "inner join province d1 on p1.place_pv_id=d1.province_id \r\n"
+				+ "inner join bus b on b.bus_id=t.trip_bus_id \r\n"
+				+ "inner join business bs on b.bus_bs_id=bs.bs_id and bs.bs_id=? and trip_start_date='2019-11-16'\r\n"
+				+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
+		try {
+			ps = connection.prepareStatement(selectPlace);
+			ps.setInt(1, Integer.parseInt(idBusiness));
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getString(5), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+				listTrip.add(trip);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listTrip;
 	}
 }

@@ -18,6 +18,7 @@ public class Business {
 	private int idBusiness;
 	private String name;
 	private String mail;
+	private String phone;
 	private String address;
 	private String nameProvince;
 	private String nameDistrict;
@@ -58,6 +59,14 @@ public class Business {
 
 	
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public String getNameProvince() {
 		return nameProvince;
 	}
@@ -90,13 +99,14 @@ public class Business {
 		this.description = description;
 	}
 
-	public Business(int idBusiness, String mail, String name, String address, String nameWard, String nameDistrict,
+	public Business(int idBusiness, String mail,String phone, String name, String address, String nameWard, String nameDistrict,
 			String nameProvince, String description) {
 		super();
 		this.idBusiness = idBusiness;
 		this.address = address;
 		this.name = name;
 		this.mail = mail;
+		this.phone=phone;
 		this.nameProvince = nameProvince;
 		this.nameDistrict = nameDistrict;
 		this.nameWard = nameWard;

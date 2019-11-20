@@ -23,6 +23,7 @@ public class ChuyenXe {
 
 	private int idTrip;
 	private int idBus;
+	private int idBusiness;
 	private String nameBusiness;
 	private String startPlace;
 	private String endPlace;
@@ -41,6 +42,15 @@ public class ChuyenXe {
 
 	public int getIdBus() {
 		return idBus;
+	}
+
+	
+	public int getIdBusiness() {
+		return idBusiness;
+	}
+
+	public void setIdBusiness(int idBusiness) {
+		this.idBusiness = idBusiness;
 	}
 
 	public void setIdBus(int idBus) {
@@ -103,11 +113,12 @@ public class ChuyenXe {
 		this.price = price;
 	}
 
-	public ChuyenXe(int idTrip, int idBus, String nameBusiness, String startPlace, String endPlace, String startDate,
+	public ChuyenXe(int idTrip, int idBus,int idBusiness, String nameBusiness, String startPlace, String endPlace, String startDate,
 			String startTime, String endTime, float price) {
 		super();
 		this.idTrip = idTrip;
 		this.idBus = idBus;
+		this.idBusiness=idBusiness;
 		this.nameBusiness = nameBusiness;
 		this.startPlace = startPlace;
 		this.endPlace = endPlace;
