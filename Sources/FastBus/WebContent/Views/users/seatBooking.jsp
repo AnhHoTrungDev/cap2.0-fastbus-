@@ -168,7 +168,8 @@
 								<div class="mb-3"></div>
 								<!-- end -->
 								<div class="col-sm-12 text-center mb-3 ">
-									<a class="mr-2" href="#">Quay Lại</a> <input type="submit"
+									<a class="mr-2" href="#" id="comeBackHistory">Quay Lại</a> 
+									<input type="submit"
 										name="confirmSeatBooking" class="btn btn-primary ml-2"
 										value="Tiếp Tục" id="checkBeforeConfirm" />
 								</div>
@@ -681,6 +682,12 @@ $("#checkBeforeConfirm").each(function() {
   );
 });
 });
+</script>
+<script>		
+		let comeBackHistory = document.getElementById("comeBackHistory");
+		comeBackHistory.addEventListener("click",function(){
+			window.history.back();
+		})
 </script>
 </body>
 </html>

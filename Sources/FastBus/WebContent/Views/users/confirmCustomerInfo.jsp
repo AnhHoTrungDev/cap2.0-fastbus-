@@ -81,7 +81,7 @@
 										Fasbus</label>
 								</div>
 								<!--  -->
-								<a href="" class="mr-2">Quay Lại</a>
+								<a href="#" class="mr-2" id="comeBackHistory">Quay Lại</a>
 								<button type="submit" name="confirmInfo" id ="confirmInfo"
 									class="btn btn-primary my-3" value="Tiếp Tục">Tiếp Tục</button>
 							</form>
@@ -142,4 +142,10 @@
 	}
  })
 
+</script>
+<script>		
+		let comeBackHistory = document.getElementById("comeBackHistory");
+		comeBackHistory.addEventListener("click",function(){
+			window.history.back();
+		})
 </script>

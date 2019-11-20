@@ -30,7 +30,7 @@
 	</section>
 	<section>
 		<div class="container my-5">
-			<form action="SeatBookingInformationServlet">
+			<form action="SeatBookingInformationServlet" id="SeatBookingInformationServlet">
 				<div class="row">
 					<div class="col-sm-6">
 						<div class="card">
@@ -204,8 +204,8 @@
 						</div>
 					</div>
 					<div class="col-sm-5 m-auto">
-						<a href="" class="mr-2">Quay Lại</a>
-						<button type="submit" class="btn btn-primary my-3" name="confirmFinish" value="Xác nhận">Xác nhận</button>
+						<a href="#" class="mr-2" id="comeBackHistory">Quay Lại</a>
+						<button type="submit" class="btn btn-primary my-3" id="confirmFinish" name="confirmFinish" value="Xác nhận">Xác nhận</button>
 					</div>
 				</div>
 			</form>
@@ -217,7 +217,17 @@
 	<!-- Link jquery -->
 	<%@ include file="common/botbootstrap.jsp"%>
 	<script>
-		let accpPayOption = document.getElementById("accpPayOption");
+	    let confirmFinish = document.getElementById("confirmFinish");
+		let accpPayOption = document.getElementById("accpPayOption");	
+		let comeBackHistory = document.getElementById("comeBackHistory");
+		
+		confirmFinish.addEventListener("click",function(){
+			sessionStorage.clear();
+		})
+		
+		comeBackHistory.addEventListener("click",function(){
+			window.history.back();
+		})
 
 		accpPayOption.addEventListener("change",function(){
 			if(payOnline.checked == true){
