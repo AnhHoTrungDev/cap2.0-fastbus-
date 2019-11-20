@@ -34,8 +34,7 @@
 					<div class="banner_text text-center">
 						<div class="banner_text_iner">
 							<h1>Fast Bus</h1>
-							<p>Let’s start your journey with us, your trip will be fast
-								and safe</p>
+							<p>Let’s start your journey with us, your trip will be fast and safe</p>
 						</div>
 					</div>
 				</div>
@@ -137,7 +136,7 @@
 								</p>
 							</div>
 							<div class="card-footer text-right">
-								<a href="#" class="w-100 textcenter">xem thêm</a>
+								<a href="BusinessDetailServlet?idBusiness=<%=listBusiness.get(1).getIdBusiness() %>" class="w-100 textcenter">Chi tiết nhà xe</a>
 							</div>
 						</div>
 					</div>
@@ -159,7 +158,7 @@
 								<p class="card-text" style="height: 300px;overflow: hidden;" ><%=bs.getDescription() %></p>
 							</div>
 							<div class="card-footer text-right">
-								<a href="#" class="">xem thêm</a>
+								<a href="BusinessDetailServlet?idBusiness=<%=bs.getIdBusiness() %>" class="">Chi tiết nhà xe</a>
 							</div>
 						</div>
 					</div>

@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="model.bean.ChuyenXe"%>
+<%@page import="model.bean.Business"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
@@ -22,6 +25,9 @@
 			<div class="col-sm-12 text-center mb-5 text-danger">
 				<h1>Thông tin nhà xe</h1>
 			</div>
+			<% 
+				Business bs= (Business)request.getAttribute("business");
+			%>
 			<div class="row">
 				<!-- ảnh chay -->
 				<div class="col-sm-6 ">
@@ -78,19 +84,18 @@
 						<label for="nameGarage:" class="col-sm-5 col-form-label">Tên nhà xe &nbsp; </label>
 						<div class="col-sm-7 ">
 							<input type="text" class="form-control-plaintext  border-bottom" id="nameGarage" 
-								name="nameGarage" placeholder="nameGarage" value="Phương Trang (Futa)" readonly />
+								name="nameGarage" placeholder="nameGarage" value="<%=bs.getName() %>" readonly />
 						</div>
 					</div>
 					<!-- end -->
 					<!-- 1 dòng -->
 					<div class="form-group row">
-						<label for="nameGaragePhone:" class="col-sm-5 col-form-label">Số
-							điện thoại nhà xe &nbsp; </label>
+						<label for="nameGaragePhone:" class="col-sm-5 col-form-label">Số điện thoại nhà xe &nbsp; </label>
 						<div class="col-sm-7 ">
 							<input type="number"
 								class="form-control-plaintext  border-bottom"
 								id="nameGaragePhone" name="nameGaragePhone"
-								placeholder="nameGaragePhone" value="19006067" readonly />
+								placeholder="nameGaragePhone" value="<%=bs.getPhone() %>" readonly />
 						</div>
 					</div>
 					<!-- end -->
@@ -99,7 +104,7 @@
 						<label for="nameGarageGmail:" class="col-sm-5 col-form-label">Gmail nhà xe &nbsp; </label>
 						<div class="col-sm-7 ">
 							<input type="text" class="form-control-plaintext  border-bottom"
-								id="nameGarageGmail" name="nameGarageGmail" placeholder="nameGarageGmail" value="phuowngtrang@gmail.com" readonly />
+								id="nameGarageGmail" name="nameGarageGmail" placeholder="nameGarageGmail" value="<%=bs.getMail() %>" readonly />
 						</div>
 					</div>
 					<!-- end -->
@@ -119,8 +124,7 @@
 					<div class="form-group">
 						<label for="contentGarage" class="col-form-label">Xe khách Phương Trang : </label>
 						<textarea class="form-control-plaintext border-bottom" id="contentGarage" rows="10" name="contentGarage"
-							placeholder="contentGarage" readonly>
-							
+							placeholder="contentGarage" readonly><%=bs.getDescription() %>
 						</textarea>
 					</div>
 					<!--  -->
@@ -152,37 +156,20 @@
 						<!-- nội dung -->
 						<tbody>
 							<!-- start content  table 1 dòng -->
+							<%
+								for(ChuyenXe trip : (List<ChuyenXe>)request.getAttribute("listTrip")){
+									
+							%>
 							<tr>
 								<th scope="row">1</th>
-								<td>Đà nẵng - Đà Lạt</td>
+								<td><%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></td>
 								<td>Giường nằm 46 chổ</td>
-								<td class="curency-table">250000</td>
+								<td class="curency-table"><%=trip.getPrice()%></td>
 								<td>
-									<button type="button" class="btn btn-primary">Đặt vé</button>
+									<a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="btn btn-primary card-link check-login"> Đặt vé</a>
 								</td>
 							</tr>
-							<!-- end content  table -->
-							<!-- start content  table 1 dòng -->
-							<tr>
-								<th scope="row">2</th>
-								<td>Đà nẵng - Đà Lạt</td>
-								<td>Giường nằm 46 chổ</td>
-								<td class="curency-table">250000</td>
-								<td>
-									<button type="button" class="btn btn-primary">Đặt vé</button>
-								</td>
-							</tr>
-							<!-- end content  table -->
-							<!-- start content  table 1 dòng -->
-							<tr>
-								<th scope="row">3</th>
-								<td>Đà nẵng - Hà Nội</td>
-								<td>Giường nằm 46 chổ</td>
-								<td class="curency-table">300000</td>
-								<td>
-									<button type="button" class="btn btn-primary">Đặt vé</button>
-								</td>
-							</tr>
+							<%} %>
 							<!-- end content  table -->
 						</tbody>
 						<!-- end nội dung -->

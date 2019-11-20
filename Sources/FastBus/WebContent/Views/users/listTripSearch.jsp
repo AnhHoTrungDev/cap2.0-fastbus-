@@ -89,8 +89,8 @@
                 ><span>10 Tiếng</span>
               </li>
               <li class="list-group-item">
-                <span class="font-weight-bold">Thời Gian Khởi Hành: </span
-                ><span><%=trip.getStartTime()%></span>
+                <span class="font-weight-bold">Thời Gian Khởi Hành: </span>
+                <span><%=trip.getStartTime()%></span>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Ngày Khởi Hành: </span
@@ -176,7 +176,7 @@
             </ul>
             <div class="card-body text-center">
               <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
-              <a  href="#" class="card-link">Thông tin nhà xe</a>
+              <a href="BusinessDetailServlet?idBusiness=<%=trip.getIdBusiness() %>" class="card-link">Thông tin nhà xe</a>
             </div>
           </div>
             <%} %>

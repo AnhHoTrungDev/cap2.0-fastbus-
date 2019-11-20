@@ -25,4 +25,7 @@ public class BusinessBO {
 	public List<Business> getListBusinessBO() {
 		return new BusinessDAO().getListBusinessDAO();
 	}
+	public Business getBusinessByIdBO(String idBusiness) {
+		return new BusinessDAO().getBusinessByIdDAO(idBusiness);
+	}
 }

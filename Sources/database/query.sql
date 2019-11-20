@@ -52,6 +52,18 @@ select * from account where acc_mail like N'admin@gmail.com.vn'
 
 select acc_name, acc_mail, acc_phone, acc_password from account where acc_name=N'Administrator'
 
+------------------ get list trip by id business and startdate
+
+select t.trip_id, t.trip_bus_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t 
+				inner join place p on p.place_id=t.trip_start_place  
+				inner join place p1 on p1.place_id=t.trip_end_place 
+				inner join province d on p.place_pv_id= d.province_id 
+				inner join province d1 on p1.place_pv_id=d1.province_id 
+				inner join bus b on b.bus_id=t.trip_bus_id 
+				inner join business bs on b.bus_bs_id=bs.bs_id and bs.bs_id=5 and trip_start_date='2019-11-16'
+				inner join account a on bs.bs_acc_mail=a.acc_mail
+
+
 
 
 

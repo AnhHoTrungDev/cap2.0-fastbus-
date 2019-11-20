@@ -27,5 +27,8 @@ public class ChuyenXeBO {
 	public ChuyenXe getListTripByIdBO(int idTrip) {
 		return new ChuyenXeDAO().getListTripByIdDAO(idTrip);
 	}
+	public List<ChuyenXe> getListTripByIdBusinessBO(String idBusiness) {
+		return new ChuyenXeDAO().getListTripByIdBusinessDAO(idBusiness);
+	}
 
 }
