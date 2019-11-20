@@ -75,13 +75,14 @@
 								<!--  -->
 								<div class="form-check">
 									<input type="checkbox" class="form-check-input" id="checkRules"
-										name="checkRules[]" /> <label class="form-check-label"
-										for="exampleCheck1">Chấp Nhận điều khoản Đặt vé Của
+										name="checkRules" />
+										<label class="form-check-label"
+										for="checkRules">Chấp Nhận điều khoản Đặt vé Của
 										Fasbus</label>
 								</div>
 								<!--  -->
 								<a href="" class="mr-2">Quay Lại</a>
-								<button type="submit" name="confirmInfo"
+								<button type="submit" name="confirmInfo" id ="confirmInfo"
 									class="btn btn-primary my-3" value="Tiếp Tục">Tiếp Tục</button>
 							</form>
 						</div>
@@ -130,3 +131,15 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+
+ let confirmInfo = document.getElementById("confirmInfo");
+ confirmInfo.addEventListener ("click",function(e){
+	if(checkRules.checked == false){
+		alert("vui lòng chấp nhận điều khoản");
+		return false;
+	}
+ })
+
+</script>

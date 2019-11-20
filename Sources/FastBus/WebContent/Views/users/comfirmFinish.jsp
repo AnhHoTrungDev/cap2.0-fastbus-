@@ -80,8 +80,25 @@
 										id="address" rows="1" name="address" placeholder="Địa chỉ"
 										readonly><%=user.getAddess() %></textarea>
 								</div>
+								<!--  -->		
+								<div id="accpPayOption">
+									<div class="form-check form-check-inline">
+									  <input type="radio" id="payOffline" name="payOption" class="form-check-input" checked>
+									  <label class="form-check-label" for="payOption">Thanh toán tại chổ</label>
+									</div>
+									<div class="custom-control custom-radio custom-control-inline">
+									  <input type="radio" id="payOnline"  name="payOption" class="form-check-input">
+									  <label class="form-check-label" for="payOption">Thanh toán qua momo </label>
+									</div>
+								</div>				
 								<!--  -->
-								<!--  -->
+								<!-- show qr momo-->
+								<div class="w-100 my-2" id="qrPay" style="display: none;">
+									<div class="w-50 m-auto">
+										<img src="Views/users/assets/img/butget/momo.jpg" alt="QRpay" >
+									</div>	
+									<p class="text-center">Dùng tài khoản momo quét mã QR trên và nhấn xác nhận </p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -199,6 +216,15 @@
 
 	<!-- Link jquery -->
 	<%@ include file="common/botbootstrap.jsp"%>
+	<script>
+		let accpPayOption = document.getElementById("accpPayOption");
+
+		accpPayOption.addEventListener("change",function(){
+			if(payOnline.checked == true){
+				$(qrPay).fadeIn( "slow" )
+			}else $(qrPay).fadeOut( "slow" )
+		})
+	</script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ $(document)
 							.validate(
 									{
 										rules : {
-											email : {
+											mail : {
 												email : true,
 												required : true
 											},
@@ -21,7 +21,7 @@ $(document)
 											address : {
 												required : true
 											},
-											"checkRules[]" : {
+											"checkRules" : {
 												required: true
 											}
 										},
@@ -32,14 +32,14 @@ $(document)
 											phone : {
 												required : "Vui lòng nhập trường này"
 											},
-											email : {
+											mail : {
 												required : "Vui lòng nhập Email",
 												email : "Kiểm  tra xem có theo vd EX@gmail.com"
 											},
 											address : {
 												required : "Vui lòng nhập trường này"
 											},
-											"checkRules[]" : {
+											"checkRules" : {
 												required: ""
 											}
 										},
