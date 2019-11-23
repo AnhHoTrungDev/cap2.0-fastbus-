@@ -99,6 +99,7 @@ pageEncoding="UTF-8"%>
      $("#btnLogin").on('click', function(){
          var email = $("#inputEmail3").val();
          var password = $("#inputPassword3").val();
+         var $oki = $('#checkBeforeConfirm');
       if($( "#inputPassword3" ).hasClass( "is-invalid" ) || $( "#inputEmail3" ).hasClass( "is-invalid" )){
        alert("Vui lòng nhập đúng định dạng");
         return;
@@ -117,7 +118,6 @@ pageEncoding="UTF-8"%>
              success : function(results){
                  if(results != null && results != ""){
                      showMessage(results);
-               
                      $('#waiteDiv').css("display","block");
                  }else{
                      $('#messageDiv').css("display","none");
@@ -147,7 +147,12 @@ pageEncoding="UTF-8"%>
              $('#messageDiv').html("<font color='green'>Đăng nhập thành công vui lòng chờ </font>")
              $('#waiteDiv').html("<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Loading...")
              $("#messageDiv").fadeIn(); 
-             setTimeout(function(){  location.reload(); }, 500);
+             setTimeout(function(){ 
+            	if ($("#SeatBookingInformationServlet").length == 1){
+            		$("#checkBeforeConfirm").data("mystatus","islogin")
+            		 $(checkBeforeConfirm).click()
+            	}else location.reload();
+             }, 500);
 
          }else if(results == 'fail'){
              $('#messageDiv').html("<font color='red'>Gmail hoặc Mật Khẩu bị sai !!</font>")

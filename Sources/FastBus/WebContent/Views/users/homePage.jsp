@@ -131,7 +131,7 @@
 							<img src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg" class="card-img-top" alt="..." />
 							<div class="card-body">
 								<h5 class="card-title"><%=listBusiness.get(1).getName() %></h5>
-								<p class="card-text " style="height: 300px;overflow: hidden;">
+								<p class="card-text " style="height: 135px;overflow: hidden;">
 									<%=listBusiness.get(1).getDescription() %>
 								</p>
 							</div>
@@ -155,7 +155,7 @@
 								class="card-img-top" alt="..." />
 							<div class="card-body">
 								<h5 class="card-title"><%=bs.getName() %></h5>
-								<p class="card-text" style="height: 300px;overflow: hidden;" ><%=bs.getDescription() %></p>
+								<p class="card-text" style="height: 135px;overflow: hidden;" ><%=bs.getDescription() %></p>
 							</div>
 							<div class="card-footer text-right">
 								<a href="BusinessDetailServlet?idBusiness=<%=bs.getIdBusiness() %>" class="">Chi tiết nhà xe</a>

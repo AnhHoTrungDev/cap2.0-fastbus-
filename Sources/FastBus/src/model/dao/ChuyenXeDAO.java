@@ -74,7 +74,7 @@ public class ChuyenXeDAO {
 
 			while (rs.next()) {
 				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-						rs.getString(5), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				listTrip.add(trip);
 			}
 		} catch (SQLException e) {
@@ -102,7 +102,7 @@ public class ChuyenXeDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-						rs.getString(5), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 
 			}
 		} catch (SQLException e) {
@@ -133,7 +133,7 @@ public class ChuyenXeDAO {
 
 			while (rs.next()) {
 				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
-						rs.getString(5), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getFloat(10));
 				listTrip.add(trip);
 			}
 		} catch (SQLException e) {

@@ -62,7 +62,7 @@
             <div class="card-body">
               <h5 class="card-title"><%=trip.getNameBusiness() %></h5>
               <span class="card-text">
-                Chuyến xe: từ <%=trip.getStartPlace() %> Đến <%=trip.getEndPlace() %>
+                Chuyến xe:  <%=trip.getStartPlace() %> - <%=trip.getEndPlace() %>
               </span>
              <div class="clearfix align-items-center my-2">
                 <div class="pull-left rating-container mx-auto">
@@ -103,7 +103,7 @@
             </ul>
             <div class="card-body text-center">
               <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
-              <a  href="#" class="card-link">Thông tin nhà xe</a>
+              <a  href="BusinessDetailServlet?idBusiness=<%=trip.getIdBusiness() %>" class="card-link">Thông tin nhà xe</a>
             </div>
           </div>
             <%} %>

@@ -45,7 +45,7 @@
 			<div class="row mb-5 mt-3">
 				<!--Bên  phải Thông tin  -->
 				<div class="col-md-4 mt-3 ">
-					<form action="SeatBookingInformationServlet">
+					<form action="SeatBookingInformationServlet" id="SeatBookingInformationServlet">
 						<%
 							ChuyenXe trip = (ChuyenXe) request.getAttribute("trip");
 						%>
@@ -66,8 +66,7 @@
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="locationEnd" class="col-sm-5 col-form-label">Nhà
-										Xe &nbsp;</label>
+									<label for="locationEnd" class="col-sm-5 col-form-label">Nhà Xe &nbsp;</label>
 									<div class="col-sm-7">
 										<input type="text" readonly
 											class="form-control-plaintext border-bottom" name="business"
@@ -77,13 +76,10 @@
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="departureDay" class="col-sm-5 col-form-label">Ngày
-										khởi hành&nbsp;</label>
+									<label for="departureDay" class="col-sm-5 col-form-label">Ngày khởi hành&nbsp;</label>
 									<div class="col-sm-7 ">
-										<input type="text" readonly
-											class="form-control-plaintext  border-bottom"
-											id="departureDay" name="startDate"
-											value="<%=trip.getStartDate()%>" />
+										<input type="text" readonly class="form-control-plaintext  border-bottom"
+											id="departureDay" name="startDate" value="<%=trip.getStartDate()%>" />
 									</div>
 								</div>
 								<!-- end -->
@@ -169,9 +165,8 @@
 								<!-- end -->
 								<div class="col-sm-12 text-center mb-3 ">
 									<a class="mr-2" href="#" id="comeBackHistory">Quay Lại</a> 
-									<input type="submit"
-										name="confirmSeatBooking" class="btn btn-primary ml-2"
-										value="Tiếp Tục" id="checkBeforeConfirm" />
+									<input type="submit" name="confirmSeatBooking" class="btn btn-primary ml-2"
+										value="Tiếp Tục" id="checkBeforeConfirm" data-mystatus="nologin" />							
 								</div>
 							</div>
 						</div>
@@ -666,9 +661,10 @@ $("#checkBeforeConfirm").each(function() {
     	  return false;
       }
       var sseEmail = "<%=session.getAttribute("email")%>";
+      var dataSetStatus=$(checkBeforeConfirm).data("mystatus");
       console.log(sseEmail);
       var modal = document.getElementById("myModal");
-      if (sseEmail == "null") {
+      if (sseEmail == "null" && dataSetStatus == "nologin" ) {
         $(modal).modal("show");
         $("#messageDiv").html(
           "<font color='blue'>Vui lòng Đăng Nhập Để Tiếp Tục </font>"
