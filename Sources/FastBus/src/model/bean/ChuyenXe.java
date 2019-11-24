@@ -14,11 +14,6 @@
 
 package model.bean;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 public class ChuyenXe {
 
 	private int idTrip;
@@ -30,7 +25,9 @@ public class ChuyenXe {
 	private String startDate;
 	private String startTime;
 	private String endTime;
+	private int totalTime;
 	private float price;
+	private int status;
 
 	public int getIdTrip() {
 		return idTrip;
@@ -113,8 +110,24 @@ public class ChuyenXe {
 		this.price = price;
 	}
 
+	public int getTotalTime() {
+		return totalTime;
+	}
+
+	public void setTotalTime(int totalTime) {
+		this.totalTime = totalTime;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	public ChuyenXe(int idTrip, int idBus,int idBusiness, String nameBusiness, String startPlace, String endPlace, String startDate,
-			String startTime, String endTime, float price) {
+			String startTime, String endTime,int totalTime, float price,int status) {
 		super();
 		this.idTrip = idTrip;
 		this.idBus = idBus;
@@ -126,8 +139,10 @@ public class ChuyenXe {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.price = price;
+		this.status=status;
+		this.totalTime=totalTime;
 	}
-
+	
 	
 	public ChuyenXe(int idTrip, String nameBusiness, String startPlace, String endPlace, String startDate,
 			String startTime, String endTime, float price) {
