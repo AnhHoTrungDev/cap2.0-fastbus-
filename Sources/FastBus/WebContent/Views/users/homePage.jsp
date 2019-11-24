@@ -4,8 +4,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.bean.DiaDiem"%>
 <%@page import="java.util.List"%>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/Views/users/assets/css/homepage.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/Views/users/assets/css/homepage.css">
 <!doctype html>
 <html lang="en">
 

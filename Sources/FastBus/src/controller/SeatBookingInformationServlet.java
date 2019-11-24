@@ -3,7 +3,17 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +26,9 @@ import model.bean.ChuyenXe;
 import model.bean.SeatBooking;
 import model.bean.User;
 import model.bo.SeatBookingBO;
+import model.bo.SendEmailBO;
 import model.bo.UserBO;
+import model.bean.MailConfig;
 
 /**
  * Servlet implementation class SeatBookingInformationServlet
@@ -40,6 +52,8 @@ public class SeatBookingInformationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 
 		ChuyenXe tripInfor = null;
@@ -110,21 +124,22 @@ public class SeatBookingInformationServlet extends HttpServlet {
 
 			tripInfor = (ChuyenXe) session.getAttribute("tripInfo");
 			User user = (User) session.getAttribute("getUser");
-			
-			List<SeatBooking> listSeat= new ArrayList<SeatBooking>();
-			for (String aSeat : ((String) session.getAttribute("seat")).split(",") ) {
-				SeatBooking sb= new SeatBooking(tripInfor.getIdTrip(), user.getEmail(), aSeat);
+
+			List<SeatBooking> listSeat = new ArrayList<SeatBooking>();
+			for (String aSeat : ((String) session.getAttribute("seat")).split(",")) {
+				SeatBooking sb = new SeatBooking(tripInfor.getIdTrip(), user.getEmail(), aSeat);
 				listSeat.add(sb);
 			}
-			
-			if(new SeatBookingBO().insertSeatBO(listSeat)==1) {
-				url="LoadHomePageServlet";
-			}else {
-				url="Views/users/busGarageDetail.jsp";
+
+			if (new SeatBookingBO().insertSeatBO(listSeat) == 1) {
+				new SendEmailBO().SendMailCustomerBO(tripInfor, user, listSeat);
+				url = "LoadHomePageServlet";
+			} else {
+				url = "Views/users/busGarageDetail.jsp";
 			}
-//			session.removeAttribute("tripInfo");
-//			session.removeAttribute("seat");
-//			session.removeAttribute("user");
+			session.removeAttribute("tripInfo");
+			session.removeAttribute("seat");
+			session.removeAttribute("user");
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
