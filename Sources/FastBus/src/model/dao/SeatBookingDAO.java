@@ -33,7 +33,7 @@ public class SeatBookingDAO {
 	ResultSet rs = null;
 	List<SeatBooking> listSeat = null;
 
-	public List<SeatBooking> getListSeatBookingByIdDAO(int idTrip) {
+	public List<SeatBooking> getListSeatBookingByIdDAO(int idTrip, String startDate) {
 
 		connection = con.getConnect();
 		listSeat = new ArrayList<SeatBooking>();

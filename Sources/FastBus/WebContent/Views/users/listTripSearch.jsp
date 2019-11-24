@@ -87,7 +87,7 @@
               </li>
             </ul>
             <div class="card-body text-center">
-              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
+              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>&ngayKH=<%=trip.getStartDate() %>" class="card-link check-login"> Đặt vé</a>
               <a  href="BusinessDetailServlet?idBusiness=<%=trip.getIdBusiness() %>" class="card-link">Thông tin nhà xe</a>
             </div>
           </div>
@@ -160,7 +160,7 @@
               </li>
             </ul>
             <div class="card-body text-center">
-              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
+              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>&ngayKH=<%=trip.getStartDate() %>" class="card-link check-login"> Đặt vé</a>
               <a href="BusinessDetailServlet?idBusiness=<%=trip.getIdBusiness() %>" class="card-link">Thông tin nhà xe</a>
             </div>
           </div>

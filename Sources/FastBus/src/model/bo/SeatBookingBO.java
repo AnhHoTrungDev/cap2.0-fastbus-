@@ -21,8 +21,8 @@ import model.bean.SeatBooking;
 import model.dao.SeatBookingDAO;
 
 public class SeatBookingBO {
-	public List<SeatBooking> getListSeatBookingByIdBO(int idTrip){
-		return new SeatBookingDAO().getListSeatBookingByIdDAO(idTrip);
+	public List<SeatBooking> getListSeatBookingByIdBO(int idTrip,String startDate){
+		return new SeatBookingDAO().getListSeatBookingByIdDAO(idTrip,startDate);
 	}
 	
 	public int insertSeatBO(List<SeatBooking> seat) {
