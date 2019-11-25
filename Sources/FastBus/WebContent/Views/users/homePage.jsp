@@ -60,11 +60,11 @@
 							<div class="tab-pane fade show active" id="hotel" role="tabpanel"
 								aria-labelledby="hotel-tab">
 								<div class="booking_form">
-									<form action="<%=request.getContextPath()%>/SearchTripServlet">
+									<form action="<%=request.getContextPath()%>/SearchTripServlet" id="searchForm">
 										<div class="form-row">
 											<div class="form_colum">
 												<select class="w-100 js-example-basic-single "
-													name="startPlace">
+													name="startPlace" id="startPlace">
 													<option selected value="">Nơi đi</option>
 													<%
 														for (DiaDiem lPlace : (List<DiaDiem>) request.getAttribute("listPlace")) {
@@ -194,6 +194,36 @@
 		$(document).ready(function() {
 			$('.js-example-basic-single').select2();
 		});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#searchForm").submit(function(e){
+			if(!validateDataForSearch()){ e.preventDefault()};	
+		})
+		function validateDataForSearch(){
+			if($("[name='startPlace']").val()==""){
+				alert("Bạn chưa chọn nơi đi")
+				return false;
+			}
+			if($("[name='endPlace']").val()==""){
+				alert("Bạn chưa chọn nơi đến")
+				return false;
+			}
+			if($("[name='startDate']").val()==""){
+				alert("Bạn chưa chọn ngày đi")
+				return false;
+			}
+			if($("[name='startTime']").val()==""){
+				alert("Bạn chưa chọn thời gian đi")
+				return false;
+			}
+			if($("[name='startPlace']").val()==$("[name='endPlace']").val()){
+				alert("Bạn không thể chọn nơi đi và nơi đến trùng nhau")
+				return false;
+			}
+			return true;
+		}
+	});
 	</script>
 </html>
 <!-- fix interface combobox -->
