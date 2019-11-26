@@ -82,8 +82,8 @@
                 ><span><%=trip.getStartDate()%></span>
               </li>
               <li class="list-group-item">
-                <span class="font-weight-bold">Giá vé: </span
-                ><span class="fare" value="<%=trip.getPrice()%>"><%=trip.getPrice()%></span>
+                <span class="font-weight-bold">Giá vé: </span>
+                <span class="fare" value="<%= Float.parseFloat(trip.getPrice())%>"><%= trip.getPrice() %></span>
               </li>
             </ul>
             <div class="card-body text-center">

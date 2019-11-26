@@ -196,8 +196,7 @@ pageEncoding="UTF-8"%>
                                       id="fare"
                                       name="price"
                                       value="0"
-                                      data-price=""<!-- trip.getPrice() cho  trip.getPrice() vô đây -->
-                                      
+                                      data-price=""                    
                                     />
                                   </div>
                                 </div>

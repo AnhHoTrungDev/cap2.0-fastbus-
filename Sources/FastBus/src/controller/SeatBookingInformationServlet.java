@@ -59,7 +59,6 @@ public class SeatBookingInformationServlet extends HttpServlet {
 		ChuyenXe tripInfor = null;
 
 		String url = "";
-		String trip = "";
 		int idTrip = 0;
 		String businessName = "";
 		String startPlace = "";
@@ -70,15 +69,13 @@ public class SeatBookingInformationServlet extends HttpServlet {
 		String startTime = "";
 		String endTime = "";
 		String seat = "";
-		String place = "";
-		float price = 0;
+		String price = "";
 		String userName = "";
 		String mail = "";
 		String phone = "";
 		String address = "";
 
 		if ("Tiếp Tục".equalsIgnoreCase(request.getParameter("confirmSeatBooking"))) {
-			trip = request.getParameter("trip");
 			idTrip = Integer.parseInt(request.getParameter("idTrip"));
 			businessName = request.getParameter("business");
 			startDate = request.getParameter("startDate");
@@ -87,14 +84,12 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			endTime = request.getParameter("endTime");
 			seat = request.getParameter("codeChairOder");
 
-			String pr = request.getParameter("price");
-			String ab = pr.substring(0, pr.length() - 2);
+			 price = request.getParameter("price");
 
-			price = Float.parseFloat(ab);
-			place = request.getParameter("place");
+			String place = request.getParameter("place");
 
-			startPlace = trip.split("-")[0];
-			endPlace = trip.split("-")[1];
+			startPlace = request.getParameter("trip").split("-")[0];
+			endPlace = request.getParameter("trip").split("-")[1];
 
 			tripInfor = new ChuyenXe(idTrip, businessName, startPlace, endPlace, startDate, startTime, endTime, price);
 

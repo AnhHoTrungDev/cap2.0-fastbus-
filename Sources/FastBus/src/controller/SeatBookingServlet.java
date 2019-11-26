@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -39,7 +41,10 @@ public class SeatBookingServlet extends HttpServlet {
 		request.getCharacterEncoding();
 		
 		int idTrip=  Integer.parseInt(request.getParameter("idTrip"));
-		String startDate=request.getParameter("ngayKH");
+		String startDate=(String)request.getParameter("ngayKH");
+		if(startDate==null) {
+			startDate= (LocalDate.now()).toString();
+		}
 		ChuyenXe Trip=new ChuyenXeBO().getListTripByIdBO(idTrip,startDate);
 		
 		List<SeatBooking> listSeat= new SeatBookingBO().getListSeatBookingByIdBO(idTrip,startDate);

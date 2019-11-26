@@ -138,7 +138,7 @@
 										<div class="input-group border-bottom">
 											<input type="text" readonly class="form-control-plaintext"
 												id="fare" name="price" value="0"
-												data-price="<%=trip.getPrice()%>" />
+												data-price="<%= Float.parseFloat(trip.getPrice())%>" />
 										</div>
 									</div>
 								</div>
