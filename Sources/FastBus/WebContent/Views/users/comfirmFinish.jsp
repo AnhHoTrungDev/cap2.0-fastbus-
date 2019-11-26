@@ -191,8 +191,7 @@
 								</div>
 								<!-- end -->
 								<div class="form-group row">
-									<label for="codeChairOder" class="col-sm-5 col-form-label">Ghế
-										đã chọn &nbsp;</label>
+									<label for="codeChairOder" class="col-sm-5 col-form-label">Ghế đã chọn &nbsp;</label>
 									<div class="col-sm-7  ">
 										<input type="text" readonly
 											class="form-control-plaintext border-bottom"
@@ -203,8 +202,7 @@
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="fare" class="col-sm-5 col-form-label ">Giá
-										Vé &nbsp;</label>
+									<label for="fare" class="col-sm-5 col-form-label ">Giá Vé &nbsp;</label>
 									<div class="col-7">
 										<div class="input-group border-bottom">
 											<input type="text" readonly class="form-control-plaintext"
@@ -215,8 +213,7 @@
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="fare" class="col-sm-12 col-form-label ">Địa
-										chỉ đón: &nbsp;</label>
+									<label for="fare" class="col-sm-12 col-form-label ">Địa chỉ đón: &nbsp;</label>
 									<div class="col-sm-12">
 										<div class="input-group border-bottom">
 											<select class="w-100 conbobox-pickUpLocation my-5"

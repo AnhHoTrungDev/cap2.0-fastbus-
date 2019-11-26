@@ -19,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -58,7 +59,7 @@ public class ChuyenXeDAO {
 
 			while (rs.next()) {
 				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6),
-						        startDate, rs.getString(7), rs.getString(7), rs.getInt(8), rs.getFloat(9), rs.getInt(10));
+						        startDate, rs.getString(7), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getInt(10));
 
 				listTrip.add(trip);
 			}
@@ -72,7 +73,7 @@ public class ChuyenXeDAO {
 	public ChuyenXe getListTripByIdDAO(int idTrip,String startDate) {
 		connection = con.getConnect();
 		ChuyenXe trip = null;
-
+		
 		String selectInfor = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_total_time, t.trip_price,t.trip_status from trip t\r\n" + 
 				"inner join place p on p.place_id=t.trip_start_place \r\n"  + 
 				"inner join place p1 on p1.place_id=t.trip_end_place \r\n" + 
@@ -86,7 +87,7 @@ public class ChuyenXeDAO {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6),
-						startDate, rs.getString(7), rs.getString(7), rs.getInt(8), rs.getFloat(9), rs.getInt(10));
+						startDate, rs.getString(7), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getInt(10));
 
 			}
 		} catch (SQLException e) {
@@ -115,7 +116,7 @@ public class ChuyenXeDAO {
 
 			while (rs.next()) {
 				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6),
-						"2019-11-12", rs.getString(7), rs.getString(7), rs.getInt(8), rs.getFloat(9), rs.getInt(10));
+						"2019-11-12", rs.getString(7), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getInt(10));
 				listTrip.add(trip);
 			}
 		} catch (SQLException e) {

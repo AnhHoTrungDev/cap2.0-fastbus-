@@ -167,6 +167,7 @@ pageEncoding="UTF-8"%>
 	let menuIsLogin = document.getElementById("menuIsLogin");
 	let menuNotLogin = document.getElementById("menuNotLogin");
     var sseEmail = "<%=session.getAttribute("email")%>";
+    console.log("<%=session.getAttribute("email")%>");
     if(sseEmail != "null"){  
     	$(menuNotLogin).remove();    	
     }else{   	
