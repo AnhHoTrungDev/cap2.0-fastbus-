@@ -20,21 +20,6 @@
   <!-- Header part end-->
 
     <!-- banner part start-->
-    <!-- <section class="banner_part">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-10">
-                    <div class="banner_text text-center">
-                        <div class="banner_text_iner">
-                            <h1> Fastbus</h1>
-                            <p>Let’s start your journey with us, your trip will be fast and safe</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- banner part start-->
     
     <section class="top_place section_padding">
         <div class="container">
@@ -86,7 +71,7 @@
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Thời Gian Dự Kiến: </span
-                ><span>10 Tiếng</span>
+                ><span><%=trip.getTotalTime() %> Tiếng</span>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Thời Gian Khởi Hành: </span>
@@ -102,7 +87,7 @@
               </li>
             </ul>
             <div class="card-body text-center">
-              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
+              <a href="SeatBookingServlet?ngayKH=<%=trip.getStartDate().replaceAll("/", "%2F") %>&idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
               <a  href="BusinessDetailServlet?idBusiness=<%=trip.getIdBusiness() %>" class="card-link">Thông tin nhà xe</a>
             </div>
           </div>
@@ -175,7 +160,7 @@
               </li>
             </ul>
             <div class="card-body text-center">
-              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="card-link check-login"> Đặt vé</a>
+              <a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>&ngayKH=<%=trip.getStartDate() %>" class="card-link check-login"> Đặt vé</a>
               <a href="BusinessDetailServlet?idBusiness=<%=trip.getIdBusiness() %>" class="card-link">Thông tin nhà xe</a>
             </div>
           </div>

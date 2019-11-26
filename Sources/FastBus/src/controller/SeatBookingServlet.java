@@ -35,13 +35,14 @@ public class SeatBookingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		request.getCharacterEncoding();
-		response.getCharacterEncoding();
 		
 		int idTrip=  Integer.parseInt(request.getParameter("idTrip"));
-		ChuyenXe Trip=new ChuyenXeBO().getListTripByIdBO(idTrip);
+		String startDate=request.getParameter("ngayKH");
+		ChuyenXe Trip=new ChuyenXeBO().getListTripByIdBO(idTrip,startDate);
 		
-		List<SeatBooking> listSeat= new SeatBookingBO().getListSeatBookingByIdBO(idTrip);
+		List<SeatBooking> listSeat= new SeatBookingBO().getListSeatBookingByIdBO(idTrip,startDate);
 
 		request.setAttribute("trip", Trip);
 		request.setAttribute("listSeat", listSeat);
