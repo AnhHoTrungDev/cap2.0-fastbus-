@@ -74,7 +74,7 @@ public class ChuyenXeDAO {
 		ChuyenXe trip = null;
 
 		String selectInfor = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_total_time, t.trip_price,t.trip_status from trip t\r\n" + 
-				"inner join place p on p.place_id=t.trip_start_place \r\n" + 
+				"inner join place p on p.place_id=t.trip_start_place \r\n"  + 
 				"inner join place p1 on p1.place_id=t.trip_end_place \r\n" + 
 				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
 				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
@@ -102,13 +102,11 @@ public class ChuyenXeDAO {
 		connection = con.getConnect();
 		listTrip = new ArrayList<ChuyenXe>();
 
-		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name,t.trip_start_date, t.trip_start_time, t.trip_end_time, t.trip_price from trip t \r\n"
+		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_total_time, t.trip_price,t.trip_status from trip t\r\n"
 				+ "inner join place p on p.place_id=t.trip_start_place  \r\n"
 				+ "inner join place p1 on p1.place_id=t.trip_end_place \r\n"
-				+ "inner join province d on p.place_pv_id= d.province_id \r\n"
-				+ "inner join province d1 on p1.place_pv_id=d1.province_id \r\n"
 				+ "inner join bus b on b.bus_id=t.trip_bus_id \r\n"
-				+ "inner join business bs on b.bus_bs_id=bs.bs_id and bs.bs_id=? and trip_start_date='2019-11-16'\r\n"
+				+ "inner join business bs on b.bus_bs_id=bs.bs_id and bs.bs_id=? \r\n"
 				+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
 		try {
 			ps = connection.prepareStatement(selectPlace);
