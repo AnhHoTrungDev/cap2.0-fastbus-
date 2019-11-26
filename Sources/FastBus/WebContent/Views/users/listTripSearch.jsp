@@ -70,8 +70,8 @@
                 ><span>10 chổ</span>
               </li>
               <li class="list-group-item">
-                <span class="font-weight-bold">Thời Gian Dự Kiến: </span
-                ><span><%=trip.getTotalTime() %> Tiếng</span>
+                <span class="font-weight-bold">Thời Gian Dự Kiến: </span>
+                <span><%=trip.getTotalTime() %> Tiếng</span>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Thời Gian Khởi Hành: </span>
