@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -44,53 +45,69 @@ public class ChuyenXeDAO {
 	public List<ChuyenXe> getListTripDAO(String startPlace, String endPlace, String startDate, String startTime) {
 		connection = con.getConnect();
 		listTrip = new ArrayList<ChuyenXe>();
-		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_total_time, t.trip_price,t.trip_status from trip t\r\n" + 
-				"inner join place p on p.place_id=t.trip_start_place and p.place_name like  N'%"+startPlace+"%' \r\n" + 
-				"inner join place p1 on p1.place_id=t.trip_end_place and p1.place_name like N'%"+endPlace+"%' and t.trip_start_time='"+startTime+"'\r\n" + 
-				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
-				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
-				"inner join account a on bs.bs_acc_mail=a.acc_mail";
-		
-		
-				
+		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t\r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place and p.place_name like  N'%" + startPlace
+				+ "%' \r\n" + "inner join place p1 on p1.place_id=t.trip_end_place and p1.place_name like N'%"
+				+ endPlace + "%' and t.trip_start_time='" + startTime + "'\r\n"
+				+ "inner join bus b on b.bus_id=t.trip_bus_id\r\n"
+				+ "inner join business bs on b.bus_bs_id=bs.bs_id \r\n"
+				+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
+
 		try {
 			ps = connection.prepareStatement(selectPlace);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6),
-						        startDate, rs.getString(7), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getInt(10));
+				Date sTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-03-14 " + rs.getString(7));
+				Date eTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-03-15 " + rs.getString(8));
+				int total = (int) (eTime.getTime() - sTime.getTime()) / (60 * 60 * 1000);
+
+				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), startDate, rs.getString(7), rs.getString(8), total, rs.getString(9),
+						rs.getInt(10));
 
 				listTrip.add(trip);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return listTrip;
 	}
 
-	public ChuyenXe getListTripByIdDAO(int idTrip,String startDate) {
+	public ChuyenXe getListTripByIdDAO(int idTrip, String startDate) {
 		connection = con.getConnect();
 		ChuyenXe trip = null;
-		
-		String selectInfor = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_total_time, t.trip_price,t.trip_status from trip t\r\n" + 
-				"inner join place p on p.place_id=t.trip_start_place \r\n"  + 
-				"inner join place p1 on p1.place_id=t.trip_end_place \r\n" + 
-				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
-				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
-				"inner join account a on bs.bs_acc_mail=a.acc_mail and t.trip_id=?";
+
+		String selectInfor = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t\r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place \r\n"
+				+ "inner join place p1 on p1.place_id=t.trip_end_place \r\n"
+				+ "inner join bus b on b.bus_id=t.trip_bus_id\r\n"
+				+ "inner join business bs on b.bus_bs_id=bs.bs_id \r\n"
+				+ "inner join account a on bs.bs_acc_mail=a.acc_mail and t.trip_id=?";
 
 		try {
 			ps = connection.prepareStatement(selectInfor);
 			ps.setInt(1, idTrip);
 			rs = ps.executeQuery();
+
 			while (rs.next()) {
-				trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6),
-						startDate, rs.getString(7), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getInt(10));
+				Date sTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-03-14 " + rs.getString(7));
+				Date eTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-03-15 " + rs.getString(8));
+				int total = (int) (eTime.getTime() - sTime.getTime()) / (60 * 60 * 1000);
+
+				trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), startDate, rs.getString(7), rs.getString(8), total, rs.getString(9),
+						rs.getInt(10));
 
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -103,7 +120,7 @@ public class ChuyenXeDAO {
 		connection = con.getConnect();
 		listTrip = new ArrayList<ChuyenXe>();
 
-		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_total_time, t.trip_price,t.trip_status from trip t\r\n"
+		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t\r\n"
 				+ "inner join place p on p.place_id=t.trip_start_place  \r\n"
 				+ "inner join place p1 on p1.place_id=t.trip_end_place \r\n"
 				+ "inner join bus b on b.bus_id=t.trip_bus_id \r\n"
@@ -115,11 +132,19 @@ public class ChuyenXeDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6),
-						"2019-11-12", rs.getString(7), rs.getString(7), rs.getInt(8), rs.getString(9), rs.getInt(10));
+				Date sTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-03-14 " + rs.getString(7));
+				Date eTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-03-15 " + rs.getString(8));
+				int total = (int) (eTime.getTime() - sTime.getTime()) / (60 * 60 * 1000);
+
+				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), (LocalDate.now()).toString(), rs.getString(7), rs.getString(8), total,
+						rs.getString(9), rs.getInt(10));
 				listTrip.add(trip);
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

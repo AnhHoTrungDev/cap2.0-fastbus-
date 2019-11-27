@@ -45,7 +45,7 @@
 			<div class="row mb-5 mt-3">
 				<!--Bên  phải Thông tin  -->
 				<div class="col-md-4 mt-3 ">
-					<form action="SeatBookingInformationServlet" id="SeatBookingInformationServlet">
+					<form action="SeatBookingInformationServlet" id="SeatBookingInformationServlet" method="post">
 						<%
 							ChuyenXe trip = (ChuyenXe) request.getAttribute("trip");
 						%>
@@ -102,9 +102,9 @@
 									<label for="departureDay" class="col-sm-5 col-form-label">Thời
 										gian đi &nbsp;</label>
 									<div class="col-sm-7">
-										<input type="time" readonly
+										<input type="text" readonly
 											class="form-control-plaintext border-bottom"
-											id="departureDay" name="totalTime" value="16:20" />
+											id="departureDay" name="totalTime" value="<%=trip.getTotalTime() %> tiếng" />
 									</div>
 								</div>
 								<!-- end -->
@@ -120,8 +120,7 @@
 								</div>
 								<!-- end -->
 								<div class="form-group row">
-									<label for="codeChairOder" class="col-sm-5 col-form-label">Ghế
-										đã chọn &nbsp;</label>
+									<label for="codeChairOder" class="col-sm-5 col-form-label">Ghế đã chọn &nbsp;</label>
 									<div class="col-sm-7  ">
 										<input type="text" readonly
 											class="form-control-plaintext border-bottom"

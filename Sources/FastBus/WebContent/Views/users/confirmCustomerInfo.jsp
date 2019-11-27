@@ -38,8 +38,7 @@
 								<h3 class="text-danger">Thông Tin Khách Hàng</h3>
 							</legend>
 
-							<form id="comfirmCustomerInfor"
-								action="SeatBookingInformationServlet">
+							<form id="comfirmCustomerInfor" action="SeatBookingInformationServlet" method="post">
 								<%
 									User user = (User) session.getAttribute("getUser");
 								%>
