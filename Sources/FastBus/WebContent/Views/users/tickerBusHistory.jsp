@@ -196,7 +196,7 @@ pageEncoding="UTF-8"%>
                                       id="fare"
                                       name="price"
                                       value="0"
-                                      data-price=""                    
+                                      data-price=""
                                     />
                                   </div>
                                 </div>
