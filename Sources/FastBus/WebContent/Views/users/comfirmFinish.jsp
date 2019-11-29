@@ -217,7 +217,7 @@
 									<div class="col-sm-7">
 										<div class="input-group border-bottom">
 											<input type="text" readonly class="form-control-plaintext"
-												id="fare" name="price" value="<%=trip.getPrice()%>" />
+												id="fare" name="pickUpPlace" value="<%=session.getAttribute("pickPlace")%>" />
 										</div>
 									</div>
 								</div>

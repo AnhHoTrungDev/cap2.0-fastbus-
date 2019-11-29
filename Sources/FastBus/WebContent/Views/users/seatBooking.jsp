@@ -154,7 +154,7 @@
 													for(PickupPlace pick : (List<PickupPlace>)request.getAttribute("listPickPlace")){
 														
 												%>
-												<option value="<%=pick.getIdPlace()%>"><%=pick.getName() %></option>
+												<option value="<%=pick.getName()%>"><%=pick.getName() %></option>
 												<%} %>
 											</select>
 										</div>

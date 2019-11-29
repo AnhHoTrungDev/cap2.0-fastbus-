@@ -74,6 +74,7 @@ public class SeatBookingInformationServlet extends HttpServlet {
 		String mail = "";
 		String phone = "";
 		String address = "";
+		String pickPlace="";
 
 		if ("Tiếp Tục".equalsIgnoreCase(request.getParameter("confirmSeatBooking"))) {
 			idTrip = Integer.parseInt(request.getParameter("idTrip"));
@@ -83,7 +84,7 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			totalTime = request.getParameter("totalTime");
 			endTime = request.getParameter("endTime");
 			seat = request.getParameter("codeChairOder");
-
+		
 			 price = request.getParameter("price");
 
 			String place = request.getParameter("place");
@@ -92,7 +93,8 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			endPlace = request.getParameter("trip").split("-")[1];
 
 			tripInfor = new ChuyenXe(idTrip, businessName, startPlace, endPlace, startDate, startTime, endTime, price);
-
+			pickPlace=request.getParameter("pickUplocation");
+			session.setAttribute("pickPlace", pickPlace);
 			session.setAttribute("tripInfo", tripInfor);
 			session.setAttribute("seat", seat);
 
@@ -132,6 +134,8 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			} else {
 				url = "Views/users/busGarageDetail.jsp";
 			}
+			
+			session.removeAttribute("pickPlace");
 			session.removeAttribute("tripInfo");
 			session.removeAttribute("seat");
 			session.removeAttribute("user");
