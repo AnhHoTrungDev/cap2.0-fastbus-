@@ -5656,3 +5656,11 @@ span#currency:after {
 	color: red;
 	width: 100%;
 }
+
+.highlights-box-menu {
+	border-radius: 10px;
+	background-color: #fff;
+	-webkit-box-shadow: 0px 17px 33px -11px rgba(0, 0, 0, 0.56);
+	-moz-box-shadow: 0px 17px 33px -11px rgba(0, 0, 0, 0.56);
+	box-shadow: 0px 17px 33px -11px rgba(0, 0, 0, 0.56);
+}
