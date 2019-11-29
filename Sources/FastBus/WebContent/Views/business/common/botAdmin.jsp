@@ -12,6 +12,8 @@
 
 <!-- Page level plugins -->
 <script src="<%=request.getContextPath()%>/Views/business/vendor/chart.js/Chart.min.js"></script>
+<!-- Click even -->
+<script src="<%=request.getContextPath()%>/Views/business/js/custome.js"></script>
 
 <!-- Page level custom scripts -->
 <!-- <script src="<%=request.getContextPath()%>/Views/business/js/demo/chart-area-demo.js"></script>

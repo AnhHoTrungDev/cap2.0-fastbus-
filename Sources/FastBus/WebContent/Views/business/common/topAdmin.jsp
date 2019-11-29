@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<link rel="icon" href="https://img.icons8.com/clouds/100/000000/bus.png">
 <!-- Custom fonts for this template-->
 <link href="<%=request.getContextPath()%>/Views/business/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
