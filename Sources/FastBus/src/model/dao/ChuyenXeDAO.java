@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Timer;
 
 import model.bean.ChuyenXe;
+import model.bean.PickupPlace;
 
 public class ChuyenXeDAO {
 
@@ -149,5 +150,28 @@ public class ChuyenXeDAO {
 			e.printStackTrace();
 		}
 		return listTrip;
+	}
+	
+	
+	
+	public List<PickupPlace> getListPickUpPlaceDAO(int idBusiness) {
+		connection = con.getConnect();
+		List<PickupPlace> listPickupPlaces=new ArrayList<PickupPlace>();
+		String selectPlace="select place_id,business_id, place_name from pickup_place where business_id=?";
+		try {
+			ps = connection.prepareStatement(selectPlace);
+			ps.setInt(1, idBusiness);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				
+				PickupPlace pPlace=new PickupPlace(rs.getInt("place_id"), rs.getInt("business_id"), rs.getString("place_name"));
+				listPickupPlaces.add(pPlace);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listPickupPlaces;
 	}
 }

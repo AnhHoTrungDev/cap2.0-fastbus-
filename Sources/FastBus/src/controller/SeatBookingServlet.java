@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.bean.ChuyenXe;
+import model.bean.PickupPlace;
 import model.bean.SeatBooking;
 import model.bo.ChuyenXeBO;
 import model.bo.SeatBookingBO;
@@ -46,12 +47,15 @@ public class SeatBookingServlet extends HttpServlet {
 			startDate= (LocalDate.now()).toString();
 		}
 		ChuyenXe Trip=new ChuyenXeBO().getListTripByIdBO(idTrip,startDate);
+		int idBusiness=Trip.getIdBusiness();
+		
+		List<PickupPlace> listPickPlace= new ChuyenXeBO().getListPickUpPlaceBO(idBusiness);
 		
 		List<SeatBooking> listSeat= new SeatBookingBO().getListSeatBookingByIdBO(idTrip,startDate);
 
 		request.setAttribute("trip", Trip);
 		request.setAttribute("listSeat", listSeat);
-		
+		request.setAttribute("listPickPlace", listPickPlace);
 		RequestDispatcher rd=request.getRequestDispatcher("Views/users/seatBooking.jsp");
 		rd.forward(request, response);
 	}

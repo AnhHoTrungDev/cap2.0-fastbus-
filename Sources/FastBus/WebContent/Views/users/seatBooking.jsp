@@ -1,3 +1,5 @@
+<%@page import="model.bean.PickupPlace"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="model.bean.SeatBooking"%>
 <%@page import="java.util.List"%>
 <%@page import="model.bean.ChuyenXe"%>
@@ -78,7 +80,7 @@
 								<div class="form-group row">
 									<label for="departureDay" class="col-sm-5 col-form-label">Ngày khởi hành&nbsp;</label>
 									<div class="col-sm-7 ">
-										<input type="text" readonly class="form-control-plaintext  border-bottom"
+										<input type="date" class="form-control-plaintext  border-bottom"
 											id="departureDay" name="startDate" value="<%=trip.getStartDate()%>" />
 									</div>
 								</div>
@@ -144,16 +146,16 @@
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="fare" class="col-sm-12 col-form-label ">Địa
-										chỉ đón: &nbsp;</label>
+									<label for="fare" class="col-sm-12 col-form-label ">Địa chỉ đón: &nbsp;</label>
 									<div class="col-sm-12">
 										<div class="input-group border-bottom">
-											<select class="w-100 conbobox-pickUpLocation my-5"
-												name="pickUplocation">
-												<option value="1">Bến xe đà nẵng</option>
-												<option value="2">Ngã 3 Huế</option>
-												<option value="3">Hội An Quốc Lộ 1A</option>
-												<option value="4">Bến xe Quảng nam</option>
+											<select class="w-100 conbobox-pickUpLocation my-5" name="pickUplocation">
+												<%
+													for(PickupPlace pick : (List<PickupPlace>)request.getAttribute("listPickPlace")){
+														
+												%>
+												<option value="<%=pick.getIdPlace()%>"><%=pick.getName() %></option>
+												<%} %>
 											</select>
 										</div>
 									</div>
@@ -647,8 +649,6 @@
 </script>
 <script language="JavaScript" type="text/javascript"> 
 $(document).ready(function() {
-$("#checkBeforeConfirm").each(function() {
-});
 
 $("#checkBeforeConfirm").each(function() {
   this.addEventListener(

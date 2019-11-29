@@ -17,6 +17,7 @@ package model.bo;
 import java.util.List;
 
 import model.bean.ChuyenXe;
+import model.bean.PickupPlace;
 import model.dao.ChuyenXeDAO;
 
 public class ChuyenXeBO {
@@ -29,6 +30,9 @@ public class ChuyenXeBO {
 	}
 	public List<ChuyenXe> getListTripByIdBusinessBO(String idBusiness) {
 		return new ChuyenXeDAO().getListTripByIdBusinessDAO(idBusiness);
+	}
+	public List<PickupPlace> getListPickUpPlaceBO(int idBusiness) {
+		return new ChuyenXeDAO().getListPickUpPlaceDAO(idBusiness);
 	}
 
 }
