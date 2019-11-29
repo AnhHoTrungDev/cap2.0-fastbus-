@@ -174,4 +174,31 @@ public class ChuyenXeDAO {
 		}
 		return listPickupPlaces;
 	}
+	
+	public List<ChuyenXe> getListTripDAO() {
+		connection = con.getConnect();
+		listTrip = new ArrayList<ChuyenXe>();
+		String selectPlace = "select bs.bs_id,a.acc_name, p.place_name,p1.place_name, COUNT(acc_name) from trip t\r\n" + 
+				"inner join place p on p.place_id=t.trip_start_place  \r\n" + 
+				"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
+				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
+				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
+				"inner join account a on bs.bs_acc_mail=a.acc_mail\r\n" + 
+				"where p1.place_name not in(N'Đà Nẵng')\r\n" + 
+				"group by p1.place_name,p.place_name, acc_name,bs.bs_id \r\n" + 
+				"order by p1.place_name  asc";
+		try {
+			ps = connection.prepareStatement(selectPlace);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				ChuyenXe trip = new ChuyenXe(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+				listTrip.add(trip);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listTrip;
+	}
 }

@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -24,46 +23,59 @@ import model.bo.SeatBookingBO;
 @WebServlet("/SeatBookingServlet")
 public class SeatBookingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SeatBookingServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public SeatBookingServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		request.getCharacterEncoding();
+
 		
-		int idTrip=  Integer.parseInt(request.getParameter("idTrip"));
-		String startDate=(String)request.getParameter("ngayKH");
-		if(startDate==null) {
-			startDate= (LocalDate.now()).toString();
+		int idTrip = Integer.parseInt(request.getParameter("idTrip"));
+		String startDate = "";
+		startDate = request.getParameter("ngayKH");
+		System.out.println(startDate);
+		System.out.println(LocalDate.now());
+		if (startDate == null) {
+			startDate = (LocalDate.now()).toString();
+		} else {
+
+			LocalDate start = LocalDate.parse(startDate.substring(6, 10)+"-"+startDate.substring(0, 2)+"-"+startDate.substring(3, 5));
+			startDate = start.toString();
+			System.out.println(startDate);
 		}
-		ChuyenXe Trip=new ChuyenXeBO().getListTripByIdBO(idTrip,startDate);
-		int idBusiness=Trip.getIdBusiness();
-		
-		List<PickupPlace> listPickPlace= new ChuyenXeBO().getListPickUpPlaceBO(idBusiness);
-		
-		List<SeatBooking> listSeat= new SeatBookingBO().getListSeatBookingByIdBO(idTrip,startDate);
+		ChuyenXe Trip = new ChuyenXeBO().getListTripByIdBO(idTrip, startDate);
+		int idBusiness = Trip.getIdBusiness();
+
+		List<PickupPlace> listPickPlace = new ChuyenXeBO().getListPickUpPlaceBO(idBusiness);
+
+		List<SeatBooking> listSeat = new SeatBookingBO().getListSeatBookingByIdBO(idTrip, startDate);
 
 		request.setAttribute("trip", Trip);
 		request.setAttribute("listSeat", listSeat);
 		request.setAttribute("listPickPlace", listPickPlace);
-		RequestDispatcher rd=request.getRequestDispatcher("Views/users/seatBooking.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("Views/users/seatBooking.jsp");
 		rd.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

@@ -34,5 +34,8 @@ public class ChuyenXeBO {
 	public List<PickupPlace> getListPickUpPlaceBO(int idBusiness) {
 		return new ChuyenXeDAO().getListPickUpPlaceDAO(idBusiness);
 	}
+	public List<ChuyenXe> getListTripBO() {
+		return new ChuyenXeDAO().getListTripDAO();
+	}
 
 }
