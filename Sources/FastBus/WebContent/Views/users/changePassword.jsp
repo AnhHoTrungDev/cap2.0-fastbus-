@@ -16,15 +16,14 @@ pageEncoding="UTF-8"%>
     <!--::header part start::-->
     <%@ include file="common/menu.jsp" %>
     <!-- Header part end-->
-	    <section>
+	      <section>
       <div class="container">
         <div
           class="row mt-5 mb-5 p-3"
           style="-webkit-box-shadow: 0px 10px 13px 4px rgba(0,0,0,0.44); 
-  			box-shadow: 0px 10px 13px 4px rgba(0,0,0,0.44);"
+          box-shadow: 0px 10px 13px 4px rgba(0,0,0,0.44);"
         >
-        <div class="col-md-12">
-        </div>
+          <div class="col-md-12"></div>
           <div class="col-md-4">
             <div class="my-5 mx-auto w-75 text-center">
               <h1 class="mt-5 text-primary text-center">Fast Bus</h1>
@@ -40,58 +39,64 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
           <div class="col-md-8">
-          <form action="">
-          <h1 class="text-center m-3 text-primary">Đổi Mật Khẩu</h1>
-               <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="inputPresentPassword">Mật Khẩu Hiện Tại :</label>
-                    <span class="text-danger">*</span>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="inputPresentPassword"
-                      placeholder="Password"
-                      name="inputPresentPassword"
-                    />
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="inputPassword">Mật Khẩu Mới :</label>
-                    <span class="text-danger">*</span>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="inputPassword"
-                      placeholder="Password"
-                      name="password"
-                    />
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <div class="form-group">
-                    <label for="inputConfirmpassword">
-                      Xác nhận Mật khẩu Mới :</label
-                    >
-                    <span class="text-danger">*</span>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="inputConfirmpassword"
-                      placeholder="Confirm password"
-                      name="confirmPassword"
-                    />
-                  </div>
-                </div>   
-              <div class="row">
-                <div class="col-12 text-center mt-3 mb-2">
-                 <button class="btn btn-primary text-center" name="btnChangePassword" value="btnChangePassword">Đổi Mật Khẩu</button>
+            <form action="">
+              <h1 class="text-center m-3 text-primary">Đổi Mật Khẩu</h1>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="inputPresentPassword">Mật Khẩu Hiện Tại :</label>
+                  <span class="text-danger">*</span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPresentPassword"
+                    placeholder="Password"
+                    name="inputPresentPassword"
+                  />
                 </div>
               </div>
-          </form>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="inputPassword">Mật Khẩu Mới :</label>
+                  <span class="text-danger">*</span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputPassword"
+                    placeholder="Password"
+                    name="password"
+                  />
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="inputConfirmpassword">
+                    Xác nhận Mật khẩu Mới :</label
+                  >
+                  <span class="text-danger">*</span>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputConfirmpassword"
+                    placeholder="Confirm password"
+                    name="confirmPassword"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 text-center mt-3 mb-2">
+                  <button
+                    class="btn btn-primary text-center"
+                    name="btnChangePassword"
+                    value="btnChangePassword"
+                  >
+                    Đổi Mật Khẩu
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
-         </div>
         </div>
+      </div>
     </section>
 
     <!-- footer part start-->
