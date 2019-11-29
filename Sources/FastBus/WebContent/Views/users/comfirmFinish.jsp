@@ -213,16 +213,11 @@
 								<!-- end -->
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="fare" class="col-sm-12 col-form-label ">Địa chỉ đón: &nbsp;</label>
-									<div class="col-sm-12">
+									<label for="fare" class="col-sm-5 col-form-label ">Địa chỉ đón &nbsp;</label>
+									<div class="col-7">
 										<div class="input-group border-bottom">
-											<select class="w-100 conbobox-pickUpLocation my-5"
-												name="pickUplocation" disabled="disabled">
-												<option value="1">Bến xe đà nẵng</option>
-												<option value="2" selected>Ngã 3 Huế</option>
-												<option value="3">Hội An Quốc Lộ 1A</option>
-												<option value="4">Bến xe Quảng nam</option>
-											</select>
+											<input type="text" readonly class="form-control-plaintext"
+												id="pickUplocation" name="pickUplocation" value="nhà TAo" />
 										</div>
 									</div>
 								</div>
