@@ -13,6 +13,28 @@ $(document).ready(function() {
       changeLocalSessionStorage();
     });
   });
+//  format date for url
+	formatDateForUrl = () =>{
+		 let  dateOld=$("[name=startDate]").val();
+		 let  year = dateOld.slice(0,4);
+		 let  month= dateOld.slice(5,7);
+		 let  day = dateOld.slice(8,10);
+		 return month+"%2F"+day+"%2F"+year;
+	}
+	
+//	load Page and make new url
+	 loadPageWhenChangeDate = () => {
+		  let presentpatName = window.location.pathname;
+		  let locationOrigin = window.location.origin;
+
+		  let url = locationOrigin+presentpatName + "?ngayKH="+formatDateForUrl() + "&idTrip="+urlParam("idTrip");
+		  window.location.href = url;
+	 };
+	
+	  $("[name=startDate]").change(()=>{
+		  let date;
+		  loadPageWhenChangeDate();	 
+	  });
 });
 
 let codeChairOder = document.getElementById("codeChairOder");
