@@ -37,7 +37,7 @@ public class DiaDiemDAO {
 	 * @return List<DiaDiem>
 	 */
 	
-	  public List<DiaDiem> getListPlaceDAO() {
+	  public List<DiaDiem> getListPlaceNotDaNangDAO() {
 	  
 	  connection = con.getConnect(); 
 	  listPlace = new ArrayList<DiaDiem>();
@@ -60,4 +60,24 @@ public class DiaDiemDAO {
 	  return listPlace;
 	  
 	  }
+	  public List<DiaDiem> getListPlaceDAO() {
+		  
+		  connection = con.getConnect(); 
+		  listPlace = new ArrayList<DiaDiem>();
+		  
+		  String selectPlace ="select place_id,place_name,place_pv_id from place ";
+		  
+		  try { 
+			  ps = connection.prepareStatement(selectPlace); 
+			  rs = ps.executeQuery(); 
+		  while (rs.next()) { 
+			  DiaDiem place=new DiaDiem(rs.getInt(1),rs.getString(2),rs.getString(3));
+			  listPlace.add(place); 
+			  } 
+		  } catch (SQLException e) { 
+			 e.printStackTrace(); 
+			 } 
+		  return listPlace;
+		  
+		  }
 }

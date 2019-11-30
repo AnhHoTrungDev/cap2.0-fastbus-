@@ -25,5 +25,7 @@ public class DiaDiemBO {
 	  public List<DiaDiem> getListPlaceBO(){ 
 		  return new DiaDiemDAO().getListPlaceDAO();
 	  }
-	 
+	  public List<DiaDiem> getListPlaceNotDaNangBO() {
+		  return new DiaDiemDAO().getListPlaceNotDaNangDAO();
+	  }
 }

@@ -36,7 +36,7 @@ public class PlaceServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		List<DiaDiem> listPlace=new DiaDiemBO().getListPlaceBO();
+		List<DiaDiem> listPlace=new DiaDiemBO().getListPlaceNotDaNangBO();
 		List<ChuyenXe> listTrip=new ChuyenXeBO().getListTripBO();
 		
 		request.setAttribute("listPlace", listPlace);

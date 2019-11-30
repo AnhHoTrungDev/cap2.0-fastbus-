@@ -48,13 +48,13 @@ pageEncoding="UTF-8"%>
             			
             			
             %>
-              <tr>
-                <td scope="row"><%=dem++%></td>
+              <tr class="search">
+                <td scope="row" ><%=dem++%></td>
                   <td><%=trip.getNameBusiness() %></td>
                   <td><%=trip.getStartPlace() %></td>
                   <td> <%=trip.getEndPlace() %></td>
                   <td><%=trip.getTotalTip() %> chuyến/ngày</td>
-                  <td> <a href="#" >Chi tiết</a></td>
+                  <td> <a href="#" id="<%=trip.getIdBusiness() %>" >Chi tiết</a></td>
                   <td> <a href="BusinessDetailServlet?idBusiness=<%=trip.getIdBusiness() %>" >Thông tin nhà xe</a>
                 </td>
               </tr>
@@ -75,5 +75,12 @@ pageEncoding="UTF-8"%>
 
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
+    
+    <script>
+    $($(".search").attr("id")).on("click", function (e) {
+    	alert("Thanh cong");
+    })
+    	
+    </script>
   </body>
 </html>
