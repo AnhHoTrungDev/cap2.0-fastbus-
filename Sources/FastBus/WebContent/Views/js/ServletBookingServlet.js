@@ -16,6 +16,8 @@ $(document).ready(function() {
 //  format date for url
 	formatDateForUrl = () =>{
 		 let  dateOld=$("[name=startDate]").val();
+		 if(dateOld == "") return false;
+		 
 		 let  year = dateOld.slice(0,4);
 		 let  month= dateOld.slice(5,7);
 		 let  day = dateOld.slice(8,10);
@@ -26,13 +28,13 @@ $(document).ready(function() {
 	 loadPageWhenChangeDate = () => {
 		  let presentpatName = window.location.pathname;
 		  let locationOrigin = window.location.origin;
-
+		  
+		  if(!formatDateForUrl()) return false;
 		  let url = locationOrigin+presentpatName + "?ngayKH="+formatDateForUrl() + "&idTrip="+urlParam("idTrip");
 		  window.location.href = url;
 	 };
 	
 	  $("[name=startDate]").change(()=>{
-		  let date;
 		  loadPageWhenChangeDate();	 
 	  });
 });
