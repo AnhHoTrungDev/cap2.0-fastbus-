@@ -39,15 +39,19 @@ public class DiaDiemDAO {
 	
 	  public List<DiaDiem> getListPlaceDAO() {
 	  
-	  connection = con.getConnect(); listPlace = new ArrayList<DiaDiem>();
+	  connection = con.getConnect(); 
+	  listPlace = new ArrayList<DiaDiem>();
 	  
-	  String selectPlace ="select place_id, place_name, place_pv_id from place";
+	  String selectPlace ="select  p1.place_name from trip t\r\n" + 
+	  		"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
+	  		"where p1.place_name not in(N'Đà Nẵng')\r\n" + 
+	  		"group by p1.place_name";
 	  
 	  try { 
 		  ps = connection.prepareStatement(selectPlace); 
 		  rs = ps.executeQuery(); 
 	  while (rs.next()) { 
-		  DiaDiem place=new DiaDiem(rs.getInt("place_id"), rs.getString("place_name"), rs.getString("place_pv_id"));
+		  DiaDiem place=new DiaDiem(rs.getString("place_name"));
 		  listPlace.add(place); 
 		  } 
 	  } catch (SQLException e) { 

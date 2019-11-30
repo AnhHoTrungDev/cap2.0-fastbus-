@@ -50,5 +50,9 @@ public class DiaDiem {
 		super();
 	}
 	
+	public DiaDiem(String namePlace) {
+		super();
+		this.namePlace = namePlace;
+	}
 	
 }

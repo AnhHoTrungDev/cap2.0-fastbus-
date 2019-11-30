@@ -25,7 +25,7 @@
 								<li class="nav-item"><a class="nav-link"
 									href="<%=request.getContextPath()%>/LoadHomePageServlet">Trang
 										chủ</a></li>
-								<li class="nav-item"><a class="nav-link" href="">Vé xe</a>
+								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/PlaceServlet">Nhà Xe</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="">Đặt xe</a>
 								</li>

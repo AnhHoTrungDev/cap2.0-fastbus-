@@ -145,11 +145,12 @@
 						<!-- tiêu đề -->
 						<thead>
 							<tr>
-								<th scope="col">#</th>
+								<th scope="col">STT</th>
 								<th scope="col">Chuyến đi</th>
 								<th scope="col">Loại xe</th>
+								<th scope="col">Giờ đi</th>
 								<th scope="col">Giá vé</th>
-								<th scope="col">#</th>
+								<th scope="col">Đặt Vé</th>
 							</tr>
 						</thead>
 						<!-- end tiêu đề -->
@@ -157,16 +158,20 @@
 						<tbody>
 							<!-- start content  table 1 dòng -->
 							<%
+								int dem=1;
 								for(ChuyenXe trip : (List<ChuyenXe>)request.getAttribute("listTrip")){
 									
 							%>
 							<tr>
-								<th scope="row">1</th>
+								<td scope="row"><%=dem++ %></td>
 								<td><%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></td>
 								<td>Giường nằm 46 chổ</td>
+								<td scope="col"><%=trip.getStartTime() %></td>
 								<td class="curency-table"><%=trip.getPrice()%></td>
 								<td>
-									<a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="btn btn-primary card-link check-login"> Đặt vé</a>
+									<a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="check-login"> 
+										<img src="<%=request.getContextPath() %>/Views/users/assets/images/oder.png" height="22" width="22">
+									</a>
 								</td>
 							</tr>
 							<%} %>
