@@ -28,7 +28,8 @@ $(document).ready(function() {
 		  let locationOrigin = window.location.origin;
 
 		  let url = locationOrigin+presentpatName + "?ngayKH="+formatDateForUrl() + "&idTrip="+urlParam("idTrip");
-		  window.location.href = url;
+//		  window.location.href = url;
+		  console.log(url);
 	 };
 	
 	  $("[name=startDate]").change(()=>{

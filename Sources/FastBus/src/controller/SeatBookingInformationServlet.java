@@ -124,7 +124,7 @@ public class SeatBookingInformationServlet extends HttpServlet {
 
 			List<SeatBooking> listSeat = new ArrayList<SeatBooking>();
 			for (String aSeat : ((String) session.getAttribute("seat")).split(",")) {
-				SeatBooking sb = new SeatBooking(tripInfor.getIdTrip(), user.getEmail(), aSeat);
+				SeatBooking sb = new SeatBooking(tripInfor.getIdTrip(), user.getEmail(), aSeat,tripInfor.getStartDate());
 				listSeat.add(sb);
 			}
 

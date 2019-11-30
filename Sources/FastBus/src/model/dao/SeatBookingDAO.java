@@ -38,16 +38,17 @@ public class SeatBookingDAO {
 		connection = con.getConnect();
 		listSeat = new ArrayList<SeatBooking>();
 
-		String selectSeat = "select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date from seatbooking where seatb_trip_id= "
-				+ idTrip;
-
+		String selectSeat = "select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date,seatb_start_date from seatbooking "
+				+ "where seatb_trip_id= ? and seatb_start_date= ?";
 		try {
 			ps = connection.prepareStatement(selectSeat);
+			ps.setInt(1, idTrip);
+			ps.setString(2, startDate);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
 				SeatBooking seat = new SeatBooking(rs.getInt("seatb_id"), rs.getInt("seatb_trip_id"),
-						rs.getString("seatb_user_mail"), rs.getString("seatb_name"), rs.getString("seatb_date"));
+						rs.getString("seatb_user_mail"), rs.getString("seatb_name"), rs.getString("seatb_date"),rs.getString("seatb_start_date"));
 				listSeat.add(seat);
 			}
 		} catch (SQLException e) {
@@ -61,7 +62,7 @@ public class SeatBookingDAO {
 	public int insertSeatDAO(List<SeatBooking> seat) {
 		
 		connection = con.getConnect();
-		String insert = "select seatb_trip_id,seatb_user_mail,seatb_name,seatb_date from seatbooking";
+		String insert = "select seatb_trip_id,seatb_start_date,seatb_user_mail,seatb_name,seatb_date from seatbooking";
 		int check=0;
 		try {
 			ps = connection.prepareStatement(insert,ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -69,6 +70,7 @@ public class SeatBookingDAO {
 			rs.moveToInsertRow();
 			for (SeatBooking listSeat : seat) {
 				rs.updateInt("seatb_trip_id", listSeat.getTripId());
+				rs.updateString("seatb_start_date",listSeat.getSeatStartDate());
 				rs.updateString("seatb_user_mail", listSeat.getSeatMail());
 				rs.updateString("seatb_name",listSeat.getSeatName());
 				rs.updateString("seatb_date",(LocalDate.now()).toString());
@@ -82,15 +84,5 @@ public class SeatBookingDAO {
 		
 		return check;
 	}
-
-//	  public static void main(String[] args) {
-//		  List<SeatBooking> list=new SeatBookingDAO().getListSeatBookingByIdDAO(1);
-//		  for(SeatBooking seat : list ) {
-//			  if("A1".contains(seat.getSeatName())) {
-//				  System.out.println(seat.getSeatName());
-//			  }
-//			  
-//		  }
-//	  }
 
 }
