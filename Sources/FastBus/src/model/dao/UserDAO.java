@@ -143,4 +143,47 @@ public class UserDAO {
 		
 		return userInfo;
 	}
+	public User getUserByNameDao(String name) {
+		connection = con.getConnect();
+		userInfo=null;
+		String gettUser = "select acc_mail,acc_name,acc_phone,acc_address from account where acc_name=?";
+		
+		try {
+			ps = connection.prepareStatement(gettUser);
+			ps.setString(1, name);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				userInfo=new User(rs.getString("acc_mail") , rs.getString("acc_name"), rs.getString("acc_phone"), rs.getString("acc_address"),null,null);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return userInfo;
+	}
+	
+	public int updateUserDAO(User user) {
+		int check=0;
+		
+		connection = con.getConnect();
+		String gettUser = "update account set acc_name=?, acc_phone=?, acc_address=? where acc_mail=?";
+		try {
+			ps = connection.prepareStatement(gettUser);
+			ps.setString(1, user.getName());
+			ps.setString(2, user.getPhone());
+			ps.setString(3, user.getAddess());
+			ps.setString(4, user.getEmail());
+			
+			check=ps.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return check;
+	}
 }

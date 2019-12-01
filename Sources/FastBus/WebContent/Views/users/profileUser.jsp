@@ -1,3 +1,4 @@
+<%@page import="model.bean.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,7 +42,8 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
           <div class="col-md-8">
-           <form id="proFileUsers">
+           <form id="UserInformationServlet" method="post">
+           <% User user= (User)request.getAttribute("user"); %>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -53,6 +55,7 @@ pageEncoding="UTF-8"%>
                       class="form-control"
                       id="inputFullName"
                       placeholder="Họ và Tên"
+                      value="<%=user.getName() %>"
                     />
                   </div>
                 </div>
@@ -65,7 +68,8 @@ pageEncoding="UTF-8"%>
                       type="text"
                       class="form-control "
                       id="inputGmail"
-                      placeholder="Gmail"
+                      placeholder="Gmail" readonly="readonly"
+                      value="<%=user.getEmail() %>"
                     />
                   </div>
                 </div>
@@ -83,6 +87,7 @@ pageEncoding="UTF-8"%>
                       id="inputUpdatePhone"
                       placeholder="Số Điện Thoại Của Bạn"
                       name="inputUpdatePhone"
+                      value="<%=user.getPhone() %>"
                     />
                   </div>
                 </div>
@@ -96,6 +101,7 @@ pageEncoding="UTF-8"%>
                       id="inputUpdateAddress"
                       placeholder="Địa chỉ"
                       name="inputUpdateAddress"
+                      value="<%=user.getAddess() %>"
                     />
                   </div>
                 </div>
@@ -107,19 +113,15 @@ pageEncoding="UTF-8"%>
                   buộc phải nhập
                 </p>
               </div>
-              <div class="row text-center ml-1 ">
-                <p>
-                 <a href="#" class="ml-4">Đổi Mật Khẩu</a>
-                </p>
-              </div>
+
               <div class="row">
                 <div class="col-12 text-center mt-3 mb-2">
-                <button class="btn btn-primary mb-3 shadow"  name="btnupdateInfor" value="btnupdateInfor">Cập nhập Thông tin
+                <a href="Views/users/changePassword.jsp?name=<%=session.getAttribute("acc_name") %>" class="btn btn-primary mb-3 shadow" >Đổi Mật Khẩu</a>
+                <button class="btn btn-primary mb-3 shadow" type="submit"  name="btnupdateInfor" value="btnupdateInfor">Cập nhập Thông tin
                 </button>
                 </div>
               </div>
             </form>
-          </div>
           </div>
         </div>
       </div>

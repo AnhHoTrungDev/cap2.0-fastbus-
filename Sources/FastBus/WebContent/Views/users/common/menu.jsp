@@ -27,12 +27,9 @@
 										chủ</a></li>
 								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/PlaceServlet">Nhà Xe</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="">Đặt xe</a>
+								<li class="nav-item"><a class="nav-link" href="">Vé Đã Đặt</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="">Giới
-										Thiệu</a></li>
-								<li class="nav-item"><a class="nav-link" href="">Liên
-										lạc</a></li>
+								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/RegisterServlet">Đăng Ký</a></li>
 								<li class="nav-item" id="accountNav"><a class="nav-link"
 									href="" data-toggle="modal" data-target="#myModal"
 									id="menuNotLogin">Đăng Nhập</a>
@@ -44,8 +41,8 @@
 										<div class="bg-white dropdown-menu mt-2 px-2 highlights-box-menu"
 										style=""
 											aria-labelledby="dropdownMenuButton">
-											<a class="dropdown-item " href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Thông Tin Cá Nhân</a>
-											<a class="dropdown-item " href="#">abc</a>											
+											<a class="dropdown-item " href="<%=request.getContextPath()%>/UserInformationServlet?name=<%=session.getAttribute("acc_name")%>">
+												<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Thông Tin Cá Nhân</a>										
 											<a id="btnLogout" class="dropdown-item border-top" href="LogoutServlet">
 												<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Thoát
 											</a>
