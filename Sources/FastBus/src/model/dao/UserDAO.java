@@ -69,7 +69,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 
-		user = new User(pass, mail, name, message);
+		user = new User(mail,pass, name, message);
 		return user;
 
 	}
@@ -77,8 +77,8 @@ public class UserDAO {
 		connection = con.getConnect();
 		int check = 0;
 
-		String insertUser = "insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) "
-				+ " values(?,?,?,?,3)";
+		String insertUser = "insert into account (acc_mail, acc_password, acc_phone, acc_name,acc_address, acc_role_id) "
+				+ " values(?,?,?,?,?,3)";
 
 		try {
 
@@ -88,6 +88,7 @@ public class UserDAO {
 				ps.setString(2, user.getPassWord());
 				ps.setString(3, user.getPhone());
 				ps.setString(4, user.getName());
+				ps.setString(5, user.getAddess());
 
 				check = ps.executeUpdate();
 			}

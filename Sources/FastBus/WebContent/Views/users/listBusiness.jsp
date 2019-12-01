@@ -54,7 +54,9 @@ pageEncoding="UTF-8"%>
                   <td><%=trip.getStartPlace() %></td>
                   <td> <%=trip.getEndPlace() %></td>
                   <td><%=trip.getTotalTip() %> chuyến/ngày</td>
-                  <td> <a href="#" id="<%=trip.getIdBusiness() %>" >Chi tiết</a></td>
+                  <td> 
+                  		<a href="#detailBus" id="<%=trip.getIdBusiness() %>"class="detailBus" >Chi tiết</a>
+                  </td>
                   <td> <a href="BusinessDetailServlet?idBusiness=<%=trip.getIdBusiness() %>" >Thông tin nhà xe</a>
                 </td>
               </tr>
@@ -64,6 +66,7 @@ pageEncoding="UTF-8"%>
             	}%>
             </tbody>
           </table>
+          <span id="result"></span>
         </div>
         <%} %>
       </div>
@@ -77,10 +80,24 @@ pageEncoding="UTF-8"%>
     <%@ include file="common/botbootstrap.jsp" %>
     
     <script>
-    $($(".search").attr("id")).on("click", function (e) {
-    	alert("Thanh cong");
-    })
-    	
+    $(".detailBus").each(function(index,element)
+    	    {
+    	    	$(element).click(function()
+    	    	{
+    	            $.ajax({
+    	                url : "LoadListTripRequest",
+    	                type  : "post",
+    	                data : {
+    	                	  idBusiness : $(element).attr("id")
+    	                },
+    	                success : function(results){
+    	                	var arrayTrip = JSON.parse(results);
+    	                  //console.log(obj[0].idTrip);
+    	                }
+    	            });
+    	    	});
+    	    });
+  
     </script>
   </body>
 </html>

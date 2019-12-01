@@ -90,10 +90,11 @@ public class User {
 		this.phone = phone;
 		this.name = name;
 		this.addess = address;
+		
 
 	}
 
-	public User(String passWord, String email, String name, String message) {
+	public User(String email,String passWord, String name, String message) {
 		super();
 		this.passWord = passWord;
 		this.email = email;

@@ -107,7 +107,7 @@ pageEncoding="UTF-8"%>
                       class="form-control"
                       id="inputAddress"
                       placeholder="Địa chỉ"
-                      name="Address"
+                      name="address"
                     />
                   </div>
                 </div>

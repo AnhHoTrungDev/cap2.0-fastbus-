@@ -30,7 +30,7 @@
 	</section>
 	<section>
 		<div class="container my-5">
-			<form action="SeatBookingInformationServlet"
+			<form action="SeatBookingInformationServlet" method="post"
 				id="SeatBookingInformationServlet">
 				<div class="row">
 					<div class="col-sm-6">

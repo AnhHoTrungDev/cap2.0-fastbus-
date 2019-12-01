@@ -43,7 +43,10 @@ pageEncoding="UTF-8"%>
           </div>
           <div class="col-md-8">
            <form id="UserInformationServlet" method="post">
-           <% User user= (User)request.getAttribute("user"); %>
+           <% 
+           		User user= (User)request.getAttribute("user");
+           		String message= (String)request.getAttribute("message");
+           %>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -116,9 +119,10 @@ pageEncoding="UTF-8"%>
 
               <div class="row">
                 <div class="col-12 text-center mt-3 mb-2">
-                <a href="Views/users/changePassword.jsp?name=<%=session.getAttribute("acc_name") %>" class="btn btn-primary mb-3 shadow" >Đổi Mật Khẩu</a>
-                <button class="btn btn-primary mb-3 shadow" type="submit"  name="btnupdateInfor" value="btnupdateInfor">Cập nhập Thông tin
-                </button>
+                	<button class="btn btn-primary mb-3 shadow" type="submit"  name="changePassword" value="changePassword">Đổi Mật Khẩu
+                	</button>
+                    <button class="btn btn-primary mb-3 shadow" type="submit"  name="btnupdateInfor" value="btnupdateInfor">Cập nhập Thông tin
+                	</button>
                 </div>
               </div>
             </form>

@@ -41,7 +41,7 @@
 										<div class="bg-white dropdown-menu mt-2 px-2 highlights-box-menu"
 										style=""
 											aria-labelledby="dropdownMenuButton">
-											<a class="dropdown-item " href="<%=request.getContextPath()%>/UserInformationServlet?name=<%=session.getAttribute("acc_name")%>">
+											<a class="dropdown-item " href="<%=request.getContextPath()%>/UserInformationServlet">
 												<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Thông Tin Cá Nhân</a>										
 											<a id="btnLogout" class="dropdown-item border-top" href="LogoutServlet">
 												<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Thoát

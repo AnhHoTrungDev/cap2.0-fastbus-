@@ -39,9 +39,10 @@ public class UserInformationServlet extends HttpServlet {
 		request.getCharacterEncoding();
 		HttpSession session = request.getSession();
 		
-		String url = "";
+		String url="Views/users/profileUser.jsp";
+		
 		if ("btnupdateInfor".equalsIgnoreCase(request.getParameter("btnupdateInfor"))) {
-			String message="failure";
+			String message="false";
 			String mail= request.getParameter("mail");
 			String name= request.getParameter("fullName");
 			String phone= request.getParameter("inputUpdatePhone");
@@ -49,17 +50,20 @@ public class UserInformationServlet extends HttpServlet {
 			
 			User user=new User(mail, name, phone, address, null, null);
 			if(new UserBO().updateUserDAO(user)==1) {
-				message="success";
+				message="true";
 				request.getSession().removeAttribute("acc_name");
 			    request.getSession().setAttribute("acc_name", user.getName());
 			}
 			
 			request.setAttribute("message", message);
-		} 
+		}else if("changePassword".equalsIgnoreCase(request.getParameter("changePassword"))){
+			url="Views/users/changePassword.jsp";
+		}
+		
 			String name = (String) session.getAttribute("acc_name");
 			User user = new UserBO().getUserByNameBO(name);
 			request.setAttribute("user", user);
-			url="Views/users/profileUser.jsp";
+			
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);

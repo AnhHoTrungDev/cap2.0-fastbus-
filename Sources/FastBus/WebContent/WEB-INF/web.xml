@@ -35,4 +35,13 @@
         <servlet-name>SeatBookingInformationServlet</servlet-name>
         <url-pattern>/SeatBookingInformationRequest</url-pattern>
     </servlet-mapping> 
+    
+        <servlet>   
+	    <servlet-name>LoadListTripServlet</servlet-name>  
+	    <servlet-class>controller.LoadListTripServlet</servlet-class> 
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadListTripServlet</servlet-name>
+        <url-pattern>/LoadListTripRequest</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -32,7 +32,7 @@ pageEncoding="UTF-8"%>
                 style="display:none;"
                 class="text-center"
               ></div>
-              <form id="login">
+              <form id="login" method="post">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -45,7 +45,7 @@ pageEncoding="UTF-8"%>
                       class="form-control"
                       id="inputEmail3"
                       name="mail"
-                      placeholder="Email" value="admin@gmail.com.vn"
+                      placeholder="Email" value="fastbuscompany@gmail.com"
                       required
                     />
                   </div>
@@ -110,7 +110,7 @@ pageEncoding="UTF-8"%>
       }
          $.ajax({
              url : "loginRequest",
-             type  : "get",
+             type  : "post",
              data : {
                  email : email,
                  password : password

@@ -52,8 +52,8 @@ public class RegisterServlet extends HttpServlet {
 			String name = request.getParameter("fullName");
 			String passWord = enCode.md5(request.getParameter("password"));
 			String phone = request.getParameter("phone");
-
-			user = new User(mail, passWord, phone, name);
+			String address=request.getParameter("address");
+			user = new User(mail, passWord, phone, name,address);
 
 			if (new UserBO().insertUserBO(user) != 0) {
 				response.sendRedirect(request.getContextPath() + "/LoadHomePageServlet");
