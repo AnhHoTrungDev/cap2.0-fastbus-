@@ -1,6 +1,7 @@
 ﻿
 ------------------- load place ----------------------------------
-
+select * from seatbooking
+// select vs điều kiện chuyến vs ngày đi xem nào
 select place_id,place_name,place_pv_id from place 
 
 ------------------- tìm kiếm chuyến xe theo địa điểm đến, địa điểm đi, thời gian đi, ngày đi--------------------
@@ -48,7 +49,8 @@ select * from business
 -------------load seat -------------------------
 select * from trip
 select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date from seatbooking where seatb_trip_id=1
-
+select seatb_trip_id,seatb_start_date,seatb_user_mail,seatb_name,seatb_date from seatbooking
+truncate table seatbooking
 --------------------- insert account ----------------------
 
 insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) values('','','',N'',3)

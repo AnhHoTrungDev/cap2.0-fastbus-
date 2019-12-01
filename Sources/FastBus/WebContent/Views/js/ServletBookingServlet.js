@@ -32,7 +32,6 @@ $(document).ready(function() {
 		  if(!formatDateForUrl()) return false;
 		  let url = locationOrigin+presentpatName + "?ngayKH="+formatDateForUrl() + "&idTrip="+urlParam("idTrip");
 		  window.location.href = url;
-//		  console.log(url);
 	 };
 	
 	  $("[name=startDate]").change(()=>{

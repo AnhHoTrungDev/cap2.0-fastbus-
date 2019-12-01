@@ -49,6 +49,7 @@ public class LoginServlet extends HttpServlet {
 		if (user.getMessage() == "true") {
 			session.setAttribute("email", user.getEmail());
 			session.setAttribute("acc_name", user.getName());
+			session.setAttribute("password", user.getPassWord());
 		}
 		response.getWriter().write(user.getMessage());
 
