@@ -45,7 +45,8 @@ pageEncoding="UTF-8"%>
            <form id="UserInformationServlet" method="post">
            <% 
            		User user= (User)request.getAttribute("user");
-           		String message= (String)request.getAttribute("message");
+           		String messageUpdatePass= (String)request.getAttribute("messageUpdatePass");
+           		String messageUpdateUser= (String)request.getAttribute("messageUpdateUser");
            %>
               <div class="row">
                 <div class="col-sm-12">
@@ -119,8 +120,8 @@ pageEncoding="UTF-8"%>
 
               <div class="row">
                 <div class="col-12 text-center mt-3 mb-2">
-                	<button class="btn btn-primary mb-3 shadow" type="submit"  name="changePassword" value="changePassword">Đổi Mật Khẩu
-                	</button>
+                	<a class="btn btn-primary mb-3 shadow"  href="UserInformationServlet?change=changePassword">Đổi Mật Khẩu
+                	</a>
                     <button class="btn btn-primary mb-3 shadow" type="submit"  name="btnupdateInfor" value="btnupdateInfor">Cập nhập Thông tin
                 	</button>
                 </div>

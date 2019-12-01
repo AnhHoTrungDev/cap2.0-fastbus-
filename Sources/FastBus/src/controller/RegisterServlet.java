@@ -43,11 +43,12 @@ public class RegisterServlet extends HttpServlet {
 		request.getCharacterEncoding();
 
 		String url = "";
-		String message = "";
 		User user = null;
 		Encode enCode=new Encode();
 
 		if ("Đăng Ký".equals(request.getParameter("register"))) {
+			String message = "false";
+			
 			String mail = request.getParameter("mail");
 			String name = request.getParameter("fullName");
 			String passWord = enCode.md5(request.getParameter("password"));
@@ -56,15 +57,17 @@ public class RegisterServlet extends HttpServlet {
 			user = new User(mail, passWord, phone, name,address);
 
 			if (new UserBO().insertUserBO(user) != 0) {
-				response.sendRedirect(request.getContextPath() + "/LoadHomePageServlet");
+				message = "true";
+				url="/LoadHomePageServlet";
+				
 			} else {
-				message = "Đăng ký Thất Bại";
-				request.setAttribute("message", message);
-				RequestDispatcher rd = request.getRequestDispatcher("/Views/users/register.jsp");
-				rd.forward(request, response);
+				url="/Views/users/register.jsp";
 			}
-		} else {
+			
 			request.setAttribute("message", message);
+			RequestDispatcher rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);
+		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("/Views/users/register.jsp");
 			rd.forward(request, response);
 		}

@@ -21,7 +21,7 @@ pageEncoding="UTF-8"%>
         <div class="row my-4">
           <div class="col-12 shadow bg-light rounded">
           <h3 class="text-center text-danger my-3">Đăng Ký</h3>
-            <form id="register" action="<%=request.getContextPath() %>/RegisterServlet">
+            <form id="register" action="<%=request.getContextPath() %>/RegisterServlet" method="post">
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">

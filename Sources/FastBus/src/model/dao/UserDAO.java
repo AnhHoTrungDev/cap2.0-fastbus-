@@ -183,7 +183,27 @@ public class UserDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return check;
+	}
+	public int updatePasswordDAO(String mail,String oldPass,String newPass) {
+		int check=0;
 		
+		
+		connection = con.getConnect();
+		String gettUser = "update account set acc_password=? where acc_mail=? and acc_password=?";
+		
+		try {
+			ps = connection.prepareStatement(gettUser);
+			ps.setString(1, newPass);
+			ps.setString(2, mail);
+			ps.setString(3, oldPass);
+
+			check=ps.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return check;
 	}

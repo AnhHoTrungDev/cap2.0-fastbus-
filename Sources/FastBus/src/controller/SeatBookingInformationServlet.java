@@ -118,7 +118,7 @@ public class SeatBookingInformationServlet extends HttpServlet {
 
 		}
 		if ("Xác nhận".equalsIgnoreCase(request.getParameter("confirmFinish"))) {
-
+			String messageBooking="false";
 			tripInfor = (ChuyenXe) session.getAttribute("tripInfo");
 			User user = (User) session.getAttribute("getUser");
 
@@ -129,12 +129,13 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			}
 
 			if (new SeatBookingBO().insertSeatBO(listSeat) == 1) {
+				messageBooking="true";
 				new SendEmailBO().SendMailCustomerBO(tripInfor, user, listSeat);
 				url = "LoadHomePageServlet";
 			} else {
-				url = "Views/users/busGarageDetail.jsp";
+				url = "LoadHomePageServlet";
 			}
-			
+			request.setAttribute("messageBooking", messageBooking);
 			session.removeAttribute("pickPlace");
 			session.removeAttribute("tripInfo");
 			session.removeAttribute("seat");
