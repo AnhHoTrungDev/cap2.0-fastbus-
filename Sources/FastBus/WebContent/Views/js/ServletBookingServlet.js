@@ -31,8 +31,8 @@ $(document).ready(function() {
 		  
 		  if(!formatDateForUrl()) return false;
 		  let url = locationOrigin+presentpatName + "?ngayKH="+formatDateForUrl() + "&idTrip="+urlParam("idTrip");
-//		  window.location.href = url;
-		  console.log(url);
+		  window.location.href = url;
+//		  console.log(url);
 	 };
 	
 	  $("[name=startDate]").change(()=>{
@@ -72,7 +72,7 @@ function statusChairWhenloadIntoSesstion(){
 
 //read local storage 
 function readLocalSessionStorage(){
-    let dataString = sessionStorage.getItem(urlParam("idTrip"));
+    let dataString = sessionStorage.getItem(urlParam("idTrip")+$("[name=startDate]").val());
     if(dataString){
     	arrcodeChairOder=dataString.split(",");
     }else arrcodeChairOder =[];
@@ -81,7 +81,7 @@ function readLocalSessionStorage(){
 //add local storage
 function changeLocalSessionStorage(){
 	let converDataString = arrcodeChairOder.join(",")
-	sessionStorage.setItem(urlParam("idTrip"), converDataString);
+	sessionStorage.setItem(urlParam("idTrip")+$("[name=startDate]").val(), converDataString);
 }
 
 // add mã ghế
