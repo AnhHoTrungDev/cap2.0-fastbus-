@@ -80,7 +80,7 @@
 								<div class="form-group row">
 									<label for="departureDay" class="col-sm-5 col-form-label">Ngày khởi hành&nbsp;</label>
 									<div class="col-sm-7 ">
-										<input type="date" class="form-control-plaintext  border-bottom"
+										<input type="date" class="form-control border border-dark"
 											id="departureDay" name="startDate" value="<%=trip.getStartDate()%>" />
 									</div>
 								</div>

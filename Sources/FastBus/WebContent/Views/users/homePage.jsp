@@ -227,5 +227,25 @@
 	</script>
 </html>
 <!-- fix interface combobox -->
+	<script type="text/javascript">
+	$("[name='startDate']").change(function(){
+		if(!validateTimeStartDate()){
+		let timeNow = new Date();
+		console.log(timeNow.getMonth()+1,timeNow.getDate(),timeNow.getFullYear());
+		$("[name='startDate']").val(timeNow.getMonth()+1+"/"+timeNow.getDate()+"/"+timeNow.getFullYear());
+		}
+	})
+
+	function validateTimeStartDate(){
+		let timeCurentChose = new Date($("[name='startDate']").val());
+		let timreNow= new Date();
+		if(timeCurentChose < timreNow){
+			alert("Bạn Đã Chọn Ngày trong Quá Khứ")
+			return false
+		}
+
+		return true;
+	}
+    </script>
 <script
 	src="<%=request.getContextPath()%>/Views/users/assets/js/fixComboxJqery.js"></script>
