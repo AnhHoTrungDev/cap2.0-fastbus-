@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import common.Encode;
 import model.bean.User;
 import model.bo.UserBO;
 
@@ -38,11 +39,11 @@ public class UserInformationServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		request.getCharacterEncoding();
 		HttpSession session = request.getSession();
-		
+		Encode enCode=new Encode();
 		String url="Views/users/profileUser.jsp";
 		
 		if ("btnupdateInfor".equalsIgnoreCase(request.getParameter("btnupdateInfor"))) {
-			String message="false";
+			String messageUpdateUser="false";
 			String mail= request.getParameter("mail");
 			String name= request.getParameter("fullName");
 			String phone= request.getParameter("inputUpdatePhone");
@@ -50,16 +51,29 @@ public class UserInformationServlet extends HttpServlet {
 			
 			User user=new User(mail, name, phone, address, null, null);
 			if(new UserBO().updateUserDAO(user)==1) {
-				message="true";
+				messageUpdateUser="true";
 				request.getSession().removeAttribute("acc_name");
 			    request.getSession().setAttribute("acc_name", user.getName());
 			}
 			
-			request.setAttribute("message", message);
-		}else if("changePassword".equalsIgnoreCase(request.getParameter("changePassword"))){
+			request.setAttribute("messageUpdateUser", messageUpdateUser);
+		}else if("changePassword".equalsIgnoreCase(request.getParameter("change"))){
 			url="Views/users/changePassword.jsp";
+		}else if("btnChangePassword".equalsIgnoreCase(request.getParameter("btnChangePassword"))){
+			String messageUpdatePass="false";
+			String oldPass=enCode.md5(request.getParameter("inputPresentPassword"));
+			String newPass=enCode.md5(request.getParameter("password"));
+			
+			int check=new UserBO().updatePasswordBO((String)session.getAttribute("email"), oldPass, newPass);
+			if(check==1) {
+				messageUpdatePass="true";
+				request.setAttribute("messageUpdatePass", messageUpdatePass);
+			}else {
+				url="Views/users/changePassword.jsp";
+			}
+			
 		}
-		
+			
 			String name = (String) session.getAttribute("acc_name");
 			User user = new UserBO().getUserByNameBO(name);
 			request.setAttribute("user", user);

@@ -1,3 +1,7 @@
+<%@page import="model.bean.Ward"%>
+<%@page import="model.bean.District"%>
+<%@page import="java.util.List"%>
+<%@page import="model.bean.Province"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -89,35 +93,37 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <select class="form-control rounded-pill" name="cbCity">
+                      <select class="form-control rounded-pill" name="cbCity" id="cbProvince">
                         <option>Tỉnh / Thành Phố</option>
-                        <option value="1">Đà Nẵng</option>
-                        <option value="1">Đà Nẵng</option>
-                        <option value="1">Đà Nẵng</option>
-                        <option value="1">Đà Nẵng</option>
-                        <option value="1">Đà Nẵng</option>
+                        <%
+                        	for(Province pro : (List<Province>)request.getAttribute("listProvinces")){
+                        %>
+                        <option value="<%=pro.getIdProvince()%>"><%=pro.getNameProvince() %></option>
+                        <%} %>
                       </select>
                     </div>
                     <div class="form-group">
                       <select
                         class="form-control rounded-pill"
                         name="cbDistrict"
+                        id="cbDistrict"
                       >
                         <option>Quận / Huyện</option>
-                        <option value="1">Sơn Trà</option>
-                        <option value="1">Sơn Trà</option>
-                        <option value="1">Sơn Trà</option>
-                        <option value="1">Sơn Trà</option>
+                        <%
+                        	for(District dis : (List<District>)request.getAttribute("listDistricts")){
+                        %>
+                        <option value="<%=dis.getIdDistrict()%>"><%=dis.getNameDistrict() %></option>
+                        <%} %>
                       </select>
                     </div>
                     <div class="form-group">
-                      <select class="form-control rounded-pill" name="cbWard">
+                      <select class="form-control rounded-pill" name="cbWard" >
                         <option>Phường / xã</option>
-                        <option value="1">An Hải Tây</option>
-                        <option value="1">An Hải Tây</option>
-                        <option value="1">An Hải Tây</option>
-                        <option value="1">An Hải Tây</option>
-                        <option value="1">An Hải Tây</option>
+                        <%
+                        	for(Ward ward : (List<Ward>)request.getAttribute("listWards")){
+                        %>
+                        <option value="<%=ward.getIdWard()%>"><%=ward.getNameWard() %></option>
+                        <%} %>
                       </select>
                     </div>
                     <div class="form-group">
@@ -160,4 +166,38 @@
 <!-- add file jquery -->
 <%@ include file="common/botAdmin.jsp"%>
 <!-- end add file jquery -->
+<script>
+	/*load data district  */
+	$('#cbProvince').change(function(){
+	   console.log();
+	   $.ajax({
+           url : "LoadDistrictWardToProvinceRequest",
+           type  : "post",
+           data : {
+        	  changeProvince : 'cbProvince',
+           	  idProvince : $('#cbProvince').val()
+           },
+           success : function(results){
+           	var arrayDistrict = JSON.parse(results);
+           	console.log(obj[0].idDistrict);
+           }
+       });
+	});
+	/*load data ward  */
+	$('#cbDistrict').change(function(){
+		   console.log();
+		   $.ajax({
+	           url : "LoadDistrictWardToProvinceRequest",
+	           type  : "post",
+	           data : {
+	        	  changeDistrict : 'cbDistrict',
+	        	  idDistrict : $('#cbDistrict').val()
+	           },
+	           success : function(results){
+	           	var arrayDistrict = JSON.parse(results);
+	           	console.log(obj[0].idWard);
+	           }
+	       });
+		});
+</script>
 </html>

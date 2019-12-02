@@ -47,7 +47,7 @@ select * from trip
 select * from business
 
 -------------load seat -------------------------
-select * from trip
+select * from account
 select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date from seatbooking where seatb_trip_id=1
 select seatb_trip_id,seatb_start_date,seatb_user_mail,seatb_name,seatb_date from seatbooking
 truncate table seatbooking
@@ -59,9 +59,11 @@ insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) v
 
 select * from account where acc_mail like N'admin@gmail.com.vn'
 
-------------------------- inssert thong tin khach hang.--------------------
+------------------------- inssert thong tin khach hang.--------------------=N'
 
 select acc_name, acc_mail, acc_phone, acc_password from account where acc_name=N'Administrator'
+
+update account set acc_name=N'', acc_phone='', acc_address=N'' where acc_mail=''
 
 ------------------ get list trip by id business and startdate
 
@@ -74,6 +76,9 @@ select t.trip_id, t.trip_bus_id, a.acc_name,p.place_name,p1.place_name,t.trip_st
 				inner join business bs on b.bus_bs_id=bs.bs_id and bs.bs_id=5 and trip_start_date='2019-11-16'
 				inner join account a on bs.bs_acc_mail=a.acc_mail
 
+---------------------------
+
+select acc_mail,acc_password,acc_name,acc_role_id from account where acc_mail= and acc_password=
 
 
 

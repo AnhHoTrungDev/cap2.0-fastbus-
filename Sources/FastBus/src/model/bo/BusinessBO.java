@@ -28,4 +28,10 @@ public class BusinessBO {
 	public Business getBusinessByIdBO(String idBusiness) {
 		return new BusinessDAO().getBusinessByIdDAO(idBusiness);
 	}
+	public int checkBusinessLogin(String email, String passWord) {
+		return new BusinessDAO().checkBusinessLogin(email, passWord);
+	}
+	public Business getBusinessByMail(String mail) {
+		return new BusinessDAO().getBusinessByMail(mail);
+	}
 }

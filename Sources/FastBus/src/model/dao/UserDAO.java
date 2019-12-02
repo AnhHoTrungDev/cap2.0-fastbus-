@@ -38,7 +38,6 @@ public class UserDAO {
 	 */
 
 	public User CheckLoginDAO(String email, String password) {
-		listUser = new ArrayList<User>();
 
 		connection = con.getConnect();
 		String selectCheck = "select acc_mail,acc_password,acc_name from account where acc_mail like ? and acc_password like ?";
@@ -183,7 +182,27 @@ public class UserDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return check;
+	}
+	public int updatePasswordDAO(String mail,String oldPass,String newPass) {
+		int check=0;
 		
+		
+		connection = con.getConnect();
+		String gettUser = "update account set acc_password=? where acc_mail=? and acc_password=?";
+		
+		try {
+			ps = connection.prepareStatement(gettUser);
+			ps.setString(1, newPass);
+			ps.setString(2, mail);
+			ps.setString(3, oldPass);
+
+			check=ps.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return check;
 	}

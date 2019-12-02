@@ -76,37 +76,92 @@ pageEncoding="UTF-8"%>
               />
             </div>
           </div>
-        </div>
-        <!--  -->
-        <!--1 dong  -->
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <label for="inputPhone">Số điện thoại</label>
-              <span class="text-danger">*</span>
-              <input
-              type="text"
-              class="form-control"
-              id="inputUpdatePhone"
-              placeholder="Số Điện Thoại Của Bạn"
-              name="inputUpdatePhone"
-              value="<%=user.getPhone() %>"
-              />
-            </div>
-          </div>
-          <div class="col-sm-12">
-            <div class="form-group">
-              <label for="inputAddress"> Địa chỉ :</label>
-              <span class="text-danger">*</span>
-              <input
-              type="text"
-              class="form-control"
-              id="inputUpdateAddress"
-              placeholder="Địa chỉ"
-              name="inputUpdateAddress"
-              value="<%=user.getAddess() %>"
-              />
-            </div>
+          <div class="col-md-8">
+           <form id="UserInformationServlet" method="post">
+           <% 
+           		User user= (User)request.getAttribute("user");
+           		String messageUpdatePass= (String)request.getAttribute("messageUpdatePass");
+           		String messageUpdateUser= (String)request.getAttribute("messageUpdateUser");
+           %>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="inputFullName"> Họ và Tên :</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      name="fullName"
+                      type="text"
+                      class="form-control"
+                      id="inputFullName"
+                      placeholder="Họ và Tên"
+                      value="<%=user.getName() %>"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="inputGmail">Gmail :</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      name="mail"
+                      type="text"
+                      class="form-control "
+                      id="inputGmail"
+                      placeholder="Gmail" readonly="readonly"
+                      value="<%=user.getEmail() %>"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <!--1 dong  -->
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="inputPhone">Số điện thoại</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputUpdatePhone"
+                      placeholder="Số Điện Thoại Của Bạn"
+                      name="inputUpdatePhone"
+                      value="<%=user.getPhone() %>"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="inputAddress"> Địa chỉ :</label>
+                    <span class="text-danger">*</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inputUpdateAddress"
+                      placeholder="Địa chỉ"
+                      name="inputUpdateAddress"
+                      value="<%=user.getAddess() %>"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!--  -->
+              <div class="row text-center ml-1 ">
+                <p>
+                  (<span class="text-danger">*</span>) là những thông tin bắt
+                  buộc phải nhập
+                </p>
+              </div>
+
+              <div class="row">
+                <div class="col-12 text-center mt-3 mb-2">
+                	<a class="btn btn-primary mb-3 shadow"  href="UserInformationServlet?change=changePassword">Đổi Mật Khẩu
+                	</a>
+                    <button class="btn btn-primary mb-3 shadow" type="submit"  name="btnupdateInfor" value="btnupdateInfor">Cập nhập Thông tin
+                	</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
         <!--  -->

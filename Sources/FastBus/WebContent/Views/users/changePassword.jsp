@@ -39,7 +39,7 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
           <div class="col-md-8">
-            <form action="">
+            <form action="UserInformationServlet">
               <h1 class="text-center m-3 text-primary">Đổi Mật Khẩu</h1>
               <div class="col-sm-12">
                 <div class="form-group">
@@ -85,6 +85,7 @@ pageEncoding="UTF-8"%>
               <div class="row">
                 <div class="col-12 text-center mt-3 mb-2">
                   <button
+                  	type="submit"
                     class="btn btn-primary text-center"
                     name="btnChangePassword"
                     value="btnChangePassword"

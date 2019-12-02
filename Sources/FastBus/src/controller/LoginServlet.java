@@ -2,7 +2,7 @@ package controller;
 
 import java.io.IOException;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,9 +13,10 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.*;
 
 import common.Encode;
+import model.bean.Business;
 import model.bean.User;
+import model.bo.BusinessBO;
 import model.bo.UserBO;
-
 
 /**
  * Servlet implementation class LoginServlet
@@ -43,18 +44,21 @@ public class LoginServlet extends HttpServlet {
 		response.getCharacterEncoding();
 
 		Encode enCode = new Encode();
-		
-		HttpSession session = request.getSession();	
-		String mail = request.getParameter("email");
-		String password = enCode.md5(request.getParameter("password"));
-		// message: true - false
-		User user = new UserBO().CheckLoginBO(mail, password);
-		if (user.getMessage() == "true") {
-			session.setAttribute("email", user.getEmail());
-			session.setAttribute("acc_name", user.getName());
-			session.setAttribute("password", user.getPassWord());
-		}
-		response.getWriter().write(user.getMessage());
+
+		HttpSession session = request.getSession();
+		String url="";
+		if ("btnUserLogin".equalsIgnoreCase(request.getParameter("userLogin"))) {
+			// message: true - false
+			String mail = request.getParameter("email");
+			String password = enCode.md5(request.getParameter("password"));
+			User user = new UserBO().CheckLoginBO(mail, password);
+			if (user.getMessage() == "true") {
+				session.setAttribute("email", user.getEmail());
+				session.setAttribute("acc_name", user.getName());
+				session.setAttribute("password", user.getPassWord());
+			}
+			response.getWriter().write(user.getMessage());
+		} 
 
 	}
 

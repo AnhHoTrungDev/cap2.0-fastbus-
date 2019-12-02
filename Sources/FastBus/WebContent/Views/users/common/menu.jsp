@@ -30,6 +30,8 @@
 								<li class="nav-item"><a class="nav-link" href="">Vé Đã Đặt</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/RegisterServlet">Đăng Ký</a></li>
+								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/LoginBusinessServlet">Cho Doanh Nghiệp</a>
+								</li>
 								<li class="nav-item" id="accountNav"><a class="nav-link"
 									href="" data-toggle="modal" data-target="#myModal"
 									id="menuNotLogin">Đăng Nhập</a>

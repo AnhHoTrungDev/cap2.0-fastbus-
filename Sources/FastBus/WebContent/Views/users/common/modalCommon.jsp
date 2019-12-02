@@ -112,6 +112,7 @@ pageEncoding="UTF-8"%>
              url : "loginRequest",
              type  : "post",
              data : {
+            	 userLogin : "btnUserLogin",
                  email : email,
                  password : password
              },
