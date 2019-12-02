@@ -80,10 +80,7 @@ select t.trip_id, t.trip_bus_id, a.acc_name,p.place_name,p1.place_name,t.trip_st
 
 select acc_mail,acc_password,acc_name,acc_role_id from account where acc_mail= and acc_password=
 
-
-
-
-
+insert into business ()
 
 
 

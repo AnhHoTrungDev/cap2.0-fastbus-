@@ -72,6 +72,15 @@
                         placeholder="Địa chỉ email"
                       />
                     </div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control form-control-user"
+                        id="phone"
+                        name="phone"
+                        placeholder="Số điện thoại"
+                      />
+                    </div>
                     <div class="form-group row">
                       <div class="col-sm-6 mb-3 mb-sm-0">
                         <input
