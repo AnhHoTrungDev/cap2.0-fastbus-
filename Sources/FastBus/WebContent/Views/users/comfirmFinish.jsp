@@ -170,12 +170,12 @@
 
 								<!-- 1 dòng -->
 								<div class="form-group row">
-									<label for="departureDay" class="col-sm-5 col-form-label">Thời
+									<label for="totalTime" class="col-sm-5 col-form-label">Thời
 										gian đi &nbsp;</label>
 									<div class="col-sm-7">
-										<input type="time" readonly
+										<input type="text" readonly
 											class="form-control-plaintext border-bottom"
-											id="departureDay" name="totalTime" value="16:20" />
+											id="totalTime" name="totalTime" value="<%=trip.getTotalTime() %> Tiếng" />
 									</div>
 								</div>
 								<!-- end -->
@@ -186,7 +186,7 @@
 									<div class="col-sm-7">
 										<input type="time" readonly
 											class="form-control-plaintext border-bottom"
-											id="timeFinishExpected" name="endTime" value="06:00" />
+											id="timeFinishExpected" name="endTime" value="<%=trip.getEndTime() %>" />
 									</div>
 								</div>
 								<!-- end -->
@@ -222,7 +222,7 @@
 									</div>
 								</div>
 								<!-- end -->
-							</div>
+							</div>`
 						</div>
 					</div>
 					<div class="col-sm-5 m-auto">
