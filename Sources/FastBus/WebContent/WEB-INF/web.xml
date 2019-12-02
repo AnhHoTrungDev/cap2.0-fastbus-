@@ -36,12 +36,20 @@
         <url-pattern>/SeatBookingInformationRequest</url-pattern>
     </servlet-mapping> 
     
-        <servlet>   
+    <servlet>   
 	    <servlet-name>LoadListTripServlet</servlet-name>  
 	    <servlet-class>controller.LoadListTripServlet</servlet-class> 
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadListTripServlet</servlet-name>
         <url-pattern>/LoadListTripRequest</url-pattern>
+    </servlet-mapping>
+    <servlet>   
+	    <servlet-name>LoadDistrictWardToProvinceServlet</servlet-name>  
+	    <servlet-class>controller.LoadDistrictWardToProvinceServlet</servlet-class> 
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadDistrictWardToProvinceServlet</servlet-name>
+        <url-pattern>/LoadDistrictWardToProvinceRequest</url-pattern>
     </servlet-mapping>
 </web-app>

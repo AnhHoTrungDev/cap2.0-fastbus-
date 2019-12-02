@@ -47,16 +47,16 @@ public class DiaDiemDAO {
 	  		"where p1.place_name not in(N'Đà Nẵng')\r\n" + 
 	  		"group by p1.place_name";
 	  
-	  try { 
-		  ps = connection.prepareStatement(selectPlace); 
-		  rs = ps.executeQuery(); 
-	  while (rs.next()) { 
-		  DiaDiem place=new DiaDiem(rs.getString("place_name"));
-		  listPlace.add(place); 
-		  } 
-	  } catch (SQLException e) { 
-		 e.printStackTrace(); 
-		 } 
+		try {
+			ps = connection.prepareStatement(selectPlace);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				DiaDiem place = new DiaDiem(rs.getString("place_name"));
+				listPlace.add(place);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
 	  return listPlace;
 	  
 	  }

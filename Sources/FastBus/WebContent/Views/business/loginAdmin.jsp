@@ -68,8 +68,8 @@
                       <button
                         type="submit"
                         class="btn btn-primary btn-user btn-block"
-                        value="login"
-                        name="btnLogin"
+                        value="btnBusinessLogin"
+                        name="businessLogin"
                       >
                         Đăng Nhập
                       </button>
@@ -81,7 +81,7 @@
                       >
                     </div>
                     <div class="text-center">
-                      <a class="small" href="register.html"
+                      <a class="small" href="<%=request.getContextPath() %>/RegisterBusunessServlet"
                         >Create an Account!</a
                       >
                     </div>

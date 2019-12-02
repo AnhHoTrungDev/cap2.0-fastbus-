@@ -38,7 +38,6 @@ public class UserDAO {
 	 */
 
 	public User CheckLoginDAO(String email, String password) {
-		listUser = new ArrayList<User>();
 
 		connection = con.getConnect();
 		String selectCheck = "select acc_mail,acc_password,acc_name from account where acc_mail like ? and acc_password like ?";

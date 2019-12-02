@@ -85,7 +85,50 @@ public class BusinessDAO {
 
 		return business;
 	}
-//	public static void main(String[] args) {
-//		System.out.println(new BusinessDAO().getListBusinessDAO().size());
-//	}
+	
+	public int checkBusinessLogin(String email, String passWord) {
+		
+		connection = con.getConnect();
+		String selectCheck = "select acc_role_id from account where acc_mail= ? and acc_password= ?";
+		int message=0;
+		try {
+			ps = connection.prepareStatement(selectCheck);
+			ps.setString(1, email);
+			ps.setString(2,passWord);
+			
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				if(rs.getInt("acc_role_id")==3) {
+					message=2;
+				}else {
+					message= 1;
+				}
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return message;
+	}
+	public Business getBusinessByMail(String mail) {
+		connection = con.getConnect();
+		String selectCheck = "select acc_name,acc_mail,acc_role_id from account where acc_mail= ?";
+		try {
+			ps = connection.prepareStatement(selectCheck);
+			ps.setString(1, mail);
+			
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				business=new Business(rs.getString("acc_name"), rs.getInt("acc_role_id"), rs.getString("acc_mail"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return business;
+	}
 }

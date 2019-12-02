@@ -10,7 +10,7 @@
 		class="btn btn-link d-md-none rounded-circle mr-3">
 		<i class="fa fa-bars"></i>
 	</button>
-	<h5><%=session.getAttribute("acc_name")%></h5>
+	<h5><%=session.getAttribute("business_name")%></h5>
 	<!-- Topbar Navbar -->
 	<ul class="navbar-nav ml-auto">
 
@@ -54,7 +54,7 @@
 		<li class="nav-item dropdown no-arrow"><a
 			class="nav-link dropdown-toggle" href="#" id="userDropdown"
 			role="button" data-toggle="dropdown" aria-haspopup="true"
-			aria-expanded="false"><%=session.getAttribute("acc_name")%><span
+			aria-expanded="false"><%=session.getAttribute("business_name")%><span
 				class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
 		</a> <!-- Dropdown - User Information -->
 			<div

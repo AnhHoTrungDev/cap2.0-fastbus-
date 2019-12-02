@@ -91,7 +91,7 @@ pageEncoding="UTF-8"%>
     	                	  idBusiness : $(element).attr("id")
     	                },
     	                success : function(results){
-    	                	var arrayTrip = JSON.parse(results);
+    	                	var arrayBusiness = JSON.parse(results);
     	                  //console.log(obj[0].idTrip);
     	                }
     	            });
