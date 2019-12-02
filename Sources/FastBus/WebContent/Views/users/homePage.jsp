@@ -234,12 +234,52 @@
 		console.log(timeNow.getMonth()+1,timeNow.getDate(),timeNow.getFullYear());
 		$("[name='startDate']").val(timeNow.getMonth()+1+"/"+timeNow.getDate()+"/"+timeNow.getFullYear());
 		}
+		CheckTimeValidate()
 	})
+
+	$("[name='startTime']").change(function(){
+		CheckTimeValidate()
+	})
+
+	function CheckTimeValidate(){
+		if(new Date($("[name='startDate']").val()).getTime() == new Date(formatCurentDate()).getTime() && 
+			$("[name='startDate']").val() != "" && $("[name='startTime']").val() != "" ){
+			if(formatCurentDateTime() <= new Date().getTime())
+			{	
+				$("[name='startTime']").val("");
+				alert("Thời Giạn Bạn Chọn Nhỏ Hơn Thời Gian hiện Tại Vui lòng Chọn Lại Thời Gian");
+			}
+		}
+	}
+
+
+	function formatCurentDate(){
+		var today = new Date();
+		var dd = String(today.getDate()).padStart(2, '0');
+		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+		var yyyy = today.getFullYear();
+
+		today = yyyy + ','+mm+ ','+ dd;
+		return today;
+	}
+
+	function formatCurentDateTime(){
+		var timeTodate = new Date($("[name='startDate']").val());
+		var timeForInput= $("[name='startTime']").val(); 
+
+		var dd = String(timeTodate.getDate()).padStart(2, '0');
+		var mm = String(timeTodate.getMonth() + 1).padStart(2, '0'); //January is 0!
+		var yyyy = timeTodate.getFullYear();
+		var h = timeForInput.slice(0, 2);
+		var mus = timeForInput.slice(3, 5);
+		timeTodate = new Date(Number(yyyy),Number(mm-1),Number(dd),Number(h),Number(mus)).getTime();
+
+		return timeTodate;
+	}
 
 	function validateTimeStartDate(){
 		let timeCurentChose = new Date($("[name='startDate']").val());
-		let timreNow= new Date();
-		if(timeCurentChose < timreNow){
+		if(timeCurentChose < new Date(formatCurentDate())){
 			alert("Bạn Đã Chọn Ngày trong Quá Khứ")
 			return false
 		}

@@ -170,7 +170,7 @@
 								<td class="curency-table"><%=trip.getPrice()%></td>
 								<td>
 									<a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="check-login"> 
-										<img src="<%=request.getContextPath() %>/Views/users/assets/images/oder.png" height="22" width="22">
+									<i class="fa fa-ticket" aria-hidden="true" height="22" width="22"></i> Đặt vé
 									</a>
 								</td>
 							</tr>

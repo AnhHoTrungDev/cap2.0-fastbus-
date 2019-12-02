@@ -241,7 +241,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear())</script> 2019 F
     <%@ include file="common/botbootstrap.jsp" %>
     <script>
     $(".fare").each(function(){
-    	$(this).html(new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'VND' }).format(Number(parseInt(this.textContent))));
+    	$(this).html(new Intl.NumberFormat('it-IT',
+    			{ style: 'currency', currency: 'VND' }).format(Number(parseInt(this.textContent))));
     });
     </script>
     

@@ -5664,3 +5664,9 @@ span#currency:after {
 	-moz-box-shadow: 0px 17px 33px -11px rgba(0, 0, 0, 0.56);
 	box-shadow: 0px 17px 33px -11px rgba(0, 0, 0, 0.56);
 }
+tr .fix-table-Bisiness{
+	width :230px;
+}
+tr .fix-table-Bisiness-City{
+	width :200px;
+}
