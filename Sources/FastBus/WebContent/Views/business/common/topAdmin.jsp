@@ -10,3 +10,5 @@
 <link href="<%=request.getContextPath()%>/Views/business/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <!-- Custom styles for this template-->
 <link href="<%=request.getContextPath()%>/Views/business/css/sb-admin-2.min.css" rel="stylesheet">
+
+<link href="<%=request.getContextPath()%>/Views/business/css/custom.css" rel="stylesheet">
