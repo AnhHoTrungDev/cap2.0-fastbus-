@@ -120,7 +120,32 @@ public class UserDAO {
 
 		return check;
 	}
+	
+	public int insertUserBusinessDAO(User user) {
+		connection = con.getConnect();
+		int check = 0;
 
+		String insertUser = "insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) "
+				+ " values(?,?,?,?,?,2)";
+
+		try {
+
+			if (!checkDuplicateAccount(connection, user.getEmail())) {
+				ps = connection.prepareStatement(insertUser);
+				ps.setString(1, user.getEmail());
+				ps.setString(2, user.getPassWord());
+				ps.setString(3, user.getPhone());
+				ps.setString(4, user.getName());
+				ps.setString(5, user.getAddess());
+
+				check = ps.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return check;
+	}
 	public User getAccountByNameDAO(String name) {
 		connection = con.getConnect();
 		userInfo=null;

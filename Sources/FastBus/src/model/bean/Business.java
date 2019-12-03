@@ -141,4 +141,17 @@ public class Business {
 		super();
 	}
 
+	public Business(String name, String passWord, String mail, String phone, String address, String nameProvince,
+			String nameDistrict, String nameWard) {
+		super();
+		this.name = name;
+		this.passWord = passWord;
+		this.mail = mail;
+		this.phone = phone;
+		this.address = address;
+		this.nameProvince = nameProvince;
+		this.nameDistrict = nameDistrict;
+		this.nameWard = nameWard;
+	}
+	
 }

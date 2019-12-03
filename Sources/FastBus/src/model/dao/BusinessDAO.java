@@ -131,4 +131,21 @@ public class BusinessDAO {
 		}
 		return business;
 	}
+	public void insertBusiness(Business business) {
+		connection = con.getConnect();
+		String selectCheck = "select acc_name,acc_mail,acc_role_id from account where acc_mail= ?";
+		try {
+			ps = connection.prepareStatement(selectCheck);
+			//ps.setString(1, mail);
+			
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				business=new Business(rs.getString("acc_name"), rs.getInt("acc_role_id"), rs.getString("acc_mail"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

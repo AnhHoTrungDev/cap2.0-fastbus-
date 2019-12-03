@@ -48,7 +48,7 @@ public class LoadDistrictWardToProvinceServlet extends HttpServlet {
 		}
 		if("cbDistrict".equals(request.getParameter("changeDistrict"))) {
 			String idDistrict =request.getParameter("idDistrict");
-			
+				
 			List<Ward> listWard= new ProvinceDistrictWardBO().getListWardBO(idDistrict);
 			Gson gSon= new Gson();
 			PrintWriter out= response.getWriter();

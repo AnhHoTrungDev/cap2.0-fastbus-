@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.bean.Business;
 import model.bean.District;
 import model.bean.Province;
 import model.bean.Ward;
@@ -41,6 +42,16 @@ public class RegisterBusunessServlet extends HttpServlet {
 		List<Ward> listWards=null;
 		ProvinceDistrictWardBO bo=new ProvinceDistrictWardBO();
 		if("btnRegister".equalsIgnoreCase(request.getParameter("btnRegister"))) {
+			String businessName=request.getParameter("businessName");
+			String emailAddress=request.getParameter("emailAddress");
+			String phone=request.getParameter("phone");
+			String inputPassword=request.getParameter("inputPassword");
+			String cbCity=request.getParameter("cbCity");
+			String cbDistrict=request.getParameter("cbDistrict");
+			String cbWard=request.getParameter("cbWard");
+			String addressDeail=request.getParameter("addressDeail");
+			
+			Business business=new Business(businessName, inputPassword, emailAddress, phone, addressDeail, cbCity, cbDistrict, cbWard);
 			
 		}else {
 			listProvinces= bo.getListProvinceBO();
