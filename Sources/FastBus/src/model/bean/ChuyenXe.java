@@ -155,7 +155,7 @@ public class ChuyenXe {
 	
 	
 	public ChuyenXe(int idTrip, String nameBusiness, String startPlace, String endPlace, String startDate,
-			String startTime, String endTime, String price) {
+			String startTime, String endTime,int totalTime, String price) {
 		super();
 		this.idTrip = idTrip;
 		this.nameBusiness = nameBusiness;
@@ -165,6 +165,7 @@ public class ChuyenXe {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.price = price;
+		this.totalTime=totalTime;
 	}
 	
 	

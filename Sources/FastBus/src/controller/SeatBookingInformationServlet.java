@@ -91,8 +91,8 @@ public class SeatBookingInformationServlet extends HttpServlet {
 
 			startPlace = request.getParameter("trip").split("-")[0];
 			endPlace = request.getParameter("trip").split("-")[1];
-
-			tripInfor = new ChuyenXe(idTrip, businessName, startPlace, endPlace, startDate, startTime, endTime, price);
+			totalTime= totalTime.substring(0,totalTime.length()- totalTime.split(" ")[1].length()-1);
+			tripInfor = new ChuyenXe(idTrip, businessName, startPlace, endPlace, startDate, startTime, endTime,Integer.parseInt(totalTime), price);
 			pickPlace=request.getParameter("pickUplocation");
 			session.setAttribute("pickPlace", pickPlace);
 			session.setAttribute("tripInfo", tripInfor);
