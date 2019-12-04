@@ -38,6 +38,7 @@
 					for(ChuyenXe trip : (List<ChuyenXe>)request.getAttribute("listChuyen")){
 						for(SeatBooking seat : (List<SeatBooking>)request.getAttribute("list")){
 							if(trip.getIdTrip()==seat.getTripId() && trip.getStartDate()==seat.getSeatStartDate()){	
+							//	int totalSeat=seat.getTotalSeat();
                 %>
               <tr style="border: none;">
                 <td style="border: none;" class="text-center border-bottom"><%=seat.getSeatStartDate() %></td>
