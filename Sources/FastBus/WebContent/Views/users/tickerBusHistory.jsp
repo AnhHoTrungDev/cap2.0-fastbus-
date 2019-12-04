@@ -41,15 +41,19 @@
 							//	int totalSeat=seat.getTotalSeat();
                 %>
               <tr style="border: none;">
-                <td style="border: none;" class="text-center border-bottom"><%=seat.getSeatStartDate() %></td>
-                <td style="border: none;" class="text-center border-bottom"><%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></td>
-                <td style="border: none;" class="text-center border-bottom"><%=trip.getPrice() %></td>
-                <td style="border: none;" class="text-center border-bottom"><a href="#" class="infor-ticker-history">Chi tiêt</a></td>
+                <td style="border: none;" class="text-center border-bottom">
+                <input type="date" class="form-control-plaintext w-75 mx-auto text-center" value="<%=seat.getSeatStartDate() %>">
+                </td>
+                <td style="border: none;" class="text-center border-bottom">
+                <span class="d-block mt-2"><%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></span>
+                </td>
+                <td style="border: none;" class="text-center border-bottom"><span class="d-block mt-2 format-price"><%=trip.getPrice() %></span></td>
+                <td style="border: none;" class="text-center border-bottom"><a href="#" class="infor-ticker-history"><span class="d-block mt-2">Chi tiêt</span></a></td>
               </tr>
-              <tr style="border: none;" class="bg-light ticker-none  highlights-box-menu ">
+              <tr style="border: none;" class="ticker-none ">
                 <td style="border: none;" class="mx-auto text-center border-bottom" colspan="4">
-                  <div class="w-75 m-auto">
-                    <div class="card-body">
+                  <div class="w-75 m-auto bg-light">
+                    <div class="card-body highlights-box-menu">
                       <legend>
                         <h3 class="text-danger">Thông Tin Vé</h3>
                       </legend>
@@ -81,7 +85,7 @@
                         <label for="departureDay" class="col-sm-5 col-form-label">Ngày
                         khởi hành&nbsp;</label>
                         <div class="col-sm-7 ">
-                          <input type="text" readonly
+                          <input type="date" readonly
                           class="form-control-plaintext  border-bottom"
                           id="departureDay" name="startDate"
                           value="<%=seat.getSeatStartDate() %>" />
@@ -136,11 +140,11 @@
                       <!-- end -->
                       <!-- 1 dòng -->
                       <div class="form-group row">
-                        <label for="fare" class="col-sm-5 col-form-label ">Giá Vé &nbsp;</label>
+                        <label for="fare" class="col-sm-5 col-form-label ">Tổng Giá Vé &nbsp;</label>
                         <div class="col-7">
                           <div class="input-group border-bottom">
-                            <input type="text" readonly class="form-control-plaintext"
-                            id="fare" name="price" value="không biết" />
+                            <input type="text" readonly class="form-control-plaintext format-price"
+                            id="fare" name="price" data-price-chare="<%=trip.getPrice()%>" data-amount-chair="<%=seat.getTotalSeat() %>" value="không biết" />
                           </div>
                         </div>
                       </div>
@@ -226,6 +230,28 @@
  addEventListenerAllTickerHistory();
  setEndForSumTime();
 });
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("[name=price]").each(function(){
+      let value = Number($(this).data("amountChair")) * Number($(this).data("priceChare"));
+      $(this).val(value);
+    });
+
+    setTimeout(function(){
+      $(".format-price").each(function(){
+        $(this).val(new Intl.NumberFormat('it-IT',
+              { style: 'currency', currency: 'VND' }).format(Number($(this).val())));
+      });
+    }, 500);
+    setTimeout(function(){
+      $(".format-price").each(function(){
+        $(this).html(new Intl.NumberFormat('it-IT',
+              { style: 'currency', currency: 'VND' }).format(Number($(this).html())));
+      });
+    }, 500);
+
+  });  
 </script>
 </body>
 </html>

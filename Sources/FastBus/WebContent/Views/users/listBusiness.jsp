@@ -93,10 +93,15 @@ pageEncoding="UTF-8"%>
         success : function(results){
 
           var arrayTrips = JSON.parse(results);
-          $("tr.chilTable").each(function(index, el) {
-            $(el).remove();
-          });
-          $(chilTable(arrayTrips)).insertAfter($(".search.tr-show#"+$(element).attr("id"))).show("slow");
+
+          if($("tr#"+$(element).attr("id")+".chilTable").length == 0){  
+        	  $("tr.chilTable").each(function(index, el) {
+                  $(el).remove();
+               });
+        	  $(chilTable(arrayTrips,$(element).attr("id"))).insertAfter($(".search.tr-show#"+$(element).attr("id"))).show("slow"); 	  
+          }else{
+        	  $("tr#"+$(element).attr("id")+".chilTable").remove();
+          }
         }
       });
      });

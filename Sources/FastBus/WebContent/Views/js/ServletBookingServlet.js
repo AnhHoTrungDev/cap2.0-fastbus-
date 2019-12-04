@@ -35,8 +35,33 @@ $(document).ready(function() {
 	 };
 	
 	  $("[name=startDate]").change(()=>{
-		  loadPageWhenChangeDate();	 
-	  });
+      if(formatCurentDateTime()< Date.now()){
+        
+        let now = new Date();
+        let retunDate = now.getFullYear()+"-"
+        +String((Number(now.getMonth())+1)).padStart(2, '0')+"-"
+        +String(now.getDate()).padStart(2, '0');
+        console.log(retunDate);
+        $("[name=startDate]").val(retunDate.toString());
+        alert("Bạn không thể chọn khoản thời gian trong quá khứ")
+      }else loadPageWhenChangeDate();	
+		   
+    });
+    
+    //  validate chose time
+    function formatCurentDateTime(){
+      var timeTodate = new Date($("[name='startDate']").val());
+      var timeForInput= $("[name='startTime']").val(); 
+  
+      var dd = String(timeTodate.getDate()).padStart(2, '0');
+      var mm = String(timeTodate.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = timeTodate.getFullYear();
+      var h = timeForInput.slice(0, 2);
+      var mus = timeForInput.slice(3, 5);
+      timeTodate = new Date(Number(yyyy),Number(mm-1),Number(dd),Number(h),Number(mus)).getTime();
+  
+      return timeTodate;
+    }
 });
 
 let codeChairOder = document.getElementById("codeChairOder");

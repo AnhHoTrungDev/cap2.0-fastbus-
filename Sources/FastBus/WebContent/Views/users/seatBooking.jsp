@@ -1,4 +1,4 @@
-<%@page import="model.bean.PickupPlace"%>
+	<%@page import="model.bean.PickupPlace"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="model.bean.SeatBooking"%>
 <%@page import="java.util.List"%>
@@ -658,7 +658,12 @@ $("#checkBeforeConfirm").each(function() {
     	  alert("Bạn chưa chọn ghế nào");
     	  e.preventDefault();
     	  return false;
-      }
+	  }
+	  if($("[name=startDate]").val()==""){
+		  alert("Bạn chưa chọn ngày đi");
+    	  e.preventDefault();
+    	  return false;
+	  }
       var sseEmail = "<%=session.getAttribute("email")%>";
       var dataSetStatus=$(checkBeforeConfirm).data("mystatus");
       console.log(sseEmail);

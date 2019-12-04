@@ -147,7 +147,7 @@
 									<label for="departureDay" class="col-sm-5 col-form-label">Ngày
 										khởi hành&nbsp;</label>
 									<div class="col-sm-7 ">
-										<input type="text" readonly
+										<input type="date" readonly
 											class="form-control-plaintext  border-bottom"
 											id="departureDay" name="startDate"
 											value="<%=trip.getStartDate()%>" />
