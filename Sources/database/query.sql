@@ -82,10 +82,10 @@ select acc_mail,acc_password,acc_name,acc_role_id from account where acc_mail= a
 
 insert into business ()
 
-select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*)
+select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*)as total
 from seatbooking where seatb_user_mail='fastbuscompany@gmail.com'  
 group by seatb_trip_id,seatb_start_date,seatb_user_mail order by seatb_start_date desc
-
 select * from  business
+
 
 select * from seatbooking where seatb_user_mail='fastbuscompany@gmail.com' and seatb_start_date='2019-12-03' and seatb_trip_id=105 order by seatb_name asc

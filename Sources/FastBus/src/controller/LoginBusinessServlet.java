@@ -56,7 +56,7 @@ public class LoginBusinessServlet extends HttpServlet {
 			session.setAttribute("business_name", business.getName());
 			request.setAttribute("message", message);
 		}else {
-			url="/Views/business/loginAdmin.jsp";
+			url="/Views/business/loginBusiness.jsp";
 		}
 		RequestDispatcher rd= request.getRequestDispatcher(url);
 		rd.forward(request, response);

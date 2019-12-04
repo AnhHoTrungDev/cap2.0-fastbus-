@@ -148,4 +148,27 @@ public class BusinessDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public int insertBusinessAccount(Business business) {
+		// TODO Auto-generated method stub
+		connection = con.getConnect();
+		int check = 0;
+
+		String insertUser = "insert into business (bs_acc_mail,bs_address,bs_pv_id,bs_dt_id,bs_ward_id) values(?,?,?,?,?)";
+
+		try {
+
+				ps = connection.prepareStatement(insertUser);
+				ps.setString(1, business.getMail());
+				ps.setString(2, business.getAddress());
+				ps.setString(3, business.getNameProvince());
+				ps.setString(4, business.getNameWard());
+
+				check = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return check;
+	}
 }

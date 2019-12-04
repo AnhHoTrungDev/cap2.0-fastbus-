@@ -13,8 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.Business;
 import model.bean.District;
 import model.bean.Province;
+import model.bean.User;
 import model.bean.Ward;
+import model.bo.BusinessBO;
 import model.bo.ProvinceDistrictWardBO;
+import model.bo.UserBO;
 
 /**
  * Servlet implementation class RegisterBusunessServlet
@@ -36,10 +39,11 @@ public class RegisterBusunessServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url="/Views/business/registerAdmin.jsp";
+		String url="/Views/business/registerBusiness.jsp";
 		List<Province> listProvinces=null;
 		List<District> listDistricts=null;
 		List<Ward> listWards=null;
+		String message="false";
 		ProvinceDistrictWardBO bo=new ProvinceDistrictWardBO();
 		if("btnRegister".equalsIgnoreCase(request.getParameter("btnRegister"))) {
 			String businessName=request.getParameter("businessName");
@@ -52,6 +56,15 @@ public class RegisterBusunessServlet extends HttpServlet {
 			String addressDeail=request.getParameter("addressDeail");
 			
 			Business business=new Business(businessName, inputPassword, emailAddress, phone, addressDeail, cbCity, cbDistrict, cbWard);
+			User user=new User(emailAddress, inputPassword, phone, businessName, "");
+			if(new UserBO().insertUserBusinessBO(user)!=0) {
+				if(new BusinessBO().insertBusinessAccount(business)!=0) {
+					message="true";
+					url="/Views/business/loginBusiness.jsp";
+				}
+			}
+			request.setAttribute("message", message);
+			
 			
 		}else {
 			listProvinces= bo.getListProvinceBO();

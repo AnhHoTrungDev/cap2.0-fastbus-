@@ -136,7 +136,6 @@ public class UserDAO {
 				ps.setString(2, user.getPassWord());
 				ps.setString(3, user.getPhone());
 				ps.setString(4, user.getName());
-				ps.setString(5, user.getAddess());
 
 				check = ps.executeUpdate();
 			}

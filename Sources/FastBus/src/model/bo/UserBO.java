@@ -42,4 +42,7 @@ public class UserBO {
 	public int updatePasswordBO(String mail, String oldPass, String newPass) {
 		return new UserDAO().updatePasswordDAO(mail, oldPass, newPass);
 	}
+	public int insertUserBusinessBO(User user) {
+		return new UserDAO().insertUserBusinessDAO(user);
+	}
 }

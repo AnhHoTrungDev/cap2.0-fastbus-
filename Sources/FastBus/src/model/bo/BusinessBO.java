@@ -34,4 +34,8 @@ public class BusinessBO {
 	public Business getBusinessByMail(String mail) {
 		return new BusinessDAO().getBusinessByMail(mail);
 	}
+	public int insertBusinessAccount(Business business) {
+		// TODO Auto-generated method stub
+		return new BusinessDAO().insertBusinessAccount(business);
+	}
 }
