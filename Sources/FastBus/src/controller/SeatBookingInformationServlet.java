@@ -131,15 +131,17 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			if (new SeatBookingBO().insertSeatBO(listSeat) == 1) {
 				messageBooking="true";
 				new SendEmailBO().SendMailCustomerBO(tripInfor, user, listSeat);
-				url = "LoadHomePageServlet";
+				url = "/TicketHistoryServlet";
+				
+				session.removeAttribute("pickPlace");
+				session.removeAttribute("tripInfo");
+				session.removeAttribute("seat");
+				session.removeAttribute("user");
 			} else {
-				url = "LoadHomePageServlet";
+				messageBooking="false";
+				url = "/Views/users/comfirmFinish.jsp";
 			}
 			request.setAttribute("messageBooking", messageBooking);
-			session.removeAttribute("pickPlace");
-			session.removeAttribute("tripInfo");
-			session.removeAttribute("seat");
-			session.removeAttribute("user");
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
