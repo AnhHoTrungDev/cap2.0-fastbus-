@@ -28,4 +28,7 @@ public class SeatBookingBO {
 	public int insertSeatBO(List<SeatBooking> seat) {
 		return new SeatBookingDAO().insertSeatDAO(seat);
 	}
+	public List<SeatBooking> getListSeatBooked(String mail){
+		return new SeatBookingDAO().getListSeatBooked(mail);
+	}
 }

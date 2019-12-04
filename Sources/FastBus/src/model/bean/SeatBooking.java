@@ -77,7 +77,12 @@ public class SeatBooking {
 		this.seatName = seatName;
 		this.seatStartDate = seatStartDate;
 	}
-	
+	public SeatBooking(int tripId,String seatStartDate,String seatMail) {
+		super();
+		this.tripId = tripId;
+		this.seatMail = seatMail;
+		this.seatStartDate = seatStartDate;
+	}
 	public SeatBooking() {
 		super();
 	}

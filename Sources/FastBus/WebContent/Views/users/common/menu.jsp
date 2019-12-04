@@ -27,7 +27,7 @@
 										chủ</a></li>
 								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/PlaceServlet">Nhà Xe</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="">Vé Đã Đặt</a>
+								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/TicketHistoryServlet">Vé Đã Đặt</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/RegisterServlet">Đăng Ký</a></li>
 								<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/LoginBusinessServlet">Cho Doanh Nghiệp</a>

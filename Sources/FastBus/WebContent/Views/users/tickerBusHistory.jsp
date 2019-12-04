@@ -1,4 +1,7 @@
-  <%@ page language="java" contentType="text/html; charset=UTF-8"
+  <%@page import="java.util.List"%>
+<%@page import="model.bean.ChuyenXe"%>
+<%@page import="model.bean.SeatBooking"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
   <!DOCTYPE html>
   <html lang="en">
@@ -31,11 +34,16 @@
             </thead>
             <tbody>
               <!-- 1 vé -->
+				<%
+					for(ChuyenXe trip : (List<ChuyenXe>)request.getAttribute("listChuyen")){
+						for(SeatBooking seat : (List<SeatBooking>)request.getAttribute("list")){
+							if(trip.getIdTrip()==seat.getTripId() && trip.getStartDate()==seat.getSeatStartDate()){	
+                %>
               <tr style="border: none;">
-                <td style="border: none;" class="text-center border-bottom">19/12/2019</td>
-                <td style="border: none;" class="text-center border-bottom">Đà Nẵng - Đà Lạt</td>
-                <td style="border: none;" class="text-center border-bottom">200000</td>
-                <td style="border: none;" class="text-center border-bottom"><a href="#" class="infor-ticker-history">Chi tiêt</a></td>
+                <td style="border: none;" class="text-center border-bottom"><%=seat.getSeatStartDate() %></td>
+                <td style="border: none;" class="text-center border-bottom"><%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></td>
+                <td style="border: none;" class="text-center border-bottom"><%=trip.getPrice() %></td>
+                <td style="border: none;" class="text-center border-bottom"><a href="#" class="infor-ticker-history">Chi tiêt<%=seat.getTripId() %></a></td>
               </tr>
               <tr style="border: none;" class="ticker-none">
                 <td style="border: none;" class="mx-auto text-center border-bottom" colspan="4">
@@ -45,13 +53,14 @@
                         <h3 class="text-danger">Thông Tin Vé</h3>
                       </legend>
                       <!-- 1 dòng -->
+                     
                       <div class="form-group row">
                         <label for="Tuyen" class="col-sm-5 col-form-label">Tuyến&nbsp;</label>
                         <div class="col-sm-7">
                           <input type="text" readonly
                           class="form-control-plaintext border-bottom" id="Tuyen"
                           name="trip"
-                          value="" />
+                          value="<%=trip.getStartPlace() %> - <%=trip.getEndPlace() %>" />
                         </div>
                       </div>
                       <!-- end -->
@@ -62,7 +71,7 @@
                         <div class="col-sm-7">
                           <input type="text" readonly
                           class="form-control-plaintext border-bottom" name="business"
-                          id="locationEnd" value="" />
+                          id="locationEnd" value="<%=trip.getNameBusiness() %>" />
                         </div>
                       </div>
                       <!-- end -->
@@ -74,7 +83,7 @@
                           <input type="text" readonly
                           class="form-control-plaintext  border-bottom"
                           id="departureDay" name="startDate"
-                          value="" />
+                          value="<%=seat.getSeatStartDate() %>" />
                         </div>
                       </div>
                       <!-- end -->
@@ -86,7 +95,7 @@
                           <input type="time" readonly
                           class="form-control-plaintext border-bottom"
                           id="departureTime" name="startTime"
-                          value="" />
+                          value="<%=trip.getStartTime() %>" />
                         </div>
                       </div>
                       <!-- end -->
@@ -99,7 +108,7 @@
                         <div class="col-sm-7">
                           <input type="text" readonly
                           class="form-control-plaintext border-bottom"
-                          id="totalTime" name="totalTime" value="20" />
+                          id="totalTime" name="totalTime" value="<%=trip.getTotalTime() %> tiếng" />
                         </div>
                       </div>
                       <!-- end -->
@@ -110,7 +119,7 @@
                         <div class="col-sm-7">
                           <input type="time" readonly
                           class="form-control-plaintext border-bottom"
-                          id="timeFinishExpected" name="endTime" value="06:00" />
+                          id="timeFinishExpected" name="endTime" value="<%=trip.getEndTime() %>" />
                         </div>
                       </div>
                       <!-- end -->
@@ -119,7 +128,7 @@
                         <div class="col-sm-7  ">
                           <input type="text" readonly
                           class="form-control-plaintext border-bottom"
-                          id="codeChairOder" value=""
+                          id="codeChairOder" value="<%=seat.getSeatName() %>"
                           placeholder="Bạn chưa chọn ghế nào" name="codeChairOder" />
                         </div>
                       </div>
@@ -130,7 +139,7 @@
                         <div class="col-7">
                           <div class="input-group border-bottom">
                             <input type="text" readonly class="form-control-plaintext"
-                            id="fare" name="price" value="" />
+                            id="fare" name="price" value="không biết" />
                           </div>
                         </div>
                       </div>
@@ -141,7 +150,7 @@
                         <div class="col-sm-7">
                           <div class="input-group border-bottom">
                             <input type="text" readonly class="form-control-plaintext"
-                            id="fare" name="pickUpPlace" value="" />
+                            id="fare" name="pickUpPlace" value="<%=trip.getStartPlace() %>" />
                           </div>
                         </div>
                       </div>
@@ -150,250 +159,14 @@
                   </div>
                 </td>
               </tr>
+              <%   
+							}else{
+								continue;
+							}
+              			}
+                    }
+              %>
               <!-- end 1 vé -->
-              <!-- 1 vé -->
-              <tr style="border: none;">
-                <td style="border: none;" class="text-center border-bottom">19/12/2019</td>
-                <td style="border: none;" class="text-center border-bottom">Đà Nẵng - Đà Lạt</td>
-                <td style="border: none;" class="text-center border-bottom">200000</td>
-                <td style="border: none;" class="text-center border-bottom"><a href="#" class="infor-ticker-history">Chi tiêt</a></td>
-              </tr>
-              <tr style="border: none;" class="ticker-none">
-                <td style="border: none;" class="mx-auto text-center border-bottom" colspan="4">
-                  <div class="w-75 m-auto">
-                    <div class="card-body">
-                      <legend>
-                        <h3 class="text-danger">Thông Tin Vé</h3>
-                      </legend>
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="Tuyen" class="col-sm-5 col-form-label">Tuyến&nbsp;</label>
-                        <div class="col-sm-7">
-                          <input type="text" readonly
-                          class="form-control-plaintext border-bottom" id="Tuyen"
-                          name="trip"
-                          value="" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="locationEnd" class="col-sm-5 col-form-label">Nhà
-                        Xe &nbsp;</label>
-                        <div class="col-sm-7">
-                          <input type="text" readonly
-                          class="form-control-plaintext border-bottom" name="business"
-                          id="locationEnd" value="" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="departureDay" class="col-sm-5 col-form-label">Ngày
-                        khởi hành&nbsp;</label>
-                        <div class="col-sm-7 ">
-                          <input type="text" readonly
-                          class="form-control-plaintext  border-bottom"
-                          id="departureDay" name="startDate"
-                          value="" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="departureTime" class="col-sm-5 col-form-label">Giờ
-                        khởi hành &nbsp;</label>
-                        <div class="col-sm-7 ">
-                          <input type="time" readonly
-                          class="form-control-plaintext border-bottom"
-                          id="departureTime" name="startTime"
-                          value="" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="totalTime" class="col-sm-5 col-form-label">Thời
-                        gian đi &nbsp;</label>
-                        <div class="col-sm-7">
-                          <input type="text" readonly
-                          class="form-control-plaintext border-bottom"
-                          id="totalTime" name="totalTime" value="20" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="timeFinishExpected" class="col-sm-5 col-form-label">Giờ
-                        đến dự kiến &nbsp;</label>
-                        <div class="col-sm-7">
-                          <input type="time" readonly
-                          class="form-control-plaintext border-bottom"
-                          id="timeFinishExpected" name="endTime" value="06:00" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <div class="form-group row">
-                        <label for="codeChairOder" class="col-sm-5 col-form-label">Ghế đã chọn &nbsp;</label>
-                        <div class="col-sm-7  ">
-                          <input type="text" readonly
-                          class="form-control-plaintext border-bottom"
-                          id="codeChairOder" value=""
-                          placeholder="Bạn chưa chọn ghế nào" name="codeChairOder" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="fare" class="col-sm-5 col-form-label ">Giá Vé &nbsp;</label>
-                        <div class="col-7">
-                          <div class="input-group border-bottom">
-                            <input type="text" readonly class="form-control-plaintext"
-                            id="fare" name="price" value="" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="fare" class="col-sm-5 col-form-label ">Địa chỉ đón: &nbsp;</label>
-                        <div class="col-sm-7">
-                          <div class="input-group border-bottom">
-                            <input type="text" readonly class="form-control-plaintext"
-                            id="fare" name="pickUpPlace" value="" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- end -->
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <!-- end 1 vé -->
-              <!-- 1 vé -->
-              <tr style="border: none;">
-                <td style="border: none;" class="text-center border-bottom">19/12/2019</td>
-                <td style="border: none;" class="text-center border-bottom">Đà Nẵng - Đà Lạt</td>
-                <td style="border: none;" class="text-center border-bottom">200000</td>
-                <td style="border: none;" class="text-center border-bottom"><a href="#" class="infor-ticker-history">Chi tiêt</a></td>
-              </tr>
-              <tr style="border: none;" class="ticker-none">
-                <td style="border: none;" class="mx-auto text-center border-bottom" colspan="4">
-                  <div class="w-75 m-auto">
-                    <div class="card-body">
-                      <legend>
-                        <h3 class="text-danger">Thông Tin Vé</h3>
-                      </legend>
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="Tuyen" class="col-sm-5 col-form-label">Tuyến&nbsp;</label>
-                        <div class="col-sm-7">
-                          <input type="text" readonly
-                          class="form-control-plaintext border-bottom" id="Tuyen"
-                          name="trip"
-                          value="" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="locationEnd" class="col-sm-5 col-form-label">Nhà
-                        Xe &nbsp;</label>
-                        <div class="col-sm-7">
-                          <input type="text" readonly
-                          class="form-control-plaintext border-bottom" name="business"
-                          id="locationEnd" value="" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="departureDay" class="col-sm-5 col-form-label">Ngày
-                        khởi hành&nbsp;</label>
-                        <div class="col-sm-7 ">
-                          <input type="text" readonly
-                          class="form-control-plaintext  border-bottom"
-                          id="departureDay" name="startDate"
-                          value="" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="departureTime" class="col-sm-5 col-form-label">Giờ
-                        khởi hành &nbsp;</label>
-                        <div class="col-sm-7 ">
-                          <input type="time" readonly
-                          class="form-control-plaintext border-bottom"
-                          id="departureTime" name="startTime"
-                          value="" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="totalTime" class="col-sm-5 col-form-label">Thời
-                        gian đi &nbsp;</label>
-                        <div class="col-sm-7">
-                          <input type="text" readonly
-                          class="form-control-plaintext border-bottom"
-                          id="totalTime" name="totalTime" value="20" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="timeFinishExpected" class="col-sm-5 col-form-label">Giờ
-                        đến dự kiến &nbsp;</label>
-                        <div class="col-sm-7">
-                          <input type="time" readonly
-                          class="form-control-plaintext border-bottom"
-                          id="timeFinishExpected" name="endTime" value="06:00" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <div class="form-group row">
-                        <label for="codeChairOder" class="col-sm-5 col-form-label">Ghế đã chọn &nbsp;</label>
-                        <div class="col-sm-7  ">
-                          <input type="text" readonly
-                          class="form-control-plaintext border-bottom"
-                          id="codeChairOder" value=""
-                          placeholder="Bạn chưa chọn ghế nào" name="codeChairOder" />
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="fare" class="col-sm-5 col-form-label ">Giá Vé &nbsp;</label>
-                        <div class="col-7">
-                          <div class="input-group border-bottom">
-                            <input type="text" readonly class="form-control-plaintext"
-                            id="fare" name="price" value="" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- end -->
-                      <!-- 1 dòng -->
-                      <div class="form-group row">
-                        <label for="fare" class="col-sm-5 col-form-label ">Địa chỉ đón: &nbsp;</label>
-                        <div class="col-sm-7">
-                          <div class="input-group border-bottom">
-                            <input type="text" readonly class="form-control-plaintext"
-                            id="fare" name="pickUpPlace" value="" />
-                          </div>
-                        </div>
-                      </div>
-                      <!-- end -->
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <!-- end 1 vé -->
-
             </tbody>
           </table>
         </div>
