@@ -77,7 +77,7 @@ public class UserDAO {
 		int check = 0;
 
 		String insertUser = "insert into account (acc_mail, acc_password, acc_phone, acc_name,acc_address, acc_role_id) "
-				+ " values(?,?,?,?,?,3)";
+				+ " values(?,?,?,?,?,2)";
 
 		try {
 
@@ -125,8 +125,8 @@ public class UserDAO {
 		connection = con.getConnect();
 		int check = 0;
 
-		String insertUser = "insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id) "
-				+ " values(?,?,?,?,?,2)";
+		String insertUser = "insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id)  "
+				+ " values(?,?,?,?,?)";
 
 		try {
 
@@ -136,7 +136,7 @@ public class UserDAO {
 				ps.setString(2, user.getPassWord());
 				ps.setString(3, user.getPhone());
 				ps.setString(4, user.getName());
-
+				ps.setInt(5, 3);
 				check = ps.executeUpdate();
 			}
 		} catch (SQLException e) {

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.Encode;
 import model.bean.Business;
 import model.bean.District;
 import model.bean.Province;
@@ -40,6 +41,7 @@ public class RegisterBusunessServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url="/Views/business/registerBusiness.jsp";
+		Encode  ec=new Encode();
 		List<Province> listProvinces=null;
 		List<District> listDistricts=null;
 		List<Ward> listWards=null;
@@ -49,7 +51,7 @@ public class RegisterBusunessServlet extends HttpServlet {
 			String businessName=request.getParameter("businessName");
 			String emailAddress=request.getParameter("emailAddress");
 			String phone=request.getParameter("phone");
-			String inputPassword=request.getParameter("inputPassword");
+			String inputPassword=ec.md5(request.getParameter("inputPassword"));
 			String cbCity=request.getParameter("cbCity");
 			String cbDistrict=request.getParameter("cbDistrict");
 			String cbWard=request.getParameter("cbWard");
@@ -57,20 +59,17 @@ public class RegisterBusunessServlet extends HttpServlet {
 			
 			Business business=new Business(businessName, inputPassword, emailAddress, phone, addressDeail, cbCity, cbDistrict, cbWard);
 			User user=new User(emailAddress, inputPassword, phone, businessName, "");
-			if(new UserBO().insertUserBusinessBO(user)!=0) {
-				if(new BusinessBO().insertBusinessAccount(business)!=0) {
+			if(new UserBO().insertUserBusinessBO(user)==1) {
+				if(new BusinessBO().insertBusinessAccount(business)==1) {
 					message="true";
 					url="/Views/business/loginBusiness.jsp";
 				}
 			}
 			request.setAttribute("message", message);
-			
-			
-		}else {
+		}
 			listProvinces= bo.getListProvinceBO();
 			listDistricts=bo.getListDistrictBO("");
 			listWards=bo.getListWardBO("");
-		}
 		
 		request.setAttribute("listProvinces", listProvinces);
 		request.setAttribute("listDistricts", listDistricts);

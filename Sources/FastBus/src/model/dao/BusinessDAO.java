@@ -49,7 +49,7 @@ public class BusinessDAO {
 
 			while (rs.next()) {
 				business = new Business(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
-						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9));
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
 				listBusiness.add(business);
 			}
 
@@ -76,7 +76,7 @@ public class BusinessDAO {
 
 			if (rs.next()) {
 				business = new Business(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
-						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8),rs.getString(9));
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
 			}
 		} catch (SQLException e) {
 // TODO Auto-generated catch block
@@ -85,26 +85,26 @@ public class BusinessDAO {
 
 		return business;
 	}
-	
+
 	public int checkBusinessLogin(String email, String passWord) {
-		
+
 		connection = con.getConnect();
 		String selectCheck = "select acc_role_id from account where acc_mail= ? and acc_password= ?";
-		int message=0;
+		int message = 0;
 		try {
 			ps = connection.prepareStatement(selectCheck);
 			ps.setString(1, email);
-			ps.setString(2,passWord);
-			
+			ps.setString(2, passWord);
+
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-				if(rs.getInt("acc_role_id")==3) {
-					message=2;
-				}else {
-					message= 1;
+				if (rs.getInt("acc_role_id") == 3) {
+					message = 2;
+				} else {
+					message = 1;
 				}
-				
+
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -113,17 +113,18 @@ public class BusinessDAO {
 
 		return message;
 	}
+
 	public Business getBusinessByMail(String mail) {
 		connection = con.getConnect();
 		String selectCheck = "select acc_name,acc_mail,acc_role_id from account where acc_mail= ?";
 		try {
 			ps = connection.prepareStatement(selectCheck);
 			ps.setString(1, mail);
-			
+
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-				business=new Business(rs.getString("acc_name"), rs.getInt("acc_role_id"), rs.getString("acc_mail"));
+				business = new Business(rs.getString("acc_name"), rs.getInt("acc_role_id"), rs.getString("acc_mail"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -131,17 +132,18 @@ public class BusinessDAO {
 		}
 		return business;
 	}
+
 	public void insertBusiness(Business business) {
 		connection = con.getConnect();
 		String selectCheck = "select acc_name,acc_mail,acc_role_id from account where acc_mail= ?";
 		try {
 			ps = connection.prepareStatement(selectCheck);
-			//ps.setString(1, mail);
-			
+			// ps.setString(1, mail);
+
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-				business=new Business(rs.getString("acc_name"), rs.getInt("acc_role_id"), rs.getString("acc_mail"));
+				business = new Business(rs.getString("acc_name"), rs.getInt("acc_role_id"), rs.getString("acc_mail"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -154,17 +156,18 @@ public class BusinessDAO {
 		connection = con.getConnect();
 		int check = 0;
 
-		String insertUser = "insert into business (bs_acc_mail,bs_address,bs_pv_id,bs_dt_id,bs_ward_id) values(?,?,?,?,?)";
+		String insertUser = "insert into business (bs_acc_mail, bs_address, bs_pv_id, bs_dt_id, bs_ward_id) values(?,?,?,?,?)";
 
 		try {
 
-				ps = connection.prepareStatement(insertUser);
-				ps.setString(1, business.getMail());
-				ps.setString(2, business.getAddress());
-				ps.setString(3, business.getNameProvince());
-				ps.setString(4, business.getNameWard());
+			ps = connection.prepareStatement(insertUser);
+			ps.setString(1, business.getMail());
+			ps.setString(2, business.getAddress());
+			ps.setString(3, business.getNameProvince());
+			ps.setString(4, business.getNameDistrict());
+			ps.setString(5, business.getNameWard());
 
-				check = ps.executeUpdate();
+			check = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
