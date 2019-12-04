@@ -43,9 +43,9 @@
                 <td style="border: none;" class="text-center border-bottom"><%=seat.getSeatStartDate() %></td>
                 <td style="border: none;" class="text-center border-bottom"><%=trip.getStartPlace() %> - <%=trip.getEndPlace() %></td>
                 <td style="border: none;" class="text-center border-bottom"><%=trip.getPrice() %></td>
-                <td style="border: none;" class="text-center border-bottom"><a href="#" class="infor-ticker-history">Chi tiêt<%=seat.getTripId() %></a></td>
+                <td style="border: none;" class="text-center border-bottom"><a href="#" class="infor-ticker-history">Chi tiêt</a></td>
               </tr>
-              <tr style="border: none;" class="ticker-none">
+              <tr style="border: none;" class="bg-light ticker-none  highlights-box-menu ">
                 <td style="border: none;" class="mx-auto text-center border-bottom" colspan="4">
                   <div class="w-75 m-auto">
                     <div class="card-body">
@@ -197,7 +197,6 @@
      $getTickerHistory.each(function(index, iteam) {
        iteam.addEventListener("click", function() {
         $(".ticker-none").each(function(index, el) {
-         
           if(!$(el).is(":visible")) {
              console.log(el);
             $(el).hide();

@@ -39,7 +39,7 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
           <div class="col-md-8">
-            <form action="UserInformationServlet">
+            <form action="UserInformationServlet" method="post">
               <h1 class="text-center m-3 text-primary">Đổi Mật Khẩu</h1>
               <div class="col-sm-12">
                 <div class="form-group">

@@ -155,7 +155,7 @@ public class SeatBookingDAO {
 					continue;
 				}
 			}
-			seat = new SeatBooking(list.getSeatBooking(), list.getTripId(), list.getSeatMail(), name,
+			seat = new SeatBooking(list.getSeatBooking(), list.getTripId(), list.getSeatMail(), name.substring(0,(name.length()-2)),
 					list.getSeatDate(), list.getSeatStartDate());
 		}
 
