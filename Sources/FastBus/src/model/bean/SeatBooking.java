@@ -22,6 +22,7 @@ public class SeatBooking {
 	private String seatName;
 	private String seatDate;
 	private String seatStartDate;
+	private int totalSeat;
 	
 	public int getSeatBooking() {
 		return seatBooking;
@@ -54,6 +55,12 @@ public class SeatBooking {
 		this.seatDate = seatDate;
 	}
 	
+	public int getTotalSeat() {
+		return totalSeat;
+	}
+	public void setTotalSeat(int totalSeat) {
+		this.totalSeat = totalSeat;
+	}
 	public String getSeatStartDate() {
 		return seatStartDate;
 	}
@@ -69,6 +76,16 @@ public class SeatBooking {
 		this.seatDate = seatDate;
 		this.seatStartDate = seatStartDate;
 	}
+	public SeatBooking(int seatBooking, int tripId, String seatMail, String seatName, String seatDate,String seatStartDate,int seatTotal) {
+		super();
+		this.seatBooking = seatBooking;
+		this.tripId = tripId;
+		this.seatMail = seatMail;
+		this.seatName = seatName;
+		this.seatDate = seatDate;
+		this.seatStartDate = seatStartDate;
+		this.totalSeat=seatTotal;
+	}
 	
 	public SeatBooking(int tripId, String seatMail, String seatName,String seatStartDate) {
 		super();
@@ -77,11 +94,12 @@ public class SeatBooking {
 		this.seatName = seatName;
 		this.seatStartDate = seatStartDate;
 	}
-	public SeatBooking(int tripId,String seatStartDate,String seatMail) {
+	public SeatBooking(int tripId,String seatStartDate,String seatMail,int seatTotal) {
 		super();
 		this.tripId = tripId;
 		this.seatMail = seatMail;
 		this.seatStartDate = seatStartDate;
+		this.totalSeat=seatTotal;
 	}
 	public SeatBooking() {
 		super();
