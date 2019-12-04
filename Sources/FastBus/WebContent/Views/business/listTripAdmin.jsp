@@ -38,18 +38,14 @@
 
 					<!-- Page Heading -->
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+					<h1 class="h3 mb-2 text-gray-800">Manage Trip</h1>
 					<p class="mb-4">
-						DataTables is a third party plugin that is used to generate the
-						demo table below. For more information about DataTables, please
-						visit the <a target="_blank" href="https://datatables.net">official
-							DataTables documentation</a>.
+						
 					</p>
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">DataTables
-								Example</h6>
+							<h6 class="m-0 font-weight-bold text-primary"><a href="#addTrip" data-toggle="modal" data-target="#modalAddtrip"><i class="fas fa-plus m-2"></i>Thêm Chuyến</a></h6>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -58,41 +54,55 @@
 									<thead>
 										<tr>
 											<th>Nới đi</th>
-											<th>Nới Đến</th>
-											<th>Biến Kiếm Xoát Xe Bus</th>
+											<th>Nới Đến</th>											
 											<th>Giá</th>											
 											<th>Thời Gian Đi</th>
-											<th>Thời Gian Dự Kiến Đến</th>
-											<th>Action</th>
+											<th>Thời Gian Đến <sup class="text-danger">(Dự Kiến)</sup></th>
+											<th>Hành Động</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
 											<th>Nới đi</th>
-											<th>Nới Đến</th>
-											<th>Biến Kiếm Xoát Xe Bus</th>
+											<th>Nới Đến</th>											
 											<th>Giá</th>										
 											<th>Thời Gian Đi</th>
-											<th>Thời Gian Dự Kiến Đến</th>
-											<th>Action</th>
+											<th>Thời Gian Đến <sup class="text-danger">(Dự Kiến)</sup></th>
+											<th>Hành Động</th>
 										</tr>
 									</tfoot>
 									<tbody>
 										<tr>
-											<td>Đà Nẵng</td>
-											<td>Đà Lạt</td>
-											<td>43-A305.45</td>
-											<td>2000d</td>
+											<td><span class="d-block my-2">Đà Nẵng</span></td>
+											<td><span class="d-block my-2">Đà Lạt</span></td>											
+											<td><span class="show-price-format d-block my-2">2000000</span></td>
 											<td><input type="time" readonly class="form-control-plaintext noborder" value="17:00"></td>
-											<td>$112,000</td>
-											<td></td>									
-										</tr>							
+											<td><input type="time" readonly class="form-control-plaintext noborder" value="06:00"></td>
+											<td><span class="d-block my-2">
+											<a href="#Edit" title="Edit"><i class="fas fa-edit mx-1"></i></a>
+											<a href="#Edit" title="Thông tin chi tiết"><i class="fas fa-info-circle mx-1"></i></a>
+											<a href="#Edit" title="Xóa" data-toggle="modal" data-target="#modalDeleteTrip" id="1"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
+											</span>
+											</td>															
+										</tr>
+										<tr>
+											<td><span class="d-block my-2">Đà Nẵng</span></td>
+											<td><span class="d-block my-2">Đà Lạt</span></td>											
+											<td><span class="show-price-format d-block my-2">2000000</span></td>
+											<td><input type="time" readonly class="form-control-plaintext noborder" value="17:00"></td>
+											<td><input type="time" readonly class="form-control-plaintext noborder" value="06:00"></td>
+											<td><span class="d-block my-2">
+											<a href="#Edit" title="Edit"><i class="fas fa-edit mx-1"></i></a>
+											<a href="#Edit" title="Thông tin chi tiết"><i class="fas fa-info-circle mx-1"></i></a>
+											<a href="#Edit" title="Xóa" data-toggle="modal" data-target="#modalDeleteTrip" id="1"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
+											</span>
+											</td>															
+										</tr>				
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<!-- /.container-fluid -->
 			</div>
@@ -118,5 +128,13 @@
 	<!-- add file jquery -->
 	<%@ include file="common/botAdmin.jsp"%>
 	<!-- end add file jquery -->
+	<%@ include file="common/addTripModal.jsp"%>
+	<%@ include file="common/deletteCornfirmModal.jsp"%>
+	<script type="text/javascript">
+	$(".show-price-format").each(function(){
+		$(this).html((new Intl.NumberFormat('it-IT',
+    			{ style: 'currency', currency: 'VND' }).format(Number(parseInt($(this).html())))));
+	});
+	</script>
 </body>
 </html>

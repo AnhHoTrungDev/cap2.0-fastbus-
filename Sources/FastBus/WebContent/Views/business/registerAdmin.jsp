@@ -103,7 +103,7 @@
                     </div>
                     <div class="form-group">
                       <select class="form-control rounded-pill" name="cbCity" id="cbProvince">
-                        <option>Tỉnh / Thành Phố</option>
+                        <option value="">Tỉnh / Thành Phố</option>
                         <%
                         	for(Province pro : (List<Province>)request.getAttribute("listProvinces")){
                         %>
@@ -117,7 +117,7 @@
                         name="cbDistrict"
                         id="cbDistrict"
                       >
-                        <option>Quận / Huyện</option>
+                        <option value="">Quận / Huyện</option>
                         <%
                         	for(District dis : (List<District>)request.getAttribute("listDistricts")){
                         %>
@@ -126,8 +126,8 @@
                       </select>
                     </div>
                     <div class="form-group">
-                      <select class="form-control rounded-pill" name="cbWard" >
-                        <option>Phường / xã</option>
+                      <select class="form-control rounded-pill" name="cbWard"  id="cbWard">
+                        <option  value="">Phường / xã</option>
                         <%
                         	for(Ward ward : (List<Ward>)request.getAttribute("listWards")){
                         %>
@@ -176,37 +176,7 @@
 <%@ include file="common/botAdmin.jsp"%>
 <!-- end add file jquery -->
 <script>
-	/*load data district  */
-	$('#cbProvince').change(function(){
-	   console.log();
-	   $.ajax({
-           url : "LoadDistrictWardToProvinceRequest",
-           type  : "post",
-           data : {
-        	  changeProvince : 'cbProvince',
-           	  idProvince : $('#cbProvince').val()
-           },
-           success : function(results){
-           	var arrayDistrict = JSON.parse(results);
-           	console.log(obj[0].idDistrict);
-           }
-       });
-	});
-	/*load data ward  */
-	$('#cbDistrict').change(function(){
-		   console.log();
-		   $.ajax({
-	           url : "LoadDistrictWardToProvinceRequest",
-	           type  : "post",
-	           data : {
-	        	  changeDistrict : 'cbDistrict',
-	        	  idDistrict : $('#cbDistrict').val()
-	           },
-	           success : function(results){
-	           	var arrayDistrict = JSON.parse(results);
-	           	console.log(obj[0].idWard);
-	           }
-	       });
-		});
+
 </script>
+<script src="<%=request.getContextPath()%>/Views/business/js/resgiterAdminCustom.js"></script>
 </html>

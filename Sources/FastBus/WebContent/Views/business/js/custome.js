@@ -1,4 +1,6 @@
 window.onload = function()
 {
-	if($(managerBusTrip)) $(managerBusTrip).click();
+	if($("#managerBusTrip").length != 0) {
+		$("#managerBusTrip").click();
+		};
 };
