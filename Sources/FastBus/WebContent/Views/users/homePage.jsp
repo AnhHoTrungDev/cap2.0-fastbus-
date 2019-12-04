@@ -89,7 +89,7 @@
 												</select>
 											</div>
 											<div class="form_colum">
-												<input id="datepicker_1" placeholder="Ngày đi"
+												<input id="datepicker3" placeholder="Ngày đi"
 													name="startDate">
 											</div>
 											<div class="form_colum">
@@ -226,23 +226,46 @@
 	});
 	</script>
 </html>
+<script type="text/javascript">
+function formatCurentDateSubtractOneDate(){
+	var today = new Date();
+	var dd = String(Number(today.getDate())-1).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	today = yyyy + ','+mm+ ','+ dd;
+	return today;
+}
+
+function formatCurentDate(){
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	today = yyyy + ','+mm+ ','+ dd;
+	return today;
+}
+
+$('#datepicker3').datepicker({
+    todayBtn: "linked",
+    language: "it",
+    minDate: new Date(formatCurentDate()),
+    autoclose: true,
+    todayHighlight: true,
+    format: 'dd/mm/yyyy'
+});
+</script>
 <!-- fix interface combobox -->
 	<script type="text/javascript">
-	$("[name='startDate']").change(function(){
-		if(!validateTimeStartDate()){
-		let timeNow = new Date();
-		console.log(timeNow.getMonth()+1,timeNow.getDate(),timeNow.getFullYear());
-		$("[name='startDate']").val(timeNow.getMonth()+1+"/"+timeNow.getDate()+"/"+timeNow.getFullYear());
-		}
-		CheckTimeValidate()
-	})
+	
 
 	$("[name='startTime']").change(function(){
 		CheckTimeValidate()
 	})
 
 	function CheckTimeValidate(){
-		if(new Date($("[name='startDate']").val()).getTime() == new Date(formatCurentDate()).getTime() && 
+		if(timeCurentChose($("[name='startDate']").val(),$("[name='startTime']").val()) <= formatCurentDateTime()&& 
 			$("[name='startDate']").val() != "" && $("[name='startTime']").val() != "" ){
 			if(formatCurentDateTime() <= new Date().getTime())
 			{	
@@ -252,28 +275,34 @@
 		}
 	}
 
-
-	function formatCurentDate(){
-		var today = new Date();
-		var dd = String(today.getDate()).padStart(2, '0');
-		var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-		var yyyy = today.getFullYear();
-
-		today = yyyy + ','+mm+ ','+ dd;
-		return today;
-	}
-
 	function formatCurentDateTime(){
-		var timeTodate = new Date($("[name='startDate']").val());
-		var timeForInput= $("[name='startTime']").val(); 
+		var timeTodate = new Date();
 
 		var dd = String(timeTodate.getDate()).padStart(2, '0');
 		var mm = String(timeTodate.getMonth() + 1).padStart(2, '0'); //January is 0!
 		var yyyy = timeTodate.getFullYear();
-		var h = timeForInput.slice(0, 2);
-		var mus = timeForInput.slice(3, 5);
+		var h = String(timeTodate.getHours()).padStart(2, '0');
+		var mus = String(timeTodate.getMinutes()).padStart(2, '0');
 		timeTodate = new Date(Number(yyyy),Number(mm-1),Number(dd),Number(h),Number(mus)).getTime();
-
+		console.log(mus);
+		return timeTodate;
+		
+	}
+	
+	function timeCurentChose(date,time){
+		let arrayTime=time.split(":");
+		h= arrayTime[0];
+		m=arrayTime[1];
+		
+		let arrayDate = date.split("/");
+		let dd = arrayDate[0];
+		let mm = arrayDate[1];
+		let yyyy = arrayDate[2];
+		
+		
+		timeTodate = new Date(Number(yyyy),Number(mm-1),Number(dd),Number(h),Number(m)).getTime();
+		console.log("arrayDate"+Number(yyyy),Number(mm-1),Number(dd),Number(h),Number(m));
+		
 		return timeTodate;
 	}
 
