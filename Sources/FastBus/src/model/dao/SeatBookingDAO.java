@@ -62,7 +62,7 @@ public class SeatBookingDAO {
 	public int insertSeatDAO(List<SeatBooking> seat) {
 
 		connection = con.getConnect();
-		String insert = "select seatb_trip_id,seatb_start_date,seatb_user_mail,seatb_name,seatb_date from seatbooking";
+		String insert = "select seatb_trip_id,seatb_start_date,seatb_user_mail,seatb_name,seatb_date,seatb_status from seatbooking";
 		int check = 0;
 		try {
 			ps = connection.prepareStatement(insert, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -74,6 +74,7 @@ public class SeatBookingDAO {
 				rs.updateString("seatb_user_mail", listSeat.getSeatMail());
 				rs.updateString("seatb_name", listSeat.getSeatName());
 				rs.updateString("seatb_date", (LocalDate.now()).toString());
+				rs.updateInt("seatb_status", listSeat.getSeatStatus());
 				rs.insertRow();
 				check = 1;
 			}

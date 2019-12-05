@@ -125,8 +125,8 @@ public class UserDAO {
 		connection = con.getConnect();
 		int check = 0;
 
-		String insertUser = "insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id)  "
-				+ " values(?,?,?,?,?)";
+		String insertUser = "insert into account (acc_mail, acc_password, acc_phone, acc_name, acc_role_id,acc_status)  "
+				+ " values(?,?,?,?,?,0)";
 
 		try {
 

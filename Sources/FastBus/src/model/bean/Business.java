@@ -131,12 +131,19 @@ public class Business {
 		this.description = description;
 	}
 
+	public Business(String name, int idRole, String mail,int idBusiness) {
+		super();
+		this.name = name;
+		this.idRole = idRole;
+		this.mail = mail;	
+		this.idBusiness=idBusiness;
+	}
 	public Business(String name, int idRole, String mail) {
 		super();
 		this.name = name;
 		this.idRole = idRole;
-		this.mail = mail;	}
-
+		this.mail = mail;	
+	}
 	public Business() {
 		super();
 	}
