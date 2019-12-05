@@ -23,7 +23,7 @@
       <div class="container">
         <div class="row p-3 ">
           <div class="col-md-12 bg-light mt-3 highlights-box-menu">
-          <div class="w-100 text-center p-3"><h1><strong>Lịch Sử Đặt Vé</strong></h1></div>
+          <div class="w-100 text-center p-3"><h1><strong>Vé Vừa Đặt</strong></h1></div>
            <table class="table  table-bordered" style="border: none;" >
             <thead>
               <tr style="border: none;">
