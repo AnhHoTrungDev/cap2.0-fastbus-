@@ -74,8 +74,8 @@ public class SeatBookingInformationServlet extends HttpServlet {
 		String mail = "";
 		String phone = "";
 		String address = "";
-		String pickPlace="";
-
+		String pickPlace = "";
+		int payOption = 0;
 		if ("Tiếp Tục".equalsIgnoreCase(request.getParameter("confirmSeatBooking"))) {
 			idTrip = Integer.parseInt(request.getParameter("idTrip"));
 			businessName = request.getParameter("business");
@@ -84,16 +84,17 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			totalTime = request.getParameter("totalTime");
 			endTime = request.getParameter("endTime");
 			seat = request.getParameter("codeChairOder");
-		
-			 price = request.getParameter("price");
+
+			price = request.getParameter("price");
 
 			String place = request.getParameter("place");
 
 			startPlace = request.getParameter("trip").split("-")[0];
 			endPlace = request.getParameter("trip").split("-")[1];
-			totalTime= totalTime.substring(0,totalTime.length()- totalTime.split(" ")[1].length()-1);
-			tripInfor = new ChuyenXe(idTrip, businessName, startPlace, endPlace, startDate, startTime, endTime,Integer.parseInt(totalTime), price);
-			pickPlace=request.getParameter("pickUplocation");
+			totalTime = totalTime.substring(0, totalTime.length() - totalTime.split(" ")[1].length() - 1);
+			tripInfor = new ChuyenXe(idTrip, businessName, startPlace, endPlace, startDate, startTime, endTime,
+					Integer.parseInt(totalTime), price);
+			pickPlace = request.getParameter("pickUplocation");
 			session.setAttribute("pickPlace", pickPlace);
 			session.setAttribute("tripInfo", tripInfor);
 			session.setAttribute("seat", seat);
@@ -111,6 +112,7 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			mail = request.getParameter("mail");
 			phone = request.getParameter("phone");
 			address = request.getParameter("address");
+
 			User user = new User(mail, userName, phone, address, null, null);
 			session.setAttribute("user", user);
 
@@ -118,27 +120,29 @@ public class SeatBookingInformationServlet extends HttpServlet {
 
 		}
 		if ("Xác nhận".equalsIgnoreCase(request.getParameter("confirmFinish"))) {
-			String messageBooking="false";
+			String messageBooking = "false";
+			payOption = "payOffline".equalsIgnoreCase(request.getParameter("payOption")) ? 0 : 1;
+
 			tripInfor = (ChuyenXe) session.getAttribute("tripInfo");
 			User user = (User) session.getAttribute("getUser");
-
 			List<SeatBooking> listSeat = new ArrayList<SeatBooking>();
 			for (String aSeat : ((String) session.getAttribute("seat")).split(",")) {
-				SeatBooking sb = new SeatBooking(tripInfor.getIdTrip(), user.getEmail(), aSeat,tripInfor.getStartDate());
+				SeatBooking sb = new SeatBooking(tripInfor.getIdTrip(), user.getEmail(), aSeat,
+						tripInfor.getStartDate(), payOption);
 				listSeat.add(sb);
 			}
 
 			if (new SeatBookingBO().insertSeatBO(listSeat) == 1) {
-				messageBooking="true";
+				messageBooking = "true";
 				new SendEmailBO().SendMailCustomerBO(tripInfor, user, listSeat);
 				url = "/TicketHistoryServlet";
-				
+
 				session.removeAttribute("pickPlace");
 				session.removeAttribute("tripInfo");
 				session.removeAttribute("seat");
 				session.removeAttribute("user");
 			} else {
-				messageBooking="false";
+				messageBooking = "false";
 				url = "/Views/users/comfirmFinish.jsp";
 			}
 			request.setAttribute("messageBooking", messageBooking);

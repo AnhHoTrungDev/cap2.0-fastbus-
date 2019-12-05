@@ -22,6 +22,7 @@ public class User {
 	private String message;
 	private String addess;
 	private String idRole;
+	private String status;
 
 	public String getMessage() {
 		return message;
@@ -79,6 +80,14 @@ public class User {
 		this.idRole = idRole;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public User() {
 		super();
 	}
@@ -90,11 +99,10 @@ public class User {
 		this.phone = phone;
 		this.name = name;
 		this.addess = address;
-		
 
 	}
 
-	public User(String email,String passWord, String name, String message) {
+	public User(String email, String passWord, String name, String message) {
 		super();
 		this.passWord = passWord;
 		this.email = email;
@@ -116,5 +124,4 @@ public class User {
 		this.name = name;
 		this.addess = address;
 	}
-
 }

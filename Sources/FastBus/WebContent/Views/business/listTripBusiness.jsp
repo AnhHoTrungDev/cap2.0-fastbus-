@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="model.bean.ChuyenXe"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -72,12 +74,16 @@
 										</tr>
 									</tfoot>
 									<tbody>
+									<%
+										for(ChuyenXe trip : (List<ChuyenXe>)request.getAttribute("listTrip")){
+											
+									%>
 										<tr>
-											<td><span class="d-block my-2">Đà Nẵng</span></td>
-											<td><span class="d-block my-2">Đà Lạt</span></td>											
-											<td><span class="show-price-format d-block my-2">2000000</span></td>
-											<td><input type="time" readonly class="form-control-plaintext noborder" value="17:00"></td>
-											<td><input type="time" readonly class="form-control-plaintext noborder" value="06:00"></td>
+											<td><span class="d-block my-2"><%=trip.getStartPlace() %></span></td>
+											<td><span class="d-block my-2"><%=trip.getEndPlace() %></span></td>											
+											<td><span class="show-price-format d-block my-2"><%=trip.getPrice() %></span></td>
+											<td><input type="time" readonly class="form-control-plaintext noborder" value="<%=trip.getStartTime()%>"></td>
+											<td><input type="time" readonly class="form-control-plaintext noborder" value="<%=trip.getEndTime()%>"></td>
 											<td><span class="d-block my-2">
 											<a href="#Edit" title="Edit"><i class="fas fa-edit mx-1"></i></a>
 											<a href="#Edit" title="Thông tin chi tiết"><i class="fas fa-info-circle mx-1"></i></a>
@@ -85,19 +91,7 @@
 											</span>
 											</td>															
 										</tr>
-										<tr>
-											<td><span class="d-block my-2">Đà Nẵng</span></td>
-											<td><span class="d-block my-2">Đà Lạt</span></td>											
-											<td><span class="show-price-format d-block my-2">2000000</span></td>
-											<td><input type="time" readonly class="form-control-plaintext noborder" value="17:00"></td>
-											<td><input type="time" readonly class="form-control-plaintext noborder" value="06:00"></td>
-											<td><span class="d-block my-2">
-											<a href="#Edit" title="Edit"><i class="fas fa-edit mx-1"></i></a>
-											<a href="#Edit" title="Thông tin chi tiết"><i class="fas fa-info-circle mx-1"></i></a>
-											<a href="#Edit" title="Xóa" data-toggle="modal" data-target="#modalDeleteTrip" id="1"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
-											</span>
-											</td>															
-										</tr>				
+										<%}%>
 									</tbody>
 								</table>
 							</div>

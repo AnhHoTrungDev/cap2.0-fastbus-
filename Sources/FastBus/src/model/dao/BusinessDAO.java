@@ -99,12 +99,7 @@ public class BusinessDAO {
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-				if (rs.getInt("acc_role_id") == 3) {
-					message = 2;
-				} else {
-					message = 1;
-				}
-
+				message= rs.getInt("acc_role_id");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -116,7 +111,8 @@ public class BusinessDAO {
 
 	public Business getBusinessByMail(String mail) {
 		connection = con.getConnect();
-		String selectCheck = "select acc_name,acc_mail,acc_role_id from account where acc_mail= ?";
+		String selectCheck = "select acc_name,acc_mail,acc_role_id,b.bs_id,acc_status from account a\r\n" + 
+				"inner join business b on a.acc_mail=b.bs_acc_mail and acc_mail= ?";
 		try {
 			ps = connection.prepareStatement(selectCheck);
 			ps.setString(1, mail);
@@ -124,7 +120,12 @@ public class BusinessDAO {
 			rs = ps.executeQuery();
 
 			if (rs.next()) {
-				business = new Business(rs.getString("acc_name"), rs.getInt("acc_role_id"), rs.getString("acc_mail"));
+				if(rs.getInt("acc_status")==1) {
+					business = new Business(rs.getString("acc_name"), rs.getInt("acc_role_id"), rs.getString("acc_mail"),rs.getInt("bs_id"));
+				}else {
+					business=null;
+				}
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -42,9 +42,9 @@
 			data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<h6 class="collapse-header">Hành Động</h6>
-				<a class="collapse-item" href="<%=request.getContextPath() %>/Views/business/listBusBusiness.jsp">Danh Sách Xe Bus</a>
-				<a class="collapse-item" href="<%=request.getContextPath() %>/Views/business/listTripBusiness.jsp">Danh Sách Chuyến Xe</a>
-				<a class="collapse-item" href="<%=request.getContextPath() %>/Views/business/confrimTicket.jsp">Xác Nhận Vé</a>
+				<a class="collapse-item" href="<%=request.getContextPath() %>/LoadListBusBusinessServlet">Danh Sách Xe Bus</a>
+				<a class="collapse-item" href="<%=request.getContextPath() %>/LoadListTripBusinessServlet">Danh Sách Chuyến Xe</a>
+				<a class="collapse-item" href="<%=request.getContextPath() %>/LoadListConfirmTicketBusinessServlet">Xác Nhận Vé</a>
 				<a class="collapse-item" href="#">Đặt vé cho khách</a>
 				<a class="collapse-item" href="#">Hủy Vé Cho Khách</a>
 			</div>

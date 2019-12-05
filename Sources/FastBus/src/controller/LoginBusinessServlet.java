@@ -36,7 +36,7 @@ public class LoginBusinessServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		Encode enCode = new Encode();
 		HttpSession session = request.getSession();
-		String url="";
+		String url="/Views/business/loginBusiness.jsp";
 		
 		if ("btnBusinessLogin".equalsIgnoreCase(request.getParameter("businessLogin"))) {
 			Business business = null;
@@ -45,19 +45,25 @@ public class LoginBusinessServlet extends HttpServlet {
 			String message = "false";
 			
 			// message=0: sai mk or pass , 1: ngoai pham vi,2: dung
-			if (new BusinessBO().checkBusinessLogin(email,enCode.md5(passWord)) == 2) {
+			if (new BusinessBO().checkBusinessLogin(email,enCode.md5(passWord)) == 3) {
 				business = new BusinessBO().getBusinessByMail(email);
-				message = "true";
-				url="/Views/business/index.jsp";
-			} else if (new BusinessBO().checkBusinessLogin(email, passWord) == 1) {
+				if(business!=null) {
+					message = "true";
+					url="/Views/business/index.jsp";
+					
+					session.setAttribute("idBusiness", business.getIdBusiness());
+					session.setAttribute("business_mail", business.getMail());
+					session.setAttribute("business_name", business.getName());
+				}else{
+					message="awaitingApproval";
+				}
+			} else {
 				message = "isNotRole";
 			}
-			session.setAttribute("business_mail", business.getMail());
-			session.setAttribute("business_name", business.getName());
+			
 			request.setAttribute("message", message);
-		}else {
-			url="/Views/business/loginBusiness.jsp";
 		}
+		
 		RequestDispatcher rd= request.getRequestDispatcher(url);
 		rd.forward(request, response);
 		
