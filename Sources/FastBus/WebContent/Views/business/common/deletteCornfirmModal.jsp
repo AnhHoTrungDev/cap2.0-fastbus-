@@ -46,7 +46,10 @@
 			</div>
 			<div class="modal-body">
 				<form id="deleteTrip">
+					<input id="idTripForDelete" style="display: none;" name="idTripForDelete">
 					<input id="getCodeConfirmAllCharirTrickerr" style="display: none;" name="getCodeConfirmAllCharirTrickerr">
+					<input type="date" id="dateStarForDelete" style="display: none;" name="dateStarForDelete">
+					
 					<div class="w-100">
 					<div class=" w-50 mx-auto">
 						<button type="submit" class="btn btn-primary text-center w-100 "
@@ -63,7 +66,8 @@
 <script type="text/javascript">
 	$("[data-target='#modalTickerConfrim']").click(function() {
 		$(this).each(function() {
-			console.log($(this).attr("id"));
+			$("input#idTripForDelete").val($(this).attr("id"));
+			$("input#dateStarForDelete").val($(this).parent().prev().prev().prev().prev().children().val());
 			$("input#getCodeConfirmAllCharirTrickerr").val($(this).parent().prev().prev().prev().children().html().split(", ").join(","));
 		});
 	});
