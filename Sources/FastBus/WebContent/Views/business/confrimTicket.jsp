@@ -88,7 +88,7 @@
 											<td><span class="show-price-format d-block my-2"><%=seat.getPrice() %></span></td>
 											<td><span class="show-price-format d-block my-2"><%=seat.getTotalSeat()*Float.parseFloat(seat.getPrice())%></span></td>
 											<td>
-											<a href="#conFirm" title="Xác Nhận"><i class="fa fa-check-circle text-info" aria-hidden="true"></i></a>
+											<a href="#conFirm" data-toggle="modal" data-target="#modalAcceptTicker" title="Xác Nhận" data-id-trip="100"><i class="fa fa-check-circle text-info" aria-hidden="true"></i></a>
 											<a href="#Edit" title="Edit"><i class="fas fa-edit mx-1"></i></a>
 											<a href="#Edit" title="Hủy vé" data-toggle="modal" data-target="#modalTickerConfrim" id="100"><i class="fa fa-ban text-danger" aria-hidden="true"></i></a></td>															
 										</tr>
@@ -123,8 +123,8 @@
 	<!-- add file jquery -->
 	<%@ include file="common/botAdmin.jsp"%>
 	<!-- end add file jquery -->
-	<%@ include file="common/addTripModal.jsp"%>
 	<%@ include file="common/deletteCornfirmModal.jsp"%>
+	<%@ include file="common/acceptCornfirmTicker.jsp"%>
 	<script type="text/javascript">
 	$(".show-price-format").each(function(){
 		$(this).html((new Intl.NumberFormat('it-IT',
