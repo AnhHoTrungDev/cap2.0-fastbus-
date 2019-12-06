@@ -8,7 +8,7 @@
 	<!-- Sidebar - Brand -->
 	<a
 		class="sidebar-brand d-flex align-items-center justify-content-center my-3"
-		href="index.html">
+		id="linkReturnIndex" href="index.jsp">
 		<div class="sidebar-brand-icon rotate-n-15">
 			<img alt="" src="https://img.icons8.com/clouds/100/000000/bus.png">		
 		</div>
