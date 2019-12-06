@@ -183,8 +183,7 @@ public class ChuyenXeDAO {
 				"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
 				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
 				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
-				"inner join account a on bs.bs_acc_mail=a.acc_mail\r\n" + 
-				"where p1.place_name not in(N'Đà Nẵng')\r\n" + 
+				"inner join account a on bs.bs_acc_mail=a.acc_mail\r\n" +
 				"group by p1.place_name,p.place_name, acc_name,bs.bs_id \r\n" + 
 				"order by p1.place_name  asc";
 		try {

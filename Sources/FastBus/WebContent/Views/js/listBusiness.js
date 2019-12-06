@@ -1,4 +1,4 @@
-    function chilTable(arrayTrips,id){
+    function chilTable(arrayTrips){
 
       let contentTable;
       if(arrayTrips){
@@ -17,7 +17,7 @@
           ).join("");
       }
 
-      let header =`<tr class="chilTable" id="${id}" style="display: none">
+      let header =`<tr class="chilTable" style="display: none">
       <td colspan="7">
       <div class="w-75 mx-auto">
       <table class="table table-bordered highlights-box-menu">

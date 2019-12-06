@@ -1,4 +1,4 @@
-  <%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="model.bean.ChuyenXe"%>
 <%@page import="model.bean.SeatBooking"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

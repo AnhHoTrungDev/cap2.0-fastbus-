@@ -79,7 +79,7 @@
 											
 									%>
 										<tr>
-											<td><span class="d-block my-2"><%=trip.getStartPlace() %></span></td>
+											<td><span class="d-block my-2"><%=trip.getStartPlace()%></span></td>
 											<td><span class="d-block my-2"><%=trip.getEndPlace() %></span></td>											
 											<td><span class="show-price-format d-block my-2"><%=trip.getPrice() %></span></td>
 											<td><input type="time" readonly class="form-control-plaintext noborder" value="<%=trip.getStartTime()%>"></td>

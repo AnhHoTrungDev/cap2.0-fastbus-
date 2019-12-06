@@ -42,16 +42,16 @@ public class DiaDiemDAO {
 	  connection = con.getConnect(); 
 	  listPlace = new ArrayList<DiaDiem>();
 	  
-	  String selectPlace ="select  p1.place_name from trip t\r\n" + 
-	  		"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
-	  		"where p1.place_name not in(N'Đà Nẵng')\r\n" + 
-	  		"group by p1.place_name";
+	  String selectPlace ="select  p.place_name ,p1.place_name from trip  t\r\n" + 
+	  		"			inner join place p on p.place_id=t.trip_start_place\r\n" + 
+	  		"	  		inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
+	  		"	  		group by p.place_name,p1.place_name";
 	  
 		try {
 			ps = connection.prepareStatement(selectPlace);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				DiaDiem place = new DiaDiem(rs.getString("place_name"));
+				DiaDiem place = new DiaDiem(rs.getString(1),rs.getString(2));
 				listPlace.add(place);
 			}
 		} catch (SQLException e) {

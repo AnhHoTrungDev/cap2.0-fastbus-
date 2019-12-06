@@ -16,7 +16,7 @@
 			</div>
 			<div class="modal-body">
 				<form id="deleteTrip">
-					<input id="getIDdlete" style="display: none;" name="confirmDetlete">
+					<input id="getIDdleteTrip" style="display: none;" name="confirmDetlete">
 					<div class="w-100">
 					<div class=" w-50 mx-auto">
 						<button type="submit" class="btn btn-primary text-center w-100 "
@@ -71,7 +71,7 @@
 	$("[data-target='#modalDeleteTrip']").click(function() {
 		$(this).each(function() {
 			console.log($(this).attr("id"));
-			$("input#getIDdlete").val($(this).attr("id"));
+			$("input#getIDdleteTrip").val($(this).attr("id"));
 		});
 	});
 </script>
