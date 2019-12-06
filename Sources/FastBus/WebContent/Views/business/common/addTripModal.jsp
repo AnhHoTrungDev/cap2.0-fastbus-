@@ -47,6 +47,14 @@
 							type="time" class="form-control" id="inputTimeEnd"
 							name="inputTimeEnd" placeholder="Time">
 					</div>
+					<div class="addAdressForTrip form-group">
+						<button class="btn btn-primary">Thêm Nơi Đón <i class="fa fa-plus mx-2" aria-hidden="true"></i></button>
+						<div class="numberOfAddAdressForTrip">
+							<label for="addAdressForTrip1" class="w-100 my-2">Nới Đón 1</label> 
+							<input type="text" class="form-control" id="addAdressForTrip1"
+							 	placeholder="Nhập Địa Chỉ">
+						</div>
+					</div>
 					<div class="float-right">
 						<button type="button" class="btn btn-secondary text-center m-auto"
 							data-dismiss="modal">Close</button>

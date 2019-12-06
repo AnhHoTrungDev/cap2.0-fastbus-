@@ -130,5 +130,6 @@
     			{ style: 'currency', currency: 'VND' }).format(Number(parseInt($(this).html())))));
 	});
 	</script>
+	<script src="<%=request.getContextPath()%>/Views/business/js/addTrip.js"></script>
 </body>
 </html>

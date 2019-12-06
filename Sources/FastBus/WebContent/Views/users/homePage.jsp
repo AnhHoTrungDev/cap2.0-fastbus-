@@ -261,6 +261,9 @@ $('#datepicker3').datepicker({
 	 
 	$("#datepicker3").change(function(){
 		$("[ name='startDate']").val(forDatepicker3Change());
+		if($("[name='startTime']").val() != ""){
+			CheckTimeValidate();
+		};
 	});
 	
 	function forDatepicker3Change(){
@@ -274,12 +277,12 @@ $('#datepicker3').datepicker({
 	}
 
 	$("[name='startTime']").change(function(){
-		CheckTimeValidate()
+		CheckTimeValidate();
 	})
 
 	function CheckTimeValidate(){
-		if(timeCurentChose($("[name='startDate']").val(),$("[name='startTime']").val()) <= formatCurentDateTime()&& 
-			$("[name='startDate']").val() != "" && $("[name='startTime']").val() != "" ){
+		if(timeCurentChose($("#datepicker3").val(),$("[name='startTime']").val()) <= formatCurentDateTime()&& 
+			$("#datepicker3").val() != "" && $("[name='startTime']").val() != "" ){
 			if(formatCurentDateTime() <= new Date().getTime())
 			{	
 				$("[name='startTime']").val("");
