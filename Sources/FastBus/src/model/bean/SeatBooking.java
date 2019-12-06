@@ -24,6 +24,11 @@ public class SeatBooking {
 	private String seatStartDate;
 	private int totalSeat;
 	private int seatStatus;
+	private String price;
+	
+	private String endPlace;
+	private String startPlace;
+	private String userName;
 	
 	public int getSeatBooking() {
 		return seatBooking;
@@ -75,6 +80,35 @@ public class SeatBooking {
 	public void setSeatStartDate(String seatStartDate) {
 		this.seatStartDate = seatStartDate;
 	}
+	
+	
+	
+	public String getEndPlace() {
+		return endPlace;
+	}
+	public void setEndPlace(String endPlace) {
+		this.endPlace = endPlace;
+	}
+	public String getStartPlace() {
+		return startPlace;
+	}
+	public void setStartPlace(String startPlace) {
+		this.startPlace = startPlace;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	public SeatBooking(int seatBooking, int tripId, String seatMail, String seatName, String seatDate,String seatStartDate) {
 		super();
 		this.seatBooking = seatBooking;
@@ -113,6 +147,22 @@ public class SeatBooking {
 	}
 	public SeatBooking() {
 		super();
+	}
+	public SeatBooking(int seatBooking, int tripId, String seatMail, String seatName, String seatDate,
+			String seatStartDate, int totalSeat, String endPlace, String startPlace, String userName,String price) {
+		super();
+		this.seatBooking = seatBooking;
+		this.tripId = tripId;
+		this.seatMail = seatMail;
+		this.seatName = seatName;
+		this.seatDate = seatDate;
+		this.seatStartDate = seatStartDate;
+		this.totalSeat = totalSeat;
+		this.endPlace = endPlace;
+		this.startPlace = startPlace;
+		this.userName = userName;
+		this.price=price;
+		
 	}
 	
 	

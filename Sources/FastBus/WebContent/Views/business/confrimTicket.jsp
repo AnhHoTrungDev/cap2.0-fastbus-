@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="model.bean.SeatBooking"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -56,8 +58,9 @@
 											<th>Người Đặt</th>
 											<th>Chuyến Xe</th>											
 											<th>Ngày Đi</th>											
-											<th>Số Ghế</th>
-											<th>Giá Tiên</th>
+											<th>Ghế Đã Đặt</th>
+											<th>Giá Vé</th>
+											<th>Tổng Tiền</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -66,48 +69,30 @@
 											<th>Người Đặt</th>
 											<th>Chuyến Xe</th>											
 											<th>Ngày Đi</th>											
-											<th>Số Ghế</th>
-											<th>Giá Tiền</th>
+											<th>Ghế Đã Đặt</th>
+											<th>Giá Vé</th>
+											<th>Tổng Tiền</th>
 											<th>Action</th>
 										</tr>
 									</tfoot>
 									<tbody>
+									<%
+										for(SeatBooking seat : (List<SeatBooking>) request.getAttribute("listSeat")){
+											
+									%>
 										<tr>
-											<td><span class="d-block my-2">Hồ Trung Anh</span></td>
-											<td><span class="d-block my-2">Đà Nẵng - Đà Lạt</span></td>											
-											<td><input type="date" readonly class="form-control-plaintext noborder" value="2019-12-20"></td>
-											<td><span class="d-block my-2">A1,A2,A3</span></td>
-											<td><span class="show-price-format d-block my-2">20000</span></td>
+											<td><span class="d-block my-2"><%=seat.getUserName() %></span></td>
+											<td><span class="d-block my-2"><%=seat.getStartPlace() %> - <%=seat.getEndPlace() %></span></td>											
+											<td><input type="date" readonly class="form-control-plaintext noborder" value="<%=seat.getSeatStartDate()%>"></td>
+											<td><span class="d-block my-2"><%=seat.getSeatName() %></span></td>
+											<td><span class="show-price-format d-block my-2"><%=seat.getPrice() %></span></td>
+											<td><span class="show-price-format d-block my-2"><%=seat.getTotalSeat()*Float.parseFloat(seat.getPrice())%></span></td>
 											<td>
 											<a href="#conFirm" title="Xác Nhận"><i class="fa fa-check-circle text-info" aria-hidden="true"></i></a>
 											<a href="#Edit" title="Edit"><i class="fas fa-edit mx-1"></i></a>
 											<a href="#Edit" title="Hủy vé" data-toggle="modal" data-target="#modalTickerConfrim" id="100"><i class="fa fa-ban text-danger" aria-hidden="true"></i></a></td>															
 										</tr>
-										<tr>
-											<td><span class="d-block my-2">Không có tên</span></td>
-											<td><span class="d-block my-2">Đà Nẵng - Đà Lạt</span></td>											
-											<td><input type="date" readonly class="form-control-plaintext noborder" value="2019-12-20"></td>
-											<td><span class="d-block my-2">A1,A2,A3</span></td>
-											<td><span class="show-price-format d-block my-2">20000</span></td>
-											<td>
-											<a href="#conFirm" title="Xác Nhận"><i class="fa fa-check-circle text-info" aria-hidden="true"></i></a>
-											<a href="#Edit" title="Edit"><i class="fas fa-edit mx-1"></i></a>
-											<a href="#Edit" title="Hủy vé" data-toggle="modal" data-target="#modalTickerConfrim" id="12"><i class="fa fa-ban text-danger" aria-hidden="true"></i></a></td>															
-										</tr>
-												
-										<tr>
-											<td><span class="d-block my-2">Quốc ML</span></td>
-											<td><span class="d-block my-2">Đà Nẵng - Đà Lạt</span></td>											
-											<td><input type="date" readonly class="form-control-plaintext noborder" value="2019-12-20"></td>
-											<td><span class="d-block my-2">A1,A2,A3</span></td>
-											<td><span class="show-price-format d-block my-2">20000</span></td>
-											<td>
-											<a href="#conFirm" title="Xác Nhận"><i class="fa fa-check-circle text-info" aria-hidden="true"></i></a>
-											<a href="#Edit" title="Edit"><i class="fas fa-edit mx-1"></i></a>
-											<a href="#Edit" title="Hủy vé" data-toggle="modal" data-target="#modalTickerConfrim" id="1"><i class="fa fa-ban text-danger" aria-hidden="true"></i></a></td>															
-										</tr>
-												
-																
+											<%} %>					
 									</tbody>
 								</table>
 							</div>

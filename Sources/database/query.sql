@@ -35,7 +35,9 @@ where p1.place_name not in(N'Đà Nẵng')
 group by p1.place_name,p.place_name, acc_name, bs.bs_id
 order by p1.place_name  asc
 -----------------------------------
-select  p1.place_name from trip t
+select  * from trip t
+select * from bus
+select * from business
 inner join place p1 on p1.place_id=t.trip_end_place
 where p1.place_name not in(N'Đà Nẵng')
 group by p1.place_name
@@ -92,3 +94,31 @@ select * from  seatbooking
 select * from seatbooking where seatb_user_mail='fastbuscompany@gmail.com' and seatb_start_date='2019-12-03' and seatb_trip_id=105 order by seatb_name asc
 select acc_name,acc_mail,acc_role_id,b.bs_id from account a
 inner join business b on a.acc_mail=b.bs_acc_mail 
+select * from trip where trip_id=105
+select * from bus where bus_id=18
+select * from business where bs_id=7
+select * from seatbooking
+
+select seatb_id, seatb_trip_id,a.acc_name,p.place_name,p1.place_name, seatb_name, seatb_date, seatb_start_date,t.trip_price from seatbooking s
+inner join trip t on t.trip_id=s.seatb_trip_id and seatb_trip_id=105 and seatb_status=0
+inner join place p on t.trip_start_place=p.place_id and seatb_start_date='2019-12-20'
+inner join place p1 on t.trip_end_place=p1.place_id
+inner join account a on s.seatb_user_mail = a.acc_mail and seatb_user_mail='fastbuscompany@gmail.com'
+order by seatb_name asc
+			where seatb_user_mail=? and seatb_start_date=? and seatb_trip_id=? order by seatb_name asc
+
+select seatb_trip_id,s.seatb_start_date,s.seatb_user_mail,count(*)  from seatbooking s 
+inner join trip t on t.trip_id=s.seatb_trip_id and s.seatb_status=0
+inner join bus b on t.trip_bus_id=b.bus_id
+inner join business bs on b.bus_bs_id= bs.bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
+inner join account a on s.seatb_user_mail=a.acc_mail
+group by seatb_trip_id,seatb_user_mail,s.seatb_start_date
+order by s.seatb_start_date desc
+
+
+
+select seatb_id,seatb_trip_id,seatb_user_mail,seatb_name,seatb_date,seatb_start_date from seatbooking  where seatb_trip_id= 105 and seatb_start_date= '2019-12-03'
+select * from account
+select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'  
+				from seatbooking where seatb_user_mail= 'fastbuscompany@gmail.com' 
+				group by seatb_trip_id,seatb_start_date,seatb_user_mail order by seatb_start_date desc 

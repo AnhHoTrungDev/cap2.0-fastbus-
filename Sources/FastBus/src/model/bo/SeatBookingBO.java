@@ -31,4 +31,7 @@ public class SeatBookingBO {
 	public List<SeatBooking> getListSeatBooked(String mail){
 		return new SeatBookingDAO().getListSeatBooked(mail);
 	}
+	public List<SeatBooking> getListAwaitingAprovalTicketBO(String mail) {
+		return new SeatBookingDAO().getListAwaitingAprovalTicketDAO(mail);
+	}
 }
