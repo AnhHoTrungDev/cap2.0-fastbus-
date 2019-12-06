@@ -145,7 +145,7 @@ pageEncoding="UTF-8"%>
 			$(".select2-selection__rendered").css({"margin-top":"5px","color":"#007bff"});
 			$(".select2-selection__rendered").addClass("text-center");
 			
-			$("#serchListBusiness").click(()=>{
+			$("#serchListBusiness").click(function(){
 				$(".tablebs-list").each(function(){
 					$(this).hide();
 				});

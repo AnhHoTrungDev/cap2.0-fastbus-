@@ -89,8 +89,8 @@
 												</select>
 											</div>
 											<div class="form_colum">
-												<input id="datepicker3" placeholder="Ngày đi"
-													name="startDate">
+												<input id="datepicker3" placeholder="Ngày đi">
+												<input name="startDate" style="display:none;">
 											</div>
 											<div class="form_colum">
 												<input id="datepicker_2" type="time" name="startTime"
@@ -258,7 +258,20 @@ $('#datepicker3').datepicker({
 </script>
 <!-- fix interface combobox -->
 	<script type="text/javascript">
+	 
+	$("#datepicker3").change(function(){
+		$("[ name='startDate']").val(forDatepicker3Change());
+	});
 	
+	function forDatepicker3Change(){
+		let arayDate= $("#datepicker3").val().split("/");
+		let dd=arayDate[0]
+		let mm=arayDate[1]
+		let yyyy = arayDate[2];
+		console.log(yyyy+"-"+mm+""+dd);
+		console.log(arayDate);
+		return mm+"/"+dd+"/"+yyyy;
+	}
 
 	$("[name='startTime']").change(function(){
 		CheckTimeValidate()

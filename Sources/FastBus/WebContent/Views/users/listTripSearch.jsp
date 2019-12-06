@@ -74,12 +74,12 @@
                 <span><%=trip.getTotalTime() %> Tiếng</span>
               </li>
               <li class="list-group-item">
-                <span class="font-weight-bold">Thời Gian Khởi Hành: </span>
-                <span><%=trip.getStartTime()%></span>
+                <span class="font-weight-bold d-inline">Thời Gian Khởi Hành: </span>
+                <span><input type="time" class="form-control form-control-sm d-inline bg-white border-0" value="<%=trip.getStartTime()%>" style="width:120px;" readonly></span>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Ngày Khởi Hành: </span
-                ><span><%=trip.getStartDate()%></span>
+                ><span class="formatDateHere"><%=trip.getStartDate()%>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Giá vé: </span>
@@ -115,7 +115,7 @@
             	for(ChuyenXe trip : listTrip)
             	{
             %>
-            <div class="card m-4" style="width: 18rem;">
+            <div class="card m-4" style="width: 330px;">
             <img src="https://www.baolau.com/blog/wp-content/uploads/2017/02/futabus-1.jpg" class="card-img-top" alt="bus" />
             <div class="card-body">
               <h5 class="card-title"><%=trip.getNameBusiness() %></h5>
@@ -146,13 +146,13 @@
                 <span class="font-weight-bold">Thời Gian Dự Kiến: </span
                 ><span>10 Tiếng</span>
               </li>
-              <li class="list-group-item">
-                <span class="font-weight-bold">Thời Gian Khởi Hành: </span
-                ><span><%=trip.getStartTime()%></span>
+               <li class="list-group-item">
+                <span class="font-weight-bold d-inline">Thời Gian Khởi Hành: </span>
+                <span><input type="time" class="form-control form-control-sm d-inline bg-white border-0" value="<%=trip.getStartTime()%>" style="width:120px;" readonly></span>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Ngày Khởi Hành: </span
-                ><span><%=trip.getStartDate()%></span>
+                ><span class="formatDateHere"><%=trip.getStartDate()%></span>
               </li>
               <li class="list-group-item">
                 <span class="font-weight-bold">Giá vé: </span
@@ -244,6 +244,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear())</script> 2019 F
     	$(this).html(new Intl.NumberFormat('it-IT',
     			{ style: 'currency', currency: 'VND' }).format(Number(parseInt(this.textContent))));
     });
+    $(".formatDateHere").each(function(){
+    	$(this).html(forformatDateHere($(this).html()));
+    });
+    function forformatDateHere(text){
+		let arayDate = text.split("/");
+		let mm=arayDate[0]
+		let dd=arayDate[1]
+		let yyyy = arayDate[2];
+		console.log(dd+"/"+mm+"/"+yyyy);
+		console.log(arayDate);
+		return dd+"/"+mm+"/"+yyyy;
+	}
     </script>
     
 
