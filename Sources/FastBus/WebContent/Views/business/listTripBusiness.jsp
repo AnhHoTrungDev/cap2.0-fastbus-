@@ -48,6 +48,7 @@
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
 							<h6 class="m-0 font-weight-bold text-primary"><a href="#addTrip" data-toggle="modal" data-target="#modalAddtrip"><i class="fas fa-plus m-2"></i>Thêm Chuyến</a></h6>
+							<h6 class="m-0 font-weight-bold text-primary"><a href="#addShowBus" data-toggle="modal" data-target="#modalAddShowBus"><i class="fas fa-plus m-2"></i>Các Bus Hiện Có</a></h6>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
