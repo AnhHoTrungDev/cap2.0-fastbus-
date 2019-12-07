@@ -58,4 +58,9 @@ function showMessChangeSus(status,mess){
       alert(mess);
     }        
   }
+function showMessChangeFail(status,mess){
+    if(status == false){
+      alert(mess);
+    }        
+  }
 </script>

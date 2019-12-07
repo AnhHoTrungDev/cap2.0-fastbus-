@@ -106,5 +106,11 @@ pageEncoding="UTF-8"%>
 
     <!-- Link jquery -->
     <%@ include file="common/botbootstrap.jsp" %>
+    <script type="text/javascript">
+    $(window).on("load", function() {
+    	console.log(<%=(String)request.getAttribute("messageUpdatePass") %>)
+    	showMessChangeFail(<%=(String)request.getAttribute("messageUpdatePass") %>,"Thay Đổi Mật Khẩu Thất Bại"); 
+	  });
+    </script>
   </body>
 </html>

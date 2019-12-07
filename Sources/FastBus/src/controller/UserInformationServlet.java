@@ -67,11 +67,10 @@ public class UserInformationServlet extends HttpServlet {
 			int check=new UserBO().updatePasswordBO((String)session.getAttribute("email"), oldPass, newPass);
 			if(check==1) {
 				messageUpdatePass="true";
-				request.setAttribute("messageUpdatePass", messageUpdatePass);
 			}else {
 				url="Views/users/changePassword.jsp";
 			}
-			
+			request.setAttribute("messageUpdatePass", messageUpdatePass);
 		}
 			
 			String name = (String) session.getAttribute("acc_name");
