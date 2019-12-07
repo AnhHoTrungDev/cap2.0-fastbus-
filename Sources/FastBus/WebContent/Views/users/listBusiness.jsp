@@ -119,7 +119,7 @@ pageEncoding="UTF-8"%>
       {
        $.ajax({
          url : "LoadListTripRequest",
-         type  : "get",
+         type  : "post",
          data : {
           idBusiness : $(element).attr("id"),
           startPlace: $(element).parent().prev().prev().prev().html(),
