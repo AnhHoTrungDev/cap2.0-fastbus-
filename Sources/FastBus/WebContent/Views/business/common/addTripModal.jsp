@@ -1,3 +1,6 @@
+<%@page import="model.bean.Bus"%>
+<%@page import="model.bean.DiaDiem"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- moDal-->
@@ -5,7 +8,9 @@
 <div class="modal fade" id="modalAddtrip" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 	<div class="modal-dialog " role="document">
-
+	<%
+		List<DiaDiem> listPlace= (List<DiaDiem>)request.getAttribute("listPlace");
+	%>
 		<div class="modal-content p-3">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLongTitle">Thêm Chuyến
@@ -15,22 +20,57 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
+			
 			<div class="modal-body">
-				<form>
+				<form action="TripBusinessServlet">
 					<div class="form-group">
 						<label for="cbAddressDepart">Nơi Đi: </label> 
 						<select
 							class="form-control" name="cbAddressDepart" id="cbAddressDepart">
-							<option value="">Tỉnh Thành Phố</option>
-							<option value="1">ĐÀ nẵng abc</option>
+							<option value="">Tỉnh/Thành Phố</option>
+							<%
+								for(DiaDiem startPlace : listPlace){
+									
+							%>
+							<option value="<%=startPlace.getIdPlace()%>"><%=startPlace.getNamePlace() %></option>
+							<%} %>
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="cbAddressDepart">Nơi Đến: </label> <select
-							class="form-control" name="cbAddressEnd" id="cbAddressEnd">
+						<label for="cbAddressDepart">Nơi Đến: </label> 
+						<select class="form-control" name="cbAddressEnd" id="cbAddressEnd">
 							<option value="">Tỉnh Thành Phố</option>
-							<option value="1">ĐÀ nẵng abc</option>
+							<%
+								for(DiaDiem endPlace : listPlace){
+							%>
+							<option value="<%=endPlace.getIdPlace()%>"><%=endPlace.getNamePlace() %></option>
+							<%}%>
 						</select>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="idBusgo">Xe Đi</label>
+								<select class="form-control" id="idBusgo" name="idBusgo">
+								<option value="">Chọn Xe</option>
+								<%
+									for(Bus startBus : (List<Bus>)request.getAttribute("listBus")){
+								%>
+								<option value="<%= startBus.getIdBus()%>"><%=startBus.getNameBus() %></option>
+								<%} %>
+								</select>
+								
+						</div>
+						<div class="form-group col-md-6">
+							<label for="idBusReturn">Xe Về</label>
+								<select class="form-control" id="idBusReturn" name="idBusReturn">
+								<option value="">Chọn Xe</option>
+								<%
+									for(Bus endBus : (List<Bus>)request.getAttribute("listBus")){
+								%>
+								<option value="<%= endBus.getIdBus()%>"><%=endBus.getNameBus() %></option>
+								<%} %>
+								</select>
+						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputPrice">Giá Tiền</label> <input type="number"
