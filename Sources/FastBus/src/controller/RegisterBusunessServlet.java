@@ -65,7 +65,7 @@ public class RegisterBusunessServlet extends HttpServlet {
 					url="/Views/business/loginBusiness.jsp";
 				}
 			}
-			request.setAttribute("message", message);
+			request.setAttribute("rgmessageBs", message);
 		}
 			listProvinces= bo.getListProvinceBO();
 			listDistricts=bo.getListDistrictBO("");

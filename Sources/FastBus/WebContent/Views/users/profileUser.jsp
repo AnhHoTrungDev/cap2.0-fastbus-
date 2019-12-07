@@ -140,15 +140,11 @@ pageEncoding="UTF-8"%>
 <!-- Link jquery -->
 <%@ include file="common/botbootstrap.jsp" %>
 <script>
-  function showMessChangeSus(){
-    if(<%= (String)request.getAttribute("message") %> == true){
-      alert("Cập nhật thông tin thành công");
-    }        
-  }
   $(window).on("load", function() {
-     showMessChangeSus();
+	  showMessChangeSus(<%= (String)request.getAttribute("messageUpdatePass") %>,"Đổi Mật Khẩu Thành Công");
+	  showMessChangeSus(<%= (String)request.getAttribute("messageUpdateUser") %>,"Cập Nhật Thông Tin Thành Công ");
   });
-  console.log(<%= (String)request.getAttribute("message") %>);
+  console.log(<%=(String)request.getAttribute("messageUpdateUser") %>);
 </script>
 </body>
 </html>

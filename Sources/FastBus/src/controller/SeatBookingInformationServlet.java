@@ -140,7 +140,6 @@ public class SeatBookingInformationServlet extends HttpServlet {
 				session.removeAttribute("pickPlace");
 				session.removeAttribute("tripInfo");
 				session.removeAttribute("seat");
-				session.removeAttribute("user");
 			} else {
 				messageBooking = "false";
 				url = "/Views/users/comfirmFinish.jsp";

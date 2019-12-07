@@ -52,4 +52,10 @@
 <!-- Model Login -->
 <%@ include file="modalCommon.jsp"%>
 <!-- End Model Login -->
-
+<script type="text/javascript">
+function showMessChangeSus(status,mess){
+    if(status == true){
+      alert(mess);
+    }        
+  }
+</script>

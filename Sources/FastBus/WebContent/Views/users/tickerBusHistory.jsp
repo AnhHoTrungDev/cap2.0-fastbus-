@@ -254,5 +254,10 @@
 
   });  
 </script>
+<script>
+  $(window).on("load", function() {
+	  showMessChangeSus(<%= (String)request.getAttribute("messageBooking") %>,"Đặt vé Thành Công"); 
+  });
+</script>
 </body>
 </html>

@@ -331,6 +331,9 @@ $('#datepicker3').datepicker({
 
 		return true;
 	}
+	 $(window).on("load", function() {
+		  showMessChangeSus(<%= (String)request.getAttribute("rgmessage") %>,"Đăng Ký Thành Công"); 
+	  });
     </script>
 <script
 	src="<%=request.getContextPath()%>/Views/users/assets/js/fixComboxJqery.js"></script>

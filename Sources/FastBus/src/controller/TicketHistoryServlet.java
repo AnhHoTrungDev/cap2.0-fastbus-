@@ -24,39 +24,51 @@ import model.bo.SeatBookingBO;
 @WebServlet("/TicketHistoryServlet")
 public class TicketHistoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public TicketHistoryServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public TicketHistoryServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session =request.getSession();
-		User user=(User) session.getAttribute("getUser");
-		List<ChuyenXe> listChuyen= new ArrayList<ChuyenXe>();
-		List<SeatBooking> listSeat=new SeatBookingBO().getListSeatBooked("fastbuscompany@gmail.com");
-		for(SeatBooking seat : listSeat) {
-			ChuyenXe chuyenXe= new ChuyenXeBO().getListTripByIdBO(seat.getTripId(), seat.getSeatStartDate());
-			listChuyen.add(chuyenXe);
-		}
+		HttpSession session = request.getSession();
 		
-		request.setAttribute("listChuyen", listChuyen);
-		request.setAttribute("list", listSeat);
-		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/tickerBusHistory.jsp");
+		String url = "";
+		String mesage="";
+		if (session.getAttribute("email") != null) {
+			List<ChuyenXe> listChuyen = new ArrayList<ChuyenXe>();
+			List<SeatBooking> listSeat = new SeatBookingBO().getListSeatBooked((String)session.getAttribute("email"));
+			for (SeatBooking seat : listSeat) {
+				ChuyenXe chuyenXe = new ChuyenXeBO().getListTripByIdBO(seat.getTripId(), seat.getSeatStartDate());
+				listChuyen.add(chuyenXe);
+			}
+			request.setAttribute("listChuyen", listChuyen);
+			request.setAttribute("list", listSeat);
+			url = "/Views/users/tickerBusHistory.jsp";
+		} else {
+			url = "LoadHomePageServlet";
+			mesage="false";
+		}
+		request.setAttribute("message", mesage);
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

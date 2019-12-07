@@ -64,7 +64,7 @@ public class RegisterServlet extends HttpServlet {
 				url="/Views/users/register.jsp";
 			}
 			
-			request.setAttribute("message", message);
+			request.setAttribute("rgmessage", message);
 			RequestDispatcher rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);
 		} else {
