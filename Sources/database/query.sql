@@ -127,3 +127,12 @@ select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'
 -----------------------------------------------
 select b.bus_id,b.bus_license from bus b inner join business bs on bs.bs_id=b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
 select trip_start_place,trip_end_place,trip_bus_id,trip_price,trip_start_time,trip_end_time,trip_status from trip 
+
+--------------------------------------------------------
+
+select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t
+inner join place p on p.place_id=t.trip_start_place and p.place_name like  N'%Đắk Lắk%' 
+inner join place p1 on p1.place_id=t.trip_end_place and p1.place_name like N'%Đà Nẵng%' and t.trip_start_time <> '17:30:00'
+inner join bus b on b.bus_id=t.trip_bus_id
+inner join business bs on b.bus_bs_id=bs.bs_id 
+inner join account a on bs.bs_acc_mail=a.acc_mail

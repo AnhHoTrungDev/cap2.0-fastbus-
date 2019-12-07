@@ -105,14 +105,16 @@
                     </div>
                 </div>
             </div>
-
+			 <%
+            	List<ChuyenXe> listTripTime=(List<ChuyenXe>)request.getAttribute("listTripNotInStartTime");
+            %>
             <div class="row">
             
-                <h4>Tìm thấy <%=listTrip.size() %> kết quả</h4>
+                <h4>Tìm thấy <%=listTripTime.size() %> kết quả</h4>
             </div>
             <div class="row car-container mx-auto">
             <%
-            	for(ChuyenXe trip : listTrip)
+            	for(ChuyenXe trip : listTripTime)
             	{
             %>
             <div class="card m-4" style="width: 330px;">

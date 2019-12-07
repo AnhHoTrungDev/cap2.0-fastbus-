@@ -44,7 +44,9 @@ public class SearchTripServlet  extends HttpServlet {
 		
 
 		List<ChuyenXe> listTrip = new ChuyenXeBO().getListPlaceBO(startPlace, endPlace, startDate, startTime);
+		List<ChuyenXe> listTripNotInStartTime = new ChuyenXeBO().getListTripNotInSearchByTimeBO(startPlace, endPlace, startDate, startTime);
 		request.setAttribute("listTrip", listTrip);
+		request.setAttribute("listTripNotInStartTime", listTripNotInStartTime);
 		RequestDispatcher rd=request.getRequestDispatcher("/Views/users/listTripSearch.jsp");
 		rd.forward(request, response);
 		

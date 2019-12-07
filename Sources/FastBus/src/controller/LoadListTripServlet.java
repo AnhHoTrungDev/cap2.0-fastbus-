@@ -38,7 +38,9 @@ public class LoadListTripServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		request.getCharacterEncoding();
 		String idBusiness =request.getParameter("idBusiness");
-		List<ChuyenXe> listTrip=new ChuyenXeBO().getListTripByIdBusinessBO(idBusiness);
+		String startPlace = request.getParameter("startPlace");
+		String endPlace= request.getParameter("endPalce");
+		List<ChuyenXe> listTrip=new ChuyenXeBO().getListTripByIdBusinessAndPlaceBO(idBusiness,startPlace,endPlace);
 		Gson gSon= new Gson();
 		PrintWriter out= response.getWriter();
 		out.print(gSon.toJson(listTrip));
