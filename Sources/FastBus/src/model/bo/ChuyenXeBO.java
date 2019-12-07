@@ -37,5 +37,8 @@ public class ChuyenXeBO {
 	public List<ChuyenXe> getListTripBO() {
 		return new ChuyenXeDAO().getListTripDAO();
 	}
-
+	
+	public int InsertListTripBO(List<ChuyenXe> listTrip) {
+		return new ChuyenXeDAO().InsertListTripDAO(listTrip);
+	}
 }

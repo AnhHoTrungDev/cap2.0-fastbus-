@@ -22,7 +22,7 @@
 			</div>
 			
 			<div class="modal-body">
-				<form action="TripBusinessServlet">
+				<form action="LoadListTripBusinessServlet">
 					<div class="form-group">
 						<label for="cbAddressDepart">Nơi Đi: </label> 
 						<select
@@ -73,22 +73,26 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="inputPrice">Giá Tiền</label> <input type="number"
+						<label for="inputPrice">Giá Tiền</label> 
+						<input type="number"
 							class="form-control" id="inputPrice" name="inputPrice"
 							placeholder="Giá Tiền">
 					</div>
 					<div class="form-group">
-						<label for="inputTimeStart">Giờ Chạy</label> <input type="time"
+						<label for="inputTimeStart">Giờ Chạy</label> 
+						<input type="time"
 							class="form-control" id="inputTimeStart" name="inputTimeStart"
 							placeholder="Time">
 					</div>
 					<div class="form-group">
-						<label for="inputTimeStart">Giờ Dự Kiến Đến</label> <input
+						<label for="inputTimeStart">Giờ Dự Kiến Đến</label> 
+						<input
 							type="time" class="form-control" id="inputTimeEnd"
 							name="inputTimeEnd" placeholder="Time">
 					</div>
 					<div class="form-group" style="display:none;">
-						<label for="inputTimeStart">valueAddress</label> <input
+						<label for="inputTimeStart">valueAddress</label> 
+						<input
 							type="text" class="form-control" id="getCustomer"
 							name="getCustomer">
 					</div>

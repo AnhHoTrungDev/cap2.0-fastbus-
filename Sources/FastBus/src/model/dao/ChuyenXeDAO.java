@@ -28,6 +28,7 @@ import java.util.Timer;
 
 import model.bean.ChuyenXe;
 import model.bean.PickupPlace;
+import model.bean.SeatBooking;
 
 public class ChuyenXeDAO {
 
@@ -199,5 +200,33 @@ public class ChuyenXeDAO {
 			e.printStackTrace();
 		}
 		return listTrip;
+	}
+	
+	public int InsertListTripDAO(List<ChuyenXe> listTrip) {
+		connection = con.getConnect();
+		String insert = "select trip_start_place,trip_end_place,trip_bus_id,trip_price,"
+				+ "trip_start_time,trip_end_time,trip_status from trip ";
+		int check = 0;
+		try {
+			ps = connection.prepareStatement(insert, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			rs = ps.executeQuery();
+			rs.moveToInsertRow();
+			for (ChuyenXe trip : listTrip) {
+				rs.updateString("trip_start_place", trip.getStartPlace());
+				rs.updateString("trip_end_place", trip.getEndPlace());
+				rs.updateInt("trip_bus_id", trip.getIdBus());
+				rs.updateFloat("trip_price", Float.parseFloat(trip.getPrice()));
+				rs.updateString("trip_start_time", trip.getStartTime());
+				rs.updateString("trip_end_time", trip.getEndTime());
+				rs.updateInt("trip_status", trip.getStatus());
+				rs.insertRow();
+				check = 1;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return check;
 	}
 }

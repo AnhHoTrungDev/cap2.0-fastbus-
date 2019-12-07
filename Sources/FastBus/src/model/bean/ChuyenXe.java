@@ -178,23 +178,21 @@ public class ChuyenXe {
 		this.endPlace = endPlace;
 		this.totalTip = totalTip;
 	}
+	
+	public ChuyenXe(int idBus, String startPlace, String endPlace, String startTime, String endTime, String price,
+			int status) {
+		super();
+		this.idBus = idBus;
+		this.startPlace = startPlace;
+		this.endPlace = endPlace;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.price = price;
+		this.status = status;
+	}
 
 	public ChuyenXe() {
 		super();
 	}
 
-//	public static void main(String[] args) {
-//		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//
-//		try {
-//			Date f = format.parse("2012-03-14 20:33:58");
-//			Date e = format.parse("2012-03-15 10:34:59");
-//
-//			long t = (e.getTime() - f.getTime()) / (60 * 60 * 1000);
-//			System.out.println(t);
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
 }

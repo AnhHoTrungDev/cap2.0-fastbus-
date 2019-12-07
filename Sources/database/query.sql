@@ -122,3 +122,8 @@ select * from account
 select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'  
 				from seatbooking where seatb_user_mail= 'fastbuscompany@gmail.com' 
 				group by seatb_trip_id,seatb_start_date,seatb_user_mail order by seatb_start_date desc 
+
+
+-----------------------------------------------
+select b.bus_id,b.bus_license from bus b inner join business bs on bs.bs_id=b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
+select trip_start_place,trip_end_place,trip_bus_id,trip_price,trip_start_time,trip_end_time,trip_status from trip 
