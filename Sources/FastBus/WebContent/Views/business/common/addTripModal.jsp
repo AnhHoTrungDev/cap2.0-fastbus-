@@ -90,14 +90,6 @@
 							type="time" class="form-control" id="inputTimeEnd"
 							name="inputTimeEnd" placeholder="Time">
 					</div>
-					<div class="form-group" style="display:none;">
-						<label for="inputTimeStart">valueAddress</label> 
-						<input
-							type="text" class="form-control" id="getCustomer"
-							name="getCustomer">
-					</div>
-					<div class="addAdressForTrip form-group" id="myAdd">
-					</div>
 					<div class="float-right">
 						<button type="button" class="btn btn-secondary text-center m-auto"
 							data-dismiss="modal">Close</button>
