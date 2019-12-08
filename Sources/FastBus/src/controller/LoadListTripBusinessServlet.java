@@ -41,6 +41,9 @@ public class LoadListTripBusinessServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		request.getCharacterEncoding();
+		
 		List<ChuyenXe> listChuyen=new ArrayList<ChuyenXe>();
 		String messageInsertTrip="false";
 		HttpSession session = request.getSession();
@@ -52,8 +55,6 @@ public class LoadListTripBusinessServlet extends HttpServlet {
 			String price = request.getParameter("inputPrice");
 			String startTime = request.getParameter("inputTimeStart");
 			String endTime = request.getParameter("inputTimeEnd");
-
-			String pickUpPlace = request.getParameter("getCustomer");
 			
 			ChuyenXe startTrip=new ChuyenXe(Integer.parseInt(startBus), startPlace, endPlace, startTime, endTime, price, 1);
 			ChuyenXe endTrip=new ChuyenXe(Integer.parseInt(endBus), endPlace, startPlace, startTime, endTime, price, 1);

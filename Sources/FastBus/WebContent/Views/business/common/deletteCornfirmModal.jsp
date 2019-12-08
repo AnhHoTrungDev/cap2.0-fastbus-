@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- moDal-->
+<!-- moDal xoa trip-->
 <!-- Modal 1-->
 <div class="modal fade" id="modalDeleteTrip" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -15,7 +15,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form id="deleteTrip">
+				<form id="deleteTrip"action="DeleteAndCancelTripBusinessServlet">
 					<input id="getIDdleteTrip" style="display: none;" name="confirmDetlete">
 					<div class="w-100">
 					<div class=" w-50 mx-auto">
