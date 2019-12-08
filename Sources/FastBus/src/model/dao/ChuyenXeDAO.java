@@ -79,16 +79,19 @@ public class ChuyenXeDAO {
 		}
 		return listTrip;
 	}
-	
-	public List<ChuyenXe> getListTripNotInSearchByTimeDAO(String startPlace, String endPlace, String startDate, String startTime) {
+
+	public List<ChuyenXe> getListTripNotInSearchByTimeDAO(String startPlace, String endPlace, String startDate,
+			String startTime) {
 		connection = con.getConnect();
 		listTrip = new ArrayList<ChuyenXe>();
-		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t\r\n" + 
-				"inner join place p on p.place_id=t.trip_start_place and p.place_name like  N'%"+startPlace+"%' \r\n" + 
-				"inner join place p1 on p1.place_id=t.trip_end_place and p1.place_name like N'%"+endPlace+"%' and t.trip_start_time <> '"+startTime+"'\r\n" + 
-				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
-				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
-				"inner join account a on bs.bs_acc_mail=a.acc_mail";
+		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t\r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place and p.place_name like  N'%" + startPlace
+				+ "%' and t.trip_status=1 \r\n"
+				+ "inner join place p1 on p1.place_id=t.trip_end_place and p1.place_name like N'%" + endPlace
+				+ "%' and t.trip_start_time <> '" + startTime + "'\r\n"
+				+ "inner join bus b on b.bus_id=t.trip_bus_id\r\n"
+				+ "inner join business bs on b.bus_bs_id=bs.bs_id \r\n"
+				+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
 
 		try {
 			ps = connection.prepareStatement(selectPlace);
@@ -120,7 +123,7 @@ public class ChuyenXeDAO {
 		ChuyenXe trip = null;
 
 		String selectInfor = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t\r\n"
-				+ "inner join place p on p.place_id=t.trip_start_place \r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place and t.trip_status=1 \r\n"
 				+ "inner join place p1 on p1.place_id=t.trip_end_place \r\n"
 				+ "inner join bus b on b.bus_id=t.trip_bus_id\r\n"
 				+ "inner join business bs on b.bus_bs_id=bs.bs_id \r\n"
@@ -187,15 +190,15 @@ public class ChuyenXeDAO {
 		}
 		return listTrip;
 	}
-	
+
 	public List<ChuyenXe> getListTripByIdBusinessAndPlaceDAO(String idBusiness, String startPlace, String endPlace) {
 		connection = con.getConnect();
 		listTrip = new ArrayList<ChuyenXe>();
 
 		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t\r\n"
-				+ "inner join place p on p.place_id=t.trip_start_place and p.place_name like  N'%"+startPlace+"%' \r\n"
-				+ "inner join place p1 on p1.place_id=t.trip_end_place and p1.place_name like N'%"+endPlace+"%' \r\n"
-				+ "inner join bus b on b.bus_id=t.trip_bus_id \r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place and p.place_name like  N'%" + startPlace
+				+ "%' \r\n" + "inner join place p1 on p1.place_id=t.trip_end_place and p1.place_name like N'%"
+				+ endPlace + "%' \r\n" + "inner join bus b on b.bus_id=t.trip_bus_id and t.trip_status=1 \r\n"
 				+ "inner join business bs on b.bus_bs_id=bs.bs_id and bs.bs_id=? \r\n"
 				+ "inner join account a on bs.bs_acc_mail=a.acc_mail";
 		try {
@@ -222,20 +225,20 @@ public class ChuyenXeDAO {
 		}
 		return listTrip;
 	}
-	
-	
+
 	public List<PickupPlace> getListPickUpPlaceDAO(int idBusiness) {
 		connection = con.getConnect();
-		List<PickupPlace> listPickupPlaces=new ArrayList<PickupPlace>();
-		String selectPlace="select place_id,business_id, place_name from pickup_place where business_id=?";
+		List<PickupPlace> listPickupPlaces = new ArrayList<PickupPlace>();
+		String selectPlace = "select place_id,business_id, place_name from pickup_place where business_id=?";
 		try {
 			ps = connection.prepareStatement(selectPlace);
 			ps.setInt(1, idBusiness);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				
-				PickupPlace pPlace=new PickupPlace(rs.getInt("place_id"), rs.getInt("business_id"), rs.getString("place_name"));
+
+				PickupPlace pPlace = new PickupPlace(rs.getInt("place_id"), rs.getInt("business_id"),
+						rs.getString("place_name"));
 				listPickupPlaces.add(pPlace);
 			}
 		} catch (SQLException e) {
@@ -244,24 +247,24 @@ public class ChuyenXeDAO {
 		}
 		return listPickupPlaces;
 	}
-	
+
 	public List<ChuyenXe> getListTripDAO() {
 		connection = con.getConnect();
 		listTrip = new ArrayList<ChuyenXe>();
-		String selectPlace = "select bs.bs_id,a.acc_name, p.place_name,p1.place_name, COUNT(acc_name) from trip t\r\n" + 
-				"inner join place p on p.place_id=t.trip_start_place  \r\n" + 
-				"inner join place p1 on p1.place_id=t.trip_end_place\r\n" + 
-				"inner join bus b on b.bus_id=t.trip_bus_id\r\n" + 
-				"inner join business bs on b.bus_bs_id=bs.bs_id \r\n" + 
-				"inner join account a on bs.bs_acc_mail=a.acc_mail\r\n" +
-				"group by p1.place_name,p.place_name, acc_name,bs.bs_id \r\n" + 
-				"order by p1.place_name  asc";
+		String selectPlace = "select bs.bs_id,a.acc_name, p.place_name,p1.place_name, COUNT(acc_name) from trip t\r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place and t.trip_status=1  \r\n"
+				+ "inner join place p1 on p1.place_id=t.trip_end_place\r\n"
+				+ "inner join bus b on b.bus_id=t.trip_bus_id\r\n"
+				+ "inner join business bs on b.bus_bs_id=bs.bs_id \r\n"
+				+ "inner join account a on bs.bs_acc_mail=a.acc_mail\r\n"
+				+ "group by p1.place_name,p.place_name, acc_name,bs.bs_id \r\n" + "order by p1.place_name  asc";
 		try {
 			ps = connection.prepareStatement(selectPlace);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				ChuyenXe trip = new ChuyenXe(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
+				ChuyenXe trip = new ChuyenXe(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getInt(5));
 				listTrip.add(trip);
 			}
 		} catch (SQLException e) {
@@ -270,7 +273,7 @@ public class ChuyenXeDAO {
 		}
 		return listTrip;
 	}
-	
+
 	public int InsertListTripDAO(List<ChuyenXe> listTrip) {
 		connection = con.getConnect();
 		String insert = "select trip_start_place,trip_end_place,trip_bus_id,trip_price,"
@@ -299,20 +302,29 @@ public class ChuyenXeDAO {
 		return check;
 	}
 
-	public int DeleteTripByIdTripDAO(String idTrip) {
-		String deleteTrip="update trip set trip_status=0 where trip_id=?";
+	public int DeleteTripByIdTripDAO(String startPlace, String endPlace, String startTime) {
+		String deleteTrip = "select trip_bus_id,trip_status from trip where trip_start_place in(select place_id from place where place_name in (N'"
+				+ startPlace + "', N'" + endPlace + "') )\r\n"
+				+ "	and trip_end_place in (select place_id from place where place_name in (N'"
+				+ startPlace + "', N'" + endPlace + "') ) and trip_start_time='" + startTime + "'";
 		connection = con.getConnect();
 		int check = 0;
 		try {
-			ps = connection.prepareStatement(deleteTrip);
-			ps.setInt(1, Integer.parseInt(idTrip));
-			check= ps.executeUpdate();
+			ps = connection.prepareStatement(deleteTrip, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				rs.updateString("trip_bus_id", null);
+				rs.updateInt("trip_status", 0);
+				rs.updateRow();
+				check = 1;
+			}
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return check;
-		
+
 	}
 }

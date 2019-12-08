@@ -38,8 +38,10 @@ public class DeleteAndCancelTripBusinessServlet extends HttpServlet {
 		String messageDelete="deleteFalse";
 		
 		if("btnConfirmDetlete".equalsIgnoreCase(request.getParameter("btnConfirmDetlete"))) {
-			String idTrip= request.getParameter("confirmDetlete");
-			if(new ChuyenXeBO().DeleteTripByIdTripBO(idTrip)==1) {
+			String startPlace=request.getParameter("starPlaceForDeleteTrip");
+			String endPlace=request.getParameter("endPlaceForDeleteTrip");
+			String startTime=request.getParameter("timeStarForDeleteTrip");
+			if(new ChuyenXeBO().DeleteTripByIdTripBO(startPlace,endPlace,startTime)==1) {
 				messageDelete="deleteSuccess";
 			}
 			url="LoadListTripBusinessServlet";

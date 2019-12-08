@@ -16,9 +16,28 @@
 			</div>
 			<div class="modal-body">
 				<form id="deleteTrip"action="DeleteAndCancelTripBusinessServlet">
+					<div class="row">
+				 		<input readonly class="form-control text-center" id="inforTripShow" >
+				 	</div>
+				 	<div class="text-center my-3">
+				 		<h4 class="text-danger">Và Chuyến Ngược Lại</h4>
+				 	</div>
+				 	<div class="row">
+				 		<input readonly class="form-control text-center" id="inforTripShowRe">
+				 	</div>
+				 	<div class="row" style="display: none;">
+				 		<input readonly class="form-control" id="starPlaceForDeleteTrip" name="starPlaceForDeleteTrip">
+				 	</div>
+				 	<div class="row" style="display: none;">
+				 		<input readonly class="form-control" id="endPlaceForDeleteTrip" name="endPlaceForDeleteTrip">
+				 	</div>
+				 	<div class="row" style="display: none;"> 
+				 		<input  type="time" readonly class="form-control" id="timeStarForDeleteTrip" name="timeStarForDeleteTrip">
+				 	</div>
+				 	
 					<input id="getIDdleteTrip" style="display: none;" name="confirmDetlete">
 					<div class="w-100">
-					<div class=" w-50 mx-auto">
+					<div class=" w-50 mx-auto my-4">
 						<button type="submit" class="btn btn-primary text-center w-100 "
 							name="btnConfirmDetlete" value="btnConfirmDetlete">Xác
 							Nhận Xóa</button>
@@ -74,8 +93,27 @@
 	
 	$("[data-target='#modalDeleteTrip']").click(function() {
 		$(this).each(function() {
-			console.log($(this).attr("id"));
+			console.log($(this).parent().parent().prev().prev().children().val());
 			$("input#getIDdleteTrip").val($(this).attr("id"));
+			$("#starPlaceForDeleteTrip").val($(this).parent().parent().prev().prev().prev().prev().prev().children().html());
+			$("#endPlaceForDeleteTrip").val($(this).parent().parent().prev().prev().prev().prev().children().html());
+			$("#timeStarForDeleteTrip").val($(this).parent().parent().prev().prev().children().val());
+			
+			$("#inforTripShow").val(
+				$(this).parent().parent().prev().prev().prev().prev().prev().children().html()
+				+" - "+
+				$(this).parent().parent().prev().prev().prev().prev().children().html()
+				+" - "+
+				$(this).parent().parent().prev().prev().children().val()
+			);
+			
+			$("#inforTripShowRe").val(
+					$(this).parent().parent().prev().prev().prev().prev().children().html()
+					+" - "+
+					$(this).parent().parent().prev().prev().prev().prev().prev().children().html()
+					+" - "+
+					$(this).parent().parent().prev().prev().children().val()
+			);
 		});
 	});
 </script>
