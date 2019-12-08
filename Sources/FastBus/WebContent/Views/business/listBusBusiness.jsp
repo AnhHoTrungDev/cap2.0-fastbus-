@@ -47,7 +47,7 @@
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary"><a href="#addShowBus" data-toggle="modal" data-target="#modalAddShowBus"><i class="fas fa-plus m-2"></i>Thêm bus</a></h6>
+							<h6 class="m-0 font-weight-bold text-primary"><a href="#addBus" data-toggle="modal" data-target="#modalAddBus"><i class="fas fa-plus m-2"></i>Thêm bus</a></h6>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
@@ -79,10 +79,11 @@
 										<td><span class="d-block my-2">HuynDai</span></td>
 										<td><span class="d-block my-2">Đỏ</span></td>
 										<td><span class="d-block my-2">
-										
+										<a href="#Edit" title="Thông tin chi tiết" data-toggle="modal" data-target="#modalEditBus" data-id-bus="100"><i class="fas fa-edit mx-1"></i></a>
+										<a href="#Delete" title="Xóa" data-toggle="modal" data-target="#modalDeleteBus" data-id-bus="100"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
 										</span></td>				
-										</tr>
-										
+										</tr>	
+														
 									</tbody>
 								</table>
 							</div>
@@ -113,5 +114,6 @@
 	<!-- add file jquery -->
 	<%@ include file="common/botAdmin.jsp"%>
 	<!-- end add file jquery -->
+	<%@ include file="common/_AddEdetShowBus.jsp"%>
 </body>
 </html>
