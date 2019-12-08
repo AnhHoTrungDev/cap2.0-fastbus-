@@ -158,7 +158,7 @@ public class ChuyenXeDAO {
 		listTrip = new ArrayList<ChuyenXe>();
 
 		String selectPlace = "select t.trip_id, t.trip_bus_id,bs.bs_id, a.acc_name,p.place_name,p1.place_name, t.trip_start_time,t.trip_end_time, t.trip_price,t.trip_status from trip t\r\n"
-				+ "inner join place p on p.place_id=t.trip_start_place  \r\n"
+				+ "inner join place p on p.place_id=t.trip_start_place and t.trip_status=1 \r\n"
 				+ "inner join place p1 on p1.place_id=t.trip_end_place \r\n"
 				+ "inner join bus b on b.bus_id=t.trip_bus_id \r\n"
 				+ "inner join business bs on b.bus_bs_id=bs.bs_id and bs.bs_id=? \r\n"
@@ -299,5 +299,20 @@ public class ChuyenXeDAO {
 		return check;
 	}
 
-	
+	public int DeleteTripByIdTripDAO(String idTrip) {
+		String deleteTrip="update trip set trip_status=0 where trip_id=?";
+		connection = con.getConnect();
+		int check = 0;
+		try {
+			ps = connection.prepareStatement(deleteTrip);
+			ps.setInt(1, Integer.parseInt(idTrip));
+			check= ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return check;
+		
+	}
 }

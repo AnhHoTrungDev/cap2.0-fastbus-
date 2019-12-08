@@ -52,6 +52,10 @@ public class ChuyenXeBO {
 	}
 
 	public List<ChuyenXe> getListTripByIdBusinessAndPlaceBO(String idBusiness, String startPlace, String endPlace) {
-		return new ChuyenXeDAO().getListTripByIdBusinessAndPlaceDAO(idBusiness,startPlace,endPlace);
+		return new ChuyenXeDAO().getListTripByIdBusinessAndPlaceDAO(idBusiness, startPlace, endPlace);
+	}
+
+	public int DeleteTripByIdTripBO(String idTrip) {
+		return new ChuyenXeDAO().DeleteTripByIdTripDAO(idTrip);
 	}
 }
