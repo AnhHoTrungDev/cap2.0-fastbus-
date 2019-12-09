@@ -102,7 +102,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <select class="form-control rounded-pill" name="cbCity" id="cbProvince">
+                      <select class="form-control rounded-pill allCb" name="cbCity" id="cbProvince">
                         <option value="">Tỉnh / Thành Phố</option>
                         <%
                         	for(Province pro : (List<Province>)request.getAttribute("listProvinces")){
@@ -113,7 +113,7 @@
                     </div>
                     <div class="form-group">
                       <select
-                        class="form-control rounded-pill"
+                        class="form-control rounded-pill allCb"
                         name="cbDistrict"
                         id="cbDistrict"
                       >
@@ -126,7 +126,7 @@
                       </select>
                     </div>
                     <div class="form-group">
-                      <select class="form-control rounded-pill" name="cbWard"  id="cbWard">
+                      <select class="form-control rounded-pill allCb" name="cbWard"  id="cbWard">
                         <option  value="">Phường / xã</option>
                         <%
                         	for(Ward ward : (List<Ward>)request.getAttribute("listWards")){
@@ -179,4 +179,16 @@
 
 </script>
 <script src="<%=request.getContextPath()%>/Views/business/js/resgiterAdminCustom.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {	
+	    $('.allCb').select2();
+	 
+	    $('.allCb').each(function(){
+	    	 $($(this).data('select2').$container).addClass('rounded-pill');
+	 	     $($(this).data('select2').$container).children().children().addClass('border-0');
+	 	     $($(this).data('select2').$container).addClass('form-control');
+	    });
+	});
+	
+</script>
 </html>

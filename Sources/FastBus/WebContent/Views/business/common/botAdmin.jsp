@@ -24,6 +24,9 @@
 <script src="<%=request.getContextPath()%>/Views/business/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <!-- Page level custom scripts -->
 <script src="<%=request.getContextPath()%>/Views/business/js/demo/datatables-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/Views/users/assets/js/jquery.validate.min.js"></script>
 
 <!-- Page level custom scripts -->
 <!-- <script src="<%=request.getContextPath()%>/Views/business/js/demo/chart-area-demo.js"></script>

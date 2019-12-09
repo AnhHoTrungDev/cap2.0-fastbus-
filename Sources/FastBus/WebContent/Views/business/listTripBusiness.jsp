@@ -85,8 +85,9 @@
 											<td><input type="time" readonly class="form-control-plaintext noborder" value="<%=trip.getStartTime()%>"></td>
 											<td><input type="time" readonly class="form-control-plaintext noborder" value="<%=trip.getEndTime()%>"></td>
 											<td><span class="d-block my-2">
-											<a href="#Edit" title="Thông tin chi tiết"><i class="fas fa-info-circle mx-1"></i></a>
-											<a href="#Edit" title="Xóa" data-toggle="modal" data-target="#modalDeleteTrip" id="<%=trip.getIdTrip()%>"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
+											<a href="#edit" title="Chỉnh Sửa Chuyến Đi" data-toggle="modal" data-target="#modalEditTrip" id="<%=trip.getIdTrip()%>"><i class="fas fa-edit mx-1"></i></a>
+											<a href="detailTripbusiness.jsp" title="Thông tin chi tiết"><i class="fas fa-info-circle mx-1"></i></a>
+											<a href="#delete" title="Xóa" data-toggle="modal" data-target="#modalDeleteTrip" id="<%=trip.getIdTrip()%>"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
 											</span>
 											</td>															
 										</tr>
@@ -121,8 +122,11 @@
 	<!-- add file jquery -->
 	<%@ include file="common/botAdmin.jsp"%>
 	<!-- end add file jquery -->
+	
 	<%@ include file="common/addTripModal.jsp"%>
 	<%@ include file="common/deletteCornfirmModal.jsp"%>
+	<%@ include file="common/editTripbs.jsp"%>
+		
 	<script type="text/javascript">
 	$(".show-price-format").each(function(){
 		$(this).html((new Intl.NumberFormat('it-IT',

@@ -45,7 +45,7 @@ q<%@ page language="java" contentType="text/html;charset=UTF-8"
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                     </div>
-                    <form class="user" action="LoginBusinessServlet" method="post">
+                    <form id="loginBs" class="user" action="LoginBusinessServlet" method="post">
                       <div class="form-group">
                         <input
                           type="email"
@@ -97,4 +97,42 @@ q<%@ page language="java" contentType="text/html;charset=UTF-8"
 <!-- add file jquery -->
 <%@ include file="common/botAdmin.jsp"%>
 <!-- end add file jquery -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#loginBs").validate({
+			rules:{
+				inputEmail:{
+					email : true,
+					required : true
+				},
+				inputPassword:{
+					required : true,
+					minlength : 6
+				}
+			},
+			messages : {
+				inputEmail : {
+					required : "Vui lòng nhập Email",
+					email : "Kiểm  tra xem có theo vd EX@gmail.com"
+				},
+				inputPassword : {
+					required : "Vui lòng nhập password",
+					minlength : "password có ít nhất 6 ký tự"
+				}
+			},
+			errorElement : "em",
+			highlight : function(element,
+					errorClass) {
+				$(element).addClass("is-invalid")
+						.removeClass("is-valid");
+			},
+			unhighlight : function(element,
+					errorClass) {
+				$(element).addClass("is-valid")
+						.removeClass("is-invalid");
+			}
+			
+		});		
+	});
+</script>
 </html>
