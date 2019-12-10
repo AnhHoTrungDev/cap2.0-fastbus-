@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -34,6 +35,25 @@ public class LoadListConfirmTicketBusinessServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		request.getCharacterEncoding();
+		if("btnConfirmAccept".equalsIgnoreCase(request.getParameter("btnConfirmAccept"))) {
+			String idTrip=request.getParameter("idTripForAccept");
+			String dateStart=request.getParameter("dateStarForAccept");
+			String seat=request.getParameter("getChiarTickerForForAccept");
+			
+			String check=new SeatBookingBO().approvedListSeatBookingBO(idTrip,dateStart,seat);
+			System.out.println(check);
+			request.setAttribute("approvedMessage", check);
+		}else if("btnConfirmDetleteTrickerConfrim".equalsIgnoreCase(request.getParameter("btnConfirmDetleteTrickerConfrim"))) {
+			String idTrip=request.getParameter("idTripForDelete");
+			String dateStart=request.getParameter("dateStarForDelete");
+			String seat=request.getParameter("getCodeConfirmAllCharirTrickerr");
+			
+			String check=new SeatBookingBO().deleteListSeatBookingBO(idTrip,dateStart,seat);
+			System.out.println(check);
+			request.setAttribute("deleteMessage", check);
+		}
 		HttpSession session = request.getSession();
 		List<SeatBooking> listSeat =new SeatBookingBO().getListAwaitingAprovalTicketBO((String) session.getAttribute("business_mail"));
 		request.setAttribute("listSeat", listSeat);

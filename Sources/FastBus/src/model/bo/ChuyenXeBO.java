@@ -58,4 +58,8 @@ public class ChuyenXeBO {
 	public int DeleteTripByIdTripBO(String startPlace,String endPlace,String startTime) {
 		return new ChuyenXeDAO().DeleteTripByIdTripDAO(startPlace,endPlace,startTime);
 	}
+
+	public String updatePriceByIdTripBO(String idTrip, String price) {
+		return new ChuyenXeDAO().updatePriceByIdTripDAO(idTrip,price);
+	}
 }

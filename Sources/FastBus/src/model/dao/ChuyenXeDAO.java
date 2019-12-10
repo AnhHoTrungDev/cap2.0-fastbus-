@@ -327,4 +327,22 @@ public class ChuyenXeDAO {
 		return check;
 
 	}
+
+	public String updatePriceByIdTripDAO(String idTrip, String price) {
+		String updatePrice="update trip set trip_price=? where trip_id=?";
+		connection = con.getConnect();
+		String check = "Cập Nhật Thất Bại";
+		try {
+			ps = connection.prepareStatement(updatePrice);
+			ps.setFloat(1, Float.parseFloat(price));
+			ps.setInt(2, Integer.parseInt(idTrip));
+			if(ps.executeUpdate()!=0) {
+				check = "Cập Nhật Thành Công";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return check;
+	}
 }

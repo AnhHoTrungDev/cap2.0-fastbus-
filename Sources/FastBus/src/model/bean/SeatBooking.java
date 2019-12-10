@@ -138,6 +138,13 @@ public class SeatBooking {
 		this.seatStatus=seatStatus;
 	}
 	
+	public SeatBooking(int tripId,String seatStartDate,String seatName) {
+		super();
+		this.tripId = tripId;
+		this.seatName = seatName;
+		this.seatStartDate = seatStartDate;
+	}
+	
 	public SeatBooking(int tripId,String seatStartDate,String seatMail,int seatTotal) {
 		super();
 		this.tripId = tripId;

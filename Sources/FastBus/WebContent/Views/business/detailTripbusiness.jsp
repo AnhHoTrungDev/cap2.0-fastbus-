@@ -1,3 +1,6 @@
+<%@page import="model.bean.SeatBooking"%>
+<%@page import="model.bean.ChuyenXe"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -44,32 +47,33 @@
 					</p>
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
+					<% ChuyenXe trip= (ChuyenXe)request.getAttribute("trip"); %>
 						<div class="card-header py-3 my-2">
 							<div class="w-100 row">
 							<div class="row" style="display:none;">
-									<label class="col-md-4">IDtrip</label>
+									<label class="col-md-4"><%=trip.getIdTrip() %></label>
 									<!-- cho cái ID trip vô đây nghe ba -->
-									<input class="col-md-6 form-control w-50" type="text" value="100" id="idTrip" >
+									<input class="col-md-6 form-control w-50" type="text" value="<%=trip.getIdTrip() %>" id="idTrip" >
 								</div>
 								<div class="col-md-6">
 									<div class="row  mx-auto">
 										<label class="col-md-4">Chọn Ngày</label>
-										<input class="col-md-6 form-control w-50" type="date" value="2019-12-19" id="dateChoseShowRevenue" >
+										<input class="col-md-6 form-control w-50" type="date" value="<%=trip.getStartDate()%>" id="dateChoseShowRevenue" >
 									</div>
 									<div class="row my-2 mx-auto">
 										<label class="col-md-4">Đi Từ</label>
-										<input class="col-md-6 form-control w-50" type="text" value="Đà Nẵng" id="startPlace" readonly>
+										<input class="col-md-6 form-control w-50" type="text" value="<%=trip.getStartPlace() %>" id="startPlace" readonly>
 									</div>
 									<div class="row my-2 mx-auto">
 										<label class="col-md-4">Đến</label>
-										<input class="col-md-6 form-control w-50" type="text" value="Đà Lạt" id="endPlace" readonly>
+										<input class="col-md-6 form-control w-50" type="text" value="<%=trip.getEndPlace()%>" id="endPlace" readonly>
 									</div>
 								</div>
 								
 								<div class="col-md-6">
 									<div class="row my-2 mx-auto">
 										<label class="col-md-6">Giờ Chạy</label>
-										<input class="col-md-6 form-control w-50" type="time" value="14:20:00" id="timeDep" readonly>
+										<input class="col-md-6 form-control w-50" type="time" value="<%=trip.getStartTime() %>" id="timeDep" readonly>
 									</div>
 								
 									<div class="row my-2 mx-auto">
@@ -80,7 +84,7 @@
 									<div class="row my-2 mx-auto">
 										<label class="col-md-6">Giá vé</label>
 										<!-- load giá vé vô đây Value=".." -->
-										<input id="priceTrip" class="col-md-6 form-control w-50 price" type="text" value="300000" readonly>
+										<input id="priceTrip" class="col-md-6 form-control w-50 price" type="text" value="<%=trip.getPrice() %>" readonly>
 									</div>
 								</div>
 								<!-- ta lấy  giá vé  phía trên xử  lý giá trị ni  -->
@@ -115,40 +119,21 @@
 										</tr>
 									</tfoot>
 									<tbody>
-								
+										<%
+											for(SeatBooking seat : (List<SeatBooking>)request.getAttribute("listSeat")){
+										%>
 										<tr>
-										<td class="numberTicket"><span class="d-block my-2">1</span></td>
-										<td><span class="d-block my-2">Quốc Lê</span></td>
-										<td><span class="d-block my-2">20/12/2019</span></td>
-										<td><span class="d-block my-2">A4, A5, A6, G1</span></td>
-										<!-- Cái  Tổng Giá vé Phía Dưới  ko cần Nhập ta tính trên ni rồi-->
-										<td><span class="d-block my-2 "><input class="form-control border-0 price bg-white total-price" readonly></span></td>										
-										<td><span class="d-block my-2">
-										<a href="#Delete" title="Xóa" data-toggle="modal" data-target="#DeteteTicketWasConfirm" data-id-trip="100"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
-										</span></td>				
+											<td class="numberTicket"><span class="d-block my-2">1</span></td>
+											<td><span class="d-block my-2"><%=seat.getUserName() %></span></td>
+											<td><span class="d-block my-2"><%=seat.getSeatStartDate() %></span></td>
+											<td><span class="d-block my-2"><%=seat.getSeatName() %></span></td>
+											<!-- Cái  Tổng Giá vé Phía Dưới  ko cần Nhập ta tính trên ni rồi-->
+											<td><span class="d-block my-2 "><input class="form-control border-0 price bg-white total-price" readonly></span></td>										
+											<td><span class="d-block my-2">
+											<a href="#Delete" title="Xóa" data-toggle="modal" data-target="#DeteteTicketWasConfirm" data-id-trip="100"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
+											</span></td>				
 										</tr>
-												
-												<tr>
-										<td class="numberTicket"><span class="d-block my-2">1</span></td>
-										<td><span class="d-block my-2">Quốc Lê</span></td>
-										<td><span class="d-block my-2">20/12/2019</span></td>
-										<td><span class="d-block my-2">A4, A5, A6, G1</span></td>
-										<td><span class="d-block my-2 "><input class="form-control border-0 price bg-white total-price" readonly></span></td>										
-										<td><span class="d-block my-2">
-										<a href="#Delete" title="Xóa" data-toggle="modal" data-target="#DeteteTicketWasConfirm" data-id-trip="100"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
-										</span></td>				
-										</tr>
-										<tr>
-										<td class="numberTicket"><span class="d-block my-2">1</span></td>
-										<td><span class="d-block my-2">Quốc Lê</span></td>
-										<td><span class="d-block my-2">20/12/2019</span></td>
-										<td><span class="d-block my-2">A4, A5, A6, G1</span></td>
-										<td><span class="d-block my-2 "><input class="form-control border-0 price bg-white total-price" readonly></span></td>										
-										<td><span class="d-block my-2">
-										<a href="#detroyTicket" title="Xóa" data-toggle="modal" data-target="#DeteteTicketWasConfirm" data-id-trip="100"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
-										</span></td>				
-										</tr>
-														
+										<%} %>		
 									</tbody>
 								</table>
 							</div>

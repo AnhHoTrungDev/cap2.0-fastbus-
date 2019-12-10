@@ -86,7 +86,7 @@
 											<td><input type="time" readonly class="form-control-plaintext noborder" value="<%=trip.getEndTime()%>"></td>
 											<td><span class="d-block my-2">
 											<a href="#edit" title="Chỉnh Sửa Chuyến Đi" data-toggle="modal" data-target="#modalEditTrip" id="<%=trip.getIdTrip()%>"><i class="fas fa-edit mx-1"></i></a>
-											<a href="detailTripbusiness.jsp" title="Thông tin chi tiết"><i class="fas fa-info-circle mx-1"></i></a>
+											<a href="LoadListTripBusinessServlet?idTrip=<%=trip.getIdTrip() %>&startDate=&btnDetail=btnDetail" title="Thông tin chi tiết"><i class="fas fa-info-circle mx-1"></i></a>
 											<a href="#delete" title="Xóa" data-toggle="modal" data-target="#modalDeleteTrip" id="<%=trip.getIdTrip()%>"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
 											</span>
 											</td>															

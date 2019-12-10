@@ -253,16 +253,96 @@ public class SeatBookingDAO {
 		return seat;
 
 	}
-
-	public static void main(String[] args) {
-		System.out.println(new SeatBookingDAO().getListAwaitingAprovalTicketDAO("mailinh@gmail.com.vn").size());
-		for (SeatBooking seat : new SeatBookingDAO().getListAwaitingAprovalTicketDAO(("mailinh@gmail.com.vn"))) {
-			System.out.println(seat.getSeatName());
-			System.out.println(seat.getTripId());
-			System.out.println(seat.getTotalSeat());
-			System.out.println(seat.getUserName());
-			System.out.println(seat.getSeatMail());
+	
+	public String approvedListSeatBookingDAO(String idTrip,String dateStart, String seat) {
+		// TODO Auto-generated method stub
+		String s="'";
+		for (String aSeat : seat.split(",")) {
+			
+			s+=aSeat+"','";
 		}
-
+		String updateSeat = "select seatb_id,seatb_name,seatb_status from seatbooking "
+				+ "where seatb_trip_id=? and seatb_name in ("+s.substring(0,s.length()-2)+") and seatb_start_date=?";
+		connection = con.getConnect();
+		String check = "Cập Nhật Thất Bại";
+		try {
+			ps = connection.prepareStatement(updateSeat, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			ps.setInt(1, Integer.parseInt(idTrip));
+			ps.setString(2, dateStart);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				rs.updateInt("seatb_status", 1);
+				rs.updateRow();
+				check = "Cập Nhật Thành Công";
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return check;
 	}
+//	public static void main(String[] args) {
+//		System.out.println(new SeatBookingDAO().approvedListSeatBookingDAO("105", "2019/12/03", "A5,A6"));
+//	}
+
+	public String deleteListSeatBookingDAO(String idTrip, String dateStart, String seat) {
+		// TODO Auto-generated method stub
+				String s="'";
+				for (String aSeat : seat.split(",")) {
+					
+					s+=aSeat+"','";
+				}
+				String updateSeat = "select seatb_id,seatb_name,seatb_status from seatbooking "
+						+ "where seatb_trip_id=? and seatb_name in ("+s.substring(0,s.length()-2)+") and seatb_start_date=?";
+				connection = con.getConnect();
+				String check = "Xóa Thất Bại";
+				try {
+					ps = connection.prepareStatement(updateSeat, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+					ps.setInt(1, Integer.parseInt(idTrip));
+					ps.setString(2, dateStart);
+					rs = ps.executeQuery();
+					while(rs.next()) {
+						rs.deleteRow();
+						check = "Xóa Thành Công";
+					}
+					
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				return check;
+	}
+	
+	public List<SeatBooking> getListTicketByTripIdAndDateDAO(String idTrip,String startDate) {
+
+		listSeat = new ArrayList<SeatBooking>();
+		connection = con.getConnect();
+		List<SeatBooking> l = new ArrayList<SeatBooking>();
+		String select = "select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'  \r\n" + 
+				"from seatbooking where seatb_trip_id=? and seatb_start_date=? group by seatb_user_mail,seatb_start_date,seatb_trip_id";
+		try {
+			ps = connection.prepareStatement(select);
+			ps.setInt(1, Integer.parseInt(idTrip));
+			ps.setString(2,startDate);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				SeatBooking seat = new SeatBooking(rs.getInt("seatb_trip_id"), rs.getString("seatb_start_date"),
+						rs.getString("seatb_user_mail"), rs.getInt("total"));
+				listSeat.add(seat);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for (SeatBooking list : listSeat) {
+			l.add(new SeatBookingDAO().apendSeatName1(list.getSeatStartDate(), list.getSeatMail(), list.getTripId(),
+					list.getTotalSeat()));
+		}
+		return l;
+	}
+
 }

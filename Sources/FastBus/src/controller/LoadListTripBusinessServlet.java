@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,12 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import model.bean.Bus;
 import model.bean.ChuyenXe;
 import model.bean.DiaDiem;
+import model.bean.SeatBooking;
 import model.bo.BusBO;
 import model.bo.ChuyenXeBO;
 import model.bo.DiaDiemBO;
+import model.bo.SeatBookingBO;
 
 /**
  * Servlet implementation class LoadListTripBusinessServlet
@@ -44,6 +49,7 @@ public class LoadListTripBusinessServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		request.getCharacterEncoding();
 		
+		String url="/Views/business/listTripBusiness.jsp";
 		List<ChuyenXe> listChuyen=new ArrayList<ChuyenXe>();
 		String messageInsertTrip="false";
 		HttpSession session = request.getSession();
@@ -65,6 +71,25 @@ public class LoadListTripBusinessServlet extends HttpServlet {
 			}
 			
 			request.setAttribute("messageInsertTrip", messageInsertTrip);
+		}else if("btnEditPrice".equalsIgnoreCase(request.getParameter("btnEditPrice"))){
+			String price=request.getParameter("editPricebs");
+			String idTrip=request.getParameter("getIDForEditPricebs");
+			String message=new ChuyenXeBO().updatePriceByIdTripBO(idTrip,price);
+			System.out.println(message);
+			request.setAttribute("updatePriceMessage", message);
+
+		}
+		else if("btnDetail".equalsIgnoreCase(request.getParameter("btnDetail"))) {
+			
+			String idTrip=request.getParameter("idTrip");
+			String startDate=request.getParameter("startDate");
+			if(startDate=="") {
+				startDate=LocalDate.now().toString();
+			}
+			List<SeatBooking> listSeat=new SeatBookingBO().getListTicketByTripIdAndDateDAO(idTrip, startDate);
+			request.setAttribute("trip", new ChuyenXeBO().getListTripByIdBO(Integer.parseInt(idTrip), startDate));
+			request.setAttribute("listSeat", listSeat);
+			url="Views/business/detailTripbusiness.jsp";
 		}
 		List<DiaDiem> listPlace = new DiaDiemBO().getListPlaceBO();
 		List<Bus> listBus = new BusBO().getListBusByEmailBusinessBO(session.getAttribute("business_mail").toString());
@@ -73,7 +98,7 @@ public class LoadListTripBusinessServlet extends HttpServlet {
 		request.setAttribute("listPlace", listPlace);
 		request.setAttribute("listTrip", listTrip);
 		request.setAttribute("listBus", listBus);
-		RequestDispatcher rd = request.getRequestDispatcher("/Views/business/listTripBusiness.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 

@@ -34,4 +34,15 @@ public class SeatBookingBO {
 	public List<SeatBooking> getListAwaitingAprovalTicketBO(String mail) {
 		return new SeatBookingDAO().getListAwaitingAprovalTicketDAO(mail);
 	}
+
+	public String approvedListSeatBookingBO(String idTrip,String dateStart, String seat ) {
+		return new SeatBookingDAO().approvedListSeatBookingDAO(idTrip,dateStart,seat);
+	}
+
+	public String deleteListSeatBookingBO(String idTrip, String dateStart, String seat) {
+		return new SeatBookingDAO().deleteListSeatBookingDAO(idTrip,dateStart,seat);
+	}
+	public List<SeatBooking> getListTicketByTripIdAndDateDAO(String idTrip,String startDate){
+		return new SeatBookingDAO().getListTicketByTripIdAndDateDAO(idTrip, startDate);
+	}
 }
