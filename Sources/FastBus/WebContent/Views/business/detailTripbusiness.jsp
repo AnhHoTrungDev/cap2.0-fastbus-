@@ -45,44 +45,48 @@
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3 my-2">
-							<div class="w-100">
-							<div class="row w-50 mx-auto" style="display:none;">
+							<div class="w-100 row">
+							<div class="row" style="display:none;">
 									<label class="col-md-4">IDtrip</label>
 									<!-- cho cái ID trip vô đây nghe ba -->
 									<input class="col-md-6 form-control w-50" type="text" value="100" id="idTrip" >
 								</div>
-								<div class="row w-50 mx-auto">
-									<label class="col-md-4">Chọn Ngày</label>
-									<input class="col-md-6 form-control w-50" type="date" value="2019-12-19" id="dateChoseShowRevenue" >
-								</div>
-								<div class="row w-50 my-2 mx-auto">
-									<label class="col-md-4">Đi Từ</label>
-									<input class="col-md-6 form-control w-50" type="text" value="Đà Nẵng" id="startPlace" readonly>
-								</div>
-								<div class="row w-50 my-2 mx-auto">
-									<label class="col-md-4">Đến</label>
-									<input class="col-md-6 form-control w-50" type="text" value="Đà Lạt" id="endPlace" readonly>
-								</div>
-								
-								<div class="row w-50 my-2 mx-auto">
-									<label class="col-md-4">Giờ Chạy</label>
-									<input class="col-md-6 form-control w-50" type="time" value="14:20:00" id="timeDep" readonly>
+								<div class="col-md-6">
+									<div class="row  mx-auto">
+										<label class="col-md-4">Chọn Ngày</label>
+										<input class="col-md-6 form-control w-50" type="date" value="2019-12-19" id="dateChoseShowRevenue" >
+									</div>
+									<div class="row my-2 mx-auto">
+										<label class="col-md-4">Đi Từ</label>
+										<input class="col-md-6 form-control w-50" type="text" value="Đà Nẵng" id="startPlace" readonly>
+									</div>
+									<div class="row my-2 mx-auto">
+										<label class="col-md-4">Đến</label>
+										<input class="col-md-6 form-control w-50" type="text" value="Đà Lạt" id="endPlace" readonly>
+									</div>
 								</div>
 								
-								<div class="row w-50 my-2 mx-auto">
-									<label class="col-md-4">Số Ghế Đã Được Đặt</label>
-									<input id="numberOfBookingSeat" class="col-md-6 form-control w-50" type="text" readonly>
-								</div>
+								<div class="col-md-6">
+									<div class="row my-2 mx-auto">
+										<label class="col-md-6">Giờ Chạy</label>
+										<input class="col-md-6 form-control w-50" type="time" value="14:20:00" id="timeDep" readonly>
+									</div>
 								
-								<div class="row w-50 my-2 mx-auto">
-									<label class="col-md-4">Giá vé</label>
-									<!-- load giá vé vô đây Value=".." -->
-									<input id="priceTrip" class="col-md-6 form-control w-50 price" type="text" value="300000" readonly>
+									<div class="row my-2 mx-auto">
+										<label class="col-md-6">Số Ghế Đã Được Đặt</label>
+										<input id="numberOfBookingSeat" class="col-md-6 form-control w-50" type="text" readonly>
+									</div>
+									
+									<div class="row my-2 mx-auto">
+										<label class="col-md-6">Giá vé</label>
+										<!-- load giá vé vô đây Value=".." -->
+										<input id="priceTrip" class="col-md-6 form-control w-50 price" type="text" value="300000" readonly>
+									</div>
 								</div>
 								<!-- ta lấy  giá vé  phía trên xử  lý giá trị ni  -->
-								<div class="row w-50 my-2 mx-auto">
-									<label class="col-md-4">Tổng Danh Thu / Ngày</label>
-									<input id="totalPriceFollowingDate" class="col-md-6 form-control w-50 price" type="text" readonly>
+								<div class="row w-50 my-2 mx-auto text-center">
+									<label class="col-md-12">Tổng Danh Thu / Ngày</label>
+									<input id="totalPriceFollowingDate" class="col-md-12 form-control w-50 price text-center" type="text" readonly>
 								</div>
 							</div>
 						</div>

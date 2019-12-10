@@ -136,7 +136,10 @@ inner join place p1 on p1.place_id=t.trip_end_place and p1.place_name like N'%Đ
 inner join bus b on b.bus_id=t.trip_bus_id
 inner join business bs on b.bus_bs_id=bs.bs_id 
 inner join account a on bs.bs_acc_mail=a.acc_mail
-
+select * from trip
+delete from trip where trip_id=120
 update trip set trip_status=1 where trip_id=105
-select * from trip where trip_start_place in(select place_id from place where place_name in (N'Đà Nẵng', N'Đắk Lắk') )
-						and trip_end_place in (select place_id from place where place_name in (N'Đà Nẵng', N'Đắk Lắk') )
+select trip_id, trip_bus_id,trip_status from   where trip_start_place in(select place_id from place where place_name in (N'Đà Nẵng', N'Đắk Lắk') )
+						and trip_end_place in (select place_id from place where place_name in (N'Đà Nẵng', N'Đắk Lắk') ) and trip_start_time='17:00:00'
+
+						place 
