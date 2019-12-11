@@ -37,6 +37,9 @@ public class LoginBusinessServlet extends HttpServlet {
 		Encode enCode = new Encode();
 		HttpSession session = request.getSession();
 		String url="/Views/business/loginBusiness.jsp";
+		if ((String)session.getAttribute("business_mail") != null) {
+			url="/Views/business/index.jsp";
+		}
 		
 		if ("btnBusinessLogin".equalsIgnoreCase(request.getParameter("businessLogin"))) {
 			Business business = null;
