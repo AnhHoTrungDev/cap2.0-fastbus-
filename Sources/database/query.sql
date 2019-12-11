@@ -123,8 +123,9 @@ select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'
 				from seatbooking where seatb_user_mail= 'fastbuscompany@gmail.com' 
 				group by seatb_trip_id,seatb_start_date,seatb_user_mail order by seatb_start_date desc 
 
-select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'  
-from seatbooking where seatb_trip_id=105 and seatb_start_date='2019-12-03' group by seatb_user_mail,seatb_start_date
+select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total' from seatbooking s
+inner join trip t on t.trip_id=s.seatb_trip_id and t.trip_start_time ='17:00:00' and seatb_start_date='2019-12-3'
+group by seatb_user_mail,seatb_start_date,seatb_trip_id
 -----------------------------------------------
 select b.bus_id,b.bus_license from bus b inner join business bs on bs.bs_id=b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
 select trip_start_place,trip_end_place,trip_bus_id,trip_price,trip_start_time,trip_end_time,trip_status from trip 

@@ -124,7 +124,7 @@ public class SeatBookingDAO {
 		connection = con.getConnect();
 
 		String getList = "select seatb_id, seatb_trip_id, seatb_user_mail, seatb_name, seatb_date, seatb_start_date from seatbooking "
-				+ "where seatb_user_mail=? and seatb_start_date=? and seatb_trip_id=? order by seatb_name asc";
+				+ "where seatb_user_mail=? and seatb_start_date=? and seatb_trip_id=? and seatb_status=1 order by seatb_name asc";
 
 		try {
 			ps = connection.prepareStatement(getList);
@@ -339,10 +339,16 @@ public class SeatBookingDAO {
 			e.printStackTrace();
 		}
 		for (SeatBooking list : listSeat) {
-			l.add(new SeatBookingDAO().apendSeatName1(list.getSeatStartDate(), list.getSeatMail(), list.getTripId(),
+			l.add(new SeatBookingDAO().apendSeatName(list.getSeatStartDate(), list.getSeatMail(), list.getTripId(),
 					list.getTotalSeat()));
 		}
 		return l;
 	}
-
+	
+	public static void main(String[] args) {
+		System.out.println(new SeatBookingDAO().getListTicketByTripIdAndDateDAO("105", "2019/12/03").size());
+		for(SeatBooking seat : new SeatBookingDAO().getListTicketByTripIdAndDateDAO("105", "2019/12/03")) {
+			System.out.println("name: "+seat.getSeatName());
+		}
+	}
 }

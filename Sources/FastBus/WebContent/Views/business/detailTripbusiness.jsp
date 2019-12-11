@@ -124,7 +124,7 @@
 										%>
 										<tr>
 											<td class="numberTicket"><span class="d-block my-2">1</span></td>
-											<td><span class="d-block my-2"><%=seat.getUserName() %></span></td>
+											<td><span class="d-block my-2"><%=seat.getSeatMail() %></span></td>
 											<td><span class="d-block my-2"><%=seat.getSeatStartDate() %></span></td>
 											<td><span class="d-block my-2"><%=seat.getSeatName() %></span></td>
 											<!-- Cái  Tổng Giá vé Phía Dưới  ko cần Nhập ta tính trên ni rồi-->
