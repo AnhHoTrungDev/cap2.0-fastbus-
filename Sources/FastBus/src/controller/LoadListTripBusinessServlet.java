@@ -82,7 +82,7 @@ public class LoadListTripBusinessServlet extends HttpServlet {
 		else if("btnDetail".equalsIgnoreCase(request.getParameter("btnDetail"))) {
 			
 			String idTrip=request.getParameter("idTrip");
-			String startDate=request.getParameter("startDate");
+			String startDate="2019-12-03";
 			if(startDate=="") {
 				startDate=LocalDate.now().toString();
 			}
