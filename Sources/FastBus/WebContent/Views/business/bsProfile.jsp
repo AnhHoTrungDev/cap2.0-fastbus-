@@ -67,6 +67,35 @@
 								</div>
 							</div>
 							<div class="form-group row">
+								<label for="inputNamebs" class="col-4 col-form-label text-right">Địa
+									Chỉ</label>
+								<div class="col-8 my-1">
+									<input id="inputDetailAddressbs" name="inputDetailAddressbs"
+										placeholder="Địa Chỉ" class="form-control here" type="text">
+								</div>
+								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
+								<div class="col-8 my-1">
+									<select name="cbProvince" id="cbProvince" class="form-control">
+										<option value="">Tỉnh Thành Phố</option>
+										<option value="1">Đà Nẵng</option>
+									</select>
+								</div>
+								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
+								<div class="col-8 my-1">
+									<select name="cbDistrict" id="cbDistrict" class="form-control">
+										<option value="">Quận Huyện</option>
+										<option value="1">Sơn Trà</option>
+									</select>
+								</div>
+								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
+								<div class="col-8 my-1">
+									<select name="cbWard" id="cbWard" class="form-control">
+										<option value="">Phường Xã</option>
+										<option value="1">An Hải Tây</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group row">
 								<label for="imageBS" class="col-4 col-form-label text-right">Thêm
 									Ảnh :</label>
 								<div class="col-8">
@@ -188,13 +217,56 @@
 											},
 											phoneNumberBs : {
 												required : true,
-												validateVietNamPhone:true
+												validateVietNamPhone : true
 											},
 											contentIntroduceBs : {
+												required : true,
+											},
+											cbProvince : {
+												required : true,
+											},
+											cbDistrict : {
+												required : true,
+											},
+											cbWard : {
 												required : true,
 											}
 										},
 										messages : {
+											inputNamebs : {
+												required : "Vui lòng nhập trường này",
+											},
+											imageBS1 : {
+												required : "Vui lòng nhập trường này",
+											},
+											imageBS2 : {
+												required : "Vui lòng nhập trường này",
+											},
+											imageBS3 : {
+												required : "Vui lòng nhập trường này",
+											},
+											imageBS4 : {
+												required : "Vui lòng nhập trường này",
+											},
+											imageBS5 : {
+												required : "Vui lòng nhập trường này",
+											},
+											phoneNumberBs : {
+												required : "Vui lòng nhập trường này",
+												validateVietNamPhone : true
+											},
+											contentIntroduceBs : {
+												required : "Vui lòng nhập trường này",
+											},
+											cbProvince : {
+												required : "Vui lòng chọn trường này",
+											},
+											cbDistrict : {
+												required : "Vui lòng chọn trường này",
+											},
+											cbWard : {
+												required : "Vui lòng chọn trường này",
+											}
 
 										},
 										errorElement : "em",

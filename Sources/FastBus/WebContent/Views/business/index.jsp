@@ -72,11 +72,13 @@
 											<div class="row no-gutters align-items-center">
 												<div class="col mr-2">
 													<div
-														class="text-xs font-weight-bold text-success text-uppercase mb-1">...</div>
-													<div class="h5 mb-0 font-weight-bold text-gray-800 price">100000</div>
+														class="text-xs font-weight-bold text-success text-uppercase mb-1">Số
+														Lượng Vé Đã Xác Nhận Theo Ngày</div>
+													<div class="h5 mb-0 font-weight-bold text-gray-800">30
+														Vé</div>
 												</div>
 												<div class="col-auto">
-													<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+													<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
 												</div>
 											</div>
 										</div>
@@ -90,19 +92,9 @@
 											<div class="row no-gutters align-items-center">
 												<div class="col mr-2">
 													<div
-														class="text-xs font-weight-bold text-info text-uppercase mb-1">.....</div>
-													<div class="row no-gutters align-items-center">
-														<div class="col-auto">
-															<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-														</div>
-														<div class="col">
-															<div class="progress progress-sm mr-2">
-																<div class="progress-bar bg-info" role="progressbar"
-																	style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-																	aria-valuemax="100"></div>
-															</div>
-														</div>
-													</div>
+														class="text-xs font-weight-bold text-success text-uppercase mb-1">Số
+														Số Lượng Xe Bus</div>
+													<div class="h5 mb-0 font-weight-bold text-gray-800">10 Xe</div>
 												</div>
 												<div class="col-auto">
 													<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -121,7 +113,9 @@
 													<div
 														class="text-xs font-weight-bold text-warning text-uppercase mb-1">Số
 														Lượng Vé Cần Xác Nhận</div>
-													<div class="h5 mb-0 font-weight-bold text-gray-800"><a href="LoadListConfirmTicketBusinessServlet">25</a></div>
+													<div class="h5 mb-0 font-weight-bold text-gray-800">
+														<a href="LoadListConfirmTicketBusinessServlet">25 Vé</a>
+													</div>
 												</div>
 												<div class="col-auto">
 													<i class="fas fa-comments fa-2x text-gray-300"></i>
