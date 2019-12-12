@@ -42,55 +42,66 @@
 					<!-- Page Heading -->
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">Vé xe Đặt Theo ngày</h1>
-					<p class="mb-4">
-						
-					</p>
+					<p class="mb-4"></p>
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
-					<% ChuyenXe trip= (ChuyenXe)request.getAttribute("trip"); %>
+						<%
+							ChuyenXe trip = (ChuyenXe) request.getAttribute("trip");
+						%>
 						<div class="card-header py-3 my-2">
 							<div class="w-100 row">
-							<div class="row" style="display:none;">
-									<label class="col-md-4"><%=trip.getIdTrip() %></label>
+								<div class="row" style="display: none;">
+									<label class="col-md-4"><%=trip.getIdTrip()%></label>
 									<!-- cho cái ID trip vô đây nghe ba -->
-									<input class="col-md-6 form-control w-50" type="text" value="<%=trip.getIdTrip() %>" id="idTrip" >
+									<input class="col-md-6 form-control w-50" type="text"
+										value="<%=trip.getIdTrip()%>" id="idTrip">
 								</div>
 								<div class="col-md-6">
 									<div class="row  mx-auto">
-										<label class="col-md-4">Chọn Ngày</label>
-										<input class="col-md-6 form-control w-50" type="date" value="<%=trip.getStartDate()%>" id="dateChoseShowRevenue" >
+										<label class="col-md-4">Chọn Ngày</label> <input
+											class="col-md-6 form-control w-50" type="date"
+											value="<%=trip.getStartDate()%>"
+											data-date-show="<%=trip.getStartDate()%>"
+											id="dateChoseShowRevenue">
 									</div>
 									<div class="row my-2 mx-auto">
-										<label class="col-md-4">Đi Từ</label>
-										<input class="col-md-6 form-control w-50" type="text" value="<%=trip.getStartPlace() %>" id="startPlace" readonly>
+										<label class="col-md-4">Đi Từ</label> <input
+											class="col-md-6 form-control w-50" type="text"
+											value="<%=trip.getStartPlace()%>" id="startPlace" readonly>
 									</div>
 									<div class="row my-2 mx-auto">
-										<label class="col-md-4">Đến</label>
-										<input class="col-md-6 form-control w-50" type="text" value="<%=trip.getEndPlace()%>" id="endPlace" readonly>
+										<label class="col-md-4">Đến</label> <input
+											class="col-md-6 form-control w-50" type="text"
+											value="<%=trip.getEndPlace()%>" id="endPlace" readonly>
 									</div>
 								</div>
-								
+
 								<div class="col-md-6">
 									<div class="row my-2 mx-auto">
-										<label class="col-md-6">Giờ Chạy</label>
-										<input class="col-md-6 form-control w-50" type="time" value="<%=trip.getStartTime() %>" id="timeDep" readonly>
+										<label class="col-md-6">Giờ Chạy</label> <input
+											class="col-md-6 form-control w-50" type="time"
+											value="<%=trip.getStartTime()%>" id="timeDep" readonly>
 									</div>
-								
+
 									<div class="row my-2 mx-auto">
-										<label class="col-md-6">Số Ghế Đã Được Đặt</label>
-										<input id="numberOfBookingSeat" class="col-md-6 form-control w-50" type="text" readonly>
+										<label class="col-md-6">Số Ghế Đã Được Đặt</label> <input
+											id="numberOfBookingSeat" class="col-md-6 form-control w-50"
+											type="text" readonly>
 									</div>
-									
+
 									<div class="row my-2 mx-auto">
 										<label class="col-md-6">Giá vé</label>
 										<!-- load giá vé vô đây Value=".." -->
-										<input id="priceTrip" class="col-md-6 form-control w-50 price" type="text" value="<%=trip.getPrice() %>" readonly>
+										<input id="priceTrip" class="col-md-6 form-control w-50 price"
+											type="text" value="<%=trip.getPrice()%>" readonly>
 									</div>
 								</div>
 								<!-- ta lấy  giá vé  phía trên xử  lý giá trị ni  -->
 								<div class="row w-50 my-2 mx-auto text-center">
-									<label class="col-md-12">Tổng Danh Thu / Ngày</label>
-									<input id="totalPriceFollowingDate" class="col-md-12 form-control w-50 price text-center" type="text" readonly>
+									<label class="col-md-12">Tổng Danh Thu / Ngày</label> <input
+										id="totalPriceFollowingDate"
+										class="col-md-12 form-control w-50 price text-center"
+										type="text" readonly>
 								</div>
 							</div>
 						</div>
@@ -101,39 +112,45 @@
 									<thead>
 										<tr>
 											<th>Stt</th>
-											<th>Người Đặt vé</th>	
+											<th>Người Đặt vé</th>
 											<th>Ngày Đi</th>
-											<th>Ghế Đã Đặt Đã Trả Tiền</th>	
-											<th>Tổng Giá vé</th>	
-											<th>Hủy vé</th>									
+											<th>Ghế Đã Đặt Đã Trả Tiền</th>
+											<th>Tổng Giá vé</th>
+											<th>Hủy vé</th>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
 											<th>Stt</th>
-											<th>Người Đặt vé</th>	
+											<th>Người Đặt vé</th>
 											<th>Ngày Đi</th>
 											<th>Ghế Đã Đặt Đã Trả Tiền</th>
-											<th>Tổng Giá vé</th>										
-											<th>Hủy vé</th>									
+											<th>Tổng Giá vé</th>
+											<th>Hủy vé</th>
 										</tr>
 									</tfoot>
 									<tbody>
 										<%
-											for(SeatBooking seat : (List<SeatBooking>)request.getAttribute("listSeat")){
+											for (SeatBooking seat : (List<SeatBooking>) request.getAttribute("listSeat")) {
 										%>
 										<tr>
 											<td class="numberTicket"><span class="d-block my-2">1</span></td>
-											<td><span class="d-block my-2"><%=seat.getSeatMail() %></span></td>
-											<td><span class="d-block my-2"><%=seat.getSeatStartDate() %></span></td>
-											<td><span class="d-block my-2"><%=seat.getSeatName() %></span></td>
+											<td><span class="d-block my-2"><%=seat.getSeatMail()%></span></td>
+											<td><span class="d-block my-2"><%=seat.getSeatStartDate()%></span></td>
+											<td><span class="d-block my-2"><%=seat.getSeatName()%></span></td>
 											<!-- Cái  Tổng Giá vé Phía Dưới  ko cần Nhập ta tính trên ni rồi-->
-											<td><span class="d-block my-2 "><input class="form-control border-0 price bg-white total-price" readonly></span></td>										
-											<td><span class="d-block my-2">
-											<a href="#Delete" title="Xóa" data-toggle="modal" data-target="#DeteteTicketWasConfirm" data-id-trip="100"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
-											</span></td>				
+											<td><span class="d-block my-2 "><input
+													class="form-control border-0 price bg-white total-price"
+													readonly></span></td>
+											<td><span class="d-block my-2"> <a href="#Delete"
+													title="Xóa" data-toggle="modal"
+													data-target="#DeteteTicketWasConfirm" data-id-trip="100"><i
+														class="fas fa-trash-alt mx-1 text-danger"></i></a>
+											</span></td>
 										</tr>
-										<%} %>		
+										<%
+											}
+										%>
 									</tbody>
 								</table>
 							</div>
@@ -156,46 +173,62 @@
 	<!-- Scroll to Top Button-->
 
 	<!-- End Scroll to Top Button-->
-
+	<div style="display: none;">
+		<form>
+			<input value="<%=trip.getIdTrip()%>" name="idTrip"> <input
+				id="getStartDate" name="startDate">
+			<button id="submitIfDO" name="btnDetail" value="btnDetail"></button>
+		</form>
+	</div>
 	<!-- Logout Modal-->
 	<%@ include file="common/logoutModal.jsp"%>
 	<!-- end Logout Modal-->
 
 	<!-- add file jquery -->
 	<%@ include file="common/botAdmin.jsp"%>
-	
+
 	<%@ include file="common/deteteTicketWasConfirm.jsp"%>
 </body>
 <script type="text/javascript">
-	$(".total-price").each(function(){
-		console.log($(this).parent())
-		$(this).val(
-			$(this).parent().parent().prev().html().split(", ").length * Number($("#priceTrip").val())
-		);	
-	});
-	
-	function totalPriceFollowingDate(){
-		let sum =0;
-		$(".total-price").each(function(){
-			sum+=Number($(this).val());
+	$("#dateChoseShowRevenue").change(function() {
+		$("#getStartDate").val($(this).val());
+		$("#submitIfDO").click();
+	})
+
+	$(".total-price").each(
+			function() {
+				console.log($(this).parent())
+				$(this)
+						.val(
+								$(this).parent().parent().prev().html().split(
+										", ").length
+										* Number($("#priceTrip").val()));
+			});
+
+	function totalPriceFollowingDate() {
+		let sum = 0;
+		$(".total-price").each(function() {
+			sum += Number($(this).val());
 		});
-		return 	sum;
+		return sum;
 	}
 	$("#numberOfBookingSeat").val(sumSeat());
 
-	function sumSeat(){
+	function sumSeat() {
 		let sum = 0;
-		$(".total-price").each(function(){
-			console.log($(this).parent())		
-				sum+=$(this).parent().parent().prev().html().split(", ").length;
+		$(".total-price").each(function() {
+			console.log($(this).parent())
+			sum += $(this).parent().parent().prev().html().split(", ").length;
 		});
 		return sum;
 	}
 	$("#totalPriceFollowingDate").val(totalPriceFollowingDate());
-	
-	$(".price").each(function(){
-		$(this).val(new Intl.NumberFormat('it-IT',
-    			{ style: 'currency', currency: 'VND' }).format(Number($(this).val())));
+
+	$(".price").each(function() {
+		$(this).val(new Intl.NumberFormat('it-IT', {
+			style : 'currency',
+			currency : 'VND'
+		}).format(Number($(this).val())));
 	});
 </script>
 </html>
