@@ -131,6 +131,7 @@
 									</tfoot>
 									<tbody>
 										<%
+										if(((List<SeatBooking>) request.getAttribute("listSeat")).size() != 0){
 											for (SeatBooking seat : (List<SeatBooking>) request.getAttribute("listSeat")) {
 										%>
 										<tr>
@@ -149,6 +150,7 @@
 											</span></td>
 										</tr>
 										<%
+												}
 											}
 										%>
 									</tbody>

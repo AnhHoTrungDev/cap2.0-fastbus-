@@ -48,10 +48,10 @@ public class LoadListTripBusinessServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		request.getCharacterEncoding();
-		
-		String url="/Views/business/listTripBusiness.jsp";
-		List<ChuyenXe> listChuyen=new ArrayList<ChuyenXe>();
-		String messageInsertTrip="false";
+
+		String url = "/Views/business/listTripBusiness.jsp";
+		List<ChuyenXe> listChuyen = new ArrayList<ChuyenXe>();
+		String messageInsertTrip = "false";
 		HttpSession session = request.getSession();
 		if ("btnAddTrip".equalsIgnoreCase(request.getParameter("btnAddTrip"))) {
 			String startPlace = request.getParameter("cbAddressDepart");
@@ -61,35 +61,37 @@ public class LoadListTripBusinessServlet extends HttpServlet {
 			String price = request.getParameter("inputPrice");
 			String startTime = request.getParameter("inputTimeStart");
 			String endTime = request.getParameter("inputTimeEnd");
-			
-			ChuyenXe startTrip=new ChuyenXe(Integer.parseInt(startBus), startPlace, endPlace, startTime, endTime, price, 1);
-			ChuyenXe endTrip=new ChuyenXe(Integer.parseInt(endBus), endPlace, startPlace, startTime, endTime, price, 1);
+
+			ChuyenXe startTrip = new ChuyenXe(Integer.parseInt(startBus), startPlace, endPlace, startTime, endTime,
+					price, 1);
+			ChuyenXe endTrip = new ChuyenXe(Integer.parseInt(endBus), endPlace, startPlace, startTime, endTime, price,
+					1);
 			listChuyen.add(startTrip);
 			listChuyen.add(endTrip);
-			if(new ChuyenXeBO().InsertListTripBO(listChuyen)!=0) {
-				messageInsertTrip="true";
+			if (new ChuyenXeBO().InsertListTripBO(listChuyen) != 0) {
+				messageInsertTrip = "true";
 			}
-			
+
 			request.setAttribute("messageInsertTrip", messageInsertTrip);
-		}else if("btnEditPrice".equalsIgnoreCase(request.getParameter("btnEditPrice"))){
-			String price=request.getParameter("editPricebs");
-			String idTrip=request.getParameter("getIDForEditPricebs");
-			String message=new ChuyenXeBO().updatePriceByIdTripBO(idTrip,price);
+		} else if ("btnEditPrice".equalsIgnoreCase(request.getParameter("btnEditPrice"))) {
+			String price = request.getParameter("editPricebs");
+			String idTrip = request.getParameter("getIDForEditPricebs");
+			String message = new ChuyenXeBO().updatePriceByIdTripBO(idTrip, price);
 			System.out.println(message);
 			request.setAttribute("updatePriceMessage", message);
 
-		}
-		else if("btnDetail".equalsIgnoreCase(request.getParameter("btnDetail"))) {
-			
-			String idTrip=request.getParameter("idTrip");
-			String startDate=request.getParameter("startDate");
-			if(startDate=="") {
-				startDate=LocalDate.now().toString();
+		} else if ("btnDetail".equalsIgnoreCase(request.getParameter("btnDetail"))) {
+
+			String idTrip = request.getParameter("idTrip");
+			String startDate = request.getParameter("startDate");
+			if (startDate == "") {
+				startDate = LocalDate.now().toString();
 			}
-			List<SeatBooking> listSeat=new SeatBookingBO().getListTicketByTripIdAndDateDAO(idTrip, startDate);
-			request.setAttribute("trip", new ChuyenXeBO().getListTripByIdBO(Integer.parseInt(idTrip), startDate));
+			List<SeatBooking> listSeat = new SeatBookingBO().getListTicketByTripIdAndDateDAO(idTrip, startDate);
+			ChuyenXe trip = new ChuyenXeBO().getListTripByIdBO(Integer.parseInt(idTrip), startDate);
+			request.setAttribute("trip", trip);
 			request.setAttribute("listSeat", listSeat);
-			url="Views/business/detailTripbusiness.jsp";
+			url = "Views/business/detailTripbusiness.jsp";
 		}
 		List<DiaDiem> listPlace = new DiaDiemBO().getListPlaceBO();
 		List<Bus> listBus = new BusBO().getListBusByEmailBusinessBO(session.getAttribute("business_mail").toString());

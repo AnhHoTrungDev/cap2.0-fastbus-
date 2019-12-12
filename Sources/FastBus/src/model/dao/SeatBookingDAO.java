@@ -92,7 +92,7 @@ public class SeatBookingDAO {
 		listSeat = new ArrayList<SeatBooking>();
 
 		String selectSeatBooked = "select seatb_trip_id,seatb_start_date,seatb_user_mail,count(*) as 'total'\r\n"
-				+ "from seatbooking where seatb_user_mail= '" + mail + "' \r\n"
+				+ "from seatbooking where seatb_user_mail= '" + mail + "' and seatb_status=1 \r\n"
 				+ "group by seatb_trip_id,seatb_start_date,seatb_user_mail order by seatb_start_date desc";
 		try {
 			ps = connection.prepareStatement(selectSeatBooked);
@@ -124,7 +124,7 @@ public class SeatBookingDAO {
 		connection = con.getConnect();
 
 		String getList = "select seatb_id, seatb_trip_id, seatb_user_mail, seatb_name, seatb_date, seatb_start_date from seatbooking "
-				+ "where seatb_user_mail=? and seatb_start_date=? and seatb_trip_id=? order by seatb_name asc";
+				+ "where seatb_user_mail=? and seatb_start_date=? and seatb_trip_id=? and seatb_status=1 order by seatb_name asc";
 
 		try {
 			ps = connection.prepareStatement(getList);
@@ -322,7 +322,7 @@ public class SeatBookingDAO {
 		connection = con.getConnect();
 		List<SeatBooking> l = new ArrayList<SeatBooking>();
 		String select = "select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'  \r\n" + 
-				"from seatbooking where seatb_trip_id=? and seatb_start_date=? group by seatb_user_mail,seatb_start_date,seatb_trip_id";
+				"from seatbooking where seatb_trip_id=? and seatb_start_date=? and seatb_status = 1 group by seatb_user_mail,seatb_start_date,seatb_trip_id";
 		try {
 			ps = connection.prepareStatement(select);
 			ps.setInt(1, Integer.parseInt(idTrip));
@@ -346,9 +346,11 @@ public class SeatBookingDAO {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(new SeatBookingDAO().getListTicketByTripIdAndDateDAO("105", "2019/12/03").size());
-		for(SeatBooking seat : new SeatBookingDAO().getListTicketByTripIdAndDateDAO("105", "2019/12/03")) {
-			System.out.println("name: "+seat.getSeatName());
-		}
+//		System.out.println(new SeatBookingDAO().getListTicketByTripIdAndDateDAO("105", "2019/12/13"));
+//		for(SeatBooking seat : new SeatBookingDAO().getListTicketByTripIdAndDateDAO("105", "2019/12/03")) {
+//			System.out.println("name: "+seat.getSeatName());
+//		}
+		System.out.println("2019-12-13");
+		System.out.println(LocalDate.now().toString());
 	}
 }
