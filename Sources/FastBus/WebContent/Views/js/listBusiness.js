@@ -11,7 +11,7 @@
           { style: 'currency',
            currency: 'VND' }).format(Number(parseInt(item.price)))}</td>
 
-          <td class="text-center"><a href="${window.location.origin+"/FastBus/SeatBookingServlet"+"?idTrip="+item.idTrip}" id="${item.idTrip}">Đặt vé</a></td>
+          <td class="text-center"><a href="${window.location.origin+"/FastBus/SeatBookingServlet"+"?idTrip="+item.idTrip+"&startTime="+item.startTime}" id="${item.idTrip}">Đặt vé</a></td>
           </tr>
           `
           ).join("");

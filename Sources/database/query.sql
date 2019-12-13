@@ -164,7 +164,7 @@ inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmai
 select COUNT(*) as 'total' from bus b
 inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
 
-select COUNT(*) from seatbooking s
+select COUNT(*) as 'total' from seatbooking s
 inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()
-inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1
+inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=0
 inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
