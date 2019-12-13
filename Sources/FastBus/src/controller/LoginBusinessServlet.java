@@ -38,7 +38,7 @@ public class LoginBusinessServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String url="/Views/business/loginBusiness.jsp";
 		if ((String)session.getAttribute("business_mail") != null) {
-			url="/Views/business/index.jsp";
+			url="LoadDashboardServlet";
 		}
 		
 		if ("btnBusinessLogin".equalsIgnoreCase(request.getParameter("businessLogin"))) {
@@ -52,7 +52,7 @@ public class LoginBusinessServlet extends HttpServlet {
 				business = new BusinessBO().getBusinessByMail(email);
 				if(business!=null) {
 					message = "true";
-					url="/Views/business/index.jsp";
+					url="LoadDashboardServlet";
 					
 					session.setAttribute("idBusiness", business.getIdBusiness());
 					session.setAttribute("business_mail", business.getMail());

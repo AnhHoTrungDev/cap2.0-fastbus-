@@ -169,7 +169,7 @@
 								<td scope="col"><%=trip.getStartTime() %></td>
 								<td class="curency-table"><%=trip.getPrice()%></td>
 								<td>
-									<a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>" class="check-login"> 
+									<a href="SeatBookingServlet?idTrip=<%= trip.getIdTrip() %>&startTime=<%=trip.getStartTime() %>" class="check-login"> 
 									<i class="fa fa-ticket" aria-hidden="true" height="22" width="22"></i> Đặt vé
 									</a>
 								</td>

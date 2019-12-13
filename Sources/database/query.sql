@@ -149,3 +149,22 @@ select trip_id, trip_bus_id,trip_status from   where trip_start_place in(select 
 select seatb_id,seatb_name,seatb_status from seatbooking where seatb_trip_id=105 and seatb_name in ('A6','A5') and seatb_start_date='2019-12-03'
 
 update trip set trip_price=10000 where trip_id=105
+select * from business
+select  t.trip_id,(COUNT(*)*t.trip_price) from seatbooking s 
+inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date>=getdate()
+inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1
+inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
+group by t.trip_id, t.trip_price
+
+select COUNT(*) from seatbooking s
+inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date='2019-12-03'
+inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1
+inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
+
+select COUNT(*) as 'total' from bus b
+inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
+
+select COUNT(*) from seatbooking s
+inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()
+inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1
+inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'

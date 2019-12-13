@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -46,10 +47,15 @@ public class SeatBookingServlet extends HttpServlet {
 		int idTrip = Integer.parseInt(request.getParameter("idTrip"));
 		String startDate = "";
 		startDate = request.getParameter("ngayKH");
-		System.out.println(startDate);
-		System.out.println(LocalDate.now());
+
+		System.out.println(LocalTime.now().toString());
 		if (startDate == null) {
 			startDate = (LocalDate.now()).toString();
+			LocalTime startTime= LocalTime.parse(request.getParameter("startTime"));
+			if(startTime.compareTo(LocalTime.now())<=0) {
+				startDate = (LocalDate.now().plusDays(1)).toString();
+			}
+			
 		} else {
 
 			LocalDate start = LocalDate.parse(startDate.substring(6, 10)+"-"+startDate.substring(0, 2)+"-"+startDate.substring(3, 5));
@@ -57,6 +63,7 @@ public class SeatBookingServlet extends HttpServlet {
 			System.out.println(startDate);
 		}
 		ChuyenXe Trip = new ChuyenXeBO().getListTripByIdBO(idTrip, startDate);
+		
 		int idBusiness = Trip.getIdBusiness();
 
 		List<PickupPlace> listPickPlace = new ChuyenXeBO().getListPickUpPlaceBO(idBusiness);

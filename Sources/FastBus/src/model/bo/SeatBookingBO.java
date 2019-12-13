@@ -45,4 +45,21 @@ public class SeatBookingBO {
 	public List<SeatBooking> getListTicketByTripIdAndDateDAO(String idTrip,String startDate){
 		return new SeatBookingDAO().getListTicketByTripIdAndDateDAO(idTrip, startDate);
 	}
+
+	public float getListTotalPrice(String  email) {
+		// TODO Auto-generated method stub
+		return new SeatBookingDAO().getListTotalPrice(email);
+	}
+
+	public int getTotalSeatInDate(String email) {
+		return new SeatBookingDAO().getTotalSeatInDate(email);
+	}
+
+	public int getTotalBus(String email) {
+		return new SeatBookingDAO().getTotalBus(email);
+	}
+
+	public int gettotalSeatIsApproving(String email) {
+		return new SeatBookingDAO().gettotalSeatIsApproving(email);
+	}
 }

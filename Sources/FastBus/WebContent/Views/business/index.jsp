@@ -55,7 +55,7 @@
 													<div
 														class="text-xs font-weight-bold text-primary text-uppercase mb-1">Tổng
 														Danh Thu</div>
-													<div class="h5 mb-0 font-weight-bold text-gray-800 price">100000</div>
+													<div class="h5 mb-0 font-weight-bold text-gray-800 price"><%=request.getAttribute("totalPrice").toString() %></div>
 												</div>
 												<div class="col-auto">
 													<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -72,9 +72,8 @@
 											<div class="row no-gutters align-items-center">
 												<div class="col mr-2">
 													<div
-														class="text-xs font-weight-bold text-success text-uppercase mb-1">Số
-														Lượng Vé Đã Xác Nhận Theo Ngày</div>
-													<div class="h5 mb-0 font-weight-bold text-gray-800">30
+														class="text-xs font-weight-bold text-success text-uppercase mb-1">Vé Đã Đặt Theo Ngày</div>
+													<div class="h5 mb-0 font-weight-bold text-gray-800"><%=request.getAttribute("totalSeat").toString() %>
 														Vé</div>
 												</div>
 												<div class="col-auto">
@@ -94,7 +93,7 @@
 													<div
 														class="text-xs font-weight-bold text-success text-uppercase mb-1">Số
 														Số Lượng Xe Bus</div>
-													<div class="h5 mb-0 font-weight-bold text-gray-800">10 Xe</div>
+													<div class="h5 mb-0 font-weight-bold text-gray-800"><%=request.getAttribute("totalBus").toString() %> Xe</div>
 												</div>
 												<div class="col-auto">
 													<i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -111,10 +110,9 @@
 											<div class="row no-gutters align-items-center">
 												<div class="col mr-2">
 													<div
-														class="text-xs font-weight-bold text-warning text-uppercase mb-1">Số
-														Lượng Vé Cần Xác Nhận</div>
+														class="text-xs font-weight-bold text-warning text-uppercase mb-1">	Vé Cần Xác Nhận</div>
 													<div class="h5 mb-0 font-weight-bold text-gray-800">
-														<a href="LoadListConfirmTicketBusinessServlet">25 Vé</a>
+														<a href="LoadListConfirmTicketBusinessServlet"><%=request.getAttribute("totalSeatIsApproving").toString() %> Vé</a>
 													</div>
 												</div>
 												<div class="col-auto">

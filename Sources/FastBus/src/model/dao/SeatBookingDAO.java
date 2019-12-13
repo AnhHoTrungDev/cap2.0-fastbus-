@@ -224,7 +224,8 @@ public class SeatBookingDAO {
 			while (rs.next()) {
 				SeatBooking getListSeat = new SeatBooking(rs.getInt("seatb_id"), rs.getInt("seatb_trip_id"), mail,
 						rs.getString("seatb_name"), rs.getString("seatb_date"), rs.getString("seatb_start_date"),
-						totalSeat, rs.getString(5), rs.getString(4), rs.getString("acc_name"),rs.getString("trip_price"));
+						totalSeat, rs.getString(5), rs.getString(4), rs.getString("acc_name"),
+						rs.getString("trip_price"));
 				listSeat.add(getListSeat);
 			}
 		} catch (SQLException e) {
@@ -245,24 +246,25 @@ public class SeatBookingDAO {
 					continue;
 				}
 			}
-			seat = new SeatBooking(list.getSeatBooking(), list.getTripId(), list.getSeatMail(), name.substring(0,name.length()-2),
-					list.getSeatDate(), list.getSeatStartDate(), totalSeat, list.getEndPlace(), 
-					list.getStartPlace(),list.getUserName(),list.getPrice());
+			seat = new SeatBooking(list.getSeatBooking(), list.getTripId(), list.getSeatMail(),
+					name.substring(0, name.length() - 2), list.getSeatDate(), list.getSeatStartDate(), totalSeat,
+					list.getEndPlace(), list.getStartPlace(), list.getUserName(), list.getPrice());
 		}
 
 		return seat;
 
 	}
-	
-	public String approvedListSeatBookingDAO(String idTrip,String dateStart, String seat) {
+
+	public String approvedListSeatBookingDAO(String idTrip, String dateStart, String seat) {
 		// TODO Auto-generated method stub
-		String s="'";
+		String s = "'";
 		for (String aSeat : seat.split(",")) {
-			
-			s+=aSeat+"','";
+
+			s += aSeat + "','";
 		}
 		String updateSeat = "select seatb_id,seatb_name,seatb_status from seatbooking "
-				+ "where seatb_trip_id=? and seatb_name in ("+s.substring(0,s.length()-2)+") and seatb_start_date=?";
+				+ "where seatb_trip_id=? and seatb_name in (" + s.substring(0, s.length() - 2)
+				+ ") and seatb_start_date=?";
 		connection = con.getConnect();
 		String check = "Cập Nhật Thất Bại";
 		try {
@@ -270,13 +272,12 @@ public class SeatBookingDAO {
 			ps.setInt(1, Integer.parseInt(idTrip));
 			ps.setString(2, dateStart);
 			rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				rs.updateInt("seatb_status", 1);
 				rs.updateRow();
 				check = "Cập Nhật Thành Công";
 			}
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -289,44 +290,44 @@ public class SeatBookingDAO {
 
 	public String deleteListSeatBookingDAO(String idTrip, String dateStart, String seat) {
 		// TODO Auto-generated method stub
-				String s="'";
-				for (String aSeat : seat.split(",")) {
-					
-					s+=aSeat+"','";
-				}
-				String updateSeat = "select seatb_id,seatb_name,seatb_status from seatbooking "
-						+ "where seatb_trip_id=? and seatb_name in ("+s.substring(0,s.length()-2)+") and seatb_start_date=?";
-				connection = con.getConnect();
-				String check = "Xóa Thất Bại";
-				try {
-					ps = connection.prepareStatement(updateSeat, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-					ps.setInt(1, Integer.parseInt(idTrip));
-					ps.setString(2, dateStart);
-					rs = ps.executeQuery();
-					while(rs.next()) {
-						rs.deleteRow();
-						check = "Xóa Thành Công";
-					}
-					
-					
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				return check;
+		String s = "'";
+		for (String aSeat : seat.split(",")) {
+
+			s += aSeat + "','";
+		}
+		String updateSeat = "select seatb_id,seatb_name,seatb_status from seatbooking "
+				+ "where seatb_trip_id=? and seatb_name in (" + s.substring(0, s.length() - 2)
+				+ ") and seatb_start_date=?";
+		connection = con.getConnect();
+		String check = "Xóa Thất Bại";
+		try {
+			ps = connection.prepareStatement(updateSeat, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			ps.setInt(1, Integer.parseInt(idTrip));
+			ps.setString(2, dateStart);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				rs.deleteRow();
+				check = "Xóa Thành Công";
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return check;
 	}
-	
-	public List<SeatBooking> getListTicketByTripIdAndDateDAO(String idTrip,String startDate) {
+
+	public List<SeatBooking> getListTicketByTripIdAndDateDAO(String idTrip, String startDate) {
 
 		listSeat = new ArrayList<SeatBooking>();
 		connection = con.getConnect();
 		List<SeatBooking> l = new ArrayList<SeatBooking>();
-		String select = "select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'  \r\n" + 
-				"from seatbooking where seatb_trip_id=? and seatb_start_date=? and seatb_status = 1 group by seatb_user_mail,seatb_start_date,seatb_trip_id";
+		String select = "select seatb_trip_id,seatb_start_date,seatb_user_mail, count(*) as 'total'  \r\n"
+				+ "from seatbooking where seatb_trip_id=? and seatb_start_date=? and seatb_status = 1 group by seatb_user_mail,seatb_start_date,seatb_trip_id";
 		try {
 			ps = connection.prepareStatement(select);
 			ps.setInt(1, Integer.parseInt(idTrip));
-			ps.setString(2,startDate);
+			ps.setString(2, startDate);
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -344,13 +345,103 @@ public class SeatBookingDAO {
 		}
 		return l;
 	}
-	
-	public static void main(String[] args) {
-//		System.out.println(new SeatBookingDAO().getListTicketByTripIdAndDateDAO("105", "2019/12/13"));
-//		for(SeatBooking seat : new SeatBookingDAO().getListTicketByTripIdAndDateDAO("105", "2019/12/03")) {
-//			System.out.println("name: "+seat.getSeatName());
-//		}
-		System.out.println("2019-12-13");
-		System.out.println(LocalDate.now().toString());
+
+	public float getListTotalPrice(String email) {
+		// TODO Auto-generated method stub
+		listSeat = new ArrayList<SeatBooking>();
+		connection = con.getConnect();
+
+		float totalPrice = 0;
+		String select = "select  t.trip_id,(COUNT(*)*t.trip_price) as 'total' from seatbooking s \r\n"
+				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date>=getdate()\r\n"
+				+ "inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1\r\n"
+				+ "inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=? \r\n"
+				+ "group by t.trip_id, t.trip_price";
+		try {
+			ps = connection.prepareStatement(select);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				SeatBooking seat = new SeatBooking(rs.getInt("trip_id"), rs.getString("total"));
+				listSeat.add(seat);
+				for (SeatBooking s : listSeat) {
+					totalPrice += Float.parseFloat(s.getPrice());
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return totalPrice;
+	}
+
+	public int getTotalSeatInDate(String email) {
+		// TODO Auto-generated method stub
+		connection = con.getConnect();
+
+		int totalSeat = 0;
+		String select = "select COUNT(*) as 'total' from seatbooking s\r\n"
+				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date= getdate() \r\n"
+				+ "inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1\r\n"
+				+ "inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=? ";
+		try {
+			ps = connection.prepareStatement(select);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				totalSeat = rs.getInt("total");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return totalSeat;
+	}
+
+	public int getTotalBus(String email) {
+		// TODO Auto-generated method stub
+		connection = con.getConnect();
+
+		int totalBus = 0;
+		String select = "select COUNT(*) as 'total' from bus b\r\n"
+				+ "inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=? ";
+		try {
+			ps = connection.prepareStatement(select);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				totalBus = rs.getInt("total");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return totalBus;
+	}
+
+	public int gettotalSeatIsApproving(String email) {
+		// TODO Auto-generated method stub
+		connection = con.getConnect();
+		int totalSeat = 0;
+		String select = "select COUNT(*) as 'total' from seatbooking s\r\n" + 
+				"inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()\r\n" + 
+				"inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=0\r\n" + 
+				"inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=?";
+		try {
+			ps = connection.prepareStatement(select);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				totalSeat = rs.getInt("total");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return totalSeat;
 	}
 }
