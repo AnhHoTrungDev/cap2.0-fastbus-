@@ -39,7 +39,7 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
           <div class="col-md-8">
-            <form action="UserInformationServlet" method="post">
+            <form action="UserInformationServlet" method="post" id="updatePasswordUsers">
               <h1 class="text-center m-3 text-primary">Đổi Mật Khẩu</h1>
               <div class="col-sm-12">
                 <div class="form-group">
@@ -111,6 +111,51 @@ pageEncoding="UTF-8"%>
     	console.log(<%=(String)request.getAttribute("messageUpdatePass") %>)
     	showMessChangeFail(<%=(String)request.getAttribute("messageUpdatePass") %>,"Thay Đổi Mật Khẩu Thất Bại"); 
 	  });
+    $("document").ready(function(){
+    	$("form#updatePasswordUsers").validate({
+    		rules:{
+    			inputPresentPassword:{
+    				required:true,
+    				minlength:6
+    			},
+    			password:{
+    				required:true,
+    				minlength:6
+    			},
+    			confirmPassword:{
+    				required:true,
+    				minlength:6,
+    				equalTo:"#inputPassword"
+    			}
+    		},
+    		messages:{
+    			inputPresentPassword:{
+    				required:"Vui Lòng Nhập Trường Này",
+    				minlength:"Có Ít Nhất 6 Ký Tự"
+    			},
+    			password:{
+    				required:"Vui Lòng Nhập Trường Này",
+    				minlength:"Có Ít Nhất 6 Ký Tự"
+    			},
+    			confirmPassword:{
+    				required:"Vui Lòng Nhập Trường Này",
+    				minlength:"Có Ít Nhất 6 Ký Tự",
+    				equalTo:"Không Trùng Với Passwork Đã Nhập"
+    			}
+    		},
+    		errorElement : "em",
+			highlight : function(element,
+					errorClass) {
+				$(element).addClass("is-invalid")
+						.removeClass("is-valid");
+			},
+			unhighlight : function(element,
+					errorClass) {
+				$(element).addClass("is-valid")
+						.removeClass("is-invalid");
+			}
+    	});
+    });
     </script>
   </body>
 </html>

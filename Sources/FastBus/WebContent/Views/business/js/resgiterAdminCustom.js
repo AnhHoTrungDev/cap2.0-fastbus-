@@ -41,7 +41,7 @@ $(document).ready(() => {
           `<option value="${e.idDistrict}">${e.nameDistrict}</option>`
       )
 	  .join("");
-	  let option1 = `<option>Quận / Huyện</option>`
+	  let option1 = `<option value="">Quận / Huyện</option>`
 		  
     $("#cbDistrict").append(option1+newData);
     $("#cbDistrict").change();
@@ -57,7 +57,7 @@ $(document).ready(() => {
       )
 	  .join("");
 
-	  let option1 = `<option>Phường / Xã</option>`
+	  let option1 = `<option value="">Phường / Xã</option>`
 	  
     $("#cbWard").append(option1+newData);
   };
