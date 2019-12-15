@@ -38,7 +38,7 @@
 
 					<!-- Page Heading -->
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Quản Lý Bus</h1>
+					<h1 class="h3 mb-2 text-gray-800">Quản Lý Điểm Đón</h1>
 					<p class="mb-4"></p>
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">

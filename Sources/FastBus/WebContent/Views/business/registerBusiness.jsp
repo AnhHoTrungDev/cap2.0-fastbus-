@@ -53,7 +53,7 @@
                       Tạo Tài Khoản Business
                     </h1>
                   </div>
-                  <form class="user">
+                  <form class="user" action="RegisterBusunessServlet" method="post" id="registerBs">
                     <div class="form-group">
                       <input
                         type="text"
@@ -189,6 +189,125 @@
 	 	     $($(this).data('select2').$container).children().children().addClass('border-0');
 	 	     $($(this).data('select2').$container).addClass('form-control');
 	    });
+	     $($("[name='cbCity']").data('select2').$container).children().children().blur(function(){	    	
+ 	    	if($("[name='cbCity']").valid()){
+ 	    		$(this).parent().parent().addClass("is-valid").removeClass("is-invalid");
+ 	    	}else{
+ 	    		$(this).parent().parent().addClass("is-invalid").removeClass("is-valid");
+ 	    	}
+ 	    	$($("[name='cbDistrict']").data('select2').$container).children().children().blur();
+ 	    	$($("[name='cbWard']").data('select2').$container).children().children().blur();
+ 	    });
+	     $($("[name='cbDistrict']").data('select2').$container).children().children().blur(function(){	    	
+	 	    	if($("[name='cbDistrict']").valid()){
+	 	    		$(this).parent().parent().addClass("is-valid").removeClass("is-invalid");
+	 	    	}else{
+	 	    		$(this).parent().parent().addClass("is-invalid").removeClass("is-valid");
+	 	    	}
+	 	    	$($("[name='cbWard']").data('select2').$container).children().children().blur();
+	 	    });
+	     $($("[name='cbWard']").data('select2').$container).children().children().blur(function(){	    	
+	 	    	if($("[name='cbWard']").valid()){
+	 	    		$(this).parent().parent().addClass("is-valid").removeClass("is-invalid");
+	 	    	}else{
+	 	    		$(this).parent().parent().addClass("is-invalid").removeClass("is-valid");
+	 	    	}
+	 	    });
+	     
+	    $("#registerBs").validate({
+	    	rules:{
+	    		businessName:{
+	    			required:true
+	    		},
+	    		emailAddress:{
+	    			required:true,
+	    			email : true
+	    		},
+	    		phone:{
+	    			required:true,
+	    			validateVietNamPhone:true
+	    		},
+	    		inputPassword:{
+	    			required:true,
+	    			minlength: 6
+	    		},
+	    		inputRepeatPassword:{
+	    			required:true,
+	    			equalTo:"#inputPassword",
+	    			minlength: 6
+	    		},
+	    		cbCity:{
+	    			required:true,
+	    		},
+	    		cbDistrict:{
+	    			required:true,
+	    		},
+	    		cbWard:{
+	    			required:true
+	    		},
+	    		addressDeail:{
+	    			required:true
+	    		}
+	    	},
+	    	messages:{
+	    		businessName:{
+	    			required:"Vui Lòng Nhập Trường Này"
+	    		},
+	    		emailAddress:{
+	    			required:"Vui Lòng Nhập Trường Này",
+	    			email:"Kiểm  tra xem có theo vd EX@gmail.com"
+	    		},
+	    		phone:{
+	    			required:"Vui Lòng Nhập Trường Này",
+	    		},
+	    		inputPassword:{
+	    			required:"Vui Lòng Nhập Trường Này",
+	    			minlength:"Có Ít Nhất 6 ký Tự"
+	    		},
+	    		inputRepeatPassword:{
+	    			required:"Vui Lòng Nhập Trường Này",
+	    			equalTo:"Không Đúng Với Password Đã Nhập",
+	    			minlength:"Có Ít Nhất 6 ký Tự"
+	    		},
+	    		cbCity:{
+	    			required:"Vui Lòng Chọn Trường Này 1"
+	    		},
+	    		cbDistrict:{
+	    			required:"Vui Lòng Chọn Trường Này 2"
+	    		},
+	    		cbWard:{
+	    			required:"Vui Lòng Chọn Trường Này 3"
+	    		},
+	    		addressDeail:{
+	    			required:"Vui Lòng Nhập Trường Này"
+	    		}
+	    	},
+	    	errorElement : "em",
+			highlight : function(element,
+					errorClass) {
+				$(element).addClass("is-invalid")
+						.removeClass("is-valid");
+			},
+			unhighlight : function(element,
+					errorClass) {
+				$(element).addClass("is-valid")
+						.removeClass("is-invalid");
+			},
+	    });
+	 // validate số điện thoại
+		$.validator
+				.addMethod(
+						"validateVietNamPhone",
+						function(value, element) {
+							return (this.optional(element) || /^(09|03|04|07|08|05)([0-9]{8})$/
+									.test(value));
+						}, "Đây không phải số điện thoại Việt nam  Ex:0905 XXX XXX");
+
+	 $("[name='btnRegister']").click(function(){
+		 $($("[name='cbCity']").data('select2').$container).children().children().blur();
+		 $($("[name='cbDistrict']").data('select2').$container).children().children().blur();
+	     $($("[name='cbWard']").data('select2').$container).children().children().blur(); 
+	 });
 	});
 	
 </script>

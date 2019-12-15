@@ -24,8 +24,10 @@ pageEncoding="UTF-8"%>
       style="-webkit-box-shadow: 0px 10px 13px 4px rgba(0,0,0,0.44); 
       box-shadow: 0px 10px 13px 4px rgba(0,0,0,0.44);"
       >
-      <div class="col-md-12">
-        <h1 class="text-center m-3 text-primary">Thông Tin Users </h1>
+      <div class="col-md-12 ">
+        <div class="col-md-6 ml-auto">
+        	<h1 class="mx-auto m-3 text-primary">Thông Tin Users </h1>
+        </div>
       </div>
       <div class="col-md-4">
         <div class="my-5 mx-auto w-75 text-center">
@@ -43,7 +45,7 @@ pageEncoding="UTF-8"%>
       </div>
 
           <div class="col-md-8">
-           <form id="UserInformationServlet" method="post">
+           <form action="UserInformationServlet" method="post" id="userInformation">
            <% 
            		User user= (User)request.getAttribute("user");
            		String messageUpdatePass= (String)request.getAttribute("messageUpdatePass");
@@ -145,6 +147,55 @@ pageEncoding="UTF-8"%>
 	  showMessChangeSus(<%= (String)request.getAttribute("messageUpdateUser") %>,"Cập Nhật Thông Tin Thành Công ");
   });
   console.log(<%=(String)request.getAttribute("messageUpdateUser") %>);
+  $("document").ready(function(){
+	  $("form#userInformation").validate({
+		  rules:{
+			  fullName:{
+				  required:true 
+			  },
+			  inputUpdatePhone:{
+				  required:true,
+				  validateVietNamPhone:true
+			  },
+			  inputUpdateAddress:{
+				  required:true
+			  }
+			  
+		  },
+		  messages:{
+			  fullName:{
+				  required:"Vui Lòng Nhập Trường Này" 
+			  },
+			  inputUpdatePhone:{
+				  required:"Vui Lòng Nhập Trường Này" 
+				  
+			  },
+			  inputUpdateAddress:{
+				  required:"Vui Lòng Nhập Trường Này" 
+			  }
+		  },
+			errorElement : "em",
+			highlight : function(element,
+					errorClass) {
+				$(element).addClass("is-invalid")
+						.removeClass("is-valid");
+			},
+			unhighlight : function(element,
+					errorClass) {
+				$(element).addClass("is-valid")
+						.removeClass("is-invalid");
+			}
+			
+	  });
+	// validate số điện thoại
+		$.validator
+				.addMethod(
+						"validateVietNamPhone",
+						function(value, element) {
+							return (this.optional(element) || /^(09|03|04|07|08|05)([0-9]{8})$/
+									.test(value));
+						}, "Đây không phải số điện thoại Việt nam ");
+  });
 </script>
 </body>
 </html>
