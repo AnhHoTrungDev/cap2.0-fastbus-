@@ -73,19 +73,17 @@ public class BusinessProfileServlet extends HttpServlet {
 			String img3=request.getPart("imageBS3").getSubmittedFileName().toString();
 			String img4=request.getPart("imageBS4").getSubmittedFileName().toString();
 			String img5=request.getPart("imageBS5").getSubmittedFileName().toString();
-			String img6=request.getPart("imageBS5").getHeaderNames().toString();
-			System.out.println(img6);
 			business=new Business(Integer.parseInt(idBusiness), email, phone, name, address, idWard, idDistrict, idProvince, description);
 
 			// upload image from user folder to web folder
-			String applicationPath = "..\\Views\\images\\";
-			String uploadFilePath = applicationPath + "";
+			String path="/Fastbus";
 			for (Part part : request.getParts()) {
-			      String fileName = new ImageBO().extractFileName(part);
+			      String fileName = extractFileName(part);
 			      // refines the fileName in case it is an absolute path
-			      fileName = new File("WEB-INF/"+fileName).getName();;
-			      part.write(uploadFilePath+fileName);
-			      System.out.println(uploadFilePath+fileName);
+			      if(fileName!=null) {
+			    	  fileName = new File("WEB-INF/"+fileName).getName();
+				      part.write(this.getFolderUpload(path).getAbsolutePath() + File.separator + fileName);
+			      }
 			    }
 	        // end upload			
 	          
@@ -120,5 +118,28 @@ public class BusinessProfileServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	
+	/**
+	   * Extracts file name from HTTP header content-disposition
+	   */
+	  private String extractFileName(Part part) {
+	    String contentDisp = part.getHeader("content-disposition");
+	    String[] items = contentDisp.split(";");
+	    for (String s : items) {
+	      if (s.trim().startsWith("filename")) {
+	        return s.substring(s.indexOf("=") + 2, s.length() - 1);
+	      }
+	    }
+	    return "";
+	  }
+	  public File getFolderUpload(String path) {
+	    File folderUpload = new File("C:/Users/QUOCLH/Desktop/GIT/cap2.0-fastbus-/Sources/FastBus/WebContent/Views/images");
+	    if (!folderUpload.exists()) {
+	      folderUpload.mkdirs();
+	    }
+	    return folderUpload;
+	  }
+
 
 }
