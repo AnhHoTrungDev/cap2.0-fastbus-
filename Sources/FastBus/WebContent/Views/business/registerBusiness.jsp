@@ -106,6 +106,7 @@
                         <option value="">Tỉnh / Thành Phố</option>
                         <%
                         	for(Province pro : (List<Province>)request.getAttribute("listProvinces")){
+                        		
                         %>
                         <option value="<%=pro.getIdProvince()%>"><%=pro.getNameProvince() %></option>
                         <%} %>

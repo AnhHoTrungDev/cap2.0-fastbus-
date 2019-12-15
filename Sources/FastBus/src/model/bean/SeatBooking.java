@@ -28,6 +28,7 @@ public class SeatBooking {
 	private String endPlace;
 	private String startPlace;
 	private String userName;
+	private String month;
 
 	public int getSeatBooking() {
 		return seatBooking;
@@ -125,6 +126,16 @@ public class SeatBooking {
 		this.price = price;
 	}
 
+	
+	
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
 	public SeatBooking(int seatBooking, int tripId, String seatMail, String seatName, String seatDate,
 			String seatStartDate) {
 		super();
@@ -196,7 +207,11 @@ public class SeatBooking {
 		this.startPlace = startPlace;
 		this.userName = userName;
 		this.price = price;
-
 	}
-
+	public SeatBooking(String month, String price) {
+		super();
+		this.month = month;
+		this.price=price;
+	}
+	
 }

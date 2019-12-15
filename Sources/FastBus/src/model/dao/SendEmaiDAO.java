@@ -222,7 +222,7 @@ public class SendEmaiDAO {
 					"          class='m_-4608350779455020207h1m'\r\n" + 
 					"          style='font-size:22px;line-height:28px;letter-spacing:-.20px;margin:10px 0 16px 0;font-family:Helvetica Neue,Arial,sans-serif;color:#2493e0;text-align:left'\r\n" + 
 					"          >\r\n" + 
-					"          Xác Nhận Đặt chổ\r\n" + 
+					"          Xác Nhận Đặt chỗ\r\n" + 
 					"        </h1>\r\n" + 
 					"      </td>\r\n" + 
 					"    </tr>\r\n" + 

@@ -62,4 +62,7 @@ public class SeatBookingBO {
 	public int gettotalSeatIsApproving(String email) {
 		return new SeatBookingDAO().gettotalSeatIsApproving(email);
 	}
+	public List<SeatBooking> getListPriceByMonth(String email) {
+		return new SeatBookingDAO().getListPriceByMonth(email);
+	}
 }

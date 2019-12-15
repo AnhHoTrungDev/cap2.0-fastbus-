@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jersey-servlet-1.19.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mssql-jdbc-7.2.2.jre8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/QUOCLH/Desktop/java_evm/apache-tomcat-8.5.32"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

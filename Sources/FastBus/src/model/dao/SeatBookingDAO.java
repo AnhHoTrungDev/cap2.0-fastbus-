@@ -22,6 +22,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.bean.Business;
 import model.bean.ChuyenXe;
 import model.bean.SeatBooking;
 
@@ -426,10 +427,10 @@ public class SeatBookingDAO {
 		// TODO Auto-generated method stub
 		connection = con.getConnect();
 		int totalSeat = 0;
-		String select = "select COUNT(*) as 'total' from seatbooking s\r\n" + 
-				"inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()\r\n" + 
-				"inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=0\r\n" + 
-				"inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=?";
+		String select = "select COUNT(*) as 'total' from seatbooking s\r\n"
+				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()\r\n"
+				+ "inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=0\r\n"
+				+ "inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=?";
 		try {
 			ps = connection.prepareStatement(select);
 			ps.setString(1, email);
@@ -443,5 +444,59 @@ public class SeatBookingDAO {
 			e.printStackTrace();
 		}
 		return totalSeat;
+	}
+
+	public List<SeatBooking> getListPriceByMonth(String email) {
+		connection = con.getConnect();
+		listSeat = new ArrayList<SeatBooking>();
+		String totalSeat = "";
+		String select = "select  MONTH(s.seatb_start_date)as month,(COUNT(*)*t.trip_price) as 'total' from seatbooking s \r\n"
+				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()\r\n"
+				+ "inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1\r\n"
+				+ "inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=?\r\n"
+				+ "group by MONTH(s.seatb_start_date), t.trip_price";
+		try {
+			ps = connection.prepareStatement(select);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				SeatBooking s = new SeatBooking(rs.getString("month"), rs.getString("total"));
+				listSeat.add(s);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String month = "";
+		List<SeatBooking> list = new ArrayList<SeatBooking>();
+		for (SeatBooking s : listSeat) {
+			float price = 0;
+			if (month.equals(s.getMonth())) {
+				continue;
+			} else {
+				month=s.getMonth();
+				for (SeatBooking s1 : listSeat) {
+					
+					if (s.getMonth().equalsIgnoreCase(s1.getMonth())) {
+						price += Float.parseFloat(s1.getPrice());
+					} else {
+						continue;
+					}
+				}
+				SeatBooking seat = new SeatBooking(s.getMonth(), Float.toString(price));
+				list.add(seat);
+			}
+		}
+		return list;
+
+	}
+
+	public static void main(String[] args) {
+		for (SeatBooking s : new SeatBookingDAO().getListPriceByMonth("mailinh@gmail.com.vn")) {
+			System.out.println(s.getMonth());
+			System.out.println(s.getPrice());
+		}
 	}
 }

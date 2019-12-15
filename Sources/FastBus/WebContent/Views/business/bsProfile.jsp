@@ -1,3 +1,8 @@
+<%@page import="model.bean.Ward"%>
+<%@page import="model.bean.District"%>
+<%@page import="java.util.List"%>
+<%@page import="model.bean.Province"%>
+<%@page import="model.bean.Business"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,13 +37,15 @@
 				<!-- Topbar -->
 				<%@ include file="common/topAdminBarSideBar.jsp"%>
 				<!-- End of Topbar -->
-
+				<%
+					Business business= (Business)request.getAttribute("business");
+				%>
 				<!-- Begin Page Content -->
 				<div class="container-fluid shadow p-3">
 					<div class="w-100 text-center text-primary my-3">
 						<h3>Cập nhập Thông Tin</h3>
 					</div>
-					<form action="" id="profileBs">
+					<form action="BusinessProfileServlet" id="profileBs" enctype='multipart/form-data' method="post" >
 						<div class="col-10">
 							<div class="form-group row">
 								<label for="inputNamebs" class="col-4 col-form-label text-right">Tên
@@ -46,7 +53,7 @@
 								<div class="col-8">
 									<input id="inputNamebs" name="inputNamebs"
 										placeholder="Name Doanh Nghiệp" class="form-control here"
-										type="text">
+										type="text" value="<%=business.getName()%>" />
 								</div>
 							</div>
 							<div class="form-group row">
@@ -54,7 +61,7 @@
 								</label>
 								<div class="col-8">
 									<input id="gmailBs" class="form-control here" type="text"
-										readonly value="">
+										readonly name="gmailBs" value="<%=business.getMail()%>" >
 								</div>
 							</div>
 							<div class="form-group row">
@@ -63,7 +70,7 @@
 								<div class="col-8">
 									<input id="phoneNumberBs" name="phoneNumberBs"
 										placeholder="Số Điện Thoại" class="form-control here"
-										type="number">
+										type="number" value="<%=business.getPhone()%>">
 								</div>
 							</div>
 							<div class="form-group row">
@@ -71,27 +78,54 @@
 									Chỉ</label>
 								<div class="col-8 my-1">
 									<input id="inputDetailAddressbs" name="inputDetailAddressbs"
-										placeholder="Địa Chỉ" class="form-control here" type="text">
+										placeholder="Địa Chỉ" class="form-control here" type="text" value="<%=business.getAddress()%>">
 								</div>
 								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
 								<div class="col-8 my-1">
 									<select name="cbProvince" id="cbProvince" class="form-control">
 										<option value="">Tỉnh Thành Phố</option>
-										<option value="1">Đà Nẵng</option>
+										<%
+                        				for(Province pro : (List<Province>)request.getAttribute("listProvinces")){
+                        					if(pro.getIdProvince().equals(business.getNameProvince())){
+                        				%>
+										<option value="<%=pro.getIdProvince()%>" selected="selected"><%=pro.getNameProvince() %></option>
+										<%}else{%>
+										<option value="<%=pro.getIdProvince()%>"><%=pro.getNameProvince() %></option>
+											<%}
+                        				}
+										%>
 									</select>
 								</div>
 								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
 								<div class="col-8 my-1">
 									<select name="cbDistrict" id="cbDistrict" class="form-control">
 										<option value="">Quận Huyện</option>
-										<option value="1">Sơn Trà</option>
+										<%
+                        				for(District dis : (List<District>)request.getAttribute("listDistricts")){
+                        					if(dis.getIdDistrict().equals(business.getNameDistrict())){
+                        				%>
+										<option value="<%=dis.getIdDistrict()%>" selected="selected"><%=dis.getNameDistrict() %></option>
+										<%}else{%>
+										<option value="<%=dis.getIdDistrict()%>" ><%=dis.getNameDistrict() %></option>
+											<%}
+                        				}
+										%>
 									</select>
 								</div>
 								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
 								<div class="col-8 my-1">
 									<select name="cbWard" id="cbWard" class="form-control">
 										<option value="">Phường Xã</option>
-										<option value="1">An Hải Tây</option>
+										<%
+                        				for(Ward ward : (List<Ward>)request.getAttribute("listWards")){
+                        					if(ward.getIdWard().equals(business.getNameWard())){
+                        				%>
+										<option value="<%=ward.getIdWard()%>" selected="selected"><%=ward.getNameWard() %></option>
+										<%}else{%>
+										<option value="<%=ward.getIdWard()%>"><%=ward.getNameWard() %></option>
+											<%}
+                        				}
+										%>
 									</select>
 								</div>
 							</div>
@@ -110,28 +144,28 @@
 									<div class="custom-file mb-2">
 										<input type="file" class="custom-file-input " id="imageBS2"
 											name="imageBS2"
-											accept="image/jpg,image/png,image/jpeg,image/gif"> <label
+											accept="image/jpg,image/png,image/jpeg"> <label
 											class="custom-file-label" for="imageBS"
 											placeholder="Chọn File"></label>
 									</div>
 									<div class="custom-file mb-2"">
 										<input type="file" class="custom-file-input" id="imageBS3"
 											name="imageBS3"
-											accept="image/jpg,image/png,image/jpeg,image/gif"> <label
+											accept="image/jpg,image/png,image/jpeg"> <label
 											class="custom-file-label" for="imageBS"
 											placeholder="Chọn File"></label>
 									</div>
 									<div class="custom-file mb-2"">
 										<input type="file" class="custom-file-input " id="imageBS4"
 											name="imageBS4"
-											accept="image/jpg,image/png,image/jpeg,image/gif"> <label
+											accept="image/jpg,image/png,image/jpeg"> <label
 											class="custom-file-label" for="imageBS"
 											placeholder="Chọn File"></label>
 									</div>
 									<div class="custom-file mb-2"">
 										<input type="file" class="custom-file-input" id="imageBS5"
 											name="imageBS5"
-											accept="image/jpg,image/png,image/jpeg,image/gif"> <label
+											accept="image/jpg,image/png,image/jpeg"> <label
 											class="custom-file-label" for="imageBS"
 											placeholder="Chọn File"></label>
 									</div>
@@ -145,7 +179,7 @@
 								<div class="col-8">
 									<textarea id="contentIntroduceBs" name="contentIntroduceBs"
 										placeholder="Bạn đang xem tag html textarea, là text có thể nhập được văn bản, và có thể chứa rất nhiều dòng..."
-										class="form-control here" rows="20" cols="20">Bạn đang xem tag html textarea, là text có thể nhập được văn bản, và có thể chứa rất nhiều dòng...</textarea>
+										class="form-control here" rows="20" cols="20"><%=business.getDescription() %></textarea>
 								</div>
 							</div>
 							<div class="col-8 w-100 ml-auto text-center">
@@ -200,21 +234,21 @@
 											inputNamebs : {
 												required : true,
 											},
-											imageBS1 : {
-												required : true,
-											},
-											imageBS2 : {
-												required : true,
-											},
-											imageBS3 : {
-												required : true,
-											},
-											imageBS4 : {
-												required : true,
-											},
-											imageBS5 : {
-												required : true,
-											},
+											//imageBS1 : {
+												//required : true,
+											//},
+											//imageBS2 : {
+												//required : true,
+											//},
+											//imageBS3 : {
+												//required : true,
+											//},
+											//imageBS4 : {
+												//required : true,
+											//},
+											//imageBS5 : {
+												//required : true,
+											//},
 											phoneNumberBs : {
 												required : true,
 												validateVietNamPhone : true
@@ -292,5 +326,6 @@
 											"Đây không phải số điện thoại Việt nam ");
 						});
 	</script>
+	<script src="<%=request.getContextPath()%>/Views/business/js/resgiterAdminCustom.js"></script>
 </body>
 </html>

@@ -168,3 +168,19 @@ select COUNT(*) as 'total' from seatbooking s
 inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()
 inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=0
 inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
+
+
+select b.bs_id,b.bs_acc_mail,a.acc_name,a.acc_phone,b.bs_address,b.bs_pv_id,b.bs_dt_id,b.bs_ward_id,b.bs_description from business b 
+inner join account a on b.bs_acc_mail=a.acc_mail
+and b.bs_acc_mail='mailinh@gmail.com.vn'
+
+select * from images
+update business set bs_address='', bs_pv_id='',bs_dt_id='', bs_ward_id='', bs_description='' where bs_acc_mail=''
+select * from images 
+insert into images (img_name,img_bs_id) values('sdfdsfsdf',9)
+select * from seatbooking
+select  MONTH(s.seatb_start_date),(COUNT(*)*t.trip_price) from seatbooking s 
+inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()
+inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1
+inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
+group by MONTH(s.seatb_start_date), t.trip_price

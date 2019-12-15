@@ -1,3 +1,4 @@
+<%@page import="model.bean.Images"%>
 <%@page import="java.util.List"%>
 <%@page import="model.bean.ChuyenXe"%>
 <%@page import="model.bean.Business"%>
@@ -36,30 +37,30 @@
 						<!-- chứa ảnh -->
 						<div class="carousel-inner">
 							<!-- cái đầu tiên có active mấy cái sau không cần, nhưng cái đầu   phải có -->
+							<%
+								for(Images img : (List<Images>)request.getAttribute("listImages") ){
+
+									if(((List<Images>)request.getAttribute("listImages")).indexOf(img)==0){
+							%>
 							<div class="carousel-item rounded active">
 								<!--active -->
 								<img style="height: 300px;" class="d-block w-100 rounded"
-									src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-1.jpg"
+									src="<%=img.getImgName() %>"
 									alt="First slide" />
 							</div>
-							<!-- end cái đầu tiên có active  -->
+							<% }else{%>
 							<!-- mấy cái sau  không cần  -->
 							<div class="carousel-item ">
 								<img style="height: 300px;" class="d-block w-100 rounded"
-									src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
+									src="<%=img.getImgName() %>"
 									alt="Second slide" />
 							</div>
 							<!-- end mấy cái sau  không cần -->
-							<div class="carousel-item  ">
-								<img style="height: 300px;" class="d-block w-100 rounded"
-									src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-3.jpg"
-									alt="Second slide" />
-							</div>
-							<div class="carousel-item ">
-								<img style="height: 300px;" class="d-block w-100 rounded"
-									src="https://nhatrangtoday.vn/images/photos/ben-xe-phuong-nam-nha-trang-2.jpg"
-									alt="Third slide" />
-							</div>
+							<%
+								}
+							}
+							%>
+							<!-- end cái đầu tiên có active  -->
 						</div>
 						<!-- end chứa ảnh -->
 						<a class="carousel-control-prev" href="#carouselExampleControls"

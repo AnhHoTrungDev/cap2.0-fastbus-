@@ -38,4 +38,10 @@ public class BusinessBO {
 		// TODO Auto-generated method stub
 		return new BusinessDAO().insertBusinessAccount(business);
 	}
+	public Business getBusinessByEmailBO(String email) {
+		return new BusinessDAO().getBusinessByEmailDAO(email);
+	}
+	public int updateBusinessBO(Business business) {
+		return new BusinessDAO().updateBusinessDAO(business);
+	}
 }

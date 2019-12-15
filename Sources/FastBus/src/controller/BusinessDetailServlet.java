@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.bean.Business;
 import model.bean.ChuyenXe;
+import model.bean.Images;
 import model.bo.BusinessBO;
 import model.bo.ChuyenXeBO;
+import model.bo.ImageBO;
 
 /**
  * Servlet implementation class BusinessDetailServlet
@@ -40,7 +42,10 @@ public class BusinessDetailServlet extends HttpServlet {
 		
 		String idBusiness=request.getParameter("idBusiness");
 		Business business=new BusinessBO().getBusinessByIdBO(idBusiness);
+		List<Images> listImages=new ImageBO().getListImagesDAOByIdBusiness(idBusiness);
 		List<ChuyenXe> listTrip = new ChuyenXeBO().getListTripByIdBusinessBO(idBusiness);
+		
+		request.setAttribute("listImages", listImages);
 		request.setAttribute("listTrip", listTrip);
 		request.setAttribute("business", business);
 		

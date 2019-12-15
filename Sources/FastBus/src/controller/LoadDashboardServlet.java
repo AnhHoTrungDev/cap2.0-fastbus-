@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,9 +41,11 @@ public class LoadDashboardServlet extends HttpServlet {
 		int totalSeat = new SeatBookingBO().getTotalSeatInDate((String)session.getAttribute("business_mail"));
 		int totalBus = new SeatBookingBO().getTotalBus((String)session.getAttribute("business_mail"));
 		int totalSeatIsApproving=new SeatBookingBO().gettotalSeatIsApproving((String)session.getAttribute("business_mail"));
+		List<SeatBooking> listPrice=new SeatBookingBO().getListPriceByMonth((String)session.getAttribute("business_mail"));
 		request.setAttribute("totalPrice", totalPrice);
 		request.setAttribute("totalSeat", totalSeat);
 		request.setAttribute("totalBus", totalBus);
+		request.setAttribute("listPrice", listPrice);
 		request.setAttribute("totalSeatIsApproving", totalSeatIsApproving);
 		RequestDispatcher rd= request.getRequestDispatcher(url);
 		rd.forward(request, response);

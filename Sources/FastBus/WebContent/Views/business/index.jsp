@@ -1,3 +1,5 @@
+<%@page import="model.bean.SeatBooking"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,10 +17,10 @@
 <!-- add thư vien top-->
 <%@ include file="common/topAdmin.jsp"%>
 <!-- end add thư vien top-->
-
 </head>
 
 <body id="page-top">
+
 	<!-- Page Wrapper -->
 	<div id="wrapper">
 		<!-- right Sidebar -->
@@ -125,6 +127,8 @@
 							</div>
 							<div class="card shadow mb-4">
 								<!-- Card Header - Dropdown -->
+								<!-- Load List doanh thu  -->
+								<% List<SeatBooking> listPrice = (List<SeatBooking>)request.getAttribute("listPrice"); %>
 								<div
 									class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 									<h6 class="m-0 font-weight-bold text-primary">Danh Thu
