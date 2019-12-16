@@ -20,7 +20,7 @@ public class MailConfig {
  
     public static final int TSL_PORT = 587; // Port for TLS/STARTTLS
  
-    public static final String APP_EMAIL = "fbus1912@gmail.com"; // your email
+    public static final String APP_EMAIL = "fastbuscompay@gmail.com"; // your email
     
-    public static final String APP_PASSWORD = "cap123456"; // your password
+    public static final String APP_PASSWORD = "anh123456"; // your password
 }
