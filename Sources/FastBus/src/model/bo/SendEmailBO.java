@@ -23,7 +23,10 @@ import model.bean.User;
 import model.dao.SendEmaiDAO;
 
 public class SendEmailBO {
-	public void SendMailCustomerBO(ChuyenXe tripInfor, User user, List<SeatBooking> listSeat) {
-		 new SendEmaiDAO().SendMailCustomerDAO( tripInfor,  user, listSeat);
+	public void SendMailCustomerPayedBO(ChuyenXe tripInfor, User user, List<SeatBooking> listSeat,int tong) {
+		 new SendEmaiDAO().SendMailCustomerPayedDAO( tripInfor,  user, listSeat,tong);
+	}
+	public void SendMailCustomerIsPayingBO(ChuyenXe tripInfor, User user, List<SeatBooking> listSeat,int tong) {
+		new SendEmaiDAO().SendMailCustomerIsPayingDAO( tripInfor,  user, listSeat,tong);
 	}
 }
