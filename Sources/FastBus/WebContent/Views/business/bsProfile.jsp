@@ -235,8 +235,7 @@
 											$(this).val("");
 											$(this).siblings(".custom-file-label")
 											.addClass("selected").html("");
-											alert("Chỉ Hổ Trợ  File PNG, JPG, JPEG")
-;										}
+											alert("Chỉ Hổ Trợ  File PNG, JPG, JPEG");										}
 									});
 							
 							$("form#profileBs").validate(
