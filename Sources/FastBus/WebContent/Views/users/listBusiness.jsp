@@ -1,3 +1,4 @@
+<%@page import="controller.PlaceServlet"%>
 <%@page import="model.bean.ChuyenXe"%>
 <%@page import="java.util.List"%>
 <%@page import="model.bean.DiaDiem"%>
@@ -28,21 +29,17 @@ pageEncoding="UTF-8"%>
 				<div class="col-md-4 my-2">
 		     		<select class="form-control cbBoxCity" name="starPlace" id="cbStarPlace">
 		     			<option value="">Nơi Đi</option>
-	  					<option>Đắk Lắk</option>
-	  					<option>Đà Nẵng</option>
-	  					<option>Hà Nội</option>
-	  					<option>Hồ Chí Minh</option>
-	  					<option>Nha Trang</option>
+		     			<%for(DiaDiem p1 : (List<DiaDiem>)request.getAttribute("listPlaceSearch") ){ %>
+	  					<option value="<%=p1.getIdPlace()%>"><%=p1.getNamePlace() %></option>
+	  					<%} %>
 					</select>
 		     	</div>
 		     	<div class="col-md-4 my-2">
 		     	<select class="form-control cbBoxCity" name="starEnd" id="cbEndPlace">
 		     			<option value="">Nơi Đến</option>
-	  					<option>Đắk Lắk</option>
-	  					<option>Đà Nẵng</option>
-	  					<option>Hà Nội</option>
-	  					<option>Hồ Chí Minh</option>
-	  					<option>Nha Trang</option>
+	  					<%for(DiaDiem p2 : (List<DiaDiem>)request.getAttribute("listPlaceSearch") ){ %>
+	  					<option value="<%=p2.getIdPlace()%>"><%=p2.getNamePlace() %></option>
+	  					<%} %>
 					</select>
 		     	</div>
 		     	<div class="col-md-4 text-center my-2">

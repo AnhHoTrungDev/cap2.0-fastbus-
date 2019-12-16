@@ -38,10 +38,10 @@ public class PlaceServlet extends HttpServlet {
 		
 		List<DiaDiem> listPlace=new DiaDiemBO().getListPlaceNotDaNangBO();
 		List<ChuyenXe> listTrip=new ChuyenXeBO().getListTripBO();
-		
+		List<DiaDiem> listPlaceSearch=new DiaDiemBO().getListPlaceBO();
 		request.setAttribute("listPlace", listPlace);
 		request.setAttribute("listTrip", listTrip);
-		
+		request.setAttribute("listPlaceSearch", listPlaceSearch);
 		RequestDispatcher rd= request.getRequestDispatcher("/Views/users/listBusiness.jsp");
 		rd.forward(request, response);
 	}
