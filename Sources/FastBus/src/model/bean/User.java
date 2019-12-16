@@ -116,6 +116,13 @@ public class User {
 		this.name = name;
 		this.addess = address;
 	}
+	
+	public User(String name, String email, String idRole,int a) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.idRole = idRole;
+	}
 
 	public User(String email, String name, String phone, String address, String a, String b) {
 		super();

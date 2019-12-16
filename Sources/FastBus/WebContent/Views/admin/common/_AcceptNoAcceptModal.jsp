@@ -62,13 +62,17 @@
 <!-- moDal no Accept -->
 <script type="text/javascript">
  $("[data-target='#modalAcceptBs']").each(function(){
-	 $("#idBusiness").val($(this).parent().parent().prev().prev().prev().prev().prev().children().html());
-	 $("#nameBusiness").val($(this).parent().parent().prev().prev().prev().prev().children().html());
-	 $("#emailBusiness").val($(this).parent().parent().prev().prev().prev().children().html());
+	$(this).click(function(){
+		 $("#idBusiness").val($(this).siblings(".getidbs").val());
+		 $("#nameBusiness").val($(this).parent().parent().prev().prev().prev().prev().children().html());
+		 $("#emailBusiness").val($(this).parent().parent().prev().prev().prev().children().html());
+	});
  });
  $("[data-target='#modalNoAcceptBs']").each(function(){
-	 $("#idNoBusiness").val($(this).parent().parent().prev().prev().prev().prev().prev().children().html());
-	 $("#nameNoBusiness").val($(this).parent().parent().prev().prev().prev().prev().children().html());
-	 $("#emailNoBusiness").val($(this).parent().parent().prev().prev().prev().children().html());
+	 $(this).click(function(){
+		 $("#idNoBusiness").val($(this).siblings(".getidbs").val());
+		 $("#nameNoBusiness").val($(this).parent().parent().prev().prev().prev().prev().children().html());
+		 $("#emailNoBusiness").val($(this).parent().parent().prev().prev().prev().children().html());
+	});
  });
 </script>

@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="model.bean.Business"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,7 +40,7 @@
 
 					<!-- Page Heading -->
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Accept Business</h1>
+					<h1 class="h3 mb-2 text-gray-800">Danh Sách Nhà Xe Chờ Chấp Nhận</h1>
 					<p class="mb-4">
 						
 					</p>
@@ -71,21 +73,28 @@
 										</tr>
 									</tfoot>
 									<tbody>
-									
+									<%
+									int dem=1;
+										for(Business bs : (List<Business>)request.getAttribute("listBusiness")){
+									%>
 										<tr>
-											<td><span class="d-block my-2">1</span></td>
-											<td><span class="d-block my-2">Nhà Xe Quốc LÊ</span></td>
-											<td><span class="d-block my-2">Quocle@gmail.com</span></td>
-											<td><span class="d-block my-2">090500005 </span></td>											
-											<td style="width:500px;"><span class="d-block my-2 "  style="text-overflow: ellipsis;" data-toggle="tooltip" data-placement="bottom" title="54 abc ,mai hắc Đếádddddddddddđ ,Sơn trà ,Đà Nẵng">54 abc ,mai hắc Đếádddddddddddđ ,Sơn trà ,Đà Nẵng</span></td>	
+											<td><span class="d-block my-2"><%=dem++ %></span></td>
+											<td><span class="d-block my-2"><%=bs.getName() %></span></td>
+											<td><span class="d-block my-2"><%=bs.getMail() %></span></td>
+											<td><span class="d-block my-2"><%=bs.getPhone() %> </span></td>											
+											<td style="width:300px;"><span class="d-block my-2 " 
+											 	style="text-overflow: ellipsis;" data-toggle="tooltip" data-placement="bottom" 
+											 	title="<%=bs.getAddress()%>, <%=bs.getNameWard() %>, <%=bs.getNameDistrict() %>, <%=bs.getNameProvince() %>">
+											 	<%=bs.getAddress() %>, <%=bs.getNameWard() %>, <%=bs.getNameDistrict() %>, <%=bs.getNameProvince() %></span></td>	
 											<td><span class="d-block my-2 text-center">
-											
+											<input class="getidbs" value="<%=bs.getIdBusiness()%>" type="hidden" />
 											<a href="#accept" title="accept" class="mx-2" data-toggle="modal" data-target="#modalAcceptBs"><i class="fa fa-check" aria-hidden="true"></i></a>
 											<a href="#no-accept" title="no-accep" class="mx-2" data-toggle="modal" data-target="#modalNoAcceptBs"><i class="fa fa-times text-danger" aria-hidden="true"></i></a>
 											</span>
 											</td>															
 										</tr>
-									
+										<%} %>
+	
 									</tbody>
 								</table>
 							</div>

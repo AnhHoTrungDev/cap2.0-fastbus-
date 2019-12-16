@@ -45,4 +45,8 @@ public class UserBO {
 	public int insertUserBusinessBO(User user) {
 		return new UserDAO().insertUserBusinessDAO(user);
 	}
+
+	public User checkAdminLogin(String email, String pass) {
+		return new UserDAO().checkAdminLogin(email,pass);
+	}
 }
