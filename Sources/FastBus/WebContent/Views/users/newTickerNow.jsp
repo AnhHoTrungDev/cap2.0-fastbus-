@@ -1,4 +1,4 @@
-
+ 
 <%@page import="java.util.List"%>
 <%@page import="model.bean.ChuyenXe"%>
 <%@page import="model.bean.SeatBooking"%>
@@ -30,7 +30,7 @@
 						Xin chào <strong class="text-primary"><%=session.getAttribute("acc_name")%></strong>,<br>
 				          Một tin nhắn đã được gửi đến gmail của bạn <br>
 				          Rất cảm ơn bạn đã sử dụng dịch
-				          vụ của! <br>
+				          vụ của <strong class="text-primary">FastBus</strong> <br>
 				          Nhà xe sẽ sớm liên lạc để xác nhận vé của bạn.<br>
 				          <strong class="text-danger">Bạn Vui Lòng Thanh Toán Tiền Trước 11 Giờ Trưa Hôm Sau Để Chắc Chắc Vé Không Bị Hủy</strong>
 				          <small>(Bỏ Qua Nếu Bạn Đã Thanh Toán)</small>
