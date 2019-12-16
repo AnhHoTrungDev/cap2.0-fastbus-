@@ -35,7 +35,7 @@
 								<th scope="col" style="border: none;"
 									class="text-center border-bottom">Từ Đâu đến</th>
 								<th scope="col" style="border: none;"
-									class="text-center border-bottom">Giá vé</th>
+									class="text-center border-bottom">Tổng Giá vé</th>
 								<th scope="col" style="border: none;"
 									class="text-center border-bottom">Chi tiết</th>
 							</tr>
@@ -43,16 +43,16 @@
 						<tbody>
 							<!-- 1 vé -->
 							<%
-					for(ChuyenXe trip : (List<ChuyenXe>)request.getAttribute("listChuyen")){
-						for(SeatBooking seat : (List<SeatBooking>)request.getAttribute("list")){
-							if(trip.getIdTrip()==seat.getTripId() && trip.getStartDate()==seat.getSeatStartDate()){	
+							ChuyenXe trip =(ChuyenXe)request.getAttribute("trip");
+							String seat=(String)request.getAttribute("seat");
+							String pickPlace= (String)request.getAttribute("pickPlace");
 							//	int totalSeat=seat.getTotalSeat();
-                %>
+                			%>
 							<tr style="border: none;">
 								<td style="border: none;" class="text-center border-bottom">
 									<input type="date"
 									class="form-control-plaintext w-75 mx-auto text-center"
-									value="<%=seat.getSeatStartDate() %>">
+									value="<%=trip.getStartDate() %>">
 								</td>
 								<td style="border: none;" class="text-center border-bottom">
 									<span class="d-block mt-2"><%=trip.getStartPlace() %> -
@@ -104,7 +104,7 @@
 													<input type="date" readonly
 														class="form-control-plaintext  border-bottom"
 														id="departureDay" name="startDate"
-														value="<%=seat.getSeatStartDate() %>" />
+														value="<%=trip.getStartDate()%>" />
 												</div>
 											</div>
 											<!-- end -->
@@ -153,7 +153,7 @@
 												<div class="col-sm-7  ">
 													<input type="text" readonly
 														class="form-control-plaintext border-bottom"
-														id="codeChairOder" value="<%=seat.getSeatName() %>"
+														id="codeChairOder" value="<%=seat %>"
 														placeholder="Bạn chưa chọn ghế nào" name="codeChairOder" />
 												</div>
 											</div>
@@ -167,8 +167,8 @@
 														<input type="text" readonly
 															class="form-control-plaintext format-price" id="fare"
 															name="price" data-price-chare="<%=trip.getPrice()%>"
-															data-amount-chair="<%=seat.getTotalSeat() %>"
-															value="không biết" />
+															data-amount-chair="<%=Integer.parseInt(request.getAttribute("totalSeat").toString())%>"
+															value="<%=trip.getPrice() %>" />
 													</div>
 												</div>
 											</div>
@@ -190,13 +190,7 @@
 									</div>
 								</td>
 							</tr>
-							<%   
-							}else{
-								continue;
-							}
-              			}
-                    }
-              %>
+							
 							<!-- end 1 vé -->
 						</tbody>
 					</table>
@@ -262,18 +256,17 @@
     $("[name=price]").each(function(){
       let value = Number($(this).data("amountChair")) * Number($(this).data("priceChare"));
       $(this).val(value);
+      console.log(Number($(this).data("amountChair")) * Number($(this).data("priceChare"))
     });
 
     setTimeout(function(){
       $(".format-price").each(function(){
-        $(this).val(new Intl.NumberFormat('it-IT',
-              { style: 'currency', currency: 'VND' }).format(Number($(this).val())));
+       
       });
     }, 500);
     setTimeout(function(){
       $(".format-price").each(function(){
-        $(this).html(new Intl.NumberFormat('it-IT',
-              { style: 'currency', currency: 'VND' }).format(Number($(this).html())));
+        
       });
     }, 500);
 

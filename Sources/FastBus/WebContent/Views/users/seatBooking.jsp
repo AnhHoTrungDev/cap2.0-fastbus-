@@ -117,7 +117,7 @@
 									<div class="col-sm-7">
 										<input type="time" readonly
 											class="form-control-plaintext border-bottom"
-											id="timeFinishExpected" name="endTime" value="06:00" />
+											id="timeFinishExpected" name="endTime" value="<%=trip.getEndTime() %>" />
 									</div>
 								</div>
 								<!-- end -->

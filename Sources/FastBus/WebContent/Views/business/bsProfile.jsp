@@ -224,7 +224,7 @@
 							$(".custom-file-input").on(
 									"change",
 									function() {
-										var duoi = $(this).val().split().pop();
+										var duoi = $(this).val().split(".").pop();
 										if(duoi == "png" || duoi == "jpg" || duoi == "jpeg"){
 											var fileName = $(this).val()
 											.split("\\").pop();

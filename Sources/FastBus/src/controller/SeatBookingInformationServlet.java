@@ -126,7 +126,9 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			tripInfor = (ChuyenXe) session.getAttribute("tripInfo");
 			User user = (User) session.getAttribute("getUser");
 			List<SeatBooking> listSeat = new ArrayList<SeatBooking>();
+			int tong=0;
 			for (String aSeat : ((String) session.getAttribute("seat")).split(",")) {
+				tong++;
 				SeatBooking sb = new SeatBooking(tripInfor.getIdTrip(), user.getEmail(), aSeat,
 						tripInfor.getStartDate(), payOption);
 				listSeat.add(sb);
@@ -135,11 +137,7 @@ public class SeatBookingInformationServlet extends HttpServlet {
 			if (new SeatBookingBO().insertSeatBO(listSeat) == 1) {
 				messageBooking = "true";
 				new SendEmailBO().SendMailCustomerBO(tripInfor, user, listSeat);
-				url = "/TicketHistoryServlet";
-
-				session.removeAttribute("pickPlace");
-				session.removeAttribute("tripInfo");
-				session.removeAttribute("seat");
+				url = "/TicketHistoryServlet?booked=1&tong="+tong;
 			} else {
 				messageBooking = "false";
 				url = "/Views/users/comfirmFinish.jsp";
