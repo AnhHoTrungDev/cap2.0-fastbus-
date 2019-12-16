@@ -251,4 +251,36 @@ public class UserDAO {
 		
 		return user;
 	}
+	public String acceptNewBusiness(String email) {
+		// TODO Auto-generated method stub
+		connection = con.getConnect();
+		String message="";
+		String gettUser = "update account set acc_status=1 where acc_mail=?";
+		try {
+			ps = connection.prepareStatement(gettUser);
+			ps.setString(1, email);
+			message=ps.executeUpdate()>0 ? "Cập Nhật Thành Công" : "Cập Nhật Thất Bại";
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return message;
+	}
+	public String deleteNewBusiness(String email) {
+		// TODO Auto-generated method stub
+		connection = con.getConnect();
+		String message="";
+		String gettUser = "Delete from account where acc_mail=? and acc_status=0";
+		try {
+			ps = connection.prepareStatement(gettUser);
+			ps.setString(1, email);
+			message=ps.executeUpdate()>0 ? "Cập Nhật Thành Công" : "Cập Nhật Thất Bại";
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return message;
+	}
 }

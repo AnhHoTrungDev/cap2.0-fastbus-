@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.bean.Business;
 import model.bo.BusBO;
 import model.bo.BusinessBO;
+import model.bo.UserBO;
 
 /**
  * Servlet implementation class AcceptAccountBusinessServlet
@@ -34,6 +35,16 @@ public class AcceptAccountBusinessServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String message="";
+		if("btnAcceptBs".equalsIgnoreCase(request.getParameter("btnAcceptBs"))) {
+			String email= request.getParameter("emailBusiness");
+			message = new UserBO().acceptNewBusiness(email);
+			request.setAttribute("messageApproved", message);
+		}else if("btnNoAcceptBs".equalsIgnoreCase(request.getParameter("btnNoAcceptBs"))){
+			String email= request.getParameter("emailNoBusiness");
+			message = new UserBO().deleteNewBusiness(email);
+			request.setAttribute("messageDeleted", message);
+		}
 		List<Business> listBusiness= new BusinessBO().getListBusiniessIsApproving();
 		request.setAttribute("listBusiness", listBusiness);
 		RequestDispatcher rd = request.getRequestDispatcher("Views/admin/acceptNewAccountBs.jsp");

@@ -49,4 +49,12 @@ public class UserBO {
 	public User checkAdminLogin(String email, String pass) {
 		return new UserDAO().checkAdminLogin(email,pass);
 	}
+
+	public String acceptNewBusiness(String email) {
+		return new UserDAO().acceptNewBusiness(email);
+	}
+
+	public String deleteNewBusiness(String email) {
+		return new UserDAO().deleteNewBusiness(email);
+	}
 }
