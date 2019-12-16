@@ -69,7 +69,7 @@ q<%@ page language="java" contentType="text/html;charset=UTF-8"
                         type="submit"
                         class="btn btn-primary btn-user btn-block"
                         value="btnBusinessLogin"
-                        name="businessLogin"
+                        name="btnBusinessLogin"
                       >
                         Đăng Nhập
                       </button>
