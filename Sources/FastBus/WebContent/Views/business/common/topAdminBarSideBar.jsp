@@ -38,13 +38,8 @@
 			</div></li>
 
 		<!-- Nav Item - Alerts -->
-		<li class="nav-item dropdown no-arrow mx-1">
-			<a
-				class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false"><span class="ml-1 mr-1">Xác Nhận Đặt Vé</span><i class="fas fa-bell fa-fw"></i> <!-- Counter - Alerts -->
-					<span class="badge badge-danger badge-counter">3+</span>
-			</a>
+		<li class="nav-item no-arrow mx-1">
+		
 		</li>
 
 	
