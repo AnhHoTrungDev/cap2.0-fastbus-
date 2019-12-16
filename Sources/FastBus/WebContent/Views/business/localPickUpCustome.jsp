@@ -1,3 +1,7 @@
+<%@page import="controller.PlaceServlet"%>
+<%@page import="model.bean.DiaDiem"%>
+<%@page import="java.util.List"%>
+<%@page import="model.bean.PickupPlace"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -47,7 +51,7 @@
 								<a href="#addPickUPlocatio" id="addPickUPlocation"><i
 									class="fas fa-plus m-2"></i>Thêm Địa Điểm Đón</a>
 							</h6>
-							<form action="" id="addPickUPlocation" style="display: none;">
+							<form action="PickUpPlaceSevlet" id="addPickUPlocation" style="display: none;">
 								<div class="row">
 									<div class="col-md-4">
 										<input class="form-control" placeholder="Nhập Địa Điểm Đón"
@@ -56,7 +60,11 @@
 									<div class="col-md-4">
 										<select class="form-control" name="cbChoseCity">
 											<option value="">Tỉnh/Thành Phố</option>
-											<option value="1">Tỉnh/Thành Phố</option>
+											<%
+												for(DiaDiem place : (List<DiaDiem>)request.getAttribute("listPlace")){
+											%>
+											<option value="<%=place.getIdPlace()%>"><%=place.getNamePlace() %></option>
+											<%} %>
 										</select>
 									</div>
 									<div class="col-md-4">
@@ -87,16 +95,21 @@
 										</tr>
 									</tfoot>
 									<tbody>
-
+										<%
+											int dem=1;
+											for(PickupPlace pick : (List<PickupPlace>)request.getAttribute("listPick")){
+										%>
 										<tr>
-											<th>1</th>
-											<td>Bếnh Xe Trung Tâm Đà Nẵng</td>
-											<td>ĐÀ Nẵng</td>
-											<td><a href="#edit"><i class="fas fa-edit"></i></a> <a
-												href="#delete"><i class="far fa-trash-alt text-danger"></i></a>
+											<th><%=dem++ %></th>
+											<td><%= pick.getName()%></td>
+											<td><%=pick.getNamePro() %></td>
+											<td><a href="#edit"><i class="fas fa-edit"></i></a> 
+											<a href="#delete"><i class="far fa-trash-alt text-danger"></i></a>
 											</td>
 										</tr>
-
+										<%
+											}
+										%>
 									</tbody>
 								</table>
 							</div>

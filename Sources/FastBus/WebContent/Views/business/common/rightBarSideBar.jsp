@@ -45,8 +45,7 @@
 				<a class="collapse-item" href="<%=request.getContextPath() %>/LoadListBusBusinessServlet">Danh Sách Xe Bus</a>
 				<a class="collapse-item" href="<%=request.getContextPath() %>/LoadListTripBusinessServlet">Danh Sách Chuyến Xe</a>
 				<a class="collapse-item" href="<%=request.getContextPath() %>/LoadListConfirmTicketBusinessServlet">Xác Nhận Vé</a>
-				<a class="collapse-item" href="#">Đặt vé cho khách</a>
-				<a class="collapse-item" href="#">Hủy Vé Cho Khách</a>
+				<a class="collapse-item" href="<%=request.getContextPath() %>/PickUpPlaceSevlet">Điểm Đón</a>
 			</div>
 		</div>
 	</li>

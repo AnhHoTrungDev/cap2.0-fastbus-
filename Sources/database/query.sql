@@ -188,3 +188,6 @@ group by MONTH(s.seatb_start_date), t.trip_price
 select bus_id,bus_license,bus_color,bus_menu,b from bus where bus_bs_id=7
 select * from bus_type
 insert into bus(bus_license,bus_bt_id,bus_bs_id,bus_color,bus_menu) values('47k8-2019',3,7,'xanh','huynhdai')
+
+select p.place_id ,p.place_name,pp.place_name from pickup_place p
+inner join place pp on pplace_id =pp.place_id and business_id=7

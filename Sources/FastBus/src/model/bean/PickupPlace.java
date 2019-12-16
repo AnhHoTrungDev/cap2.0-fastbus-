@@ -19,6 +19,7 @@ public class PickupPlace {
 	private int idPlace;
 	private int idBusiness;
 	private String name;
+	private String namePro;
 	public int getIdPlace() {
 		return idPlace;
 	}
@@ -37,11 +38,25 @@ public class PickupPlace {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
+	public String getNamePro() {
+		return namePro;
+	}
+	public void setNamePro(String namePro) {
+		this.namePro = namePro;
+	}
 	public PickupPlace(int idPlace, int idBusiness, String name) {
 		super();
 		this.idPlace = idPlace;
 		this.idBusiness = idBusiness;
 		this.name = name;
+	}
+	public PickupPlace(int idPlace, String name, String namePro) {
+		super();
+		this.idPlace = idPlace;
+		this.name = name;
+		this.namePro=namePro;
 	}
 	public PickupPlace() {
 		super();
