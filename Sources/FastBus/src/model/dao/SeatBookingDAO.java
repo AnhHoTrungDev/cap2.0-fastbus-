@@ -449,7 +449,6 @@ public class SeatBookingDAO {
 	public List<SeatBooking> getListPriceByMonth(String email) {
 		connection = con.getConnect();
 		listSeat = new ArrayList<SeatBooking>();
-		String totalSeat = "";
 		String select = "select  MONTH(s.seatb_start_date)as month,(COUNT(*)*t.trip_price) as 'total' from seatbooking s \r\n"
 				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date>=getdate()\r\n"
 				+ "inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1\r\n"

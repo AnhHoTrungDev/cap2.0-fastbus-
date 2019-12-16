@@ -31,10 +31,4 @@ public class ImageBO {
 	public List<Images> getListImagesDAOByIdBusiness(String idBusiness) {
 		return new ImageDAO().getListImagesDAOByIdBusiness(idBusiness);
 	}
-	public String extractFileName(Part part) {
-		return new ImageDAO().extractFileName(part);
-	}
-	public File getFolderUpload(String realPath) {
-		return new ImageDAO().getFolderUpload(realPath);
-	}
 }

@@ -88,23 +88,11 @@ public class ImageDAO {
 		}
 		return listImgs;
 	}
-
-	public String extractFileName(Part part) {
-		String contentDisp = part.getHeader("content-disposition");
-		String[] items = contentDisp.split(";");
-		for (String s : items) {
-			if (s.trim().startsWith("filename")) {
-				return s.substring(s.indexOf("=") + 2, s.length() - 1);
-			}
+	
+	public static void main(String[] args) {
+		for(Images i : new ImageDAO().getListImagesDAOByIdBusiness("7")) {
+			System.out.println(i.getImageId());
+			System.out.println(i.getImgName());
 		}
-		return "";
-	}
-
-	public File getFolderUpload(String realPath) {
-		File folderUpload = new File(realPath);
-		if (!folderUpload.exists()) {
-			folderUpload.mkdirs();
-		}
-		return folderUpload;
 	}
 }

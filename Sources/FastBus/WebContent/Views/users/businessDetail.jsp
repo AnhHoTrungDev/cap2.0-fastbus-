@@ -48,15 +48,18 @@
 									src="<%=request.getContextPath() %>/Views/images/<%=img.getImgName() %>"
 									alt="First slide" />
 							</div>
-							<% }else{%>
-							<!-- mấy cái sau  không cần  -->
-							<div class="carousel-item ">
-								<img style="height: 300px;" class="d-block w-100 rounded"
-									src="<%=request.getContextPath() %>/Views/images/<%=img.getImgName() %>"
-									alt="Second slide" />
-							</div>
+							
 							<!-- end mấy cái sau  không cần -->
 							<%
+								}else{
+							%>
+								<div class="carousel-item rounded ">
+								<!--active -->
+								<img style="height: 300px;" class="d-block w-100 rounded"
+									src="<%=request.getContextPath() %>/Views/images/<%=img.getImgName() %>"
+									alt="First slide" />
+							</div>
+							<%	
 								}
 							}
 							%>
