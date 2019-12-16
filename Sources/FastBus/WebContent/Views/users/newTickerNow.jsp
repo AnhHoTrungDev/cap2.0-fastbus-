@@ -24,8 +24,17 @@
 				<div class="col-md-12 bg-light mt-3 highlights-box-menu">
 					<div class="w-100 text-center p-3">
 						<h1>
-							<strong>Lịch Sử Đặt Vé</strong>
+							<strong>Đặt Vé Thành Công</strong>
 						</h1>
+						<p class="text-left text-dark">
+						Xin chào <strong class="text-primary"><%=session.getAttribute("acc_name")%></strong>,<br>
+				          Một tin nhắn đã được gửi đến gmail của bạn <br>
+				          Rất cảm ơn bạn đã sử dụng dịch
+				          vụ của! <br>
+				          Nhà xe sẽ sớm liên lạc để xác nhận vé của bạn.<br>
+				          <strong class="text-danger">Bạn Vui Lòng Thanh Toán Tiền Trước 11 Giờ Trưa Hôm Sau Để Chắc Chắc Vé Không Bị Hủy</strong>
+				          <small>(Bỏ Qua Nếu Bạn Đã Thanh Toán)</small>
+						</p>
 					</div>
 					<table class="table  table-bordered" style="border: none;">
 						<thead>
