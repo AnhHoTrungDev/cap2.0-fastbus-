@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import model.bean.SeatBooking;
 import model.bo.SeatBookingBO;
+import model.bo.SendEmailBO;
 
 /**
  * Servlet implementation class LoadListConfirmTicketBusinessServlet
@@ -41,8 +42,13 @@ public class LoadListConfirmTicketBusinessServlet extends HttpServlet {
 			String idTrip=request.getParameter("idTripForAccept");
 			String dateStart=request.getParameter("dateStarForAccept");
 			String seat=request.getParameter("getChiarTickerForForAccept");
-			
+			String totalPrice=request.getParameter("getTotalPrice");
+			String startPlace=request.getParameter("getStarPlaceForAccept");
+			String endPlace=request.getParameter("getEndPlaceForAccept");
+			String mail=request.getParameter("getEgmailUserForAccept");
+
 			String check=new SeatBookingBO().approvedListSeatBookingBO(idTrip,dateStart,seat);
+			new SendEmailBO().SendMailCustomerIsApprovedBO(dateStart, seat, totalPrice,startPlace,endPlace,mail);
 			System.out.println(check);
 			request.setAttribute("approvedMessage", check);
 		}else if("btnConfirmDetleteTrickerConfrim".equalsIgnoreCase(request.getParameter("btnConfirmDetleteTrickerConfrim"))) {

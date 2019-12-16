@@ -21,7 +21,7 @@
 					<input id="getTotalPriceForAccept" style="display: none;" name="getTotalPrice">
 					<input id="getStarPlaceForAccept" style="display: none;" name="getStarPlaceForAccept">
 					<input id="getEndPlaceForAccept"  style="display: none;" name="getEndPlaceForAccept">
-					<input id="getEgmailUserForAccept"  style="display: none;  name="getEgmailUserForAccept">
+					<input id="getEgmailUserForAccept"  style="display: none;"  name="getEgmailUserForAccept">
 					<div class="w-100">
 					<div class=" w-50 mx-auto">
 						<button type="submit" class="btn btn-primary text-center w-100 "

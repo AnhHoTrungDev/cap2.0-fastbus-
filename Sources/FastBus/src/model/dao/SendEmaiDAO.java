@@ -635,7 +635,7 @@ public class SendEmaiDAO {
 		}
 	}
 	
-	public void SendMailCustomerIsPayingDAO(ChuyenXe tripInfor, User user, List<SeatBooking> listSeat,int tong) {
+	public void SendMailCustomerIsApprovedDAO(String dateStart,String seat, String totalPrice,String startPlace,String endPlace,String mail) {
 
 		// 1) get the session object
 		Properties props = new Properties();
@@ -654,16 +654,16 @@ public class SendEmaiDAO {
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(MailConfig.APP_EMAIL));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(mail));
 
 			// 3) create HTML content
-			message.setSubject("[FastBus] Xác nhận thông tin vé xe ngay " + tripInfor.getStartDate() + ". ", "UTF-8");
-//			String htmlContent = "<p> Xin chào "+user.getName()+"</p>"+
-//					" <p>Thông tin các vé xe bạn đã đặt: <p>" + " <p>Nhà xe: " + tripInfor.getNameBusiness() + "</p>"
-//					+ " <p> Chuyến xe: " + tripInfor.getStartPlace() + " - " + tripInfor.getEndPlace() + "</p>"
-//					+ " <p>Ngày đi: " + tripInfor.getStartDate() + "</p>" + " <p>Giờ đi: " + tripInfor.getStartTime()
-//					+ "</p>" + " <p>Ngày đi: " + tripInfor.getStartDate() + "</p>";
-			String htmlContent="";
+			message.setSubject("[FastBus] Xác nhận thông tin vé xe ngay " + dateStart + ". ", "UTF-8");
+			String htmlContent = "<p> Xin chào "+mail+",</p>"+
+					" <p>Thông tin các vé xe bạn đã đặt: </p>" + " <p>Ngày Đi: " + startPlace + "</p>"
+					+ " <p> Chuyến xe: " + startPlace + " - " + endPlace + "</p>"+
+					 " <p> Ghế ĐÃ Đặt: " +seat + "</p>"+
+					" <p> Tổng Tiền: "+ totalPrice + "</p>";
+
 			message.setContent(htmlContent, "text/html; charset=UTF-8");
 			// 4) send message
 			Transport.send(message);

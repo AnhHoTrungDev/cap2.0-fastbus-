@@ -26,7 +26,7 @@ public class SendEmailBO {
 	public void SendMailCustomerPayedBO(ChuyenXe tripInfor, User user, List<SeatBooking> listSeat,int tong) {
 		 new SendEmaiDAO().SendMailCustomerPayedDAO( tripInfor,  user, listSeat,tong);
 	}
-	public void SendMailCustomerIsPayingBO(ChuyenXe tripInfor, User user, List<SeatBooking> listSeat,int tong) {
-		new SendEmaiDAO().SendMailCustomerIsPayingDAO( tripInfor,  user, listSeat,tong);
+	public void SendMailCustomerIsApprovedBO(String dateStart,String seat, String totalPrice,String startPlace,String endPlace,String mail) {
+		new SendEmaiDAO().SendMailCustomerIsApprovedDAO(dateStart, seat, totalPrice,startPlace,endPlace,mail);
 	}
 }

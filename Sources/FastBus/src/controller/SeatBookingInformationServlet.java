@@ -136,13 +136,7 @@ public class SeatBookingInformationServlet extends HttpServlet {
 
 			if (new SeatBookingBO().insertSeatBO(listSeat) == 1) {
 				messageBooking = "true";
-				if(payOption==1) {
-					new SendEmailBO().SendMailCustomerPayedBO(tripInfor, user, listSeat,tong);
-				}else {
-					//confirm ve chua xac nhan 
-					new SendEmailBO().SendMailCustomerIsPayingBO(tripInfor, user, listSeat,tong);
-				}
-				
+				new SendEmailBO().SendMailCustomerPayedBO(tripInfor, user, listSeat,tong);
 				url = "/TicketHistoryServlet?booked=1&tong="+tong;
 			} else {
 				messageBooking = "false";
