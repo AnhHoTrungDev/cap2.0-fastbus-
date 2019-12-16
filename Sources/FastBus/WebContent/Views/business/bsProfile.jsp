@@ -234,21 +234,21 @@
 											inputNamebs : {
 												required : true,
 											},
-											//imageBS1 : {
-												//required : true,
-											//},
-											//imageBS2 : {
-												//required : true,
-											//},
-											//imageBS3 : {
-												//required : true,
-											//},
-											//imageBS4 : {
-												//required : true,
-											//},
-											//imageBS5 : {
-												//required : true,
-											//},
+											imageBS1 : {
+												required : true,
+											},
+											imageBS2 : {
+												required : true,
+											},
+											imageBS3 : {
+												required : true,
+											},
+											imageBS4 : {
+												required : true,
+											},
+											imageBS5 : {
+												required : true,
+											},
 											phoneNumberBs : {
 												required : true,
 												validateVietNamPhone : true

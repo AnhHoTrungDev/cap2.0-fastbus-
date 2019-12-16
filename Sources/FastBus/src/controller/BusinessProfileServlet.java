@@ -134,7 +134,7 @@ public class BusinessProfileServlet extends HttpServlet {
 	    return "";
 	  }
 	  public File getFolderUpload(String path) {
-	    File folderUpload = new File("C:/Users/QUOCLH/Desktop/GIT/cap2.0-fastbus-/Sources/FastBus/WebContent/Views/images");
+	    File folderUpload = new File("D:/code/git/cap2.0-fastbus-/Sources/FastBus/WebContent/Views/images");
 	    if (!folderUpload.exists()) {
 	      folderUpload.mkdirs();
 	    }

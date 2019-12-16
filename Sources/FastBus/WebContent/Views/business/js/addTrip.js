@@ -91,32 +91,11 @@ $(document).ready(() => {
       $("[name='getCustomer']").val(valueAddress);
     });
   };
-
-  CheckDuplicatePlace = () =>{
-	  $("[name='cbAddressDepart']").change(()=>{
-		  if($("[name='cbAddressEnd']").val()!= ""){
-			  if($("[name='cbAddressEnd']").val() == $("[name='cbAddressDepart']").val()){
-				  $("[name='cbAddressDepart']").val("");
-				  alert("Nơi Đi Và Nơi Đến Trùng Nhau");
-			  }
-		  }
-		  $("[name='cbAddressEnd']").change(()=>{
-			  if($("[name='cbAddressDepart']").val()!= ""){
-				  if($("[name='cbAddressEnd']").val() == $("[name='cbAddressDepart']").val()){
-					  $("[name='cbAddressEnd']").val("");
-					  alert("Nơi Đi Và Nơi Đến Trùng Nhau");
-				  }
-			  } 
-		  });
-	  });
-  }
-  
   
   create = () => {
     renderBtnAdd();
     addEventForBtnAdd();
     addDataSendToSever();
-    CheckDuplicatePlace();
   };
   create();
 });

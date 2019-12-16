@@ -140,7 +140,7 @@ pageEncoding="UTF-8"%>
     			confirmPassword:{
     				required:"Vui Lòng Nhập Trường Này",
     				minlength:"Có Ít Nhất 6 Ký Tự",
-    				equalTo:"Không Trùng Với Passwork Đã Nhập"
+    				equalTo:"Không Trùng Với Password Đã Nhập"
     			}
     		},
     		errorElement : "em",

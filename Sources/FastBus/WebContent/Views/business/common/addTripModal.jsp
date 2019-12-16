@@ -22,7 +22,7 @@
 			</div>
 			
 			<div class="modal-body">
-				<form action="LoadListTripBusinessServlet">
+				<form action="LoadListTripBusinessServlet" id="addTripbs">
 					<div class="form-group">
 						<label for="cbAddressDepart">Nơi Đi: </label> 
 						<select
@@ -102,4 +102,112 @@
 
 	</div>
 </div>
+<script type="text/javascript">
+	$("document").ready(function(){
+		function checkBusAddTtip(){		
+		}
+		$("#idBusgo").change(function(){
+			if($("#idBusgo").val() == $("#idBusReturn").val()){
+				alert("Bạn  Phải Chọn 2 Bus Khác Nhau");
+				$("#idBusgo").val("");
+				$("#idBusgo").valid();
+			}
+		});
+		
+		$("#idBusReturn").change(function(){
+			if($("#idBusgo").val() == $("#idBusReturn").val()){
+				alert("Bạn  Phải Chọn 2 Bus Khác Nhau");
+				$("#idBusReturn").val("");
+				$("#idBusReturn").valid();
+			}
+		});
+		
+		$("[name='cbAddressDepart']").change(function(){
+			  if($("[name='cbAddressEnd']").val()!= ""){
+				  if($("[name='cbAddressEnd']").val() == $("[name='cbAddressDepart']").val()){
+					  $("[name='cbAddressDepart']").val("");
+					  $(this).valid();
+					  alert("Nơi Đi Và Nơi Đến Trùng Nhau");
+				  }
+			  }
+			  $("[name='cbAddressEnd']").change(function(){
+				  if($("[name='cbAddressDepart']").val()!= ""){
+					  if($("[name='cbAddressEnd']").val() == $("[name='cbAddressDepart']").val()){
+						  $("[name='cbAddressEnd']").val("");
+						  $(this).valid();
+						  alert("Nơi Đi Và Nơi Đến Trùng Nhau");
+					  }
+				  } 
+			  });
+		  });
+		
+		$("#inputTimeStart").change(function(){
+			$(this).valid();
+		});
+		
+		$("#inputTimeEnd").change(function(){
+			$(this).valid();
+		});
+		
+		$("form#addTripbs").validate({
+			rules:{
+				cbAddressDepart:{
+					required: true
+				},
+				cbAddressEnd:{
+					required:true
+				},
+				idBusgo:{
+					required:true
+				},
+				idBusReturn:{
+					required:true
+				},
+				inputTimeStart:{
+					required:true
+				},
+				inputTimeEnd:{
+					required:true
+				},
+				inputPrice:{
+					required:true
+				}
+			},
+			messages:{
+				cbAddressDepart:{
+					required: "Vui Lòng Chon Trường Này"
+				},
+				cbAddressEnd:{
+					required: "Vui Lòng Chọn Trường Này"
+				},
+				idBusgo:{
+					required: "Vui Lòng Chọn Trường Này"
+				},
+				idBusReturn:{
+					required: "Vui Lòng Chọn Trường Này"
+				},
+				inputTimeStart:{
+					required: "Vui Lòng Nhập Trường Này"
+				},
+				inputTimeEnd:{
+					required: "Vui Lòng Nhập Trường Này"
+				},
+				inputPrice:{
+					required: "Vui Lòng Nhập Trường Này"
+				}
+			},
+			errorElement : "em",
+			highlight : function(element,
+					errorClass) {
+				$(element).addClass("is-invalid")
+						.removeClass("is-valid");
+			},
+			unhighlight : function(element,
+					errorClass) {
+				$(element).addClass("is-valid")
+						.removeClass("is-invalid");
+			}
+		});
+	});
+</script>
 <!-- End moDal-->

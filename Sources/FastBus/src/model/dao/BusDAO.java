@@ -39,7 +39,7 @@ public class BusDAO {
 		connection = con.getConnect();
 		listBus = new ArrayList<Bus>();
 
-		String selectBus = "select b.bus_id,b.bus_license from bus b inner join business bs on bs.bs_id=b.bus_bs_id and bs.bs_acc_mail=?";
+		String selectBus = "select b.bus_id,b.bus_license  from bus b inner join business bs on bs.bs_id=b.bus_bs_id and bs.bs_acc_mail=?";
 		try {
 			ps = connection.prepareStatement(selectBus);
 			ps.setString(1,email);

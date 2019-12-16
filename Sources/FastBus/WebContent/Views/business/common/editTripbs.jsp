@@ -22,13 +22,13 @@
 			</div>
 			
 			<div class="modal-body">
-				<form action="">
+				<form action="" id="updatePriceTrip">
 					  <div class="form-group">
 					 	<input id="getIDForEditPricebs" name="getIDForEditPricebs" style="display:none;" >
-					  	<input class="form-control" id="editPricebs" name="editPricebs" placeholder="Giá Mới">
+					  	<input type="number" class="form-control" id="editPricebs" name="editPricebs" placeholder="Giá Mới">
 					  </div>
 					  <div class="form-group text-center">
-					  	<button class="btn btn-primary" name="btnEditPrice" value="btnEditPrice">Sửa Gía</button>
+					  	<button class="btn btn-primary" name="btnEditPrice" value="btnEditPrice">Sửa Giá</button>
 					  </div>
 				</form>
 			</div>
@@ -43,5 +43,30 @@
 		$(this).click(function(){
 			$("#getIDForEditPricebs").val($(this).attr("id"));
 		})
-	})
+	});
+	$("document").ready(function(){
+		$("form#updatePriceTrip").validate({
+			rules:{
+				editPricebs:{
+					required:true
+				}
+			},
+			messages:{
+				editPricebs:{
+					required:"Vui Lòng Nhập Trường Này"
+				}
+			},
+			errorElement : "em",
+			highlight : function(element,
+					errorClass) {
+				$(element).addClass("is-invalid")
+						.removeClass("is-valid");
+			},
+			unhighlight : function(element,
+					errorClass) {
+				$(element).addClass("is-valid")
+						.removeClass("is-invalid");
+			}
+		});
+	});
 </script>
