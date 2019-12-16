@@ -464,7 +464,7 @@ public class SendEmaiDAO {
 					"  <div\r\n" + 
 					"  style='color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:bold;font-size:15px;padding-right:10px'\r\n" + 
 					"  >\r\n" + 
-					"  Tổng cộng giá\r\n" + Float.parseFloat(tripInfor.getPrice())*tong+
+					"  Tổng cộng giá\r\n" + tripInfor.getPrice()+
 					"</div>\r\n" + 
 					"</td>\r\n" + 
 					"<td\r\n" + 
