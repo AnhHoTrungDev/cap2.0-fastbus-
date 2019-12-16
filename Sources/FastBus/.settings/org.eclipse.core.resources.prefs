@@ -5,6 +5,7 @@ encoding//src/common/splitString.java=UTF-8
 encoding//src/controller/BusinessProfileServlet.java=UTF-8
 encoding//src/controller/RegisterServlet.java=UTF-8
 encoding//src/controller/SeatBookingInformationServlet.java=UTF-8
+encoding//src/model/dao/BusDAO.java=UTF-8
 encoding//src/model/dao/ChuyenXeDAO.java=UTF-8
 encoding//src/model/dao/DiaDiemDAO.java=UTF-8
 encoding//src/model/dao/SeatBookingDAO.java=UTF-8

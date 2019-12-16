@@ -15,13 +15,15 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form id="addBus">
+				<form id="addBus" action="LoadListBusBusinessServlet">
 					<div class="form-group">
-						<label for="codeCarControl">Biển Kiểm Soát</label> <input type="text"
+						<label for="codeCarControl">Biển Kiểm Soát</label> 
+						<input type="text"
 							class="form-control" id="codeCarControl" name="codeCarControl">
 					</div>
 					<div class="form-group">
-						<label for="codeCarControl">Hãng Xe</label> <input type="text"
+						<label for="codeCarControl">Hãng Xe</label> 
+						<input type="text"
 							class="form-control" id="busBrand" name="busBrand">
 					</div>
 					<div class="form-group">

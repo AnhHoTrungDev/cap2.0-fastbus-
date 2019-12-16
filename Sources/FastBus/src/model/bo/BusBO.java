@@ -24,4 +24,10 @@ public class BusBO {
 	public List<Bus> getListBusByEmailBusinessBO(String email) {
 		return new BusDAO().getListBusByEmailBusinessDAO(email);
 	}
+	public List<Bus> loadListBusByIdBusiness(String idBusiness) {
+		return new BusDAO().loadListBusByIdBusiness(idBusiness);
+	}
+	public String insertBusBO(Bus bus) {
+		return new BusDAO().insertBusBO(bus);
+	}
 }

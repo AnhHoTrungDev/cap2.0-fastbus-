@@ -1,3 +1,4 @@
+<%@page import="model.bean.Bus"%>
 <%@page import="java.util.List"%>
 <%@page import="model.bean.ChuyenXe"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
@@ -72,18 +73,23 @@
 										</tr>
 									</tfoot>
 									<tbody>
-								
+										<%
+											int dem=1;
+											for(Bus b : (List<Bus>)request.getAttribute("listBus")){
+										%>
 										<tr>
-										<td><span class="d-block my-2">1</span></td>
-										<td><span class="d-block my-2">43C1-31.2</span></td>
-										<td><span class="d-block my-2">HuynDai</span></td>
-										<td><span class="d-block my-2">Đỏ</span></td>
+										<td><span class="d-block my-2"><%=dem++ %></span></td>
+										<td><span class="d-block my-2"><%=b.getNameBus() %></span></td>
+										<td><span class="d-block my-2"><%=b.getHangXe() %></span></td>
+										<td><span class="d-block my-2"><%=b.getColor() %></span></td>
 										<td><span class="d-block my-2">
-										<a href="#Edit" title="Thông tin chi tiết" data-toggle="modal" data-target="#modalEditBus" data-id-bus="100"><i class="fas fa-edit mx-1"></i></a>
-										<a href="#Delete" title="Xóa" data-toggle="modal" data-target="#modalDeleteBus" data-id-bus="100"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
+										<a href="#Edit" title="Thông tin chi tiết" data-toggle="modal" data-target="#modalEditBus" data-id-bus="<%=b.getIdBus()%>"><i class="fas fa-edit mx-1"></i></a>
+										<a href="#Delete" title="Xóa" data-toggle="modal" data-target="#modalDeleteBus" data-id-bus="<%=b.getIdBus()%>"><i class="fas fa-trash-alt mx-1 text-danger"></i></a>
 										</span></td>				
 										</tr>	
-														
+										<%
+											}
+										%>				
 									</tbody>
 								</table>
 							</div>

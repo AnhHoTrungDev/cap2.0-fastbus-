@@ -184,3 +184,7 @@ inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate(
 inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1
 inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail='mailinh@gmail.com.vn'
 group by MONTH(s.seatb_start_date), t.trip_price
+
+select bus_id,bus_license,bus_color,bus_menu,b from bus where bus_bs_id=7
+select * from bus_type
+insert into bus(bus_license,bus_bt_id,bus_bs_id,bus_color,bus_menu) values('47k8-2019',3,7,'xanh','huynhdai')

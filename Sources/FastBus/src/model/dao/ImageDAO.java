@@ -52,10 +52,15 @@ public class ImageDAO {
 			rs = ps.executeQuery();
 			rs.moveToInsertRow();
 			for (Images list : arr) {
-				rs.updateInt("img_bs_id", list.getIdBusiness());
-				rs.updateString("img_name", list.getImgName());
-				rs.insertRow();
-				check = 1;
+				if(list.getImgName()!="") {
+					rs.updateInt("img_bs_id", list.getIdBusiness());
+					rs.updateString("img_name", list.getImgName());
+					rs.insertRow();
+					check = 1;
+				}else {
+					continue;
+				}
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

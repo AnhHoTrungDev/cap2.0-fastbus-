@@ -21,6 +21,8 @@ public class Bus {
 	private String nameBus;
 	private String nameBusiness;
 	private String nameType;
+	private String color;
+	private String hangXe;
 
 	public int getIdBus() {
 		return idBus;
@@ -70,6 +72,22 @@ public class Bus {
 		this.nameType = nameType;
 	}
 
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getHangXe() {
+		return hangXe;
+	}
+
+	public void setHangXe(String hangXe) {
+		this.hangXe = hangXe;
+	}
+
 	public Bus(int idBus, int idBusiness, String idType, String nameBus) {
 		super();
 		this.idBus = idBus;
@@ -84,10 +102,24 @@ public class Bus {
 		this.nameBus = nameBus;
 	}
 
+	public Bus(int idBus, String nameBus, String color, String hangXe) {
+		super();
+		this.idBus = idBus;
+		this.nameBus = nameBus;
+		this.color = color;
+		this.hangXe = hangXe;
+	}
+
+	public Bus(String nameBus,int idBusiness,  String color, String hangXe,String a) {
+		super();
+		this.nameBus = nameBus;
+		this.idBusiness=idBusiness;
+		this.color = color;
+		this.hangXe = hangXe;
+	}
+
 	public Bus() {
 		super();
 	}
-	
-	
 
 }

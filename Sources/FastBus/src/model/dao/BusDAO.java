@@ -55,11 +55,54 @@ public class BusDAO {
 		}
 		return listBus;
 	}
-	public static void main(String[] args) {
-		System.out.println(new BusDAO().getListBusByEmailBusinessDAO("mailinh@gmail.com.vn").size());
-		for(Bus bus : new BusDAO().getListBusByEmailBusinessDAO("mailinh@gmail.com.vn")) {
-			System.out.println(bus.getIdBus());
-			System.out.println(bus.getNameBus());
+	
+	public List<Bus> loadListBusByIdBusiness(String idBusiness) {
+		connection = con.getConnect();
+		listBus = new ArrayList<Bus>();
+
+		String selectBus = "select bus_id,bus_license,bus_color,bus_menu from bus where bus_bs_id=?";
+		try {
+			ps = connection.prepareStatement(selectBus);
+			ps.setInt(1,Integer.parseInt(idBusiness));
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				bus = new Bus(rs.getInt("bus_id"),rs.getString("bus_license"),rs.getString("bus_color"),rs.getString("bus_menu"));
+				listBus.add(bus);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		return listBus;
 	}
+	
+	public String insertBusBO(Bus bus) {
+		connection = con.getConnect();
+		listBus = new ArrayList<Bus>();
+		String message="";
+		int id= bus.getIdBusiness();
+		String selectBus = "insert into bus(bus_license,bus_bt_id,bus_bs_id,bus_color,bus_menu) values(?,3,?,?,?)";
+		try {
+			ps = connection.prepareStatement(selectBus);
+			ps.setString(1,bus.getNameBus());
+			ps.setInt(2,id);
+			ps.setString(3,bus.getColor());
+			ps.setString(4,bus.getHangXe());
+			 
+			message= ps.executeUpdate()>0 ? "Thêm thành công" : "Thêm thất bại"; 
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			message="Thêm Thất Bại";
+			e.printStackTrace();
+		}
+		return message;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new BusDAO().insertBusBO(new Bus("sdfghjgfd",7, "Xabg", "xe",null)));
+	}
+
+	
 }
