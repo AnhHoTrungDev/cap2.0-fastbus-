@@ -222,12 +222,21 @@
 							$(".custom-file-input").on(
 									"change",
 									function() {
-										var fileName = $(this).val()
-												.split("\\").pop();
-										$(this).siblings(".custom-file-label")
-												.addClass("selected").html(
-														fileName);
+										var duoi = $(this).val().split().pop();
+										if(duoi == "png" || duoi == "jpg" || duoi == "jpeg"){
+											var fileName = $(this).val()
+											.split("\\").pop();
+											$(this).siblings(".custom-file-label")
+											.addClass("selected").html(
+													fileName);
+										}else{
+											$(this).val("");
+											$(this).siblings(".custom-file-label")
+											.addClass("selected").html("");
+											alert("Chỉ Hổ Trợ  File PNG, JPG, JPEG")
+;										}
 									});
+							
 							$("form#profileBs").validate(
 									{
 										rules : {
