@@ -464,7 +464,7 @@ public class SendEmaiDAO {
 					"  <div\r\n" + 
 					"  style='color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:bold;font-size:15px;padding-right:10px'\r\n" + 
 					"  >\r\n" + 
-					"  Tổng cộng giá\r\n" + Float.parseFloat(tripInfor.getPrice())*tong+
+					"  Tổng cộng giá\r\n"+
 					"</div>\r\n" + 
 					"</td>\r\n" + 
 					"<td\r\n" + 
@@ -499,7 +499,7 @@ public class SendEmaiDAO {
 					"      <td\r\n" + 
 					"      class='m_-4608350779455020207h2m'\r\n" + 
 					"      style='padding-top:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em'\r\n" + 
-					"      > <small style=\"color:red;\">*Bạn Vui Lòng Thanh Toán Tiền Trước 11 Giờ Trưa Hôm Sau Để Chắc Chắc Vé Không Bị Hủy</small></td>\r\n" + 
+					"      > <small style=\"color:red;\">*Bạn Vui Lòng Thanh Toán Tiền Trước 11 Giờ Trưa Hôm Sau Để Chắc Chắc Vé Không Bị Hủy</small> <small>(Bỏ Qua Nếu Đã Thanh Toán)</small></td>\r\n" + 
 					"    </tr>\r\n" + 
 					"  </tbody>\r\n" + 
 					"</table>\r\n" + 
@@ -658,11 +658,318 @@ public class SendEmaiDAO {
 
 			// 3) create HTML content
 			message.setSubject("[FastBus] Xác nhận thông tin vé xe ngay " + dateStart + ". ", "UTF-8");
-			String htmlContent = "<p> Xin chào "+mail+",</p>"+
-					" <p>Thông tin các vé xe bạn đã đặt: </p>" + " <p>Ngày Đi: " + startPlace + "</p>"
-					+ " <p> Chuyến xe: " + startPlace + " - " + endPlace + "</p>"+
-					 " <p> Ghế ĐÃ Đặt: " +seat + "</p>"+
-					" <p> Tổng Tiền: "+ totalPrice + "</p>";
+//			String htmlContent = "<p> Xin chào "+mail+",</p>"+
+//					" <p>Thông tin các vé xe bạn đã đặt: </p>" + " <p>Ngày Đi: " + startPlace + "</p>"
+//					+ " <p> Chuyến xe: " + startPlace + " - " + endPlace + "</p>"+
+//					 " <p> Ghế ĐÃ Đặt: " +seat + "</p>"+
+//					" <p> Tổng Tiền: "+ totalPrice + "</p>";
+			String htmlContent ="<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n" + 
+					"    <tbody>\r\n" + 
+					"      <tr>\r\n" + 
+					"        <td align=\"center\" style=\"min-width:512px;background-color:#f3f3f3\">\r\n" + 
+					"        <table width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"        <tbody>\r\n" + 
+					"          <tr>\r\n" + 
+					"            <td>\r\n" + 
+					"              <table width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"              <tbody>\r\n" + 
+					"                <tr>\r\n" + 
+					"                  <td align=\"center\">\r\n" + 
+					"                    <table align=\"center\" width=\"512\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n" + 
+					"                    <tbody>\r\n" + 
+					"                      <tr>\r\n" + 
+					"                        <td align=\"center\" style=\"padding-top:10px;padding-bottom:15px\">\r\n" + 
+					"                        <table width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"                        <tbody>\r\n" + 
+					"                          <tr></tr>\r\n" + 
+					"                        </tbody>\r\n" + 
+					"                      </table>\r\n" + 
+					"                    </td>\r\n" + 
+					"                  </tr>\r\n" + 
+					"  \r\n" + 
+					"                  <tr>\r\n" + 
+					"                    <td align=\"center\" style=\"background-color:white\">\r\n" + 
+					"                    <table width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"                    <tbody>\r\n" + 
+					"                      <tr>\r\n" + 
+					"                        <td style=\"border-top:3px solid #2493e0;border-radius:4px 4px 0 0\"></td>\r\n" + 
+					"                      </tr>\r\n" + 
+					"                    </tbody>\r\n" + 
+					"                  </table>\r\n" + 
+					"                </td>\r\n" + 
+					"              </tr>\r\n" + 
+					"  \r\n" + 
+					"              <tr>\r\n" + 
+					"                <td align=\"center\" style=\"background-color:#fdfdfe;padding-top:15px;padding-bottom:15px\">\r\n" + 
+					"                <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"                <tbody>\r\n" + 
+					"                  <tr>\r\n" + 
+					"                    <td align=\"left\" width=\"46\">\r\n" + 
+					"                      <a><img src=\"https://ci5.googleusercontent.com/proxy/RMeF-JKFsIh82OkXZxKJWjP3heVz7U1Jb8bKUaY2RAeOYYqcInV6Yz9mJYuFaYljW4NCWpEovfsovkGtmy23avtyjg=s0-d-e1-ft#https://img.icons8.com/clouds/100/000000/bus.png\" width=\"35\" height=\"35\" alt=\"Fastbus\" style=\"display:block;border:0;font-size:20px;font-weight:bold;font-family:sans-serif;color:#22222\" class=\"CToWUd\"></a>\r\n" + 
+					"                    </td>\r\n" + 
+					"  \r\n" + 
+					"                    <td align=\"left\">\r\n" + 
+					"                      <div style=\"display:block;border:0;font-size:16px;font-weight:bold;font-family:sans-serif;color:#222222\">\r\n" + 
+					"                      Fastbus\r\n" + 
+					"                    </div>\r\n" + 
+					"                  </td>\r\n" + 
+					"                </tr>\r\n" + 
+					"              </tbody>\r\n" + 
+					"            </table>\r\n" + 
+					"          </td>\r\n" + 
+					"        </tr>\r\n" + 
+					"  \r\n" + 
+					"        <tr>\r\n" + 
+					"          <td align=\"center\" style=\"background-color:#f5f5f6\">\r\n" + 
+					"          <table width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"          <tbody>\r\n" + 
+					"            <tr>\r\n" + 
+					"              <td style=\"border-top:1px solid #f5f5f6\"></td>\r\n" + 
+					"            </tr>\r\n" + 
+					"          </tbody>\r\n" + 
+					"        </table>\r\n" + 
+					"      </td>\r\n" + 
+					"    </tr>\r\n" + 
+					"  \r\n" + 
+					"    <tr>\r\n" + 
+					"      <td align=\"center\" style=\"background-color:white;padding-top:25px;padding-bottom:0\">\r\n" + 
+					"      <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"      <tbody>\r\n" + 
+					"        <tr>\r\n" + 
+					"          <td>\r\n" + 
+					"            <h1 style=\"font-size:22px;line-height:28px;letter-spacing:-.20px;margin:10px 0 16px 0;font-family:Helvetica Neue,Arial,sans-serif;color:#2493e0;text-align:left\">\r\n" + 
+					"            Xác Nhận Thanh Toán & Giữ Chỗ \r\n" + 
+					"          </h1>\r\n" + 
+					"        </td>\r\n" + 
+					"      </tr>\r\n" + 
+					"  \r\n" + 
+					"      <tr>\r\n" + 
+					"        <td>\r\n" + 
+					"          <p style=\"margin:0 0 15px 0;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:24px\">\r\n" + 
+					"            Xin chào "+mail+" ,<br>\r\n" + 
+					"            Vé Của bạn đã được nhà xe xác nhận <br>\r\n" + 
+					"            Rất cảm ơn bạn đã sử dụng dịch\r\n" + 
+					"            vụ của\r\n" + 
+					"          <strong style=\"color:#2493e0\">Fastbus</strong>\r\n" + 
+					"        </p>\r\n" + 
+					"      </td>\r\n" + 
+					"    </tr>\r\n" + 
+					"\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td align=\"center\" style=\"background-color:white;padding-top:15px;padding-bottom:10px\">\r\n" + 
+					"    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"    <tbody>\r\n" + 
+					"      <tr>\r\n" + 
+					"        <td style=\"font-size:16px;font-family:Helvetica Neue,Arial,sans-serif;color:#969696;text-align:center\">\r\n" + 
+					"        Thông Tin Chuyến xe\r\n" + 
+					"      </td>\r\n" + 
+					"    </tr>\r\n" + 
+					"  \r\n" + 
+					"    <tr>\r\n" + 
+					"      <td style=\"padding-top:5px;font-size:28px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:center;line-height:1.2em;font-weight:500\">\r\n" + 
+					" "+ startPlace + " - " + endPlace +" </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"\r\n" + 
+					"  <tr>\r\n" + 
+					"    <td align=\"center\" style=\"background-color:white;padding-top:10px;padding-bottom:10px\">\r\n" + 
+					"    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"    <tbody>\r\n" + 
+					"      <tr>\r\n" + 
+					"        <td style=\"font-size:13px;font-family:Helvetica Neue,Arial,sans-serif;color:#969696;text-align:left;font-weight:bold;padding-bottom:5px\">\r\n" + 
+					"        CHI TIẾT VÉ XE        \r\n" + 
+					"      </td>\r\n" + 
+					"    </tr>\r\n" + 
+					"  \r\n" + 
+					"    <tr>\r\n" + 
+					"      <td align=\"center\" style=\"background-color:white\">\r\n" + 
+					"      <table width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"      <tbody>\r\n" + 
+					"        <tr>\r\n" + 
+					"          <td style=\"border-top:1px solid #ececec\">\r\n" + 
+					"        </td>\r\n" + 
+					"        </tr>\r\n" + 
+					"      </tbody>\r\n" + 
+					"    </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td align=\"center\" style=\"background-color:white;padding-top:0;padding-bottom:20px\">\r\n" + 
+					"    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"    <tbody>\r\n" + 
+					"      <tr>\r\n" + 
+					"        <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"        <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:normal;font-size:15px;padding-right:10px\">\r\n" + 
+					"        Người Đặt\r\n" + 
+					"      </div>\r\n" + 
+					"    </td>\r\n" + 
+					"    <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"    <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:normal;font-size:15px\">\r\n" + 
+					"  "+mail+"</div>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"    <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:normal;font-size:15px;padding-right:10px\">\r\n" + 
+					"    Chuyến xe\r\n" + 
+					"  </div>\r\n" + 
+					"  </td>\r\n" + 
+					"  <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"  <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:normal;font-size:15px\">\r\n" + 
+					"  "+ startPlace + " - " + endPlace +"</div>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"    <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:20px;font-weight:normal;font-size:15px;padding-right:10px\">\r\n" + 
+					"    Nhà xe:\r\n" + 
+					"  </div>\r\n" + 
+					"  </td>\r\n" + 
+					"  <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"  <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:normal;font-size:15px\">\r\n" + 
+					"  Nhà Xe Mai Linh</div>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"    <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:20px;font-weight:normal;font-size:15px;padding-right:10px\">\r\n" + 
+					"    Ngày đi:\r\n" + 
+					"  </div>\r\n" + 
+					"  </td>\r\n" + 
+					"  <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"  <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:normal;font-size:15px\">\r\n" + 
+					"  "+dateStart+"</div>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"    <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:20px;font-weight:normal;font-size:15px;padding-right:10px\">\r\n" + 
+					"    Ghế Đã Đặt:\r\n" + 
+					"  </div>\r\n" + 
+					"  </td>\r\n" + 
+					"  <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"  <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:normal;font-size:15px\">\r\n" + 
+					"  " +seat+ "</div>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"    <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:bold;font-size:15px;padding-right:10px\">\r\n" + 
+					"    Tổng cộng giá\r\n" + 
+					"  </div>\r\n" + 
+					"  </td>\r\n" + 
+					"  <td style=\"padding-top:5px;padding-bottom:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\" width=\"50%\">\r\n" + 
+					"  <div style=\"color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:bold;font-size:15px\">"+ totalPrice +"</div>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td align=\"center\" style=\"background-color:white;padding-top:0;padding-bottom:20px\">\r\n" + 
+					"    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"    <tbody>\r\n" + 
+					"      <tr>\r\n" + 
+					"        <td style=\"padding-top:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em\">\r\n" + 
+					"        </td>\r\n" + 
+					"      </tr>\r\n" + 
+					"    </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  \r\n" + 
+					"  <tr>\r\n" + 
+					"    <td align=\"center\">\r\n" + 
+					"      <table align=\"center\" width=\"512\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n" + 
+					"      <tbody>\r\n" + 
+					"        <tr>\r\n" + 
+					"          <td align=\"center\" style=\"background-color:#2493e0;padding-top:20px;padding-bottom:20px\">\r\n" + 
+					"          <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"          <tbody>\r\n" + 
+					"            <tr>\r\n" + 
+					"              <td>\r\n" + 
+					"                <table width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\"></table>\r\n" + 
+					"              </td>\r\n" + 
+					"            </tr>\r\n" + 
+					"  \r\n" + 
+					"            <tr>\r\n" + 
+					"              <td align=\"center\" style=\"padding:10px 0 10px\">\r\n" + 
+					"              <table width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"              <tbody>\r\n" + 
+					"                <tr>\r\n" + 
+					"                  <td style=\"border-top:1px dashed #ffffff\"></td>\r\n" + 
+					"                </tr>\r\n" + 
+					"              </tbody>\r\n" + 
+					"            </table>\r\n" + 
+					"          </td>\r\n" + 
+					"        </tr>\r\n" + 
+					"        <tr>\r\n" + 
+					"          <td>\r\n" + 
+					"            <div style=\"color:#ffffff;display:block;font-family:sans-serif;font-size:11px;font-weight:normal;text-align:center;line-height:17px;margin:0px;padding:0px\">\r\n" + 
+					"            Công ty Cổ phần Fastbus\r\n" + 
+					"            <br>\r\n" + 
+					"            Trực Tuyến (M_Service) bạn đang\r\n" + 
+					"            được nhận email từ\r\n" + 
+					"            <strong>Fastbus</strong>\r\n" + 
+					"          </div>\r\n" + 
+					"  \r\n" + 
+					"          <div style=\"color:#ffffff;display:block;font-family:sans-serif;font-size:11px;font-weight:normal;text-align:center;line-height:17px;margin:0px;padding:0px;margin-top:0px\"></div>\r\n" + 
+					"        </td>\r\n" + 
+					"      </tr>\r\n" + 
+					"    </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  <tr>\r\n" + 
+					"    <td align=\"center\" style=\"background-color:#f5f5f6\">\r\n" + 
+					"    <table width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n" + 
+					"    <tbody>\r\n" + 
+					"      <tr>\r\n" + 
+					"        <td style=\"border-top:1px solid #f5f5f6\"></td>\r\n" + 
+					"      </tr>\r\n" + 
+					"    </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>\r\n" + 
+					"  </td>\r\n" + 
+					"  </tr>\r\n" + 
+					"  </tbody>\r\n" + 
+					"  </table>";
 
 			message.setContent(htmlContent, "text/html; charset=UTF-8");
 			// 4) send message
