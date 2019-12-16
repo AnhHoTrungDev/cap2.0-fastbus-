@@ -79,7 +79,7 @@
 										%>
 										<tr>
 										<td><span class="d-block my-2"><%=dem++ %></span></td>
-										<td><span class="d-block my-2"><%=b.getNameBus() %></span></td>
+										<td><span class="d-block my-2" data-bus-brand="true"><%=b.getNameBus() %></span></td>
 										<td><span class="d-block my-2"><%=b.getHangXe() %></span></td>
 										<td><span class="d-block my-2"><%=b.getColor() %></span></td>
 										<td><span class="d-block my-2">
