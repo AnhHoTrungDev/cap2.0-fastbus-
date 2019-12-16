@@ -428,7 +428,7 @@ public class SeatBookingDAO {
 		connection = con.getConnect();
 		int totalSeat = 0;
 		String select = "select COUNT(*) as 'total' from seatbooking s\r\n"
-				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()\r\n"
+				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date>=getdate()\r\n"
 				+ "inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=0\r\n"
 				+ "inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=?";
 		try {
@@ -451,7 +451,7 @@ public class SeatBookingDAO {
 		listSeat = new ArrayList<SeatBooking>();
 		String totalSeat = "";
 		String select = "select  MONTH(s.seatb_start_date)as month,(COUNT(*)*t.trip_price) as 'total' from seatbooking s \r\n"
-				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date<=getdate()\r\n"
+				+ "inner join trip t on s.seatb_trip_id =t.trip_id and s.seatb_start_date>=getdate()\r\n"
 				+ "inner join bus b on t.trip_bus_id=b.bus_id and s.seatb_status=1\r\n"
 				+ "inner join business bs on bs.bs_id =b.bus_bs_id and bs.bs_acc_mail=?\r\n"
 				+ "group by MONTH(s.seatb_start_date), t.trip_price";
