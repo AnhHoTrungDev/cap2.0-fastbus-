@@ -41,7 +41,7 @@ public class LoginBusinessServlet extends HttpServlet {
 			url="LoadDashboardServlet";
 		}
 		
-		if ("btnBusinessLogin".equalsIgnoreCase(request.getParameter("businessLogin"))) {
+		if ("btnBusinessLogin".equalsIgnoreCase(request.getParameter("btnBusinessLogin"))) {
 			Business business = null;
 			String email = request.getParameter("inputEmail");
 			String passWord = request.getParameter("inputPassword");

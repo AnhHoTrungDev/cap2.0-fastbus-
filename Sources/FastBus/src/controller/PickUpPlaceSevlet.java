@@ -45,7 +45,6 @@ public class PickUpPlaceSevlet extends HttpServlet {
 			
 			PickupPlace pick=new PickupPlace(Integer.parseInt(idPlace), Integer.parseInt(idBusiness), namePick);
 			message= new DiaDiemBO().insertPickUpBO(pick);
-			System.out.println(message);
 			request.setAttribute("messageInsertPick", message);
 		}
 		

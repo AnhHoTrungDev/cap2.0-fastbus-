@@ -45,7 +45,7 @@
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                     </div>
-                    <form id="loginBs" class="user" action="LoginBusinessServlet" method="post">
+                    <form id="loginBs" class="user" action="LoginAdminServlet" method="post">
                       <div class="form-group">
                         <input
                           type="email"
@@ -68,8 +68,8 @@
                       <button
                         type="submit"
                         class="btn btn-primary btn-user btn-block"
-                        value="btnBusinessLogin"
-                        name="businessLogin"
+                        value="btnAdminLogin"
+                        name="btnAdminLogin"
                       >
                         Đăng Nhập
                       </button>

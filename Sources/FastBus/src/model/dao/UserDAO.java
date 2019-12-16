@@ -230,4 +230,25 @@ public class UserDAO {
 		
 		return check;
 	}
+	public User checkAdminLogin(String email, String pass) {
+		connection = con.getConnect();
+		String selectCheck = "select acc_mail,acc_name,acc_role_id from account where acc_mail like ? and acc_password like ?";
+		User user = null;
+		try {
+			ps = connection.prepareStatement(selectCheck);
+			ps.setString(1, email);
+			ps.setString(2, pass);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				user = new User(rs.getString("acc_name"), rs.getString("acc_mail"), rs.getString("acc_role_id"),0);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		return user;
+	}
 }

@@ -18,7 +18,9 @@ package model.bo;
 import java.util.List;
 
 import model.bean.Business;
+import model.bean.User;
 import model.dao.BusinessDAO;
+import model.dao.UserDAO;
 
 public class BusinessBO {
 	
@@ -43,5 +45,8 @@ public class BusinessBO {
 	}
 	public int updateBusinessBO(Business business) {
 		return new BusinessDAO().updateBusinessDAO(business);
+	}
+	public List<Business> getListBusiniessIsApproving() {
+		return new BusinessDAO().getListBusiniessIsApproving();
 	}
 }
