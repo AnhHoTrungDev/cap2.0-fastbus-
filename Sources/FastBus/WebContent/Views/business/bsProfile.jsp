@@ -75,14 +75,14 @@
 							</div>
 							<div class="form-group row">
 								<label for="inputNamebs" class="col-4 col-form-label text-right">Địa
-									Chỉ</label>
+									Chỉ : </label>
 								<div class="col-8 my-1">
 									<input id="inputDetailAddressbs" name="inputDetailAddressbs"
 										placeholder="Địa Chỉ" class="form-control here" type="text" value="<%=business.getAddress()%>">
 								</div>
 								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
 								<div class="col-8 my-1">
-									<select name="cbProvince" id="cbProvince" class="form-control">
+									<select name="cbProvince" id="cbProvince" class="form-control seleter2">
 										<option value="">Tỉnh Thành Phố</option>
 										<%
                         				for(Province pro : (List<Province>)request.getAttribute("listProvinces")){
@@ -98,7 +98,7 @@
 								</div>
 								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
 								<div class="col-8 my-1">
-									<select name="cbDistrict" id="cbDistrict" class="form-control">
+									<select name="cbDistrict" id="cbDistrict" class="form-control seleter2">
 										<option value="">Quận Huyện</option>
 										<%
                         				for(District dis : (List<District>)request.getAttribute("listDistricts")){
@@ -112,9 +112,9 @@
 										%>
 									</select>
 								</div>
-								<label for="inputNamebs" class="col-4 col-form-label text-right"></label>
+								<label for="inputNamebs" class="col-4 col-form-label text-right "></label>
 								<div class="col-8 my-1">
-									<select name="cbWard" id="cbWard" class="form-control">
+									<select name="cbWard" id="cbWard" class="form-control seleter2">
 										<option value="">Phường Xã</option>
 										<%
                         				for(Ward ward : (List<Ward>)request.getAttribute("listWards")){
@@ -219,6 +219,8 @@
 		$("document")
 				.ready(
 						function() {
+							$(".seleter2").select2();
+							
 							$(".custom-file-input").on(
 									"change",
 									function() {
@@ -240,6 +242,9 @@
 							$("form#profileBs").validate(
 									{
 										rules : {
+											inputDetailAddressbs:{
+												required : true
+											},
 											inputNamebs : {
 												required : true,
 											},
@@ -276,6 +281,9 @@
 											}
 										},
 										messages : {
+											inputDetailAddressbs:{
+												required : "Vui lòng nhập trường này",
+											},
 											inputNamebs : {
 												required : "Vui lòng nhập trường này",
 											},
@@ -296,7 +304,6 @@
 											},
 											phoneNumberBs : {
 												required : "Vui lòng nhập trường này",
-												validateVietNamPhone : true
 											},
 											contentIntroduceBs : {
 												required : "Vui lòng nhập trường này",
@@ -333,6 +340,44 @@
 														.test(value));
 											},
 											"Đây không phải số điện thoại Việt nam ");
+							
+							setTimeout(function(){  
+								 $('.seleter2').each(function(){
+							 	     $($(this).data('select2').$container).children().children().addClass('border-0');
+							 	     $($(this).data('select2').$container).addClass('form-control');
+							    });
+							  $($("[name='cbProvince']").data('select2').$container).children().children().blur(function(){	    	
+						 	    	if($("[name='cbProvince']").valid()){
+						 	    		$(this).parent().parent().addClass("is-valid").removeClass("is-invalid");
+						 	    	}else{
+						 	    		$(this).parent().parent().addClass("is-invalid").removeClass("is-valid");
+						 	    	}
+						 	    	$($("[name='cbDistrict']").data('select2').$container).children().children().blur();
+						 	    	$($("[name='cbWard']").data('select2').$container).children().children().blur();
+						 	    });
+							     $($("[name='cbDistrict']").data('select2').$container).children().children().blur(function(){	    	
+							 	    	if($("[name='cbDistrict']").valid()){
+							 	    		$(this).parent().parent().addClass("is-valid").removeClass("is-invalid");
+							 	    	}else{
+							 	    		$(this).parent().parent().addClass("is-invalid").removeClass("is-valid");
+							 	    	}
+							 	    	$($("[name='cbWard']").data('select2').$container).children().children().blur();
+							 	    });
+							     $($("[name='cbWard']").data('select2').$container).children().children().blur(function(){	    	
+							 	    	if($("[name='cbWard']").valid()){
+							 	    		$(this).parent().parent().addClass("is-valid").removeClass("is-invalid");
+							 	    	}else{
+							 	    		$(this).parent().parent().addClass("is-invalid").removeClass("is-valid");
+							 	    	}
+							 	    });
+							     
+								 $("[name='btnUpdateBs']").click(function(){
+									 $($("[name='cbProvince']").data('select2').$container).children().children().blur();
+									 $($("[name='cbDistrict']").data('select2').$container).children().children().blur();
+								     $($("[name='cbWard']").data('select2').$container).children().children().blur(); 
+								 });
+							}, 1000);
+							 
 						});
 	</script>
 	<script src="<%=request.getContextPath()%>/Views/business/js/resgiterAdminCustom.js"></script>
