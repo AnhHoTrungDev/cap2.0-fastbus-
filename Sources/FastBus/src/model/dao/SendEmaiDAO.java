@@ -473,7 +473,8 @@ public class SendEmaiDAO {
 					">\r\n" + 
 					"<div\r\n" + 
 					"style='color:#3c4043;margin:0px;font-size:12px;line-height:22px;font-weight:bold;font-size:15px'\r\n" + 
-					"></div>\r\n" + 
+					"></div>\r\n" 
+					+tripInfor.getPrice()+ 
 					"</td>\r\n" + 
 					"</tr>\r\n" + 
 					"</tbody>\r\n" + 
@@ -498,7 +499,7 @@ public class SendEmaiDAO {
 					"      <td\r\n" + 
 					"      class='m_-4608350779455020207h2m'\r\n" + 
 					"      style='padding-top:5px;font-size:14px;font-family:Helvetica Neue,Arial,sans-serif;color:#3c4043;text-align:left;line-height:1.55em'\r\n" + 
-					"      ></td>\r\n" + 
+					"      > <small style=\"color:red;\">*Bạn Vui Lòng Thanh Toán Tiền Trước 11 Giờ Trưa Hôm Sau Để Chắc Chắc Vé Không Bị Hủy</small></td>\r\n" + 
 					"    </tr>\r\n" + 
 					"  </tbody>\r\n" + 
 					"</table>\r\n" + 

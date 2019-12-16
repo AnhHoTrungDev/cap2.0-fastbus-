@@ -18,6 +18,7 @@
 					<input id="idTripForAccept" style="display: none;" name="idTripForAccept">
 					<input type="date" id="dateStarForAccept" style="display: none;" name="dateStarForAccept">
 					<input id="getChiarTickerForForAccept" style="display: none;" name="getChiarTickerForForAccept">
+					<input id="getTotalPriceForAccept" style="display: none;" name="getTotalPrice">
 					<div class="w-100">
 					<div class=" w-50 mx-auto">
 						<button type="submit" class="btn btn-primary text-center w-100 "
@@ -36,6 +37,7 @@
 			$("#idTripForAccept").val($(this).data("idTrip"));
 			$("input#getChiarTickerForForAccept").val($(this).parent().prev().prev().prev().children().html().split(", ").join(","));
 			$("input#dateStarForAccept").val($(this).parent().prev().prev().prev().prev().children().val());
+			$("input#getTotalPriceForAccept").val($(this).parent().prev().children().html().split("&nbsp;").join(" "));
 		});
 	});
 	
