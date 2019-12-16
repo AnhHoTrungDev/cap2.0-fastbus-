@@ -19,6 +19,8 @@
 					<input type="date" id="dateStarForAccept" style="display: none;" name="dateStarForAccept">
 					<input id="getChiarTickerForForAccept" style="display: none;" name="getChiarTickerForForAccept">
 					<input id="getTotalPriceForAccept" style="display: none;" name="getTotalPrice">
+					<input id="getStarPlaceForAccept" style="display: none;" name="getStarPlaceForAccept">
+					<input id="getEndPlaceForAccept"  style="display: none;" name="getEndPlaceForAccept">
 					<div class="w-100">
 					<div class=" w-50 mx-auto">
 						<button type="submit" class="btn btn-primary text-center w-100 "
@@ -38,6 +40,8 @@
 			$("input#getChiarTickerForForAccept").val($(this).parent().prev().prev().prev().children().html().split(", ").join(","));
 			$("input#dateStarForAccept").val($(this).parent().prev().prev().prev().prev().children().val());
 			$("input#getTotalPriceForAccept").val($(this).parent().prev().children().html().split("&nbsp;").join(" "));
+			$("input#getStarPlaceForAccept").val($(this).parent().prev().prev().prev().prev().prev().children().html().split(" - ")[0]);
+			$("input#getEndPlaceForAccept").val($(this).parent().prev().prev().prev().prev().prev().children().html().split(" - ")[1]);
 		});
 	});
 	
